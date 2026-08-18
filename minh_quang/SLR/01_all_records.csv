@@ -1,7 +1,0 @@
-| ID   | Title                                                   | Year | Authors       | Source           | Keyword                   | Member |
-| ---- | ------------------------------------------------------- | ---: | ------------- | ---------------- | ------------------------- | ------ |
-| P001 | PhoBERT: Pre-trained language models for Vietnamese     | 2020 | Nguyen et al. | Scholar          | PhoBERT Vietnamese        | A      |
-| P002 | Vietnamese Text Classification using Transformer Models | 2023 | Tran et al.   | Scholar          | Vietnamese classification | A      |
-| P003 | Vietnamese Sentiment Analysis with BERT                 | 2022 | Le et al.     | Scholar          | Vietnamese BERT           | A      |
-| P004 | GPT-based Text Classification                           | 2024 | Smith et al.  | Scholar          | LLM classification        | A      |
-| P005 | Vietnamese NLP Benchmark                                | 2021 | Nguyen et al. | Semantic Scholar | Vietnamese NLP            | A      |

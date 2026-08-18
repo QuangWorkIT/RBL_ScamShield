@@ -1,6 +1,0 @@
-ID,Title,Include?,Reason
-P001,PhoBERT: Pre-trained language models for Vietnamese,Yes,Vietnamese NLP + PhoBERT
-P002,Vietnamese Text Classification using Transformer Models,Yes,Vietnamese classification
-P003,Vietnamese Sentiment Analysis with BERT,Yes,Vietnamese classification
-P004,GPT-based Text Classification,No,Not Vietnamese-focused
-P005,Vietnamese NLP Benchmark,Yes,Vietnamese NLP benchmark
