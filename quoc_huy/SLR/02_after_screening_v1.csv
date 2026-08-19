@@ -1,0 +1,116 @@
+id,title,include_status,screening_rationale
+P005,CrisisSense-LLM: instruction fine-tuned large language model for multi-label social media text classification in disaster informatics,EXCLUDE,EC-A: Full-text unavailable for download
+P013,Sentiment Classification of Gaza War Headlines: A Comparative Analysis of Large Language Models and Arabic Fine-Tuned BERT Models,EXCLUDE,PICO: Population mismatch
+P023,FraudSMSWalker: Benchmarking Agentic Large Language Models for SMS-to-Webpage Fraud Detection,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P024,A Regime Theory of Controller Class Selection for LLM Action Decisions,EXCLUDE,IC-T: Published in a conference or journal
+P025,GuardPhish: Securing Open-Source LLMs from Phishing Abuse,EXCLUDE,IC-T: Published in a conference or journal
+P026,Agentic Knowledge Distillation: Autonomous Training of Small Language Models for SMS Threat Detection,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P042,Fraud SMS Spam Detection Using Machine Learning,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P048,CardioLLM: A Fine-Tuned Large Language Model for Cardiac Condition Prediction from Clinical Notes,EXCLUDE,EC-A: Full-text unavailable for download
+P049,Semantic information from smashed data: text reconstruction attack on phishing detection models in split learning,EXCLUDE,PICO: Intervention and Comparison mismatch
+P050,Prompt Injection as an Architecture-Specific Attack Surface: Comparing LLM-Based and Traditional ML Spam Classifiers Under Adversarial Conditions,EXCLUDE,IC-T: Published in a conference or journal
+P051,PIPES: Securing Agent Perception with Provenance and Priors,EXCLUDE,PICO mismatch: Focuses on autonomous agent perception and provenance-informed screening rather than scam message classification.
+P052,Synthetic Persona Pretraining: Alignment from Token Zero,EXCLUDE,PICO mismatch: Focuses on LLM alignment and persona pretraining rather than scam message classification.
+P053,Adversarial Robustness in Smishing Detection: A Comparative Analysis of Adversarial Fragility in Classical vs. Transformer-Based Detection Systems,EXCLUDE,PICO mismatch: Evaluates fine-tuned transformers and classical models but lacks the required prompt-based LLM (few-shot) intervention.
+P054,Resilient Semantic Threat Detection at the Edge: A Knowledge Distillation Framework for SMS Spam Classification,EXCLUDE,PICO mismatch: Focuses on fine-tuning DistilBERT for SMS spam detection without evaluating prompt-based LLM (few-shot) approaches.
+P055,"Surviving the Buffalo Blizzard: Online Interactions, Mutual Assistance, and the Power of Weak Ties",EXCLUDE,PICO mismatch: Focuses on social network interactions and mutual aid during a blizzard.
+P056,Mind Viruses: Self-Propagating Ideas in Multi-Agent LLM Systems,EXCLUDE,PICO mismatch: Investigates self-propagating ideas in multi-agent systems rather than scam message classification.
+P057,A novel hybrid model for identifying the most informative instances for improving text data classification,EXCLUDE,PICO mismatch: Proposes a hybrid active learning framework for general text classification without evaluating prompt-based LLM (few-shot) methods.
+P058,SSHafe: A Real-Time SSH Brute Force Attack Detection and Novel Credential Rotation Standard,EXCLUDE,PICO mismatch: Focuses on SSH brute-force attack detection and credential rotation.
+P059,"Engineering cyber ranges and security testbeds: a survey of technologies, use cases, and research trends",EXCLUDE,EC-N: No empirical evaluation (survey paper on cyber ranges and testbeds).
+P060,TrustPhish-AI: Safety-Gated Source-Aware Evaluation of Three-Class Phishing Detection Under Email-to-SMS Shift,EXCLUDE,PICO mismatch: Evaluates phishing detection using fine-tuned transformers and source-aware augmentation but lacks prompt-based LLM (few-shot) comparison.
+P061,"Large Language Models and Social Media Information Integrity: Opportunities, Challenges, and Research Directions",EXCLUDE,EC-N: No empirical evaluation (Survey paper)
+P062,Diffusion LLMs as Targets and Adversaries: Mechanistic Safety Exploits,EXCLUDE,IC-T: Published on arXiv (pre-print); PICO: Focuses on safety exploits and jailbreaking rather than scam classification
+P063,From Interpretation to Compilation: A Compilation-Based Execution Engine for Semantic Operator Systems,EXCLUDE,IC-T: Published on arXiv (pre-print); PICO: Focuses on execution engines for semantic operators rather than scam classification
+P064,IB-RL: Isolated Bilateral Reinforcement Learning for Strategic Dialogue Agents,EXCLUDE,IC-T: Published on arXiv (pre-print); PICO: Focuses on strategic dialogue agents rather than scam classification
+P065,A Foundation Model for Multimodal Event Sequences in Financial Applications,EXCLUDE,PICO: Focuses on financial event sequences rather than scam classification
+P066,A TRANSFORMER-BASED DISTILBERT FRAMEWORK FOR REAL-TIME DETECTION OF PHISHING ATTACKS IN SMS AND WHATSAPP,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P067,StageGuard: A hierarchical BERT-BiLSTM framework with stage transition anomaly scoring for fraudulent conversation detection,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P068,Suprava: AI-Driven Automation for Campus Recruitment,EXCLUDE,PICO: Focuses on recruitment automation rather than scam classification
+P069,Lost in Permissions: Exploring the Microsoft 365 App Ecosystem,EXCLUDE,IC-T: Published on arXiv (pre-print); PICO: Focuses on M365 app permissions rather than scam classification
+P070,"Romanized Arabic Across Dialects: Views, Usage Patterns, and Linguistic Variation",EXCLUDE,IC-T: Published on arXiv (pre-print); PICO: Focuses on Romanized Arabic linguistics rather than scam classification
+P071,LAMDEX: an explainable lightweight Android malware detection system for enhancing IoT APP security,EXCLUDE,PICO mismatch: Focuses on Android malware detection rather than scam message classification.
+P072,Development of a Hybrid Artificial Intelligence System to Reduce the Risk of False Positives in Turkish Emails,EXCLUDE,PICO mismatch: Does not evaluate or compare prompt-based LLMs (few-shot/zero-shot) for classification.
+P076,The Art of the Jailbreak: Formulating Jailbreak Attacks for LLM Security Beyond Binary Scoring,EXCLUDE,PICO mismatch: Focuses on jailbreak attacks on LLMs rather than scam message classification.
+P077,Amnesia: Adversarial Semantic Layer Specific Activation Steering in Large Language Models,EXCLUDE,PICO mismatch: Focuses on adversarial attacks and safety alignment in LLMs rather than scam message classification.
+P078,A Lightweight Defense Mechanism against Next Generation of Phishing Emails using Distilled Attention-Augmented BiLSTM,EXCLUDE,PICO mismatch: Does not compare prompt-based LLMs (few-shot) with fine-tuned PLMs for scam classification.
+P079,Diagnosing Generalization Failures in Fine-Tuned LLMs: A Cross-Architectural Study on Phishing Detection,EXCLUDE,PICO mismatch: Focuses on diagnosing generalization failures in fine-tuned LLMs rather than comparing prompt-based LLMs (few-shot) with fine-tuned PLMs.
+P102,A few-shot learning approach with similarity-based prompt engineering for fine-tuning LLMs in closed-domain conversational AI,EXCLUDE,EC-A: Full-text and abstract are unavailable (N/A abstract).
+P103,ContrastShield: A Contrastive Fine-Tuning Approach for Robust Prompt Injection Detection in LLM Pipelines,EXCLUDE,PICO mismatch: Focuses on prompt injection detection rather than scam message classification.
+P001,Text sentiment classification optimization based on a fine-tuned BERT and large language model,EXCLUDE,PICO mismatch: Focuses on sentiment classification rather than scam message classification.
+P008,Turkish Email Phishing Detection Using Fine Tuned Large Language Models,EXCLUDE,EC-A: Full-text and abstract are unavailable (N/A abstract).
+P009,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",EXCLUDE,PICO-C: Does not compare LLM prompting (few-shot) with fine-tuned models.
+P011,LLM-NER: Advancing Named Entity Recognition with LoRA+ Fine-Tuned Large Language Models,EXCLUDE,EC-A: Full-text/Abstract unavailable for download.
+P016,Leveraging Fine-Tuned Large Language Models (LLM) and Retrieval-Augmented Generation (RAG) for Modeling Complex Geological Fluid Systems (Geofluids) at Crustal and Mantle Conditions,EXCLUDE,PICO-P: Population mismatch (Geological Fluid Systems).
+P019,LLMing: Large Language Model (LLM) Tools for Psychological Text Analysis,EXCLUDE,PICO-P: Population mismatch (Psychological Text Analysis).
+P020,Enhancing Generalization in Phishing URL Detection via a Fine-Tuned BERT-Based Multimodal Approach,EXCLUDE,EC-A: Full-text/Abstract unavailable for download.
+P021,Large Language Models on Radiation Oncology Tasks: Small Fine-Tuned Models vs. Large Vanilla Model,EXCLUDE,PICO-P: Population mismatch (Radiation Oncology).
+P027,Beyond One-Size-Fits-All: Personalized Harmful Content Detection with In-Context Learning,EXCLUDE,"IC-T: Published in a conference or journal (excluding blogs, theses)."
+P028,Jailbreaking Generative AI: Multivector Phishing Threats and Transformer based Defenses,EXCLUDE,PICO-I: Intervention mismatch (Jailbreaking and attack generation).
+P029,Leveraging Large Language Models for Cybersecurity: Enhancing SMS Spam Detection with Robust and Context-Aware Text Classification,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P030,Phishing Awareness via Game-Based Learning,EXCLUDE,PICO-I: Intervention mismatch (Game-based learning).
+P031,SpaLLM-Guard: Pairing SMS Spam Detection Using Open-source and Commercial LLMs,EXCLUDE,IC-T: Not published in a peer-reviewed conference or journal (arXiv preprint)
+P043,Multilingual SMS Spam Detection with Large Language Models,EXCLUDE,EC-A: Full-text unavailable for download
+P044,Native language identification from text using a fine-tuned GPT-2 model,EXCLUDE,"PICO Population: Focuses on native language identification rather than scam, SMS, or email messages."
+P047,Fine-tuned large language models for answering questions about full-text biomedical research studies  ,EXCLUDE,"PICO Population: Focuses on answering questions about biomedical research studies rather than scam, SMS, or email messages."
+P080,"Small Language Models for Phishing Website Detection: Cost, Performance, and Privacy Trade-Offs",EXCLUDE,"PICO Population: Focuses on phishing website detection using raw HTML code rather than scam, SMS, or email messages."
+P081,AI Generated Text Detection Using Instruction Fine-tuned Large Language and Transformer-Based Models,EXCLUDE,"PICO Population: Focuses on AI-generated text detection rather than scam, SMS, or email messages."
+P082,"Evaluating Large Language Models for Phishing Detection, Self-Consistency, Faithfulness, and Explainability",EXCLUDE,"IC-T: Published in a conference or journal (excluding blogs, theses)"
+P083,Improving Phishing Email Detection Performance of Small Large Language Models,EXCLUDE,"IC-T: Published in a conference or journal (excluding blogs, theses)"
+P084,Training Large Language Models for Advanced Typosquatting Detection,EXCLUDE,"PICO Population: Focuses on typosquatting detection in URLs rather than scam, SMS, or email messages."
+P085,CyberLLMInstruct: A Pseudo-malicious Dataset Revealing Safety-performance Trade-offs in Cyber Security LLM Fine-tuning,EXCLUDE,"PICO Population: Focuses on general cyber security tasks rather than scam, SMS, or email messages."
+P095,Adaptive Prompt Tuning: Vision Guided Prompt Tuning with Cross-Attention for Fine-Grained Few-Shot Learning,EXCLUDE,PICO mismatch: Focuses on Computer Vision
+P098,The Utility of Knowledge-Enhanced Prompt Tuning in ABSA for Few-Shot,EXCLUDE,PICO mismatch: Focuses on Aspect-Based Sentiment Analysis (ABSA)
+P104,Lora-Enhanced Llm Fine-Tuning With Legal Dataset Generation for Multi-Component Financial Extraction: Zero-Shot Vs Few-Shot Evaluation Framework for Gulf States Hr Benefits Calculation,EXCLUDE,PICO mismatch: Focuses on Financial/HR data extraction
+P105,The DeepSeek Prompt Library,EXCLUDE,IC-T: Not a conference or journal publication
+P106,Enhancing Business-Specific Phishing Chat Detection via Few-Shot Learning LLM Augmentation,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P109,A prompt tuning method based on relation graphs for few-shot relation extraction,EXCLUDE,PICO mismatch: Focuses on Relation Extraction
+P111,Few-shot Fine-tuning of BERT Multilingual for Hindi Word Sense Disambiguation ,EXCLUDE,PICO mismatch: Focuses on Word Sense Disambiguation
+P113,Phishing Email Classification Using Few-Shot Learning with a Lightweight LLM (Llama 3.2),EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P114,Enhancing Few-Shot Transfer Learning with Optimized Multi-Task Prompt Tuning through Modular Prompt Composition,EXCLUDE,PICO mismatch: General NLP task
+P002,Figure 5: (A) Confusion matrix of fully fine-tuned BERT model and (B) normalized confusion matrix of fully fine-tuned BERT model.,EXCLUDE,EC-S: Not a full paper
+P004,Figure 8: Performance comparison between the fine-tuned model of Promoter-BERT and the fine-tuned model of DNABERT.,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P006,Large Language Model (LLM) Text Generation Detection: A BERT-BiLSTM Approach with Attention Mechanisms,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P007,Impact of Model Size on Fine-Tuned Llm Performance in Data-to-Text Generation: A State-of-The-Art Investigation,EXCLUDE,PICO mismatch: Population and Intervention focus on Data-to-Text generation
+P010,Applying Large Language Model (LLM) for Developing Cybersecurity Policies to Counteract Spear Phishing Attacks on Senior Corporate Managers,EXCLUDE,EC-D: Duplicate of an already included paper
+P014,"MSR50 Use of a Fine-Tuned, Clinical, Bidirectional Transformer (BERT) Large Language Model (LLM) to Classify the Patient and Caregiver Voice Through Their Social Media Health Posts: An Example in Non-Small Cell Lung Cancer (NSCLC)",EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P017,Fusing Domain Knowledge with a Fine-Tuned Large Language Model for Enhanced Molecular Property Prediction,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P022,Table 5: Classification results with non-tuned and fine-tuned BERT.,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P032,Assessing AI-Generated vs. Human-Authored Spear Phishing SMS Attacks: An Empirical Study,EXCLUDE,PICO mismatch: Focuses on generation and human perception rather than classification performance
+P033,SecureNet: A Comparative Study of DeBERTa and Large Language Models for Phishing Detection,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P034,SMS Spam Detection and Classification to Combat Abuse in Telephone Networks Using Natural Language Processing,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P035,Adaptable and Reliable Text Classification using Large Language Models,EXCLUDE,IC-T: Not published in a peer-reviewed conference or journal (arXiv preprint)
+P036,ExplainableDetector: Exploring Transformer-based Language Modeling Approach for SMS Spam Detection with Explainability Analysis,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P037,AbuseGPT: Abuse of Generative AI ChatBots to Create Smishing Campaigns,EXCLUDE,Focuses on attack generation rather than classification.
+P045,Utilizing Large Language Models for Detection of Sms Spam in Few-Shot Settings,EXCLUDE,"EC-N: No empirical evaluation (vision paper, tutorial)"
+P046,Untitled,EXCLUDE,EC-N: No empirical evaluation.
+P086,PEEK: Phishing Evolution Framework for Phishing Generation and Evolving Pattern Analysis using Large Language Models,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P087,LLM App Squatting and Cloning,EXCLUDE,Population mismatch.
+P088,Transforming Computer Security and Public Trust Through the Exploration of Fine-Tuning Large Language Models,EXCLUDE,Population mismatch.
+P089,Genshin: General Shield for Natural Language Processing with Large Language Models,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P090,Generative AI in Cybersecurity: A Comprehensive Review of LLM Applications and Vulnerabilities,EXCLUDE,EC-N: No empirical evaluation.
+P091,An Explainable Transformer-based Model for Phishing Email Detection: A Large Language Model Approach,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P097,Large Model Fine-tuning for Suicide Risk Detection Using Iterative Dual-LLM Few-Shot Learning with Adaptive Prompt Refinement for Dataset Expansion,EXCLUDE,"PICO: Population focuses on suicide risk detection rather than scam, phishing, spam, or fraud messages."
+P099,Exploiting Classification of LLM with Zero-shot Prompt &amp; Fine-tuning,EXCLUDE,EC-A: Full-text unavailable for download
+P107,Effective Text Adaptation For LLM-Based ASR Through Soft Prompt Fine-Tuning,EXCLUDE,"PICO: Focuses on Automatic Speech Recognition (ASR) rather than scam, phishing, spam, or fraud message classification."
+P108,Q-Tuning: Queue-based Prompt Tuning for Lifelong Few-shot Language Learning,EXCLUDE,"PICO: Focuses on lifelong few-shot language learning methodology rather than scam, phishing, spam, or fraud message classification."
+P110,SU-FMI at SemEval-2024 Task 5: From BERT Fine-Tuning to LLM Prompt Engineering - Approaches in Legal Argument Reasoning,EXCLUDE,"PICO: Focuses on legal argument reasoning rather than scam, phishing, spam, or fraud message classification."
+P112,Figure 9: Few-shot prompt-1.,EXCLUDE,"EC-S: Fewer than 4 pages (abstract, poster)"
+P003,"An Improved Transformer-based Model for Detecting Phishing, Spam, and Ham: A Large Language Model Approach",INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P018,Enhancing AutoNLP with Fine-Tuned BERT Models: An Evaluation of Text Representation Methods for AutoPyTorch,EXCLUDE,"PICO: Focuses on AutoNLP text representation methods for general binary text classification rather than scam/phishing/spam/fraud classification, and does not evaluate prompt-based LLMs."
+P038,Modified Genetic Algorithm for Feature Selection and Hyper Parameter Optimization: Case of XGBoost in Spam Prediction,EXCLUDE,PICO: Does not evaluate or compare prompt-based LLMs (few-shot/zero-shot) for spam classification.
+P039,Text generation for dataset augmentation in security classification tasks,EXCLUDE,PICO mismatch: Focuses on LLM-based data augmentation for fine-tuning rather than comparing prompt-based few-shot classification with fine-tuned models.
+P092,"From Chatbots to PhishBots? -- Preventing Phishing scams created using ChatGPT, Google Bard and Claude",EXCLUDE,"PICO mismatch: Evaluates LLMs for generating phishing and BERT for prompt detection, not the classification of scam messages using LLM prompting."
+P093,Fine-Tuning Llama 2 Large Language Models for Detecting Online Sexual Predatory Chats and Abusive Texts,EXCLUDE,PICO mismatch: Focuses on fine-tuning LLMs for abusive language and predatory chat detection rather than few-shot prompting for scam classification.
+P094,The Looming Threat of Fake and LLM-generated LinkedIn Profiles: Challenges and Opportunities for Detection and Prevention,EXCLUDE,"PICO mismatch: Population is LinkedIn profiles for fake account detection, not scam/spam messages."
+P101,LM-CPPF: Paraphrasing-Guided Data Augmentation for Contrastive Prompt-Based Few-Shot Fine-Tuning,EXCLUDE,EC-N: No empirical evaluation (abstract/content missing).
+P115,Cold-Start Data Selection for Better Few-shot Language Model Fine-tuning: A Prompt-based Uncertainty Propagation Approach,EXCLUDE,EC-N: No empirical evaluation (abstract/content missing).
+P012,Large Language Model (LLM)-Based Automation for Software Test Script Generation,EXCLUDE,"PICO mismatch: Focuses on software test script generation, which is outside the scope of scam message classification."
+P015,Few shot learning with fine-tuned language model for suicidal text detection,EXCLUDE,"PICO mismatch: Population is suicidal text detection on social media, not scam or phishing messages."
+P040,Spam Detection Using BERT,EXCLUDE,PICO mismatch: Evaluates fine-tuned BERT for spam detection but lacks the required comparison with prompt-based few-shot LLMs.
+P096,TransPrompt v2: Transferable Prompt-based Fine-tuning for Few-shot Text Classification,EXCLUDE,PICO mismatch: Proposes a general prompt-based fine-tuning framework for text classification without specific application or comparison in the scam detection domain.
+P100,Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding,EXCLUDE,EC-N: No empirical evaluation (Abstract N/A)
+P041,Using BERT Encoding to Tackle the Mad-lib Attack in SMS Spam Detection,EXCLUDE,PICO Mismatch: Comparison does not include prompt-based LLMs
+P074,(Un/Semi-)supervised SMS text message SPAM detection,EXCLUDE,PICO Mismatch: Intervention does not involve LLMs or PLMs
+P073,Phishing and Scam Spam,EXCLUDE,EC-N: No empirical evaluation (Abstract N/A)
+P075,"Spoofed Identities: Virus, Spam or Scam?",EXCLUDE,EC-N: No empirical evaluation (Abstract N/A)
