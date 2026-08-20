@@ -1,6 +1,337 @@
-ID,Title,Include?,Reason
-P001,PhoBERT: Pre-trained language models for Vietnamese,Yes,Vietnamese NLP + PhoBERT
-P002,Vietnamese Text Classification using Transformer Models,Yes,Vietnamese classification
-P003,Vietnamese Sentiment Analysis with BERT,Yes,Vietnamese classification
-P004,GPT-based Text Classification,No,Not Vietnamese-focused
-P005,Vietnamese NLP Benchmark,Yes,Vietnamese NLP benchmark
+id,title,include_status,screening_rationale
+P015,A Finite-State Machine (FSM)-Based Approach for Detecting SMS Phishing,EXCLUDE,Pending Title and Abstract screening review
+P021,Zero-Shot Environmental Sustainability Text Classification Based on an Adapted Bechdel Test Using LLMs,EXCLUDE,Pending Title and Abstract screening review
+P022,In-Context Example Selection for Few-Shot Text Classification in 5G Security Text Using LLM,EXCLUDE,Pending Title and Abstract screening review
+P045,Zero-Shot Prompting for SMS Spam Detection using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P046,Prompt Engineering Strategies for Automated Software Requirements Classification,EXCLUDE,Pending Title and Abstract screening review
+P053,Adaptive Boosting LLMs for Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P055,Explainable AI for Mental Health Detection from Social Media: A Comparative Study of Traditional Machine Learning and a Large Language Model,EXCLUDE,Pending Title and Abstract screening review
+P058,TEAMMix: Taxonomy Enrichment Augmentation and Minority-augmented Mixing Strategy for LLM-enhanced Weak-Supervised Hierarchical Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P081,Comparison of Traditional Machine Learning Models and Large Language Models for Multi-Label Text Classification on X (Twitter),EXCLUDE,Pending Title and Abstract screening review
+P091,Toward Zero-Shot Multi-Label Identification of Attack Techniques: Enhancing LLM Reasoning With Semantic Evidence Discovery,EXCLUDE,Pending Title and Abstract screening review
+P094,Benchmarking DeepSeek R1-MoDCE: A Contrastive Pretraining Approach for Language Models,EXCLUDE,Pending Title and Abstract screening review
+P097,LLM is Not All You Need: A Systematic Evaluation of ML vs. Foundation Models for text and image based Medical Classification,EXCLUDE,Pending Title and Abstract screening review
+P100,Evaluating Large Language Models on Named Entity Recognition,EXCLUDE,Pending Title and Abstract screening review
+P101,Inner-Probe: Discovering Copyright-Related Data Generation in LLM Architecture,EXCLUDE,Pending Title and Abstract screening review
+P102,From Raw to Synthetic: Evaluating LLM-Based Data Augmentation for Sentiment Analysis,EXCLUDE,Pending Title and Abstract screening review
+P103,Semantic Alignment and Output Constrained Generation for Reliable LLM-based Classification,EXCLUDE,Pending Title and Abstract screening review
+P112,LLM-PEA: Leveraging Large Language Models Against Phishing Email Attacks,EXCLUDE,Pending Title and Abstract screening review
+P116,Security Bug Report Classification: A Comparative Study of Convolutional Neural Networks and Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P120,Charting the Unspoken: Causal Inference-Guided LLM Augmentation for Emotion Recognition in Conversation,EXCLUDE,Pending Title and Abstract screening review
+P133,Literate Programming With LLMs? — A Study on Rosetta Code and CodeNet,EXCLUDE,Pending Title and Abstract screening review
+P134,Enhancing Psychological Assessments With Open-Ended Questionnaires and Large Language Models: An ASD Case Study,EXCLUDE,Pending Title and Abstract screening review
+P136,BioNarrator-LLM: A Retrieval-Augmented Framework for Interpreting Simulated Sensor Data into Explainable Biological Insights,EXCLUDE,Pending Title and Abstract screening review
+P138,AI-Assisted Forensic Triage of Multilingual Online Gaming Chats Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P146,Parallel Hybrid Classical-Quantum Architecture for AI Safety and LLM Jailbreak Detection,EXCLUDE,Pending Title and Abstract screening review
+P147,Ensembles of Large Language Models for Identifying EQ-5D Studies in Pubmed Based on their Abstracts,EXCLUDE,Pending Title and Abstract screening review
+P148,Protecting Your Customized LLM Systems From Backdoored Instructions With Metacognitive Probing,EXCLUDE,Pending Title and Abstract screening review
+P149,"Response-Only Adversarial Detection of LLM Outputs: A Comparative Study of Lexical, Contrastive, and Contextual Representations",EXCLUDE,Pending Title and Abstract screening review
+P162,AGRAG: Advanced Graph-Based Retrieval-Augmented Generation for LLMs,EXCLUDE,Pending Title and Abstract screening review
+P174,Enhancing Indonesian Sentiment Analysis via LLM Driven Sarcasm Detection and Ensemble Learning,EXCLUDE,Pending Title and Abstract screening review
+P178,SIRA: A Semantic LLM-Based Agent for Interpreting and Detecting Vishing Attacks,EXCLUDE,Pending Title and Abstract screening review
+P179,Detecting Obstetric Violence Tweets from Mexico: Annotation Guidelines and Classification with LLMs,EXCLUDE,Pending Title and Abstract screening review
+P181,"Comparative Study of Machine Learning, Transformer, and Generative Models for Sentiment Analysis",EXCLUDE,Pending Title and Abstract screening review
+P188,Optimizing Legal Workflows: A Cost-Performance Analysis of Fine-Tuned SLMs vs. LLMs for Document Classification,EXCLUDE,Pending Title and Abstract screening review
+P189,Cross-Platform Thai Intent Classification Using Hybrid TF-IDF and Sentence-BERT Fusion,EXCLUDE,Pending Title and Abstract screening review
+P191,VLM-APMatch: A Vision-Language Model Framework for Cross-Document Matching and Reconciliation in Accounts Payable,EXCLUDE,Pending Title and Abstract screening review
+P194,Research on Enterprise Data Classification and Grading Technology Based on Large Models,EXCLUDE,Pending Title and Abstract screening review
+P197,A Mixed-Language Transformer Encoder Architecture for Social Media Phishing: Vietnamese-English Case Study,EXCLUDE,Pending Title and Abstract screening review
+P203,Parameter-Efficient Fine-Tuning vs Large Zero-Shot Language Models: A Controlled Cross-Task Evaluation of Performance and Efficiency,EXCLUDE,Pending Title and Abstract screening review
+P212,Evaluating LoRA Adaptation and Fine-Tuning for Multi-Class Adversarial Prompt Detection in Transformer Models,EXCLUDE,Pending Title and Abstract screening review
+P217,Enhanced Masking-Differential Prompting (MDP): Defending Backdoor Attacks for Pre-trained Language Models Under Few-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
+P220,Enhancing Cyber Threat Intelligence Using Transformer Models for Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P221,Enhancing Text-Based Deepfake Detection: A Comprehensive Evaluation of LoRA Fine-Tuned Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P230,Do We Still Need Fine Tuning? Turkish Sentiment Analysis in the Era of Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P236,An Empirical Study of App Review Classification Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P245,A Proposed Model for Arabic Fake Reviews Detection using Fine-Tuned BERT and LLMs,EXCLUDE,Pending Title and Abstract screening review
+P258,Transformer-Based Zero-Shot Learning for Robust and Scalable Product Classification,EXCLUDE,Pending Title and Abstract screening review
+P263,Privacy-Enhanced Federated Prompt Tuning Against Backdoor Attack,EXCLUDE,Pending Title and Abstract screening review
+P270,One Size Does Not Fit All: Exploring Variable Thresholds for Distance-Based Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P276,Fine-Tuned Vs Prompted Models for Emotion Detection: A Robustness and Slice-Based Study,EXCLUDE,Pending Title and Abstract screening review
+P278,Adaptive Multimodal Deepfake Detection for Social Media: Robust Fusion of Textual and Visual Artifact,EXCLUDE,Pending Title and Abstract screening review
+P297,Zero-Shot vs. Supervised: Evaluating Multilingual LLMs for 3R Content Moderation in Malaysia,EXCLUDE,Pending Title and Abstract screening review
+P300,Token-Invariant Contrastive Pretraining for Robust Domain Adaptation in Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P302,GLiNER-Reg: Generalized text regression using reference prompts,EXCLUDE,Pending Title and Abstract screening review
+P303,Evaluation of Open-Source Encoder-only Multilingual Small Language Models for Low-Resource Bengali Language,EXCLUDE,Pending Title and Abstract screening review
+P314,Prompt-Based Emotion Detection and Story Generation,EXCLUDE,Pending Title and Abstract screening review
+P323,Using Small Language Models to Measure Nursing Key Performance Indicators From Patient Stories,EXCLUDE,Pending Title and Abstract screening review
+P001,BantayText: Machine Learning-Based Detection of Scam SMS in the Philippines,EXCLUDE,Pending Title and Abstract screening review
+P002,Detection of Smishing and Vishing attacks using Deep Learning techniques,EXCLUDE,Pending Title and Abstract screening review
+P003,A Hybrid NLP and Deep Learning Framework for Intelligent SMS Phishing (Smishing) Detection,EXCLUDE,Pending Title and Abstract screening review
+P004,An Empirical study of Short Messaging Service - Smishing Detection using Machine Learning Algorithms,EXCLUDE,Pending Title and Abstract screening review
+P005,AI-Driven Smishing Detection in Android Devices Using TinyBERT and Aquila Optimization,EXCLUDE,Pending Title and Abstract screening review
+P006,Smishing Detection Using Fine-Tuned BERT,EXCLUDE,Pending Title and Abstract screening review
+P009,SMSHIELD: A Real-Time Smishing Detection in Mobile Messaging Systems using Deep Learning Approach,EXCLUDE,Pending Title and Abstract screening review
+P020,Few-Shot and Zero-Shot Classification with Large Language Models: A Comparative Study,EXCLUDE,Pending Title and Abstract screening review
+P023,Evaluating Zero-Shot and Few-Shot Learning on the Turkish Massive Multitask Language Understanding Dataset,EXCLUDE,Pending Title and Abstract screening review
+P026,A Unified System with Large Language Model for Hierarchical Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P027,PRECISION: A Structured Prompting Framework for Optimizing Large Language Model Interactions,EXCLUDE,Pending Title and Abstract screening review
+P028,Comparing Few-Shot Prompting and Machine Learning Models for Multi-Class Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P030,A Rapid Construction Method for a Knowledge Graph of Relay Protection Operation Management Based on Prompt Engineering,EXCLUDE,Pending Title and Abstract screening review
+P031,Asymmetric Siamese Network with Large Language Model Enhancement for Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P034,Exploiting the Randomness of Large Language Models (LLM) in Text Classification Tasks: Locating Privileged Documents in Legal Matters,EXCLUDE,Pending Title and Abstract screening review
+P036,Leveraging Large Language Models for Zero-Shot Classification of Psychiatric Diseases,EXCLUDE,Pending Title and Abstract screening review
+P039,A Prompt Engineering Methodology for Evaluating Large Language Models in Academic Processes,EXCLUDE,Pending Title and Abstract screening review
+P040,Optimizing Multi-Class Text Classification with Hierarchical Label Filtering and Label Order Analysis,EXCLUDE,Pending Title and Abstract screening review
+P042,Ensembling Multiple Prompting Strategies with Role-Based Reasoning for Bloom's Taxonomy Classification,EXCLUDE,Pending Title and Abstract screening review
+P043,Is This the Best Prompt? Scoring Prompts for Arabic NLP Across LLMs,EXCLUDE,Pending Title and Abstract screening review
+P044,GMCoT: A Graph-Augmented Multimodal Chain-of-Thought Reasoning Framework for Multi-Label Zero-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
+P047,Evaluation of the Automated Labeling Method for Taxonomic Nomenclature Through Prompt-Optimized Large Language Model,EXCLUDE,Pending Title and Abstract screening review
+P048,LLM-Powered Customer Segmentation for E-Commerce Dynamic Pricing,EXCLUDE,Pending Title and Abstract screening review
+P049,AugGPT: Leveraging ChatGPT for Text Data Augmentation,EXCLUDE,Pending Title and Abstract screening review
+P050,Improving LLM's Response with a New Prompt Framework RCFOR,EXCLUDE,Pending Title and Abstract screening review
+P051,Dual-Sided Adaptive Prompt Learning for Low-Resource Short Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P054,Cybersecurity Text Classification: Challenging the Perceived Superiority of LLMs Over Conventional Machine Learning,EXCLUDE,Pending Title and Abstract screening review
+P057,Annotation Guideline-Based Knowledge Augmentation: Toward Enhancing Large Language Models for Educational Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P059,Metaphors as Semantic Anchors: A Label-Constrained Contrastive Learning Approach for Chinese Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P061,LLM Based Bayesian Optimization for Prompt Search,EXCLUDE,Pending Title and Abstract screening review
+P063,GIELLM: Japanese General Information Extraction Large Language Model Utilizing Mutual Reinforcement Effects,EXCLUDE,Pending Title and Abstract screening review
+P064,Assessing the capabilities of MBERT And Flan-T5 in detecting of multilingual suspicious messages,EXCLUDE,Pending Title and Abstract screening review
+P065,Improving E-Commerce Product Classification via Few-Shot Learning of Gemma2:2B,EXCLUDE,Pending Title and Abstract screening review
+P066,ClassiED: Improving Zero-Shot Event Detection by Reducing LLM Hallucination,EXCLUDE,Pending Title and Abstract screening review
+P069,Zero-Shot Classification of Art With Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P071,Zero-Shot Prediction of Conversational Derailment With Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P072,Transformers in Action,EXCLUDE,Pending Title and Abstract screening review
+P076,Text2Graph: Combining Lightweight LLMs and GNNs for Efficient Text Classification in Label-Scarce Scenarios,EXCLUDE,Pending Title and Abstract screening review
+P077,A Large Language Model Approach for In-Depth Qualitative Text Analysis,EXCLUDE,Pending Title and Abstract screening review
+P078,"Evaluating the Performance of AI Text Detectors, Few-Shot and Chain-of-Thought Prompting Using DeepSeek-Generated Text",EXCLUDE,Pending Title and Abstract screening review
+P080,Calibrating MLLM-as-a-judge via Multimodal Bayesian Prompt Ensembles,EXCLUDE,Pending Title and Abstract screening review
+P082,Few-Shot Human Activity Recognition Using Lightweight Language Models,EXCLUDE,Pending Title and Abstract screening review
+P083,Prompt Inject Detection with Generative Explanation as an Investigative Tool,EXCLUDE,Pending Title and Abstract screening review
+P084,LLM Teacher-Student Framework for Text Classification With No Manually Annotated Data: A Case Study in IPTC News Topic Classification,EXCLUDE,Pending Title and Abstract screening review
+P085,Prompt Engineering-Assisted Malware Dynamic Analysis Using GPT-4,EXCLUDE,Pending Title and Abstract screening review
+P086,Enhancing Small Model Performance in Educational Classification Tasks through Knowledge Distillation,EXCLUDE,Pending Title and Abstract screening review
+P088,A Large Language Model Based on the Retrieval-Augmented Generation and Prompt-Tuning Framework,EXCLUDE,Pending Title and Abstract screening review
+P090,Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference,EXCLUDE,Pending Title and Abstract screening review
+P098,Adapting Knowledge Prompt Tuning for Enhanced Automated Program Repair,EXCLUDE,Pending Title and Abstract screening review
+P104,AI Generated Text Detection using LORA based fine-tuning of LLM Models,EXCLUDE,Pending Title and Abstract screening review
+P105,A Novel GNN-based Approach for Detection of Prompt Injection Attacks,EXCLUDE,Pending Title and Abstract screening review
+P106,Comparative Analysis of Token Classification and Zero-Shot LLM Approaches for Named Entity Recognition in the Business Domain,EXCLUDE,Pending Title and Abstract screening review
+P108,Automatic Construction Accident Report Analysis Using Large Language Models (LLMs),EXCLUDE,Pending Title and Abstract screening review
+P109,"Divide, Cache, Conquer: Dichotomic Prompting for Efficient Multi-Label LLM-Based Classification",EXCLUDE,Pending Title and Abstract screening review
+P110,SarcasmBench: Towards Evaluating Large Language Models on Sarcasm Understanding,EXCLUDE,Pending Title and Abstract screening review
+P114,Research on Recognition of Emotional Support Behavior in Classroom Based on Teachers' Verbal and its Application,EXCLUDE,Pending Title and Abstract screening review
+P117,Adaptive Test Healing using LLM/GPT and Reinforcement Learning,EXCLUDE,Pending Title and Abstract screening review
+P118,Phishing Email Detection Using Large Language Models: A Comparative Analysis of Standalone and Retrieval Augmented Generation Models,EXCLUDE,Pending Title and Abstract screening review
+P119,MCP-Orchestrated Multi-Agent System for Automated Disinformation Detection,EXCLUDE,Pending Title and Abstract screening review
+P122,Classifying Segments to Be Translated or Transliterated,EXCLUDE,Pending Title and Abstract screening review
+P123,Exploring N-Shot Learning Approaches in Generative Large Language Models for the Serbian Language,EXCLUDE,Pending Title and Abstract screening review
+P125,Classification of Greek News Articles by Text Type Using Open Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P126,Feature Extraction and Compliance Classification of Text Files Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P130,Optimized Story Generation using DeepSeek LLM with Supervised Fine-Tuning,EXCLUDE,Pending Title and Abstract screening review
+P132,AllHands :Ask Me Anything on Large-scale Verbatim Feedback via Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P135,Are LLMs Really Underperforming in Stance Detection? Identifying Patterns of Challenging Instances in Zero-Shot Stance Detection,EXCLUDE,Pending Title and Abstract screening review
+P137,CDE-CCL: A Classroom Dialogue Evaluation Framework for Chinese Core Literacy via LLM,EXCLUDE,Pending Title and Abstract screening review
+P139,Prompting the Priorities: Evaluating LLMs for Organization-Specific Vulnerability Prioritization,EXCLUDE,Pending Title and Abstract screening review
+P141,Adapting Generative LLMs for High-Accuracy Online Grooming Detection,EXCLUDE,Pending Title and Abstract screening review
+P143,Automated Criterion-Based Thai Text Evaluation with Rationale and Improvement Guidance Using LLMs,EXCLUDE,Pending Title and Abstract screening review
+P150,Utilization of Large Language Models for NER Tasks with Synonym-Based Text Generation in Health News Classification,EXCLUDE,Pending Title and Abstract screening review
+P151,Compromising LLM Driven Embodied Agents With Contextual Backdoor Attacks,EXCLUDE,Pending Title and Abstract screening review
+P152,Investigating the Impact of Japanese Names and Japanese Prompts on Social Bias in Hiring Decisions Using LLMs,EXCLUDE,Pending Title and Abstract screening review
+P153,A Chain of Diagnosis Framework for Accurate and Explainable Radiology Report Generation,EXCLUDE,Pending Title and Abstract screening review
+P154,Weaving Embeddings: A Fine-Tune-Free LLM Fusion Framework for Efficient Health and Safety Text Analysis,EXCLUDE,Pending Title and Abstract screening review
+P158,A Vision-Language Career Chatbot with LLAMA and Explainable AI for Transparent Job Matching under Hallucination Mitigation Approaches,EXCLUDE,Pending Title and Abstract screening review
+P160,Assessing Methods to Categorize Questions According to Cognitive Level based on Blooms Taxonomy: Constraints and Future Direction,EXCLUDE,Pending Title and Abstract screening review
+P165,Zero-Shot Knowledge Graphs from Handwritten Notes with LLMs and OCR,EXCLUDE,Pending Title and Abstract screening review
+P168,Legal Query RAG,EXCLUDE,Pending Title and Abstract screening review
+P170,Synthetic Data Generation Using Large Language Models: Advances in Text and Code,EXCLUDE,Pending Title and Abstract screening review
+P172,"RAG Powered LLMs for QA: Evolution, Challenges, Applications, and Future Directions",EXCLUDE,Pending Title and Abstract screening review
+P176,"M4SC: An MLLM-Based Multi-Modal, Multi-Task and Multi-User Semantic Communication System",EXCLUDE,Pending Title and Abstract screening review
+P177,Synthetic Text Data Generation from LLMs for Knockoff Model Training in Sentiment Analysis,EXCLUDE,Pending Title and Abstract screening review
+P180,Integrihire: Combating Online Recruitment Scams with Groq-Powered Intelligence,EXCLUDE,Pending Title and Abstract screening review
+P182,Leveraging Synthetic Data and LLMs for Sarcasm Detection,EXCLUDE,Pending Title and Abstract screening review
+P184,Beyond Black Boxes: Implementing Recommender Systems That Generate Trust for Decision-Making in Sensitive Business Areas,EXCLUDE,Pending Title and Abstract screening review
+P185,Using Large Language Models for Cyber Threat News Prioritization,EXCLUDE,Pending Title and Abstract screening review
+P192,Explaining Pre-Trained Language Models in the Context of Higher Education,EXCLUDE,Pending Title and Abstract screening review
+P196,LLMs-Integrated Automatic Hate Speech Recognition Using Controllable Text Generation Models,EXCLUDE,Pending Title and Abstract screening review
+P198,Anomaly Detection in Digital Payment Transactions,EXCLUDE,Pending Title and Abstract screening review
+P202,Prompt-Guided Few-Shot Hierarchical Text Classification via Example Retrieval and Structured Decoding,EXCLUDE,Pending Title and Abstract screening review
+P205,Application of LoRA-Drop in Few-Shot Chinese Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P206,Towards Robust Few-Shot Text Classification Using Transformer Architectures and Dual Loss Strategies,EXCLUDE,Pending Title and Abstract screening review
+P215,A Comparative Study of Task Adaptation Techniques of Large Language Models for Identifying Sustainable Development Goals,EXCLUDE,Pending Title and Abstract screening review
+P219,Comprehensive Study on Zero-Shot Text Classification Using Category Mapping,EXCLUDE,Pending Title and Abstract screening review
+P227,Fine-Tuning Techniques for Large Language Models: A Comprehensive survey,EXCLUDE,Pending Title and Abstract screening review
+P234,Do LLMs Understand Environmental Discourse? Benchmarking Zero-Shot Performance in Solving Eco-Related Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P235,Overcoming Data Scarcity: Guiding Citation Function Classification With Prompt-Based Few-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
+P238,Combating Misinformation: A Comparative Evaluation of Zero-Shot Models for Fake News Detection,EXCLUDE,Pending Title and Abstract screening review
+P241,Convert Cross-Domain Classification Into Few-Shot Learning: A Unified Prompt-Tuning Framework for Unsupervised Domain Adaptation,EXCLUDE,Pending Title and Abstract screening review
+P243,LDFS: LLMs with Dynamic Few-Shot for Offensive Language Detection,EXCLUDE,Pending Title and Abstract screening review
+P244,Comparative Analysis of Gemini and LLaMA 3 for Zero-Shot Emotion Classification of Indonesian Texts,EXCLUDE,Pending Title and Abstract screening review
+P249,Why Lift so Heavy? Slimming Large Language Models by Cutting Off the Layers,EXCLUDE,Pending Title and Abstract screening review
+P251,Improved Cervical Cancer Classification using Generative AI and Language Models,EXCLUDE,Pending Title and Abstract screening review
+P252,Detecting AI-Generated Paraphrases in Bengali: A Comparative Study of Zero-Shot and Fine-Tuned Transformers,EXCLUDE,Pending Title and Abstract screening review
+P256,Setfit for Automated Essay Scoring: Extending Longformer to a Sentence Transformer,EXCLUDE,Pending Title and Abstract screening review
+P257,Use of large language models to classify failure modes in damage notifications from transmission systems,EXCLUDE,Pending Title and Abstract screening review
+P260,Evaluation of ChatGPT as a Classification Model to Detect Prostitution Sentences in SNS,EXCLUDE,Pending Title and Abstract screening review
+P266,A Comprehensive Overview and Analysis of Large Language Models: Trends and Challenges,EXCLUDE,Pending Title and Abstract screening review
+P277,Beyond Words: Augmenting Discriminative Richness via Diffusions in Unsupervised Prompt Learning,EXCLUDE,Pending Title and Abstract screening review
+P281,Cross-Lingual Sentiment Analysis Using Pre-Trained Transformer Models for Multilingual Social Media Data,EXCLUDE,Pending Title and Abstract screening review
+P284,Multi-Stage Retriever Model for Document Classification Using Fine Tuned Embedding Model,EXCLUDE,Pending Title and Abstract screening review
+P285,Overcoming Dataset Imbalances and Computational Challenges in IoT Intrusion Detection: A SMOTE-Enhanced Transformer-Based Model,EXCLUDE,Pending Title and Abstract screening review
+P286,From Sample Generation to Efficacy Transfer: Optimization of Privacy-Preserving LLMs for Content Moderation,EXCLUDE,Pending Title and Abstract screening review
+P289,General LLMs Versus Fine-Tuned Models on Algerian Dialect Classification Tasks,EXCLUDE,Pending Title and Abstract screening review
+P292,"Text Classification for Cultural Heritage Corpora: A Review of Methods, Datasets, and Benchmarks",EXCLUDE,Pending Title and Abstract screening review
+P294,A Survey on Large Language Models in Phishing Detection,EXCLUDE,Pending Title and Abstract screening review
+P295,Boosting Arabic Emotion Detection: Transformer Ensembles with Soft Voting,EXCLUDE,Pending Title and Abstract screening review
+P296,JailbreakTracer: Explainable Detection of Jailbreaking Prompts in LLMs Using Synthetic Data Generation,EXCLUDE,Pending Title and Abstract screening review
+P307,Hybrid Transformer-RNN Model for Classification of Indonesian Regional Language,EXCLUDE,Pending Title and Abstract screening review
+P308,Optimizing Social Media Sentiment Analysis: RoBERTa Framework for Evaluating Public Perception of DeepSeek,EXCLUDE,Pending Title and Abstract screening review
+P313,Auspex: Building Threat Modeling Tradecraft into an Artificial Intelligence-Based Copilot,EXCLUDE,Pending Title and Abstract screening review
+P318,Developing Natural Language Processing Model using Git and GPT,EXCLUDE,Pending Title and Abstract screening review
+P320,Sentiment-Enhanced Opinion Sentence Recognition Using AgriBERT-SentiDPCNN and Multi-Opinion Summarization via LLMs for Agricultural Scientific Literature,EXCLUDE,Pending Title and Abstract screening review
+P327,AI-Generated Text Detection Using RoBERTa: A Generalizability and Explainability Analysis,EXCLUDE,Pending Title and Abstract screening review
+P330,Evaluating the Portability of BERT-based Misinformation Detection from Twitter to Bluesky,EXCLUDE,Pending Title and Abstract screening review
+P331,Leveraging Large Language Models to Build Computationally Efficient Models for Sustainable Finance Investment Decision Support,EXCLUDE,Pending Title and Abstract screening review
+P333,Towards Natural Language-Based Document Image Retrieval: New Dataset and Benchmark,EXCLUDE,Pending Title and Abstract screening review
+P334,A Comparative Analysis of Transformer and Traditional ML Models for Cyberbullying Detection on Twitter (now X),EXCLUDE,Pending Title and Abstract screening review
+P336,Moral Decision-making with Artificial Intelligence,EXCLUDE,Pending Title and Abstract screening review
+P007,Enhancing SMS Classification with Ensemble Machine Learning Techniques,EXCLUDE,Pending Title and Abstract screening review
+P008,Uncovering SMS Spam in Swahili Text Using Deep Learning Approaches,EXCLUDE,Pending Title and Abstract screening review
+P010,Performance Evaluation of Meta-data features for Spam SMS Classification using Sequential Models,EXCLUDE,Pending Title and Abstract screening review
+P011,Phishing Detection in Arabic SMS Messages using Natural Language Processing,EXCLUDE,Pending Title and Abstract screening review
+P013,On-Device Smishing Classifier Resistant to Text Evasion Attack,EXCLUDE,Pending Title and Abstract screening review
+P017,Zero-Shot and Few-Shot Learning for Telugu News Classification: A Large Language Model Approach,EXCLUDE,Pending Title and Abstract screening review
+P018,Exploiting Classification of LLM with Zero-shot Prompt & Fine-tuning,EXCLUDE,Pending Title and Abstract screening review
+P019,Exploring Soft Prompt Initialization Strategy for Few-Shot Continual Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P024,Evaluating LLM Prompts for Data Augmentation in Multi-Label Classification of Ecological Texts,EXCLUDE,Pending Title and Abstract screening review
+P029,Leveraging Few-Shot Learning in Generative AI for UPI Transaction Classification,EXCLUDE,Pending Title and Abstract screening review
+P032,A Framework for Categorizing Complaint Text via Large Language Model,EXCLUDE,Pending Title and Abstract screening review
+P033,Experimental Study of In-Context Learning for Text Classification and Its Application to Legal Document Review in Construction Delay Disputes,EXCLUDE,Pending Title and Abstract screening review
+P035,Application of Large Language Model and In-Context Learning for Aviation Safety Prediction,EXCLUDE,Pending Title and Abstract screening review
+P037,A Scene-Aware Prompt Template of Chinese Text Data Augmentation Method Based on Large Language Model,EXCLUDE,Pending Title and Abstract screening review
+P038,Prompt Engineering to Classify Components of Standard Operating Procedure Steps Using Large Language Model (LLM)-Based Chatbots,EXCLUDE,Pending Title and Abstract screening review
+P052,"Leveraging Biases in Large Language Models: ""bias-kNN"" for Effective Few-Shot Learning",EXCLUDE,Pending Title and Abstract screening review
+P056,Poster: Exploring Explainability Techniques for Large Language Model Classification Predictions,EXCLUDE,Pending Title and Abstract screening review
+P062,WHW: An Efficient Data Organization Method for Fine-tuning Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P068,Large Model-Based Data Augmentation for Imbalanced Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P070,Exploring Radiology Reports of Brain Cancer Patients Using the Advanced Large Language Model ChatGPT,EXCLUDE,Pending Title and Abstract screening review
+P073,Adaptable and Reliable Text Classification using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P074,Exploring Multi-Label Data Augmentation for LLM Fine-Tuning and Inference in Requirements Engineering: A Study with Domain Expert Evaluation,EXCLUDE,Pending Title and Abstract screening review
+P075,POQC: Prompt-Optimized Model for Question Classification Using LLM-Based Data Augmentation,EXCLUDE,Pending Title and Abstract screening review
+P079,Conditional Label Smoothing For LLM-Based Data Augmentation in Medical Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P087,A Step Towards Modern Disinformation Detection: Novel Methods for Detecting LLM-Generated Text,EXCLUDE,Pending Title and Abstract screening review
+P089,Enhanced Discriminative Fine-Tuning of Large Language Models for Chinese Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P092,ZDDR: A Zero-Shot Defender for Adversarial Samples Detection and Restoration,EXCLUDE,Pending Title and Abstract screening review
+P095,MLLMIE: Multiple Large Language Model Information Extraction in Ancient Medical Texts,EXCLUDE,Pending Title and Abstract screening review
+P096,LLM-Based Digital Twin Water Conservancy Knowledge Graph Construction,EXCLUDE,Pending Title and Abstract screening review
+P099,Interactive Rubric Generator for Instructor's Assessment Using Prompt Engineering and Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P107,LLM Chain Ensembles for Scalable and Accurate Data Annotation,EXCLUDE,Pending Title and Abstract screening review
+P111,How Reliable AI Chatbots are for Disease Prediction from Patient Complaints?,EXCLUDE,Pending Title and Abstract screening review
+P113,Character-level Adversarial Attacks Evaluation for AraBERT’s,EXCLUDE,Pending Title and Abstract screening review
+P115,Prompt-Based Generation Strategy for Imbalanced Information Security Rating Dataset Augmentation,EXCLUDE,Pending Title and Abstract screening review
+P124,Zero-shot LLM-guided Counterfactual Generation: A Case Study on NLP Model Evaluation,EXCLUDE,Pending Title and Abstract screening review
+P128,Effective Intended Sarcasm Detection Using Fine-tuned Llama 2 Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P129,A Framework for automated selective Fine-Tuning of Domain-Specific Large Language Models Using Graph-Based Retrieval Augmented Generation,EXCLUDE,Pending Title and Abstract screening review
+P131,Screening Automation for Systematic Reviews: A 5-Tier Prompting Approach Meeting Cochrane’s Sensitivity Requirement,EXCLUDE,Pending Title and Abstract screening review
+P140,Personalized Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P142,MindScape Continuum: Advancing Online Counseling with Bert-Based Strategy Classification and Professional Helping Skills,EXCLUDE,Pending Title and Abstract screening review
+P144,MediGPT: Exploring Potentials of Conventional and Large Language Models on Medical Data,EXCLUDE,Pending Title and Abstract screening review
+P145,AraT5GQA: Arabic Question Answering model using automatic generated dataset,EXCLUDE,Pending Title and Abstract screening review
+P155,"Towards Interpretable Emotion Classification: Evaluating LIME, SHAP, and Generative AI for Decision Explanations",EXCLUDE,Pending Title and Abstract screening review
+P156,Generalizing Functional Error Correction for Language and Vision-Language Models,EXCLUDE,Pending Title and Abstract screening review
+P157,Pseudo-Labeling With Large Language Models for Multi-Label Emotion Classification of French Tweets,EXCLUDE,Pending Title and Abstract screening review
+P159,Model Attribution in LLM-Generated Disinformation: A Domain Generalization Approach with Supervised Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
+P161,From Fiction to Forecast: Leveraging LLM-Enhanced Models and Science Fiction for Innovative Technology Predictions,EXCLUDE,Pending Title and Abstract screening review
+P163,Autonomous Agents for Interrogation,EXCLUDE,Pending Title and Abstract screening review
+P164,Beyond Large Language Models: Rediscovering the Role of Classical Statistics in Modern Data Science,EXCLUDE,Pending Title and Abstract screening review
+P166,Enhance Large Language Models for Multilingual Sentence Embedding with Knowledge Graph,EXCLUDE,Pending Title and Abstract screening review
+P167,Linguistic Intelligence in Large Language Models for Telecommunications,EXCLUDE,Pending Title and Abstract screening review
+P169,Emotion Classification of Lyrics through Summarization by Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P171,Automating Maritime Risk Data Collection and Identification Leveraging Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P173,Synthetic Data Generation with Large Language Models for Personalized Community Question Answering,EXCLUDE,Pending Title and Abstract screening review
+P175,MM-Narrator: Narrating Long-form Videos with Multimodal In-Context Learning,EXCLUDE,Pending Title and Abstract screening review
+P183,Combining Financial Data and News Articles for Stock Price Movement Prediction Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P186,Enhanced Sentiment Classification in Code-Mixed Texts Using Hybrid Embeddings and Synthetic Data Generation,EXCLUDE,Pending Title and Abstract screening review
+P190,Automatic Taxonomy Generation Based on Large Language Models in the Automotive Domain,EXCLUDE,Pending Title and Abstract screening review
+P193,iiPCS: Intent-Based In-Context Learning for Project-Specific Code Summarization,EXCLUDE,Pending Title and Abstract screening review
+P195,Refining Sensitive Document Classification: Introducing an Enhanced Dataset Proposal,EXCLUDE,Pending Title and Abstract screening review
+P199,"8 Case Studies in AI: Translations, MRIs, Fraud Detection, Autonomous Vehicles, and Labor",EXCLUDE,Pending Title and Abstract screening review
+P200,A Hybrid Learning of Lexical and Language Processing for Domain Credibility Classification,EXCLUDE,Pending Title and Abstract screening review
+P201,Decrease the Prompt Uncertainty: Adversarial Prompt Learning for Few-shot Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P207,Prompt-Learning for Short Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P208,Enhancing Multi-label text classification using adaptive promptify concepts,EXCLUDE,Pending Title and Abstract screening review
+P209,PSSOP: A Prompt-style Approach for Few-Shot Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P211,Prompt-Based Label-Aware Framework for Few-Shot Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P213,Prompt Engineering Adversarial Attack Against Image Captioning Models,EXCLUDE,Pending Title and Abstract screening review
+P214,Enhancing Natural Language Instruction Document Comprehension with Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P218,An Emotion Text Classification Model Based on Llama3-8b Using Lora Technique,EXCLUDE,Pending Title and Abstract screening review
+P222,A Long-Text Charge Prediction Method Based on the Prompt-Qwen-FIT Model: Integrating Few-Shot Learning and Incremental Adaptation Training,EXCLUDE,Pending Title and Abstract screening review
+P223,Chapter 5: Fine-Tuning LLMs (1),EXCLUDE,Pending Title and Abstract screening review
+P224,Pilot Testing Transformers-based Models for Multi-class Classification of Greek Text,EXCLUDE,Pending Title and Abstract screening review
+P226,A Simple Method to Improve the Performance of Small Pre-trained Language Models on Few-shot Tasks,EXCLUDE,Pending Title and Abstract screening review
+P231,Single-pass Hierarchical Text Classification with Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P232,Financial Sentiment Analysis on News and Reports Using Large Language Models and FinBERT,EXCLUDE,Pending Title and Abstract screening review
+P233,Data-Efficient Fine-Tuning for Pre-Trained Language Model,EXCLUDE,Pending Title and Abstract screening review
+P237,Word and Character Semantic Fusion by Pretrained Language Models for Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P240,Adaptive Prompt Construction Method for Relation Extraction,EXCLUDE,Pending Title and Abstract screening review
+P246,Fine-Tuning Bert On The Atis Dataset: Data Enhancement To Improve Intent Classification Accuracy,EXCLUDE,Pending Title and Abstract screening review
+P250,Large Language Models for Anomaly Detection in Computational Workflows: From Supervised Fine-Tuning to In-Context Learning,EXCLUDE,Pending Title and Abstract screening review
+P253,Taming Prompt-Based Data Augmentation for Long-Tailed Extreme Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P259,Fine-Tuning GPT on Biomedical NLP Tasks: An Empirical Evaluation,EXCLUDE,Pending Title and Abstract screening review
+P267,Contrastive Meta-Learner for Automatic Text Labeling and Semantic Textual Similarity,EXCLUDE,Pending Title and Abstract screening review
+P269,Text Classification with Limited Training Data: Suicide Risk Detection on Social Media,EXCLUDE,Pending Title and Abstract screening review
+P273,Leveraging Prompt Learning and Pause Encoding for Alzheimer's Disease Detection,EXCLUDE,Pending Title and Abstract screening review
+P275,MAVLingo: ‘A Natural Language Command Classification’ Dataset for MAVLink-Based Drones,EXCLUDE,Pending Title and Abstract screening review
+P280,Leveraging Large Language Models for Suicide Detection on Social Media with Limited Labels,EXCLUDE,Pending Title and Abstract screening review
+P282,Mask Consistency and Contrast Regularization for Prompt-Based Learning,EXCLUDE,Pending Title and Abstract screening review
+P283,Leveraging Large Language Models for Activity Recognition in Smart Environments,EXCLUDE,Pending Title and Abstract screening review
+P287,Transforming Bengali Emails: Efficient Multi-Class Classification Using Transformers,EXCLUDE,Pending Title and Abstract screening review
+P291,IT Service Desk Ticket Classification via Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P301,Emotion Retrieval Using Generative Models: An Exploratory Study,EXCLUDE,Pending Title and Abstract screening review
+P304,Mental Level Prediction using Long Sentence Discriminators and Language Generation Models,EXCLUDE,Pending Title and Abstract screening review
+P309,Multi-Label Classification with Generative Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P310,"Language Models for Hierarchical Classification of Radiology Reports With Attention Mechanisms, BERT, and GPT-4",EXCLUDE,Pending Title and Abstract screening review
+P312,Aspect-based Sentiment Analysis Techniques: A Comparative Study,EXCLUDE,Pending Title and Abstract screening review
+P315,Defect Correction Method for Software Requirements Text Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P317,OVMR: Open-Vocabulary Recognition with Multi-Modal References,EXCLUDE,Pending Title and Abstract screening review
+P322,AI - Assisted Text Composition for Automated Content Authoring Using Transformer-Based Language Models,EXCLUDE,Pending Title and Abstract screening review
+P324,Enhancing Healthcare Through Large Language Models: A Study on Medical Question Answering,EXCLUDE,Pending Title and Abstract screening review
+P326,AI-based Multimodal Resume Ranking Web Application for Large Scale Job Recruitment,EXCLUDE,Pending Title and Abstract screening review
+P332,Automated Data Augmentation for Audio Classification,EXCLUDE,Pending Title and Abstract screening review
+P335,Leveraging Transfer Learning for Hate Speech Detection in Portuguese Social Media Posts,EXCLUDE,Pending Title and Abstract screening review
+P012,SMSDect: A Prediction Model for Smishing Attack Detection Using Machine Learning and Text Analysis,EXCLUDE,Pending Title and Abstract screening review
+P014,A Survey of Intelligent Detection Designs of HTML URL Phishing Attacks,EXCLUDE,Pending Title and Abstract screening review
+P016,Proposing Appropriate SMS Spam Detection Approaches for Variations of the Vietnamese Language,EXCLUDE,Pending Title and Abstract screening review
+P025,"Generative AI with LangChain: Build large language model (LLM) apps with Python, ChatGPT, and other LLMs",EXCLUDE,Pending Title and Abstract screening review
+P041,Helping Language Models Learn More: Multi-Dimensional Task Prompt for Few-shot Tuning,EXCLUDE,Pending Title and Abstract screening review
+P060,Identifying Euroscepticism Using a Text-As-Data Approach: An Experimental Study Employing Parliamentary Speeches,EXCLUDE,Pending Title and Abstract screening review
+P067,Fine-tuned generative LLM oversampling can improve performance over traditional techniques on multiclass imbalanced text classification,EXCLUDE,Pending Title and Abstract screening review
+P093,Data Augmentation with GPT-3.5 for Vietnamese Natural Language Inference,EXCLUDE,Pending Title and Abstract screening review
+P121,"An Empirical Analysis of Topic Categorization Using PaLM, GPT and BERT Models",EXCLUDE,Pending Title and Abstract screening review
+P127,Intelligent and Adaptive Multi-Tiered Taxonomy for Digital Workplace Request Fulfilment Automations and Remediations,EXCLUDE,Pending Title and Abstract screening review
+P187,Fact or Opinion? – Essential Value for Financial Results Briefing,EXCLUDE,Pending Title and Abstract screening review
+P204,Research on Meta-Learning Based Few-Shot Chinese Text Classification Algorithms,EXCLUDE,Pending Title and Abstract screening review
+P210,Prompt-Based Few-Shot Text Classification with Virtual Class Representation,EXCLUDE,Pending Title and Abstract screening review
+P216,Emotional Polar Predictions Based on Matching Prompts,EXCLUDE,Pending Title and Abstract screening review
+P225,A Prompt-tuning Method For Low-Resource Relation Extraction Based On Enhanced-Prototype,EXCLUDE,Pending Title and Abstract screening review
+P242,Few-shot Class Incremental Learning for Event Extraction,EXCLUDE,Pending Title and Abstract screening review
+P247,B-Pet: The PET Model with Parameter-Efficient Learning,EXCLUDE,Pending Title and Abstract screening review
+P248,Zero-shot Learning for Named Entity Recognition in Software Specification Documents,EXCLUDE,Pending Title and Abstract screening review
+P261,Detecting Clickbait in Chinese Social Media by Prompt Learning,EXCLUDE,Pending Title and Abstract screening review
+P262,Optimizing Election Result Prediction Through Fine-Tuned Transformer Models,EXCLUDE,Pending Title and Abstract screening review
+P264,Zero-Shot Information Extraction with Community-Fine-Tuned Large Language Models From Open-Ended Interview Transcripts,EXCLUDE,Pending Title and Abstract screening review
+P265,SiaKey: A Method for Improving Few-shot Learning with Clinical Domain Information,EXCLUDE,Pending Title and Abstract screening review
+P268,A Deep Learning-Driven Disease Classification Method Using MIMIC-III Database and Natural Language Processing,EXCLUDE,Pending Title and Abstract screening review
+P271,Improving Biomedical Claim Detection using Prompt Learning Approaches,EXCLUDE,Pending Title and Abstract screening review
+P274,Improved Visual Fine-tuning with Natural Language Supervision,EXCLUDE,Pending Title and Abstract screening review
+P279,ShoppingGPT: A GPT-based Product Recommendation Dialogue System,EXCLUDE,Pending Title and Abstract screening review
+P290,Unsupervised Out-of-Distribution Detection Using Few in-Distribution Samples,EXCLUDE,Pending Title and Abstract screening review
+P298,Humor Level Recognition Based on Prompt Learning and Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
+P306,Fine-Tuning Pre-Trained Language Model for Urgency Classification on Food Safety Feedback,EXCLUDE,Pending Title and Abstract screening review
+P311,Harnessing Transformers for Detecting Adverse Drug Reaction and Customized Causality Explanation using Generative AI,EXCLUDE,Pending Title and Abstract screening review
+P316,Performance Analysis of Federated Learning Algorithms for Multilingual Protest News Detection Using Pre-Trained DistilBERT and BERT,EXCLUDE,Pending Title and Abstract screening review
+P325,Neural Ensemble for Organizing Business News-Streams for Corporate Libraries,EXCLUDE,Pending Title and Abstract screening review
+P328,Query-Focused Submodular Demonstration Selection for In-Context Learning in Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P329,Methodologies for Email Spam Classification Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
+P228,Applying SoftTriple Loss for Supervised Language Model Fine Tuning,EXCLUDE,Pending Title and Abstract screening review
+P229,Few-Shot Text Classification via Semi-Supervised Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
+P239,UCL-AST: Active Self-Training with Uncertainty-Aware Clouded Logits for Few-Shot Text Classification,EXCLUDE,Pending Title and Abstract screening review
+P254,Improving Few-Shot Text Classification with Task-aware Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
+P272,Zero-shot Topic Classification via Automatic Tagging on Chinese Text Datasets,EXCLUDE,Pending Title and Abstract screening review
+P288,Diagnosis of power operation and maintenance records based on pre-training model and prompt learning,EXCLUDE,Pending Title and Abstract screening review
+P299,Early Risks Depression Prediction of Indonesian Twitter Users Through Indonesian Text Using Transfer Learning and Linguistic Metadata Features Approaches,EXCLUDE,Pending Title and Abstract screening review
+P305,Sentiment Analysis of Reviews in Kazakh With Transfer Learning Techniques,EXCLUDE,Pending Title and Abstract screening review
+P255,Text Classification Method Based On Semi-Supervised Transfer Learning,EXCLUDE,Pending Title and Abstract screening review
+P293,An Efficient Method of Supervised Contrastive Learning for Natural Language Understanding,EXCLUDE,Pending Title and Abstract screening review
+P321,Mufin: Enriching Semantic Understanding of Sentence Embedding using Dual Tune Framework,EXCLUDE,Pending Title and Abstract screening review
+P319,An Evaluation of Transfer Learning for Classifying Sales Engagement Emails at Large Scale,EXCLUDE,Pending Title and Abstract screening review
