@@ -1,8 +1,0 @@
-"id,title,year,relevance,reason"
-"P001,PhoBERT: Pre-trained language models for Vietnamese,2020,High,Core Vietnamese PLM paper"
-"P002,Vietnamese Text Classification using Transformer Models,2023,High,Classification benchmark"
-"P003,Vietnamese Sentiment Analysis with BERT,2022,Medium,Vietnamese classification methodology"
-"P006,Vietnamese NLP Benchmark,2021,High,Model comparison"
-"P009,Vietnamese Named Entity Recognition,2022,Medium,PhoBERT application"
-"P011,Vietnamese Question Classification,2023,Medium,PhoBERT classification"
-"P015,Transformer Models for Vietnamese NLP,2024,High,Recent Vietnamese NLP comparison"
