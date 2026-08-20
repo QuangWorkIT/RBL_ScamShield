@@ -1,0 +1,6 @@
+id,title,year,relevance,final_inclusion_reason
+P001,An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P446,Measuring and Evaluating the Performance of Generative AI Models for Scam Detection,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P471,Edge-AI enabled smishing and suspicious SMS detection: a cost-sensitive and lightweight deep learning architecture,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P192,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P472,Deep Learning-Based Model for Detecting Fraudulent SMS Messages,2024,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
