@@ -1,0 +1,202 @@
+id,title,v1_decision,v1_reason
+P001,A few-shot learning approach with similarity-based prompt engineering for fine-tuning LLMs in closed-domain conversational AI,EXCLUDE,EC-O: Unrelated domain (closed-domain conversational)
+P002,ContrastShield: A Contrastive Fine-Tuning Approach for Robust Prompt Injection Detection in LLM Pipelines,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P003,"Artificial Intelligence for Real-Time Cyber Threat Classification and Emerging Threat Detection: A Structured Review of Methods, Datasets, Challenges, and Research Directions",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P004,Semantic information from smashed data: text reconstruction attack on phishing detection models in split learning,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P005,A Comparative Analysis of Two Algorithms for TF-IDF-Based Document Similarity,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P006,Artificial Intelligence and Intelligent Decision Support Systems: Emerging Trends and Applications in Computer Science,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P007,HiRoute: Hierarchical Routed Prompt Tuning for Safety Alignment of Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P008,"Sovereign by necessity? Frontier AI export controls, cyber security, and the limits of national AI capability",EXCLUDE,EC-O: Unrelated domain (export controls)
+P009,Synthetic Persona Pretraining: Alignment from Token Zero,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P010,Privacy-preserving federated learning for detection of AI-generated text using hybrid RoBERTa-CNN models in low-resource languages,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P011,Operationalizing Cyber Threat Intelligence with GraphRAG,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P012,Discovering Persistent Behavioural Patterns for Interpretable Blockchain Forensics,EXCLUDE,EC-O: Unrelated domain (blockchain forensics)
+P013,Proactive zero-day malware evolution forecasting via self-supervised multi-view contrastive representation learning and hybrid generative modeling,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P014,"Intelligent data governance and quality control for chest Bi syndrome/coronary heart disease across the prevention–treatment–rehabilitation continuum: integrating a standardized framework, adversarially-optimized trigger engine, and domain-adaptive AI",EXCLUDE,EC-O: Unrelated domain (chest bi syndrome)
+P015,An Explainable Hybrid Model for Real-Time Phishing Detection Using Multi-Source Features,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P016,Resilient Semantic Threat Detection at the Edge: A Knowledge Distillation Framework for SMS Spam Classification,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P017,MD-ProTector: Positioning Multiple Data-Driven Prototypes for LLM-Generated Text Detection,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P018,Workflow Cards: Structured Summaries of Workflow Executions Using Provenance Data,EXCLUDE,EC-O: Unrelated domain (workflow cards)
+P019,An Empirical Study of Output-to-Input Loops for Black-Box Backdoor Detection in Fine-Tuned Open-Weight LLMs,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P020,Enhancing Vulnerability Detection Precision through Ensemble Learning with Large Language Models,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P021,Cross-Corpus Evaluation of Generalizable Vulnerability Detection in IoT Firmware,EXCLUDE,EC-O: Unrelated domain (firmware)
+P022,Phishing GAT: Adversarial-Hardened Phishing Email Detection via Semantic-Structural Fusion and Graph Attention Networks,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P023,Graph-Based Threat Classification and Embedding Analysis of Cyber Threat Intelligence,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P024,Breaking and Defending LLM-Powered Social Media Bot Detection Systems †,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P025,"Development of the SecurePromptTrace Algorithm for Detecting Prompt Injection, Data Exfiltration, and Tool Misuse in Generative Artificial Intelligence Systems with Comparative Evaluation Against Keyword Filters, Classifier-Based Defenses, and Static Access Controls",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P026,"The Role of Artificial Intelligence in Detecting Social Engineering and Phishing Attacks: Opportunities, Limitations, and Ethical Considerations",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P027,The Art of the Jailbreak: Formulating Jailbreak Attacks for LLM Security Beyond Binary Scoring,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P028,Amnesia: Adversarial Semantic Layer Specific Activation Steering in Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P029,A Lightweight Defense Mechanism against Next Generation of Phishing Emails using Distilled Attention-Augmented BiLSTM,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P030,Agentic Knowledge Distillation: Autonomous Training of Small Language Models for SMS Threat Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P031,Diagnosing Generalization Failures in Fine-Tuned LLMs: A Cross-Architectural Study on Phishing Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P032,Integrated Cloud–Edge Computing Architectures for Next-Generation Applications,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P033,Multi-Source Generalization-Aware Phishing URL Detection Using Calibrated Stacked Ensemble and False-Positive Control,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P034,MULTI-VIEW TEMPORAL CONTRASTIVE LEARNING NETWORK FOR ADAPTIVE REAL-TIME PHISHING DETECTION IN DYNAMIC AI-DRIVEN CYBERSECURITY ENVIRONMENTS,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P035,Prompt Injection as an Architecture-Specific Attack Surface: Comparing LLM-Based and Traditional ML Spam Classifiers Under Adversarial Conditions,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P036,Development of adaptive activation functions with curvature and range modulation for abstract image feature learning in complex CNNs for cross-domain applications,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P037,Exploring the Differences in Audience Emotional Arousal Patterns Between Virtual and Real-Life Anchors Using BERT Multimodal Sentiment Analysis,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P038,"Analysis of Cybersecurity Intelligence Attacks in Nigeria: An AI-Assisted Platform for Detection, Mitigation and Combating Digital Threats Using DeepSeek Integration",EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P039,Adversarial Robustness in Smishing Detection: A Comparative Analysis of Adversarial Fragility in Classical vs. Transformer-Based Detection Systems,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P040,Adversarial Robustness of Phishing Email Detection: A Comparative Study of TF-IDF + Logistic Regression and Fine-Tuned DistilBERT,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P041,Measuring and Evaluating the Performance of Generative AI Models for Scam Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P042,Poster: Exploring the Limits of Audio-Based Detection of Turkish Phone Call Scams,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P043,PreScam: A Benchmark for Predicting Scam Progression from Early Conversations,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P044,A Regime Theory of Controller Class Selection for LLM Action Decisions,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P045,CyberCane: Neuro-Symbolic RAG for Privacy-Preserving Phishing Detection with Formal Ontology Reasoning,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P046,Anansi: Scalable Characterization of Message-Based Job Scams,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P047,MemoPhishAgent: Memory-Augmented Multi-Modal LLM Agent for Phishing URL Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P048,Clouding the Mirror: Stealthy Prompt Injection Attacks Targeting LLM-based Phishing Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P049,User-Centric Phishing Detection: A RAG and LLM-Based Approach,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P050,Eliciting Least-to-Most Reasoning for Phishing URL Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P051,SCRIPTMIND: Crime Script Inference and Cognitive Evaluation for LLM-based Social Engineering Scam Detection System,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P052,Fine-Tuning LLMs for Operational Phishing Email Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P053,YOLO-adapter: Beyond full fine-tuning for accurate few-shot object detection,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P054,A Multi-view Dataset for Vietnamese Word-Level Sign Language Recognition,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P055,ViTOED: A Dataset for Target-Oriented Emotion Detection on Vietnamese Social Media Texts,EXCLUDE,EC-O: Unrelated domain (relation extraction)
+P056,Semantic Analysis and Translation Optimization of English Sentences Based on Long Short-Term Memory (LSTM) Networks,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P057,(KDBERT): Modelo baseado em transformadores para compreensão da língua Kikongo na região central de África,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P058,CogChat: Knowledge Graph-Augmented Conversational AI with Heterogeneous Graph Transformer for Cognitive Grounding in Design Generation,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P059,Training AI Scientists to Replicate Research,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P060,Structuring the Space of Perspectives,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P061,"Visual hand gesture recognition with deep learning: A comprehensive review of methods, datasets, challenges and future research directions",EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P062,Confucius4-TTS: Transcript-Free Cross-Lingual Zero-Shot TTS with a Learnable Speaker Encoder,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P063,Lexical and Syntactic Complexity across Adjacent IELTS Writing Task 2 Band Levels:  A Corpus-Based Study,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P064,A Part-of-Speech Tagging Corpus for Bahasa Indonesia with Linguist-Based Label Validation,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P065,Multilingual Source Code Vulnerability Detection Using Deep Learning: A Semantic Representation and Transfer Learning Approach,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P066,Direct Image-to-Modern Vietnamese Translation of Han-Nom Manuscripts via Multimodal RLHF Preference Alignment,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P067,BamiBERT: A New BERT-based Language Model for Vietnamese,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P068,ViCLSR: A Supervised Contrastive Learning Framework with Natural Language Inference for Natural Language Understanding Tasks,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P069,Toward Generalized Cross-Lingual Hateful Language Detection with Web-Scale Data and Ensemble LLM Annotations,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P070,AutoViVQA: A Large-Scale Automatically Constructed Dataset for Vietnamese Visual Question Answering,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P071,ViGoEmotions: A Benchmark Dataset For Fine-grained Emotion Detection on Vietnamese Texts,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P072,Noise-Robust SMS Spam Classification Using a Hybrid BERT and Character-Level CNN Architecture,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P073,Impact of Text Preprocessing Techniques on SMS Spam Classification Accuracy,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P074,Bridging the AI Security Skills Gap: An Approach to Preparing the Cybersecurity Workforce in the AI Era Threats,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P075,Artificial Intelligence and Cyber Defense: Navigating Emerging Threats in an Interconnected World,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P076,"Evolving Policies, Effectiveness, Tools and Factors of Cybersecurity Awareness in Schools in the Context of AI: A Systematic Review, 2015-2025",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P077,Optimizing Electrical Steel Characteristics through Weighted Aggregated Sum Product Assessment,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P078,Machine Learning-Driven Optimization of Chemical Synthesis Parameters for Antiviral Compounds,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P079,Emergence and growth of the use of assistants in remote education: A scientometric study (2015–2025),EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P080,Small-Scale Experiments: Are We There Yet?,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P081,Disentangling the Expressivity of RoPE,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P082,What Makes a Peer? Valuation-Anchored Similarity in Private Markets,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P083,Opening the black box: how EUD interfaces foster user agency and quality in generative phishing simulations,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P084,VibeLifeBench: Can Your Life Agent Be Proactive and Persistent in a Living World?,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P085,Evaluating AI Models' Capability to Automate Voice Phishing Attacks,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P086,An Empirical Evaluation of Prompt Injection Vulnerabilities in Large Language Models Across Multilingual and Obfuscated Attack Scenarios,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P087,Before You Hand Over the Wheel: Evaluating LLMs for Security Incident Analysis,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P088,Can You Tell It's AI? Human Perception of Synthetic Voices in Vishing Scenarios,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P089,ChatSpamDetector: Large Language Model-Based Phishing Email Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P090,A large language model-guided machinery fault diagnosis model based on multi-task prompt tuning and adaptive adversarial distillation,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P091,Prompt Coupling: Formalizing Cross-Model Prompt Dependencies in Large Language Model Systems,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P092,Misbehavior Detection in Internet of Vehicles: A Multi-Dimensional Survey,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P093,Let the Alerts Speak: LLM-Based IDS Alert Interpretation for SOC Triage,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P094,LLMs for Zero-Shot Threat Detection via Structured Risk Indicators,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P095,SwedTI: Evidence-Grounded Multi-source Web Threat Triage with Context-Aware Script Classification,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P096,CC-FIDS: a federated intrusion detection system with low false negative rates via category consensus and hierarchical filtering,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P097,Automated Relationship Extraction for Cyber-Attack Attribution: Relation-Annotated Dataset and Fine-Tuned Model,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P098,STINER: Automated Extraction of Strategic Cyber Threat Intelligence from X,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P099,Language Policy and the Power of Linguistic Dynamics in the Arab World,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P100,Artificial Intelligence and Machine Learning Approaches to Identifying Non-Standard Lexical Units in English and Russian Digital Media: A Comparative Corpus-Based Study,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P101,Student Engagement and Ethical Awareness in Generative Artificial Intelligence Use Among University Students,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P102,Agentic Artificial Intelligence for Information Fusion,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P103,Research on Generative AI-Driven Network Attack Sample Generation and Intelligent Detection Technology,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P104,Dual-Node NVIDIA DGX Spark over Tailscale: A Remote-Access Testbed for Distributed LLM Training and Cyber-Threat-Intelligence Fine-Tuning,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P105,Retrieval-Constrained Policy Optimization for Attack Technique Extraction from Cyber Threat Intelligence,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P106,Distilling Knowledge from Large Language Models into Lightweight Reinforcement Learning Agents for Autonomous Cyber Operations,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P107,Federated Lightweight Intrusion Detection in Drone Swarms with Knowledge Distillation,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P108,An LLM-based Chain-of-Response Counter-Scam System,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P109,Pen-Strategist: A Reasoning Framework for Penetration Testing Strategy Formation and Analysis,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P110,TIJERE: A Novel Threat Intelligence Joint Extraction Model Based on Analyst Expert Knowledge,EXCLUDE,EC-O: Unrelated domain (relation extraction)
+P111,Iterative Definition Refinement for Zero-Shot Classification via LLM-Based Semantic Prototype Optimization,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P112,DP-FlogTinyLLM: Differentially private federated log anomaly detection using Tiny LLMs,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P113,Detecting Fileless Cryptojacking in PowerShell Using AST-Enhanced CodeBERT Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P114,Minerva: Reinforcement Learning with Verifiable Rewards for Cyber Threat Intelligence LLMs,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P115,"CORTEX: A Threat Hunting Framework Integrating Semantic Log Distillation, Fine-Tuned BERT Classifiers, and Real-Time Threat Intelligence",EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P116,Context-Aware Acoustic Threat Detection Using a Partially Fine-Tuned Audio Spectrogram Transformer,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P117,A Zero-shot Foundation Model Approach for Real-time Adaptive Cyber Threat Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P118,Leveraging zero-shot learning for scalable and adaptive zero-day threat detection in cyber security,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P119,MIND-SHIELD: A Multi-Intelligence Deep Learning Framework for Hierarchical Threat Detection and Zero-shot Situational Intelligence Process,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P120,Adaptive Prompt Tuning: Vision Guided Prompt Tuning with Cross-Attention for Fine-Grained Few-Shot Learning,EXCLUDE,EC-O: Unrelated domain (vision guided prompt)
+P121,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P122,The Utility of Knowledge-Enhanced Prompt Tuning in ABSA for Few-Shot,EXCLUDE,EC-O: Unrelated domain (absa for few-shot)
+P123,Lora-Enhanced Llm Fine-Tuning With Legal Dataset Generation for Multi-Component Financial Extraction: Zero-Shot Vs Few-Shot Evaluation Framework for Gulf States Hr Benefits Calculation,EXCLUDE,EC-O: Unrelated domain (financial extraction)
+P124,The DeepSeek Prompt Library,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P125,Enhancing Business-Specific Phishing Chat Detection via Few-Shot Learning LLM Augmentation,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P126,A prompt tuning method based on relation graphs for few-shot relation extraction,EXCLUDE,EC-O: Unrelated domain (relation extraction)
+P127,Few-shot Fine-tuning of BERT Multilingual for Hindi Word Sense Disambiguation ,EXCLUDE,EC-O: Unrelated domain (hindi word sense)
+P128,Phishing Email Classification Using Few-Shot Learning with a Lightweight LLM (Llama 3.2),INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P129,Enhancing Few-Shot Transfer Learning with Optimized Multi-Task Prompt Tuning through Modular Prompt Composition,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P130,"Small Language Models for Phishing Website Detection: Cost, Performance, and Privacy Trade-Offs",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P131,AI Generated Text Detection Using Instruction Fine-tuned Large Language and Transformer-Based Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P132,"Evaluating Large Language Models for Phishing Detection, Self-Consistency, Faithfulness, and Explainability",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P133,Improving Phishing Email Detection Performance of Small Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P134,Training Large Language Models for Advanced Typosquatting Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P135,CyberLLMInstruct: A Pseudo-malicious Dataset Revealing Safety-performance Trade-offs in Cyber Security LLM Fine-tuning,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P136,Smishing Detection: Combating SMS Phishing Attacks by Utilizing Machine-Learning Algorithms,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P137,Bangalabarta: A Benchmark Dataset for Spam and Smishing SMS Detection in Mobile Communication,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P138,Few-Shot Object Detection Using Two Stage Fine Tuning Approach with Data Augmentation,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P139,A Hybrid NLP and Deep Learning Framework for Intelligent SMS Phishing (Smishing) Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P140,An Analysis of LLM Fine-Tuning and Few-Shot Learning for Flaky Test Detection and Classification,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P141,An Encoder-Integrated PhoBERT with Graph Attention for Vietnamese Token-Level Classification,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P142,"Bridging KAN and MLP: MJKAN, a Hybrid Architecture with Both Efficiency and Expressiveness",EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P143,NEU-ESC: A Comprehensive Vietnamese dataset for Educational Sentiment analysis and topic Classification toward multitask learning,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P144,Towards Cultural Bridge by Bahnaric-Vietnamese Translation Using Transfer Learning of Sequence-To-Sequence Pre-training Language Model,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P145,Investigating Recent Large Language Models for Vietnamese Machine Reading Comprehension,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P146,BERT-based model for Vietnamese Fact Verification Dataset,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P147,Towards Typologically Aware Rescoring to Mitigate Unfaithfulness in Lower-Resource Languages,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P148,Leveraging Large Language Models for Cybersecurity: Enhancing SMS Spam Detection with Robust and Context-Aware Text Classification,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P149,Expanding Vietnamese SentiWordNet to Improve Performance of Vietnamese Sentiment Analysis Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P150,Spam SMS Classification,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
+P151,SMS Spam Detection Using BERT and Multi-Graph Convolutional Networks,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P152,Phishing Email Detection Using Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P153,Trustworthiness Calibration Framework for Phishing Email Detection Using Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P154,"Robust ML-based Detection of Conventional, LLM-Generated, and Adversarial Phishing Emails Using Advanced Text Preprocessing",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P155,EvoMail: Self-Evolving Cognitive Agents for Adaptive Spam and Phishing Email Defense,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P156,Paladin: Defending LLM-enabled Phishing Emails with a New Trigger-Tag Paradigm,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P157,E-PhishGen: Unlocking Novel Research in Phishing Email Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P158,Talking Like a Phisher: LLM-Based Attacks on Voice Phishing Classifiers,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P159,PiMRef: Detecting and Explaining Ever-evolving Spear Phishing Emails with Knowledge Base Invariants,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P160,Optimizing Prompt Refinement: Algorithmic Strategies for Large Language Model-Based Text Classification,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P161,Email Phishing Detection Using BERT Large Language Model,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P162,Cacography based Ransomware Email Phishing Attack Prevention using Language Pack Tuned Transformer Language Model,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P163,Exploring Prompt and Model Variability in Large Language Model Interpretations of Intrusion Detection Data,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P164,Code Vulnerability Repair with Large Language Model Using Context-Aware Prompt Tuning,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P165,Prompt-Driven Requirements Engineering: Large-Language-Model Agents for Continuous Backlog Refinement,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P166,"Comparative Study of Zero-shot and Fine-tuned Vision Models--Evaluating CLIP, LiT, and Swin Transformer on Fine-grained Bird Classification",EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P167,Large Model Fine-tuning for Suicide Risk Detection Using Iterative Dual-LLM Few-Shot Learning with Adaptive Prompt Refinement for Dataset Expansion,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P168,Exploiting Classification of LLM with Zero-shot Prompt &amp; Fine-tuning,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P169,Untitled,EXCLUDE,EC-S: Non-standard record / Stub (< 4 pages)
+P170,Effective Text Adaptation For LLM-Based ASR Through Soft Prompt Fine-Tuning,EXCLUDE,EC-O: Unrelated domain (asr through soft prompt)
+P171,Q-Tuning: Queue-based Prompt Tuning for Lifelong Few-shot Language Learning,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P172,SU-FMI at SemEval-2024 Task 5: From BERT Fine-Tuning to LLM Prompt Engineering - Approaches in Legal Argument Reasoning,EXCLUDE,EC-O: Unrelated domain (legal argument reasoning)
+P173,Figure 9: Few-shot prompt-1.,EXCLUDE,EC-S: Non-standard record / Stub (< 4 pages)
+P174,PEEK: Phishing Evolution Framework for Phishing Generation and Evolving Pattern Analysis using Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P175,LLM App Squatting and Cloning,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P176,SecureNet: A Comparative Study of DeBERTa and Large Language Models for Phishing Detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P177,Transforming Computer Security and Public Trust Through the Exploration of Fine-Tuning Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P178,Genshin: General Shield for Natural Language Processing with Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P179,Generative AI in Cybersecurity: A Comprehensive Review of LLM Applications and Vulnerabilities,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P180,An Explainable Transformer-based Model for Phishing Email Detection: A Large Language Model Approach,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P181,Utilizing Large Language Models for Detection of Sms Spam in Few-Shot Settings,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P182,Multiclass Text Classification of Indonesian Short Message Service (SMS) Spam using Deep Learning Method and Easy Data Augmentation,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P183,Federated Learning for Vietnamese SMS Spam Detection Using Pre-trained PhoBERT,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P184,A novel SMS spam dataset and bi-directional transformer based short-text representations for SMS spam detection,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P185,From Feature-Enhanced Url Phishing Detection to Explainable Multi-Agent Email Phishing Detection Using Large Language Models,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P186,Evaluation of prompt engineering strategies for pharmacokinetic data analysis with the ChatGPT large language model,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P187,Prompt Tuning by Context Template Pool Optimisation for Vision-Language Model,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P188,StablePrompt : Automatic Prompt Tuning using Reinforcement Learning for Large Language Model,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P189,"Review for ""A Lightweight Framework With Knowledge Distillation for Zero-Shot Mars Scene Classification""",EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P190,ABSA for Chinese review with fine-tuned BERT and zero-shot classification,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P191,LM-CPPF: Paraphrasing-Guided Data Augmentation for Contrastive Prompt-Based Few-Shot Fine-Tuning,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P192,Cold-Start Data Selection for Better Few-shot Language Model Fine-tuning: A Prompt-based Uncertainty Propagation Approach,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P193,"An Improved Transformer-based Model for Detecting Phishing, Spam, and Ham: A Large Language Model Approach",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P194,"From Chatbots to PhishBots? -- Preventing Phishing scams created using ChatGPT, Google Bard and Claude",INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P195,Fine-Tuning Llama 2 Large Language Models for Detecting Online Sexual Predatory Chats and Abusive Texts,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P196,The Looming Threat of Fake and LLM-generated LinkedIn Profiles: Challenges and Opportunities for Detection and Prevention,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P197,Symmetric Fine-Tuning for Improving Few-Shot Object Detection,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P198,Incremental Few-Shot Object Detection via Simple Fine-Tuning Approach,EXCLUDE,IC-P: Does not target scam/phishing/spam text classification task
+P199,TransPrompt v2: Transferable Prompt-based Fine-tuning for Few-shot Text Classification,INCLUDE,"Satisfies Title & Abstract criteria (IC-P, IC-I, IC-Y, IC-L)"
+P200,Knowledge Injected Prompt Based Fine-tuning for Multi-label Few-shot ICD Coding,EXCLUDE,EC-O: Unrelated domain (icd coding)
+P201,Classification of Unwanted SMS Data (Spam) with Text Mining Techniques,EXCLUDE,IC-I: Does not use AI/NLP/LLM/PLM techniques
