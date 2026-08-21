@@ -35,7 +35,7 @@ P188,Optimizing Legal Workflows: A Cost-Performance Analysis of Fine-Tuned SLMs 
 P189,Cross-Platform Thai Intent Classification Using Hybrid TF-IDF and Sentence-BERT Fusion,EXCLUDE,Pending Title and Abstract screening review
 P191,VLM-APMatch: A Vision-Language Model Framework for Cross-Document Matching and Reconciliation in Accounts Payable,EXCLUDE,Pending Title and Abstract screening review
 P194,Research on Enterprise Data Classification and Grading Technology Based on Large Models,EXCLUDE,Pending Title and Abstract screening review
-P197,A Mixed-Language Transformer Encoder Architecture for Social Media Phishing: Vietnamese-English Case Study,EXCLUDE,Pending Title and Abstract screening review
+P197,A Mixed-Language Transformer Encoder Architecture for Social Media Phishing: Vietnamese-English Case Study,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
 P203,Parameter-Efficient Fine-Tuning vs Large Zero-Shot Language Models: A Controlled Cross-Task Evaluation of Performance and Efficiency,EXCLUDE,Pending Title and Abstract screening review
 P212,Evaluating LoRA Adaptation and Fine-Tuning for Multi-Class Adversarial Prompt Detection in Transformer Models,EXCLUDE,Pending Title and Abstract screening review
 P217,Enhanced Masking-Differential Prompting (MDP): Defending Backdoor Attacks for Pre-trained Language Models Under Few-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
@@ -186,10 +186,10 @@ P333,Towards Natural Language-Based Document Image Retrieval: New Dataset and Be
 P334,A Comparative Analysis of Transformer and Traditional ML Models for Cyberbullying Detection on Twitter (now X),EXCLUDE,Pending Title and Abstract screening review
 P336,Moral Decision-making with Artificial Intelligence,EXCLUDE,Pending Title and Abstract screening review
 P007,Enhancing SMS Classification with Ensemble Machine Learning Techniques,EXCLUDE,Pending Title and Abstract screening review
-P008,Uncovering SMS Spam in Swahili Text Using Deep Learning Approaches,EXCLUDE,Pending Title and Abstract screening review
+P008,Uncovering SMS Spam in Swahili Text Using Deep Learning Approaches,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
 P010,Performance Evaluation of Meta-data features for Spam SMS Classification using Sequential Models,EXCLUDE,Pending Title and Abstract screening review
 P011,Phishing Detection in Arabic SMS Messages using Natural Language Processing,EXCLUDE,Pending Title and Abstract screening review
-P013,On-Device Smishing Classifier Resistant to Text Evasion Attack,EXCLUDE,Pending Title and Abstract screening review
+P013,On-Device Smishing Classifier Resistant to Text Evasion Attack,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
 P017,Zero-Shot and Few-Shot Learning for Telugu News Classification: A Large Language Model Approach,EXCLUDE,Pending Title and Abstract screening review
 P018,Exploiting Classification of LLM with Zero-shot Prompt & Fine-tuning,EXCLUDE,Pending Title and Abstract screening review
 P019,Exploring Soft Prompt Initialization Strategy for Few-Shot Continual Text Classification,EXCLUDE,Pending Title and Abstract screening review
