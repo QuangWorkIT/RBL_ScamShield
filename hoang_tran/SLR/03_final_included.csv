@@ -1,16 +1,16 @@
 id,title,year,v2_decision,v2_reason
-P016,Resilient Semantic Threat Detection at the Edge: A Knowledge Distillation Framework for SMS Spam Classification,2026,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P022,Phishing GAT: Adversarial-Hardened Phishing Email Detection via Semantic-Structural Fusion and Graph Attention Networks,2026,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P029,A Lightweight Defense Mechanism against Next Generation of Phishing Emails using Distilled Attention-Augmented BiLSTM,2026,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P030,Agentic Knowledge Distillation: Autonomous Training of Small Language Models for SMS Threat Detection,2026,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P031,Diagnosing Generalization Failures in Fine-Tuned LLMs: A Cross-Architectural Study on Phishing Detection,2026,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P121,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",2025,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P125,Enhancing Business-Specific Phishing Chat Detection via Few-Shot Learning LLM Augmentation,2025,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P128,Phishing Email Classification Using Few-Shot Learning with a Lightweight LLM (Llama 3.2),2025,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P130,"Small Language Models for Phishing Website Detection: Cost, Performance, and Privacy Trade-Offs",2025,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P132,"Evaluating Large Language Models for Phishing Detection, Self-Consistency, Faithfulness, and Explainability",2025,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P133,Improving Phishing Email Detection Performance of Small Large Language Models,2025,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P176,SecureNet: A Comparative Study of DeBERTa and Large Language Models for Phishing Detection,2024,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P180,An Explainable Transformer-based Model for Phishing Email Detection: A Large Language Model Approach,2024,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P193,"An Improved Transformer-based Model for Detecting Phishing, Spam, and Ham: A Large Language Model Approach",2023,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
-P199,TransPrompt v2: Transferable Prompt-based Fine-tuning for Few-shot Text Classification,2022,INCLUDE,Satisfies IC-E with full empirical evaluation metrics for ScamShield benchmark
+P001,QuishingShield: on-device multi-modal detection of quick response phishing,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P002,"Artificial Intelligence for Real-Time Cyber Threat Classification and Emerging Threat Detection: A Structured Review of Methods, Datasets, Challenges, and Research Directions",2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P004,Semantic information from smashed data: text reconstruction attack on phishing detection models in split learning,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P008,Prompt Injection as an Architecture-Specific Attack Surface: Comparing LLM-Based and Traditional ML Spam Classifiers Under Adversarial Conditions,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P017,Resilient Semantic Threat Detection at the Edge: A Knowledge Distillation Framework for SMS Spam Classification,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P019,Phishing GAT: Adversarial-Hardened Phishing Email Detection via Semantic-Structural Fusion and Graph Attention Networks,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P020,Breaking and Defending LLM-Powered Social Media Bot Detection Systems †,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P021,"Artificial Intelligence-Based Multi-Layer Cyber Threat Detection System: Phishing, Real-Time Analysis and Digital Forensics Approach",2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P022,A novel hybrid model for identifying the most informative instances for improving text data classification,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P053,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",2025,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P061,Fine-Tuning LLMs for Operational Phishing Email Detection,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P068,A Method for SMS Spam Message Detection Using Machine Learning,2023,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P077,RefusalGuard-M: a scalable human–machine framework for multi-turn LLM jailbreak evaluation via semantic refusal manifold modeling,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P089,TARA: Task-Adaptive Rank Allocation for Efficient Large Language Model Fine-Tuning in Geo-Information Text Classification,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
+P090,Balancing innovation and rigor at the World Bank Independent Evaluation Group,2026,INCLUDE,Satisfies IC-E with verified working DOI/URL and empirical evaluation metrics
