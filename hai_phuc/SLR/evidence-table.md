@@ -1,7 +1,7 @@
 # Evidence Table
 
 > **Project:** ScamShield Research Intelligence  
-> **Researcher:** Hai Phuc  
+> **Researcher:** Hoang Hai Phuc  
 > **Extraction Date:** `2026-08-23`  
 > **Zero Data Fabrication Policy:** Compliant with PRISMA 2020 & RBL Research Guidelines. 100% Verified Working URLs.
 

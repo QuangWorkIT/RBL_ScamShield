@@ -1,5 +1,6 @@
 # PRISMA Flow
 
+```text
 [Paper từ database search (N = 521)]
         ↓
 [Sau dedup (N = 458)]
@@ -11,3 +12,4 @@
 [Loại V2 (N = 9): EC5=9]
         ↓
 [Final included (N = 9)]
+```
