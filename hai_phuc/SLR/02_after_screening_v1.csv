@@ -1,337 +1,461 @@
 id,title,include_status,screening_rationale
-P015,A Finite-State Machine (FSM)-Based Approach for Detecting SMS Phishing,EXCLUDE,Pending Title and Abstract screening review
-P021,Zero-Shot Environmental Sustainability Text Classification Based on an Adapted Bechdel Test Using LLMs,EXCLUDE,Pending Title and Abstract screening review
-P022,In-Context Example Selection for Few-Shot Text Classification in 5G Security Text Using LLM,EXCLUDE,Pending Title and Abstract screening review
-P045,Zero-Shot Prompting for SMS Spam Detection using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P046,Prompt Engineering Strategies for Automated Software Requirements Classification,EXCLUDE,Pending Title and Abstract screening review
-P053,Adaptive Boosting LLMs for Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P055,Explainable AI for Mental Health Detection from Social Media: A Comparative Study of Traditional Machine Learning and a Large Language Model,EXCLUDE,Pending Title and Abstract screening review
-P058,TEAMMix: Taxonomy Enrichment Augmentation and Minority-augmented Mixing Strategy for LLM-enhanced Weak-Supervised Hierarchical Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P081,Comparison of Traditional Machine Learning Models and Large Language Models for Multi-Label Text Classification on X (Twitter),EXCLUDE,Pending Title and Abstract screening review
-P091,Toward Zero-Shot Multi-Label Identification of Attack Techniques: Enhancing LLM Reasoning With Semantic Evidence Discovery,EXCLUDE,Pending Title and Abstract screening review
-P094,Benchmarking DeepSeek R1-MoDCE: A Contrastive Pretraining Approach for Language Models,EXCLUDE,Pending Title and Abstract screening review
-P097,LLM is Not All You Need: A Systematic Evaluation of ML vs. Foundation Models for text and image based Medical Classification,EXCLUDE,Pending Title and Abstract screening review
-P100,Evaluating Large Language Models on Named Entity Recognition,EXCLUDE,Pending Title and Abstract screening review
-P101,Inner-Probe: Discovering Copyright-Related Data Generation in LLM Architecture,EXCLUDE,Pending Title and Abstract screening review
-P102,From Raw to Synthetic: Evaluating LLM-Based Data Augmentation for Sentiment Analysis,EXCLUDE,Pending Title and Abstract screening review
-P103,Semantic Alignment and Output Constrained Generation for Reliable LLM-based Classification,EXCLUDE,Pending Title and Abstract screening review
-P112,LLM-PEA: Leveraging Large Language Models Against Phishing Email Attacks,EXCLUDE,Pending Title and Abstract screening review
-P116,Security Bug Report Classification: A Comparative Study of Convolutional Neural Networks and Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P120,Charting the Unspoken: Causal Inference-Guided LLM Augmentation for Emotion Recognition in Conversation,EXCLUDE,Pending Title and Abstract screening review
-P133,Literate Programming With LLMs? — A Study on Rosetta Code and CodeNet,EXCLUDE,Pending Title and Abstract screening review
-P134,Enhancing Psychological Assessments With Open-Ended Questionnaires and Large Language Models: An ASD Case Study,EXCLUDE,Pending Title and Abstract screening review
-P136,BioNarrator-LLM: A Retrieval-Augmented Framework for Interpreting Simulated Sensor Data into Explainable Biological Insights,EXCLUDE,Pending Title and Abstract screening review
-P138,AI-Assisted Forensic Triage of Multilingual Online Gaming Chats Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P146,Parallel Hybrid Classical-Quantum Architecture for AI Safety and LLM Jailbreak Detection,EXCLUDE,Pending Title and Abstract screening review
-P147,Ensembles of Large Language Models for Identifying EQ-5D Studies in Pubmed Based on their Abstracts,EXCLUDE,Pending Title and Abstract screening review
-P148,Protecting Your Customized LLM Systems From Backdoored Instructions With Metacognitive Probing,EXCLUDE,Pending Title and Abstract screening review
-P149,"Response-Only Adversarial Detection of LLM Outputs: A Comparative Study of Lexical, Contrastive, and Contextual Representations",EXCLUDE,Pending Title and Abstract screening review
-P162,AGRAG: Advanced Graph-Based Retrieval-Augmented Generation for LLMs,EXCLUDE,Pending Title and Abstract screening review
-P174,Enhancing Indonesian Sentiment Analysis via LLM Driven Sarcasm Detection and Ensemble Learning,EXCLUDE,Pending Title and Abstract screening review
-P178,SIRA: A Semantic LLM-Based Agent for Interpreting and Detecting Vishing Attacks,EXCLUDE,Pending Title and Abstract screening review
-P179,Detecting Obstetric Violence Tweets from Mexico: Annotation Guidelines and Classification with LLMs,EXCLUDE,Pending Title and Abstract screening review
-P181,"Comparative Study of Machine Learning, Transformer, and Generative Models for Sentiment Analysis",EXCLUDE,Pending Title and Abstract screening review
-P188,Optimizing Legal Workflows: A Cost-Performance Analysis of Fine-Tuned SLMs vs. LLMs for Document Classification,EXCLUDE,Pending Title and Abstract screening review
-P189,Cross-Platform Thai Intent Classification Using Hybrid TF-IDF and Sentence-BERT Fusion,EXCLUDE,Pending Title and Abstract screening review
-P191,VLM-APMatch: A Vision-Language Model Framework for Cross-Document Matching and Reconciliation in Accounts Payable,EXCLUDE,Pending Title and Abstract screening review
-P194,Research on Enterprise Data Classification and Grading Technology Based on Large Models,EXCLUDE,Pending Title and Abstract screening review
-P197,A Mixed-Language Transformer Encoder Architecture for Social Media Phishing: Vietnamese-English Case Study,EXCLUDE,Pending Title and Abstract screening review
-P203,Parameter-Efficient Fine-Tuning vs Large Zero-Shot Language Models: A Controlled Cross-Task Evaluation of Performance and Efficiency,EXCLUDE,Pending Title and Abstract screening review
-P212,Evaluating LoRA Adaptation and Fine-Tuning for Multi-Class Adversarial Prompt Detection in Transformer Models,EXCLUDE,Pending Title and Abstract screening review
-P217,Enhanced Masking-Differential Prompting (MDP): Defending Backdoor Attacks for Pre-trained Language Models Under Few-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
-P220,Enhancing Cyber Threat Intelligence Using Transformer Models for Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P221,Enhancing Text-Based Deepfake Detection: A Comprehensive Evaluation of LoRA Fine-Tuned Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P230,Do We Still Need Fine Tuning? Turkish Sentiment Analysis in the Era of Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P236,An Empirical Study of App Review Classification Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P245,A Proposed Model for Arabic Fake Reviews Detection using Fine-Tuned BERT and LLMs,EXCLUDE,Pending Title and Abstract screening review
-P258,Transformer-Based Zero-Shot Learning for Robust and Scalable Product Classification,EXCLUDE,Pending Title and Abstract screening review
-P263,Privacy-Enhanced Federated Prompt Tuning Against Backdoor Attack,EXCLUDE,Pending Title and Abstract screening review
-P270,One Size Does Not Fit All: Exploring Variable Thresholds for Distance-Based Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P276,Fine-Tuned Vs Prompted Models for Emotion Detection: A Robustness and Slice-Based Study,EXCLUDE,Pending Title and Abstract screening review
-P278,Adaptive Multimodal Deepfake Detection for Social Media: Robust Fusion of Textual and Visual Artifact,EXCLUDE,Pending Title and Abstract screening review
-P297,Zero-Shot vs. Supervised: Evaluating Multilingual LLMs for 3R Content Moderation in Malaysia,EXCLUDE,Pending Title and Abstract screening review
-P300,Token-Invariant Contrastive Pretraining for Robust Domain Adaptation in Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P302,GLiNER-Reg: Generalized text regression using reference prompts,EXCLUDE,Pending Title and Abstract screening review
-P303,Evaluation of Open-Source Encoder-only Multilingual Small Language Models for Low-Resource Bengali Language,EXCLUDE,Pending Title and Abstract screening review
-P314,Prompt-Based Emotion Detection and Story Generation,EXCLUDE,Pending Title and Abstract screening review
-P323,Using Small Language Models to Measure Nursing Key Performance Indicators From Patient Stories,EXCLUDE,Pending Title and Abstract screening review
-P001,BantayText: Machine Learning-Based Detection of Scam SMS in the Philippines,EXCLUDE,Pending Title and Abstract screening review
-P002,Detection of Smishing and Vishing attacks using Deep Learning techniques,EXCLUDE,Pending Title and Abstract screening review
-P003,A Hybrid NLP and Deep Learning Framework for Intelligent SMS Phishing (Smishing) Detection,EXCLUDE,Pending Title and Abstract screening review
-P004,An Empirical study of Short Messaging Service - Smishing Detection using Machine Learning Algorithms,EXCLUDE,Pending Title and Abstract screening review
-P005,AI-Driven Smishing Detection in Android Devices Using TinyBERT and Aquila Optimization,EXCLUDE,Pending Title and Abstract screening review
-P006,Smishing Detection Using Fine-Tuned BERT,EXCLUDE,Pending Title and Abstract screening review
-P009,SMSHIELD: A Real-Time Smishing Detection in Mobile Messaging Systems using Deep Learning Approach,EXCLUDE,Pending Title and Abstract screening review
-P020,Few-Shot and Zero-Shot Classification with Large Language Models: A Comparative Study,EXCLUDE,Pending Title and Abstract screening review
-P023,Evaluating Zero-Shot and Few-Shot Learning on the Turkish Massive Multitask Language Understanding Dataset,EXCLUDE,Pending Title and Abstract screening review
-P026,A Unified System with Large Language Model for Hierarchical Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P027,PRECISION: A Structured Prompting Framework for Optimizing Large Language Model Interactions,EXCLUDE,Pending Title and Abstract screening review
-P028,Comparing Few-Shot Prompting and Machine Learning Models for Multi-Class Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P030,A Rapid Construction Method for a Knowledge Graph of Relay Protection Operation Management Based on Prompt Engineering,EXCLUDE,Pending Title and Abstract screening review
-P031,Asymmetric Siamese Network with Large Language Model Enhancement for Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P034,Exploiting the Randomness of Large Language Models (LLM) in Text Classification Tasks: Locating Privileged Documents in Legal Matters,EXCLUDE,Pending Title and Abstract screening review
-P036,Leveraging Large Language Models for Zero-Shot Classification of Psychiatric Diseases,EXCLUDE,Pending Title and Abstract screening review
-P039,A Prompt Engineering Methodology for Evaluating Large Language Models in Academic Processes,EXCLUDE,Pending Title and Abstract screening review
-P040,Optimizing Multi-Class Text Classification with Hierarchical Label Filtering and Label Order Analysis,EXCLUDE,Pending Title and Abstract screening review
-P042,Ensembling Multiple Prompting Strategies with Role-Based Reasoning for Bloom's Taxonomy Classification,EXCLUDE,Pending Title and Abstract screening review
-P043,Is This the Best Prompt? Scoring Prompts for Arabic NLP Across LLMs,EXCLUDE,Pending Title and Abstract screening review
-P044,GMCoT: A Graph-Augmented Multimodal Chain-of-Thought Reasoning Framework for Multi-Label Zero-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
-P047,Evaluation of the Automated Labeling Method for Taxonomic Nomenclature Through Prompt-Optimized Large Language Model,EXCLUDE,Pending Title and Abstract screening review
-P048,LLM-Powered Customer Segmentation for E-Commerce Dynamic Pricing,EXCLUDE,Pending Title and Abstract screening review
-P049,AugGPT: Leveraging ChatGPT for Text Data Augmentation,EXCLUDE,Pending Title and Abstract screening review
-P050,Improving LLM's Response with a New Prompt Framework RCFOR,EXCLUDE,Pending Title and Abstract screening review
-P051,Dual-Sided Adaptive Prompt Learning for Low-Resource Short Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P054,Cybersecurity Text Classification: Challenging the Perceived Superiority of LLMs Over Conventional Machine Learning,EXCLUDE,Pending Title and Abstract screening review
-P057,Annotation Guideline-Based Knowledge Augmentation: Toward Enhancing Large Language Models for Educational Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P059,Metaphors as Semantic Anchors: A Label-Constrained Contrastive Learning Approach for Chinese Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P061,LLM Based Bayesian Optimization for Prompt Search,EXCLUDE,Pending Title and Abstract screening review
-P063,GIELLM: Japanese General Information Extraction Large Language Model Utilizing Mutual Reinforcement Effects,EXCLUDE,Pending Title and Abstract screening review
-P064,Assessing the capabilities of MBERT And Flan-T5 in detecting of multilingual suspicious messages,EXCLUDE,Pending Title and Abstract screening review
-P065,Improving E-Commerce Product Classification via Few-Shot Learning of Gemma2:2B,EXCLUDE,Pending Title and Abstract screening review
-P066,ClassiED: Improving Zero-Shot Event Detection by Reducing LLM Hallucination,EXCLUDE,Pending Title and Abstract screening review
-P069,Zero-Shot Classification of Art With Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P071,Zero-Shot Prediction of Conversational Derailment With Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P072,Transformers in Action,EXCLUDE,Pending Title and Abstract screening review
-P076,Text2Graph: Combining Lightweight LLMs and GNNs for Efficient Text Classification in Label-Scarce Scenarios,EXCLUDE,Pending Title and Abstract screening review
-P077,A Large Language Model Approach for In-Depth Qualitative Text Analysis,EXCLUDE,Pending Title and Abstract screening review
-P078,"Evaluating the Performance of AI Text Detectors, Few-Shot and Chain-of-Thought Prompting Using DeepSeek-Generated Text",EXCLUDE,Pending Title and Abstract screening review
-P080,Calibrating MLLM-as-a-judge via Multimodal Bayesian Prompt Ensembles,EXCLUDE,Pending Title and Abstract screening review
-P082,Few-Shot Human Activity Recognition Using Lightweight Language Models,EXCLUDE,Pending Title and Abstract screening review
-P083,Prompt Inject Detection with Generative Explanation as an Investigative Tool,EXCLUDE,Pending Title and Abstract screening review
-P084,LLM Teacher-Student Framework for Text Classification With No Manually Annotated Data: A Case Study in IPTC News Topic Classification,EXCLUDE,Pending Title and Abstract screening review
-P085,Prompt Engineering-Assisted Malware Dynamic Analysis Using GPT-4,EXCLUDE,Pending Title and Abstract screening review
-P086,Enhancing Small Model Performance in Educational Classification Tasks through Knowledge Distillation,EXCLUDE,Pending Title and Abstract screening review
-P088,A Large Language Model Based on the Retrieval-Augmented Generation and Prompt-Tuning Framework,EXCLUDE,Pending Title and Abstract screening review
-P090,Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference,EXCLUDE,Pending Title and Abstract screening review
-P098,Adapting Knowledge Prompt Tuning for Enhanced Automated Program Repair,EXCLUDE,Pending Title and Abstract screening review
-P104,AI Generated Text Detection using LORA based fine-tuning of LLM Models,EXCLUDE,Pending Title and Abstract screening review
-P105,A Novel GNN-based Approach for Detection of Prompt Injection Attacks,EXCLUDE,Pending Title and Abstract screening review
-P106,Comparative Analysis of Token Classification and Zero-Shot LLM Approaches for Named Entity Recognition in the Business Domain,EXCLUDE,Pending Title and Abstract screening review
-P108,Automatic Construction Accident Report Analysis Using Large Language Models (LLMs),EXCLUDE,Pending Title and Abstract screening review
-P109,"Divide, Cache, Conquer: Dichotomic Prompting for Efficient Multi-Label LLM-Based Classification",EXCLUDE,Pending Title and Abstract screening review
-P110,SarcasmBench: Towards Evaluating Large Language Models on Sarcasm Understanding,EXCLUDE,Pending Title and Abstract screening review
-P114,Research on Recognition of Emotional Support Behavior in Classroom Based on Teachers' Verbal and its Application,EXCLUDE,Pending Title and Abstract screening review
-P117,Adaptive Test Healing using LLM/GPT and Reinforcement Learning,EXCLUDE,Pending Title and Abstract screening review
-P118,Phishing Email Detection Using Large Language Models: A Comparative Analysis of Standalone and Retrieval Augmented Generation Models,EXCLUDE,Pending Title and Abstract screening review
-P119,MCP-Orchestrated Multi-Agent System for Automated Disinformation Detection,EXCLUDE,Pending Title and Abstract screening review
-P122,Classifying Segments to Be Translated or Transliterated,EXCLUDE,Pending Title and Abstract screening review
-P123,Exploring N-Shot Learning Approaches in Generative Large Language Models for the Serbian Language,EXCLUDE,Pending Title and Abstract screening review
-P125,Classification of Greek News Articles by Text Type Using Open Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P126,Feature Extraction and Compliance Classification of Text Files Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P130,Optimized Story Generation using DeepSeek LLM with Supervised Fine-Tuning,EXCLUDE,Pending Title and Abstract screening review
-P132,AllHands :Ask Me Anything on Large-scale Verbatim Feedback via Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P135,Are LLMs Really Underperforming in Stance Detection? Identifying Patterns of Challenging Instances in Zero-Shot Stance Detection,EXCLUDE,Pending Title and Abstract screening review
-P137,CDE-CCL: A Classroom Dialogue Evaluation Framework for Chinese Core Literacy via LLM,EXCLUDE,Pending Title and Abstract screening review
-P139,Prompting the Priorities: Evaluating LLMs for Organization-Specific Vulnerability Prioritization,EXCLUDE,Pending Title and Abstract screening review
-P141,Adapting Generative LLMs for High-Accuracy Online Grooming Detection,EXCLUDE,Pending Title and Abstract screening review
-P143,Automated Criterion-Based Thai Text Evaluation with Rationale and Improvement Guidance Using LLMs,EXCLUDE,Pending Title and Abstract screening review
-P150,Utilization of Large Language Models for NER Tasks with Synonym-Based Text Generation in Health News Classification,EXCLUDE,Pending Title and Abstract screening review
-P151,Compromising LLM Driven Embodied Agents With Contextual Backdoor Attacks,EXCLUDE,Pending Title and Abstract screening review
-P152,Investigating the Impact of Japanese Names and Japanese Prompts on Social Bias in Hiring Decisions Using LLMs,EXCLUDE,Pending Title and Abstract screening review
-P153,A Chain of Diagnosis Framework for Accurate and Explainable Radiology Report Generation,EXCLUDE,Pending Title and Abstract screening review
-P154,Weaving Embeddings: A Fine-Tune-Free LLM Fusion Framework for Efficient Health and Safety Text Analysis,EXCLUDE,Pending Title and Abstract screening review
-P158,A Vision-Language Career Chatbot with LLAMA and Explainable AI for Transparent Job Matching under Hallucination Mitigation Approaches,EXCLUDE,Pending Title and Abstract screening review
-P160,Assessing Methods to Categorize Questions According to Cognitive Level based on Blooms Taxonomy: Constraints and Future Direction,EXCLUDE,Pending Title and Abstract screening review
-P165,Zero-Shot Knowledge Graphs from Handwritten Notes with LLMs and OCR,EXCLUDE,Pending Title and Abstract screening review
-P168,Legal Query RAG,EXCLUDE,Pending Title and Abstract screening review
-P170,Synthetic Data Generation Using Large Language Models: Advances in Text and Code,EXCLUDE,Pending Title and Abstract screening review
-P172,"RAG Powered LLMs for QA: Evolution, Challenges, Applications, and Future Directions",EXCLUDE,Pending Title and Abstract screening review
-P176,"M4SC: An MLLM-Based Multi-Modal, Multi-Task and Multi-User Semantic Communication System",EXCLUDE,Pending Title and Abstract screening review
-P177,Synthetic Text Data Generation from LLMs for Knockoff Model Training in Sentiment Analysis,EXCLUDE,Pending Title and Abstract screening review
-P180,Integrihire: Combating Online Recruitment Scams with Groq-Powered Intelligence,EXCLUDE,Pending Title and Abstract screening review
-P182,Leveraging Synthetic Data and LLMs for Sarcasm Detection,EXCLUDE,Pending Title and Abstract screening review
-P184,Beyond Black Boxes: Implementing Recommender Systems That Generate Trust for Decision-Making in Sensitive Business Areas,EXCLUDE,Pending Title and Abstract screening review
-P185,Using Large Language Models for Cyber Threat News Prioritization,EXCLUDE,Pending Title and Abstract screening review
-P192,Explaining Pre-Trained Language Models in the Context of Higher Education,EXCLUDE,Pending Title and Abstract screening review
-P196,LLMs-Integrated Automatic Hate Speech Recognition Using Controllable Text Generation Models,EXCLUDE,Pending Title and Abstract screening review
-P198,Anomaly Detection in Digital Payment Transactions,EXCLUDE,Pending Title and Abstract screening review
-P202,Prompt-Guided Few-Shot Hierarchical Text Classification via Example Retrieval and Structured Decoding,EXCLUDE,Pending Title and Abstract screening review
-P205,Application of LoRA-Drop in Few-Shot Chinese Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P206,Towards Robust Few-Shot Text Classification Using Transformer Architectures and Dual Loss Strategies,EXCLUDE,Pending Title and Abstract screening review
-P215,A Comparative Study of Task Adaptation Techniques of Large Language Models for Identifying Sustainable Development Goals,EXCLUDE,Pending Title and Abstract screening review
-P219,Comprehensive Study on Zero-Shot Text Classification Using Category Mapping,EXCLUDE,Pending Title and Abstract screening review
-P227,Fine-Tuning Techniques for Large Language Models: A Comprehensive survey,EXCLUDE,Pending Title and Abstract screening review
-P234,Do LLMs Understand Environmental Discourse? Benchmarking Zero-Shot Performance in Solving Eco-Related Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P235,Overcoming Data Scarcity: Guiding Citation Function Classification With Prompt-Based Few-Shot Learning,EXCLUDE,Pending Title and Abstract screening review
-P238,Combating Misinformation: A Comparative Evaluation of Zero-Shot Models for Fake News Detection,EXCLUDE,Pending Title and Abstract screening review
-P241,Convert Cross-Domain Classification Into Few-Shot Learning: A Unified Prompt-Tuning Framework for Unsupervised Domain Adaptation,EXCLUDE,Pending Title and Abstract screening review
-P243,LDFS: LLMs with Dynamic Few-Shot for Offensive Language Detection,EXCLUDE,Pending Title and Abstract screening review
-P244,Comparative Analysis of Gemini and LLaMA 3 for Zero-Shot Emotion Classification of Indonesian Texts,EXCLUDE,Pending Title and Abstract screening review
-P249,Why Lift so Heavy? Slimming Large Language Models by Cutting Off the Layers,EXCLUDE,Pending Title and Abstract screening review
-P251,Improved Cervical Cancer Classification using Generative AI and Language Models,EXCLUDE,Pending Title and Abstract screening review
-P252,Detecting AI-Generated Paraphrases in Bengali: A Comparative Study of Zero-Shot and Fine-Tuned Transformers,EXCLUDE,Pending Title and Abstract screening review
-P256,Setfit for Automated Essay Scoring: Extending Longformer to a Sentence Transformer,EXCLUDE,Pending Title and Abstract screening review
-P257,Use of large language models to classify failure modes in damage notifications from transmission systems,EXCLUDE,Pending Title and Abstract screening review
-P260,Evaluation of ChatGPT as a Classification Model to Detect Prostitution Sentences in SNS,EXCLUDE,Pending Title and Abstract screening review
-P266,A Comprehensive Overview and Analysis of Large Language Models: Trends and Challenges,EXCLUDE,Pending Title and Abstract screening review
-P277,Beyond Words: Augmenting Discriminative Richness via Diffusions in Unsupervised Prompt Learning,EXCLUDE,Pending Title and Abstract screening review
-P281,Cross-Lingual Sentiment Analysis Using Pre-Trained Transformer Models for Multilingual Social Media Data,EXCLUDE,Pending Title and Abstract screening review
-P284,Multi-Stage Retriever Model for Document Classification Using Fine Tuned Embedding Model,EXCLUDE,Pending Title and Abstract screening review
-P285,Overcoming Dataset Imbalances and Computational Challenges in IoT Intrusion Detection: A SMOTE-Enhanced Transformer-Based Model,EXCLUDE,Pending Title and Abstract screening review
-P286,From Sample Generation to Efficacy Transfer: Optimization of Privacy-Preserving LLMs for Content Moderation,EXCLUDE,Pending Title and Abstract screening review
-P289,General LLMs Versus Fine-Tuned Models on Algerian Dialect Classification Tasks,EXCLUDE,Pending Title and Abstract screening review
-P292,"Text Classification for Cultural Heritage Corpora: A Review of Methods, Datasets, and Benchmarks",EXCLUDE,Pending Title and Abstract screening review
-P294,A Survey on Large Language Models in Phishing Detection,EXCLUDE,Pending Title and Abstract screening review
-P295,Boosting Arabic Emotion Detection: Transformer Ensembles with Soft Voting,EXCLUDE,Pending Title and Abstract screening review
-P296,JailbreakTracer: Explainable Detection of Jailbreaking Prompts in LLMs Using Synthetic Data Generation,EXCLUDE,Pending Title and Abstract screening review
-P307,Hybrid Transformer-RNN Model for Classification of Indonesian Regional Language,EXCLUDE,Pending Title and Abstract screening review
-P308,Optimizing Social Media Sentiment Analysis: RoBERTa Framework for Evaluating Public Perception of DeepSeek,EXCLUDE,Pending Title and Abstract screening review
-P313,Auspex: Building Threat Modeling Tradecraft into an Artificial Intelligence-Based Copilot,EXCLUDE,Pending Title and Abstract screening review
-P318,Developing Natural Language Processing Model using Git and GPT,EXCLUDE,Pending Title and Abstract screening review
-P320,Sentiment-Enhanced Opinion Sentence Recognition Using AgriBERT-SentiDPCNN and Multi-Opinion Summarization via LLMs for Agricultural Scientific Literature,EXCLUDE,Pending Title and Abstract screening review
-P327,AI-Generated Text Detection Using RoBERTa: A Generalizability and Explainability Analysis,EXCLUDE,Pending Title and Abstract screening review
-P330,Evaluating the Portability of BERT-based Misinformation Detection from Twitter to Bluesky,EXCLUDE,Pending Title and Abstract screening review
-P331,Leveraging Large Language Models to Build Computationally Efficient Models for Sustainable Finance Investment Decision Support,EXCLUDE,Pending Title and Abstract screening review
-P333,Towards Natural Language-Based Document Image Retrieval: New Dataset and Benchmark,EXCLUDE,Pending Title and Abstract screening review
-P334,A Comparative Analysis of Transformer and Traditional ML Models for Cyberbullying Detection on Twitter (now X),EXCLUDE,Pending Title and Abstract screening review
-P336,Moral Decision-making with Artificial Intelligence,EXCLUDE,Pending Title and Abstract screening review
-P007,Enhancing SMS Classification with Ensemble Machine Learning Techniques,EXCLUDE,Pending Title and Abstract screening review
-P008,Uncovering SMS Spam in Swahili Text Using Deep Learning Approaches,EXCLUDE,Pending Title and Abstract screening review
-P010,Performance Evaluation of Meta-data features for Spam SMS Classification using Sequential Models,EXCLUDE,Pending Title and Abstract screening review
-P011,Phishing Detection in Arabic SMS Messages using Natural Language Processing,EXCLUDE,Pending Title and Abstract screening review
-P013,On-Device Smishing Classifier Resistant to Text Evasion Attack,EXCLUDE,Pending Title and Abstract screening review
-P017,Zero-Shot and Few-Shot Learning for Telugu News Classification: A Large Language Model Approach,EXCLUDE,Pending Title and Abstract screening review
-P018,Exploiting Classification of LLM with Zero-shot Prompt & Fine-tuning,EXCLUDE,Pending Title and Abstract screening review
-P019,Exploring Soft Prompt Initialization Strategy for Few-Shot Continual Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P024,Evaluating LLM Prompts for Data Augmentation in Multi-Label Classification of Ecological Texts,EXCLUDE,Pending Title and Abstract screening review
-P029,Leveraging Few-Shot Learning in Generative AI for UPI Transaction Classification,EXCLUDE,Pending Title and Abstract screening review
-P032,A Framework for Categorizing Complaint Text via Large Language Model,EXCLUDE,Pending Title and Abstract screening review
-P033,Experimental Study of In-Context Learning for Text Classification and Its Application to Legal Document Review in Construction Delay Disputes,EXCLUDE,Pending Title and Abstract screening review
-P035,Application of Large Language Model and In-Context Learning for Aviation Safety Prediction,EXCLUDE,Pending Title and Abstract screening review
-P037,A Scene-Aware Prompt Template of Chinese Text Data Augmentation Method Based on Large Language Model,EXCLUDE,Pending Title and Abstract screening review
-P038,Prompt Engineering to Classify Components of Standard Operating Procedure Steps Using Large Language Model (LLM)-Based Chatbots,EXCLUDE,Pending Title and Abstract screening review
-P052,"Leveraging Biases in Large Language Models: ""bias-kNN"" for Effective Few-Shot Learning",EXCLUDE,Pending Title and Abstract screening review
-P056,Poster: Exploring Explainability Techniques for Large Language Model Classification Predictions,EXCLUDE,Pending Title and Abstract screening review
-P062,WHW: An Efficient Data Organization Method for Fine-tuning Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P068,Large Model-Based Data Augmentation for Imbalanced Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P070,Exploring Radiology Reports of Brain Cancer Patients Using the Advanced Large Language Model ChatGPT,EXCLUDE,Pending Title and Abstract screening review
-P073,Adaptable and Reliable Text Classification using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P074,Exploring Multi-Label Data Augmentation for LLM Fine-Tuning and Inference in Requirements Engineering: A Study with Domain Expert Evaluation,EXCLUDE,Pending Title and Abstract screening review
-P075,POQC: Prompt-Optimized Model for Question Classification Using LLM-Based Data Augmentation,EXCLUDE,Pending Title and Abstract screening review
-P079,Conditional Label Smoothing For LLM-Based Data Augmentation in Medical Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P087,A Step Towards Modern Disinformation Detection: Novel Methods for Detecting LLM-Generated Text,EXCLUDE,Pending Title and Abstract screening review
-P089,Enhanced Discriminative Fine-Tuning of Large Language Models for Chinese Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P092,ZDDR: A Zero-Shot Defender for Adversarial Samples Detection and Restoration,EXCLUDE,Pending Title and Abstract screening review
-P095,MLLMIE: Multiple Large Language Model Information Extraction in Ancient Medical Texts,EXCLUDE,Pending Title and Abstract screening review
-P096,LLM-Based Digital Twin Water Conservancy Knowledge Graph Construction,EXCLUDE,Pending Title and Abstract screening review
-P099,Interactive Rubric Generator for Instructor's Assessment Using Prompt Engineering and Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P107,LLM Chain Ensembles for Scalable and Accurate Data Annotation,EXCLUDE,Pending Title and Abstract screening review
-P111,How Reliable AI Chatbots are for Disease Prediction from Patient Complaints?,EXCLUDE,Pending Title and Abstract screening review
-P113,Character-level Adversarial Attacks Evaluation for AraBERT’s,EXCLUDE,Pending Title and Abstract screening review
-P115,Prompt-Based Generation Strategy for Imbalanced Information Security Rating Dataset Augmentation,EXCLUDE,Pending Title and Abstract screening review
-P124,Zero-shot LLM-guided Counterfactual Generation: A Case Study on NLP Model Evaluation,EXCLUDE,Pending Title and Abstract screening review
-P128,Effective Intended Sarcasm Detection Using Fine-tuned Llama 2 Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P129,A Framework for automated selective Fine-Tuning of Domain-Specific Large Language Models Using Graph-Based Retrieval Augmented Generation,EXCLUDE,Pending Title and Abstract screening review
-P131,Screening Automation for Systematic Reviews: A 5-Tier Prompting Approach Meeting Cochrane’s Sensitivity Requirement,EXCLUDE,Pending Title and Abstract screening review
-P140,Personalized Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P142,MindScape Continuum: Advancing Online Counseling with Bert-Based Strategy Classification and Professional Helping Skills,EXCLUDE,Pending Title and Abstract screening review
-P144,MediGPT: Exploring Potentials of Conventional and Large Language Models on Medical Data,EXCLUDE,Pending Title and Abstract screening review
-P145,AraT5GQA: Arabic Question Answering model using automatic generated dataset,EXCLUDE,Pending Title and Abstract screening review
-P155,"Towards Interpretable Emotion Classification: Evaluating LIME, SHAP, and Generative AI for Decision Explanations",EXCLUDE,Pending Title and Abstract screening review
-P156,Generalizing Functional Error Correction for Language and Vision-Language Models,EXCLUDE,Pending Title and Abstract screening review
-P157,Pseudo-Labeling With Large Language Models for Multi-Label Emotion Classification of French Tweets,EXCLUDE,Pending Title and Abstract screening review
-P159,Model Attribution in LLM-Generated Disinformation: A Domain Generalization Approach with Supervised Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
-P161,From Fiction to Forecast: Leveraging LLM-Enhanced Models and Science Fiction for Innovative Technology Predictions,EXCLUDE,Pending Title and Abstract screening review
-P163,Autonomous Agents for Interrogation,EXCLUDE,Pending Title and Abstract screening review
-P164,Beyond Large Language Models: Rediscovering the Role of Classical Statistics in Modern Data Science,EXCLUDE,Pending Title and Abstract screening review
-P166,Enhance Large Language Models for Multilingual Sentence Embedding with Knowledge Graph,EXCLUDE,Pending Title and Abstract screening review
-P167,Linguistic Intelligence in Large Language Models for Telecommunications,EXCLUDE,Pending Title and Abstract screening review
-P169,Emotion Classification of Lyrics through Summarization by Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P171,Automating Maritime Risk Data Collection and Identification Leveraging Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P173,Synthetic Data Generation with Large Language Models for Personalized Community Question Answering,EXCLUDE,Pending Title and Abstract screening review
-P175,MM-Narrator: Narrating Long-form Videos with Multimodal In-Context Learning,EXCLUDE,Pending Title and Abstract screening review
-P183,Combining Financial Data and News Articles for Stock Price Movement Prediction Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P186,Enhanced Sentiment Classification in Code-Mixed Texts Using Hybrid Embeddings and Synthetic Data Generation,EXCLUDE,Pending Title and Abstract screening review
-P190,Automatic Taxonomy Generation Based on Large Language Models in the Automotive Domain,EXCLUDE,Pending Title and Abstract screening review
-P193,iiPCS: Intent-Based In-Context Learning for Project-Specific Code Summarization,EXCLUDE,Pending Title and Abstract screening review
-P195,Refining Sensitive Document Classification: Introducing an Enhanced Dataset Proposal,EXCLUDE,Pending Title and Abstract screening review
-P199,"8 Case Studies in AI: Translations, MRIs, Fraud Detection, Autonomous Vehicles, and Labor",EXCLUDE,Pending Title and Abstract screening review
-P200,A Hybrid Learning of Lexical and Language Processing for Domain Credibility Classification,EXCLUDE,Pending Title and Abstract screening review
-P201,Decrease the Prompt Uncertainty: Adversarial Prompt Learning for Few-shot Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P207,Prompt-Learning for Short Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P208,Enhancing Multi-label text classification using adaptive promptify concepts,EXCLUDE,Pending Title and Abstract screening review
-P209,PSSOP: A Prompt-style Approach for Few-Shot Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P211,Prompt-Based Label-Aware Framework for Few-Shot Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P213,Prompt Engineering Adversarial Attack Against Image Captioning Models,EXCLUDE,Pending Title and Abstract screening review
-P214,Enhancing Natural Language Instruction Document Comprehension with Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P218,An Emotion Text Classification Model Based on Llama3-8b Using Lora Technique,EXCLUDE,Pending Title and Abstract screening review
-P222,A Long-Text Charge Prediction Method Based on the Prompt-Qwen-FIT Model: Integrating Few-Shot Learning and Incremental Adaptation Training,EXCLUDE,Pending Title and Abstract screening review
-P223,Chapter 5: Fine-Tuning LLMs (1),EXCLUDE,Pending Title and Abstract screening review
-P224,Pilot Testing Transformers-based Models for Multi-class Classification of Greek Text,EXCLUDE,Pending Title and Abstract screening review
-P226,A Simple Method to Improve the Performance of Small Pre-trained Language Models on Few-shot Tasks,EXCLUDE,Pending Title and Abstract screening review
-P231,Single-pass Hierarchical Text Classification with Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P232,Financial Sentiment Analysis on News and Reports Using Large Language Models and FinBERT,EXCLUDE,Pending Title and Abstract screening review
-P233,Data-Efficient Fine-Tuning for Pre-Trained Language Model,EXCLUDE,Pending Title and Abstract screening review
-P237,Word and Character Semantic Fusion by Pretrained Language Models for Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P240,Adaptive Prompt Construction Method for Relation Extraction,EXCLUDE,Pending Title and Abstract screening review
-P246,Fine-Tuning Bert On The Atis Dataset: Data Enhancement To Improve Intent Classification Accuracy,EXCLUDE,Pending Title and Abstract screening review
-P250,Large Language Models for Anomaly Detection in Computational Workflows: From Supervised Fine-Tuning to In-Context Learning,EXCLUDE,Pending Title and Abstract screening review
-P253,Taming Prompt-Based Data Augmentation for Long-Tailed Extreme Multi-Label Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P259,Fine-Tuning GPT on Biomedical NLP Tasks: An Empirical Evaluation,EXCLUDE,Pending Title and Abstract screening review
-P267,Contrastive Meta-Learner for Automatic Text Labeling and Semantic Textual Similarity,EXCLUDE,Pending Title and Abstract screening review
-P269,Text Classification with Limited Training Data: Suicide Risk Detection on Social Media,EXCLUDE,Pending Title and Abstract screening review
-P273,Leveraging Prompt Learning and Pause Encoding for Alzheimer's Disease Detection,EXCLUDE,Pending Title and Abstract screening review
-P275,MAVLingo: ‘A Natural Language Command Classification’ Dataset for MAVLink-Based Drones,EXCLUDE,Pending Title and Abstract screening review
-P280,Leveraging Large Language Models for Suicide Detection on Social Media with Limited Labels,EXCLUDE,Pending Title and Abstract screening review
-P282,Mask Consistency and Contrast Regularization for Prompt-Based Learning,EXCLUDE,Pending Title and Abstract screening review
-P283,Leveraging Large Language Models for Activity Recognition in Smart Environments,EXCLUDE,Pending Title and Abstract screening review
-P287,Transforming Bengali Emails: Efficient Multi-Class Classification Using Transformers,EXCLUDE,Pending Title and Abstract screening review
-P291,IT Service Desk Ticket Classification via Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P301,Emotion Retrieval Using Generative Models: An Exploratory Study,EXCLUDE,Pending Title and Abstract screening review
-P304,Mental Level Prediction using Long Sentence Discriminators and Language Generation Models,EXCLUDE,Pending Title and Abstract screening review
-P309,Multi-Label Classification with Generative Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P310,"Language Models for Hierarchical Classification of Radiology Reports With Attention Mechanisms, BERT, and GPT-4",EXCLUDE,Pending Title and Abstract screening review
-P312,Aspect-based Sentiment Analysis Techniques: A Comparative Study,EXCLUDE,Pending Title and Abstract screening review
-P315,Defect Correction Method for Software Requirements Text Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P317,OVMR: Open-Vocabulary Recognition with Multi-Modal References,EXCLUDE,Pending Title and Abstract screening review
-P322,AI - Assisted Text Composition for Automated Content Authoring Using Transformer-Based Language Models,EXCLUDE,Pending Title and Abstract screening review
-P324,Enhancing Healthcare Through Large Language Models: A Study on Medical Question Answering,EXCLUDE,Pending Title and Abstract screening review
-P326,AI-based Multimodal Resume Ranking Web Application for Large Scale Job Recruitment,EXCLUDE,Pending Title and Abstract screening review
-P332,Automated Data Augmentation for Audio Classification,EXCLUDE,Pending Title and Abstract screening review
-P335,Leveraging Transfer Learning for Hate Speech Detection in Portuguese Social Media Posts,EXCLUDE,Pending Title and Abstract screening review
-P012,SMSDect: A Prediction Model for Smishing Attack Detection Using Machine Learning and Text Analysis,EXCLUDE,Pending Title and Abstract screening review
-P014,A Survey of Intelligent Detection Designs of HTML URL Phishing Attacks,EXCLUDE,Pending Title and Abstract screening review
-P016,Proposing Appropriate SMS Spam Detection Approaches for Variations of the Vietnamese Language,EXCLUDE,Pending Title and Abstract screening review
-P025,"Generative AI with LangChain: Build large language model (LLM) apps with Python, ChatGPT, and other LLMs",EXCLUDE,Pending Title and Abstract screening review
-P041,Helping Language Models Learn More: Multi-Dimensional Task Prompt for Few-shot Tuning,EXCLUDE,Pending Title and Abstract screening review
-P060,Identifying Euroscepticism Using a Text-As-Data Approach: An Experimental Study Employing Parliamentary Speeches,EXCLUDE,Pending Title and Abstract screening review
-P067,Fine-tuned generative LLM oversampling can improve performance over traditional techniques on multiclass imbalanced text classification,EXCLUDE,Pending Title and Abstract screening review
-P093,Data Augmentation with GPT-3.5 for Vietnamese Natural Language Inference,EXCLUDE,Pending Title and Abstract screening review
-P121,"An Empirical Analysis of Topic Categorization Using PaLM, GPT and BERT Models",EXCLUDE,Pending Title and Abstract screening review
-P127,Intelligent and Adaptive Multi-Tiered Taxonomy for Digital Workplace Request Fulfilment Automations and Remediations,EXCLUDE,Pending Title and Abstract screening review
-P187,Fact or Opinion? – Essential Value for Financial Results Briefing,EXCLUDE,Pending Title and Abstract screening review
-P204,Research on Meta-Learning Based Few-Shot Chinese Text Classification Algorithms,EXCLUDE,Pending Title and Abstract screening review
-P210,Prompt-Based Few-Shot Text Classification with Virtual Class Representation,EXCLUDE,Pending Title and Abstract screening review
-P216,Emotional Polar Predictions Based on Matching Prompts,EXCLUDE,Pending Title and Abstract screening review
-P225,A Prompt-tuning Method For Low-Resource Relation Extraction Based On Enhanced-Prototype,EXCLUDE,Pending Title and Abstract screening review
-P242,Few-shot Class Incremental Learning for Event Extraction,EXCLUDE,Pending Title and Abstract screening review
-P247,B-Pet: The PET Model with Parameter-Efficient Learning,EXCLUDE,Pending Title and Abstract screening review
-P248,Zero-shot Learning for Named Entity Recognition in Software Specification Documents,EXCLUDE,Pending Title and Abstract screening review
-P261,Detecting Clickbait in Chinese Social Media by Prompt Learning,EXCLUDE,Pending Title and Abstract screening review
-P262,Optimizing Election Result Prediction Through Fine-Tuned Transformer Models,EXCLUDE,Pending Title and Abstract screening review
-P264,Zero-Shot Information Extraction with Community-Fine-Tuned Large Language Models From Open-Ended Interview Transcripts,EXCLUDE,Pending Title and Abstract screening review
-P265,SiaKey: A Method for Improving Few-shot Learning with Clinical Domain Information,EXCLUDE,Pending Title and Abstract screening review
-P268,A Deep Learning-Driven Disease Classification Method Using MIMIC-III Database and Natural Language Processing,EXCLUDE,Pending Title and Abstract screening review
-P271,Improving Biomedical Claim Detection using Prompt Learning Approaches,EXCLUDE,Pending Title and Abstract screening review
-P274,Improved Visual Fine-tuning with Natural Language Supervision,EXCLUDE,Pending Title and Abstract screening review
-P279,ShoppingGPT: A GPT-based Product Recommendation Dialogue System,EXCLUDE,Pending Title and Abstract screening review
-P290,Unsupervised Out-of-Distribution Detection Using Few in-Distribution Samples,EXCLUDE,Pending Title and Abstract screening review
-P298,Humor Level Recognition Based on Prompt Learning and Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
-P306,Fine-Tuning Pre-Trained Language Model for Urgency Classification on Food Safety Feedback,EXCLUDE,Pending Title and Abstract screening review
-P311,Harnessing Transformers for Detecting Adverse Drug Reaction and Customized Causality Explanation using Generative AI,EXCLUDE,Pending Title and Abstract screening review
-P316,Performance Analysis of Federated Learning Algorithms for Multilingual Protest News Detection Using Pre-Trained DistilBERT and BERT,EXCLUDE,Pending Title and Abstract screening review
-P325,Neural Ensemble for Organizing Business News-Streams for Corporate Libraries,EXCLUDE,Pending Title and Abstract screening review
-P328,Query-Focused Submodular Demonstration Selection for In-Context Learning in Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P329,Methodologies for Email Spam Classification Using Large Language Models,EXCLUDE,Pending Title and Abstract screening review
-P228,Applying SoftTriple Loss for Supervised Language Model Fine Tuning,EXCLUDE,Pending Title and Abstract screening review
-P229,Few-Shot Text Classification via Semi-Supervised Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
-P239,UCL-AST: Active Self-Training with Uncertainty-Aware Clouded Logits for Few-Shot Text Classification,EXCLUDE,Pending Title and Abstract screening review
-P254,Improving Few-Shot Text Classification with Task-aware Contrastive Learning,EXCLUDE,Pending Title and Abstract screening review
-P272,Zero-shot Topic Classification via Automatic Tagging on Chinese Text Datasets,EXCLUDE,Pending Title and Abstract screening review
-P288,Diagnosis of power operation and maintenance records based on pre-training model and prompt learning,EXCLUDE,Pending Title and Abstract screening review
-P299,Early Risks Depression Prediction of Indonesian Twitter Users Through Indonesian Text Using Transfer Learning and Linguistic Metadata Features Approaches,EXCLUDE,Pending Title and Abstract screening review
-P305,Sentiment Analysis of Reviews in Kazakh With Transfer Learning Techniques,EXCLUDE,Pending Title and Abstract screening review
-P255,Text Classification Method Based On Semi-Supervised Transfer Learning,EXCLUDE,Pending Title and Abstract screening review
-P293,An Efficient Method of Supervised Contrastive Learning for Natural Language Understanding,EXCLUDE,Pending Title and Abstract screening review
-P321,Mufin: Enriching Semantic Understanding of Sentence Embedding using Dual Tune Framework,EXCLUDE,Pending Title and Abstract screening review
-P319,An Evaluation of Transfer Learning for Classifying Sales Engagement Emails at Large Scale,EXCLUDE,Pending Title and Abstract screening review
+P015,A Finite-State Machine (FSM)-Based Approach for Detecting SMS Phishing,EXCLUDE,"EC3: Relies purely on a deterministic Finite State Machine (FSM) and handcrafted DFA rules without any Deep Learning, Machine Learning, PLM, or LLM classification component."
+P021,Zero-Shot Environmental Sustainability Text Classification Based on an Adapted Bechdel Test Using LLMs,EXCLUDE,Violates PICO Population: Focuses on gender bias and environmental sustainability in cinema/fiction text rather than scam/spam or conversational fraud messages.
+P022,In-Context Example Selection for Few-Shot Text Classification in 5G Security Text Using LLM,EXCLUDE,"Violates PICO Population: Focuses on classifying telecommunication 5G technical security texts rather than fraudulent, scam, or spam messages."
+P045,Zero-Shot Prompting for SMS Spam Detection using Large Language Models,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P046,Prompt Engineering Strategies for Automated Software Requirements Classification,EXCLUDE,Violates PICO Population: Focuses on software engineering requirements classification rather than scam/spam message text detection.
+P053,Adaptive Boosting LLMs for Text Classification,EXCLUDE,Violates PICO Population: Proposes a general LLM text classification boosting framework evaluated on generic benchmarks rather than scam or spam text.
+P055,Explainable AI for Mental Health Detection from Social Media: A Comparative Study of Traditional Machine Learning and a Large Language Model,EXCLUDE,"Violates PICO Population: Focuses on mental health screening from social media posts rather than scam, phishing, or spam detection."
+P058,TEAMMix: Taxonomy Enrichment Augmentation and Minority-augmented Mixing Strategy for LLM-enhanced Weak-Supervised Hierarchical Text Classification,EXCLUDE,"Violates PICO Population: Focuses on general weakly supervised hierarchical text classification rather than scam, phishing, or spam message detection."
+P081,Comparison of Traditional Machine Learning Models and Large Language Models for Multi-Label Text Classification on X (Twitter),EXCLUDE,EC1: Focuses on general social media text multi-label classification rather than scam message detection or conversational fraud.
+P091,Toward Zero-Shot Multi-Label Identification of Attack Techniques: Enhancing LLM Reasoning With Semantic Evidence Discovery,EXCLUDE,EC1: Focuses on cyber threat intelligence (CTI) mapping to MITRE ATT&CK techniques rather than text scam/phishing message classification.
+P094,Benchmarking DeepSeek R1-MoDCE: A Contrastive Pretraining Approach for Language Models,EXCLUDE,EC4: Review paper lacking specific empirical application to scam message classification.
+P097,LLM is Not All You Need: A Systematic Evaluation of ML vs. Foundation Models for text and image based Medical Classification,EXCLUDE,EC1: Focuses on medical classification tasks rather than scam or fraudulent text detection.
+P100,Evaluating Large Language Models on Named Entity Recognition,EXCLUDE,EC1: Focuses on Named Entity Recognition (NER) across general domains rather than scam message classification.
+P101,Inner-Probe: Discovering Copyright-Related Data Generation in LLM Architecture,EXCLUDE,EC1: Focuses on detecting copyright-related data generation in LLM architectures rather than scam message classification.
+P102,From Raw to Synthetic: Evaluating LLM-Based Data Augmentation for Sentiment Analysis,EXCLUDE,EC1: Focuses on sentiment analysis of hotel and movie reviews rather than scam or fraud message detection.
+P103,Semantic Alignment and Output Constrained Generation for Reliable LLM-based Classification,EXCLUDE,EC1: Focuses on generic controllable prompt-driven text classification rather than specific scam or phishing message detection.
+P112,LLM-PEA: Leveraging Large Language Models Against Phishing Email Attacks,EXCLUDE,EC1: Focuses on phishing email security pipelines and adversarial prompt attacks on general email classifiers rather than Vietnamese scam message classification.
+P116,Security Bug Report Classification: A Comparative Study of Convolutional Neural Networks and Large Language Models,EXCLUDE,EC1: Focuses on security bug report classification in software engineering rather than scam/phishing message text classification.
+P120,Charting the Unspoken: Causal Inference-Guided LLM Augmentation for Emotion Recognition in Conversation,EXCLUDE,EC1: Focuses on emotion recognition in conversation (ERC) rather than scam message or fraud detection.
+P133,Literate Programming With LLMs? — A Study on Rosetta Code and CodeNet,EXCLUDE,"EC1: Focuses on literate programming, code generation, and programming language recognition using Rosetta Code and CodeNet."
+P134,Enhancing Psychological Assessments With Open-Ended Questionnaires and Large Language Models: An ASD Case Study,EXCLUDE,EC1: Focuses on psychological assessments and autism spectrum disorder (ASD) classification from open-ended questionnaires.
+P136,BioNarrator-LLM: A Retrieval-Augmented Framework for Interpreting Simulated Sensor Data into Explainable Biological Insights,EXCLUDE,EC1: Focuses on interpreting simulated biological sensor data using a retrieval-augmented LLM framework.
+P138,AI-Assisted Forensic Triage of Multilingual Online Gaming Chats Using Large Language Models,EXCLUDE,EC1: Focuses on forensic triage of multilingual online gaming chats for general moderation rather than scam/phishing message classification.
+P146,Parallel Hybrid Classical-Quantum Architecture for AI Safety and LLM Jailbreak Detection,EXCLUDE,EC1: Focuses on LLM jailbreak detection and AI safety using a classical-quantum hybrid architecture rather than scam message detection.
+P147,Ensembles of Large Language Models for Identifying EQ-5D Studies in Pubmed Based on their Abstracts,EXCLUDE,EC1: Focuses on automating EQ-5D study screening in biomedical PubMed abstracts rather than spam/scam message text classification.
+P148,Protecting Your Customized LLM Systems From Backdoored Instructions With Metacognitive Probing,EXCLUDE,EC1: Focuses on backdoor attacks and safety auditing of customized LLM system instructions rather than scam message classification.
+P149,"Response-Only Adversarial Detection of LLM Outputs: A Comparative Study of Lexical, Contrastive, and Contextual Representations",EXCLUDE,EC1: Focuses on response-only adversarial detection of LLM outputs rather than scam/phishing message classification.
+P162,AGRAG: Advanced Graph-Based Retrieval-Augmented Generation for LLMs,EXCLUDE,EC4: Purely methodological framework for graph-based retrieval-augmented generation (Graph RAG) lacking scam classification tasks.
+P174,Enhancing Indonesian Sentiment Analysis via LLM Driven Sarcasm Detection and Ensemble Learning,EXCLUDE,EC1: Focuses on sentiment analysis and sarcasm detection in Indonesian political social media text rather than scam message classification.
+P178,SIRA: A Semantic LLM-Based Agent for Interpreting and Detecting Vishing Attacks,EXCLUDE,EC2: Focuses on voice phishing (vishing) audio transcripts and acoustic/prosodic signals rather than SMS/text-based scam classification.
+P179,Detecting Obstetric Violence Tweets from Mexico: Annotation Guidelines and Classification with LLMs,EXCLUDE,EC1: Focuses on classifying obstetric violence tweets rather than phishing or scam message detection.
+P181,"Comparative Study of Machine Learning, Transformer, and Generative Models for Sentiment Analysis",EXCLUDE,EC1: Focuses on sentiment analysis of public sentiment toward AI surveillance technologies on Twitter rather than scam message classification.
+P188,Optimizing Legal Workflows: A Cost-Performance Analysis of Fine-Tuned SLMs vs. LLMs for Document Classification,EXCLUDE,EC1: Focuses on legal document classification rather than spam/scam messages or conversational fraud text.
+P189,Cross-Platform Thai Intent Classification Using Hybrid TF-IDF and Sentence-BERT Fusion,EXCLUDE,EC1: Focuses on general customer service intent classification rather than scam or phishing message detection.
+P191,VLM-APMatch: A Vision-Language Model Framework for Cross-Document Matching and Reconciliation in Accounts Payable,EXCLUDE,"EC1: Focuses on accounts payable document reconciliation rather than scam, phishing, or spam message classification."
+P194,Research on Enterprise Data Classification and Grading Technology Based on Large Models,EXCLUDE,EC1: Focuses on enterprise data classification and grading for sensitivity rather than scam or phishing message detection.
+P197,A Mixed-Language Transformer Encoder Architecture for Social Media Phishing: Vietnamese-English Case Study,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P203,Parameter-Efficient Fine-Tuning vs Large Zero-Shot Language Models: A Controlled Cross-Task Evaluation of Performance and Efficiency,EXCLUDE,EC1: Focuses on general text classification (AG News) and text summarization (SAMSum) rather than scam or phishing message detection.
+P212,Evaluating LoRA Adaptation and Fine-Tuning for Multi-Class Adversarial Prompt Detection in Transformer Models,EXCLUDE,EC1: Focuses on detecting LLM adversarial prompt attacks (jailbreaking and prompt injection) rather than scam or phishing message classification.
+P217,Enhanced Masking-Differential Prompting (MDP): Defending Backdoor Attacks for Pre-trained Language Models Under Few-Shot Learning,EXCLUDE,EC1: Focuses on defending backdoor attacks for pre-trained language models under few-shot learning rather than scam or phishing message classification.
+P220,Enhancing Cyber Threat Intelligence Using Transformer Models for Text Classification,EXCLUDE,EC1: Focuses on general cybersecurity and malware/ransomware CTI rather than scam messages (phishing/smishing) or conversational fraud text.
+P221,Enhancing Text-Based Deepfake Detection: A Comprehensive Evaluation of LoRA Fine-Tuned Large Language Models,EXCLUDE,"EC1: Focuses on text-based deepfake detection on social media rather than scam messages, smishing, or fraudulent conversational scripts."
+P230,Do We Still Need Fine Tuning? Turkish Sentiment Analysis in the Era of Large Language Models,EXCLUDE,EC1: Focuses on general Turkish sentiment analysis of e-commerce reviews rather than scam or fraud message classification.
+P236,An Empirical Study of App Review Classification Using Large Language Models,EXCLUDE,"EC1: Focuses on app store review classification rather than scam, phishing, or fraudulent message detection."
+P245,A Proposed Model for Arabic Fake Reviews Detection using Fine-Tuned BERT and LLMs,EXCLUDE,"EC1: Focuses on fake product reviews (Amazon/Yelp) rather than scam messages, phishing, or fraudulent conversational scripts."
+P258,Transformer-Based Zero-Shot Learning for Robust and Scalable Product Classification,EXCLUDE,EC1: Focuses on product classification for e-commerce inventory and search rather than scam or phishing text detection.
+P263,Privacy-Enhanced Federated Prompt Tuning Against Backdoor Attack,EXCLUDE,EC1: Focuses on federated prompt tuning and privacy/backdoor defense mechanisms rather than scam message classification.
+P270,One Size Does Not Fit All: Exploring Variable Thresholds for Distance-Based Multi-Label Text Classification,EXCLUDE,"EC1: Focuses on distance-based multi-label text classification algorithms rather than scam, phishing, or fraudulent text detection."
+P276,Fine-Tuned Vs Prompted Models for Emotion Detection: A Robustness and Slice-Based Study,EXCLUDE,"EC1: Focuses on general emotion detection rather than spam, scam messages, or fraudulent conversational text."
+P278,Adaptive Multimodal Deepfake Detection for Social Media: Robust Fusion of Textual and Visual Artifact,EXCLUDE,EC1: Focuses on multimodal deepfake image and news detection rather than text-based scam message classification.
+P297,Zero-Shot vs. Supervised: Evaluating Multilingual LLMs for 3R Content Moderation in Malaysia,EXCLUDE,"EC1: Focuses on content moderation of Race, Religion, and Royalty (3R) rather than scam or phishing message detection."
+P300,Token-Invariant Contrastive Pretraining for Robust Domain Adaptation in Text Classification,EXCLUDE,EC1: Focuses on domain adaptation for general sentiment analysis and news classification rather than scam/phishing detection.
+P302,GLiNER-Reg: Generalized text regression using reference prompts,EXCLUDE,EC4: Proposes a general text regression framework without application to scam detection or security tasks.
+P303,Evaluation of Open-Source Encoder-only Multilingual Small Language Models for Low-Resource Bengali Language,EXCLUDE,EC1: Focuses on sentiment analysis and news classification for the Bengali language rather than scam message detection.
+P314,Prompt-Based Emotion Detection and Story Generation,EXCLUDE,EC1: Focuses on emotion detection and story generation rather than scam message classification.
+P323,Using Small Language Models to Measure Nursing Key Performance Indicators From Patient Stories,EXCLUDE,EC1: Focuses on extracting nursing key performance indicators (KPIs) from patient healthcare stories.
+P337,Multilingual Financial Fraud Detection Using Machine Learning and Transformer Models: A Bangla-English Study,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P340,GRPO-MMS: Reinforcement Learning with a Composite Reward for Multimodal Fraud Message Detection,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P345,"Advances in Phishing Detection: A Comprehensive Review of Machine Learning, Deep Learning, and Transformer-based Approaches",EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics."
+P354,Message from Chief Patron,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics (Abstract is N/A / front matter message)."
+P358,Fraud SMS Spam Detection Using Machine Learning,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics (Abstract is N/A)."
+P360,Impact of Text Preprocessing Techniques on SMS Spam Classification Accuracy,EXCLUDE,"EC3: Focuses strictly on general text preprocessing pipelines for traditional machine learning classifiers rather than evaluating advanced DL, PLM, or LLM scam classification models."
+P367,Geometric Filtering of LLM-Generated Samples for Few-Shot Text Classification,EXCLUDE,"EC1: Focuses on general geometric filtering of LLM-generated samples for text classification without targeting spam, scam, phishing, or conversational fraud text."
+P368,"LabelFusion-TS: Fusing Large Language Models, Transformer Encoders, and Financial Time Series for Monetary-Policy Stance Classification",EXCLUDE,"EC1: Focuses on monetary-policy stance classification of Federal Reserve communications, not scam or phishing message detection."
+P369,Discrete Diffusion Language Models Are Training-Free Multi-Label Classifiers,EXCLUDE,"EC1: Focuses on discrete diffusion language models as training-free multi-label classifiers for generic text benchmarks (GoEmotions, Reuters), not scam/phishing detection."
+P370,Neuron-Aware Active Few-Shot Learning for LLMs,EXCLUDE,"EC1: Focuses on neuron-aware active few-shot learning for general LLM reasoning and text classification benchmarks, not scam or fraud detection."
+P371,Comparing BERT Sentence-Pair Classification and Few-Shot LLM Prompting for Detecting Threat and Solution Framing in German Climate News,EXCLUDE,"EC1: Focuses on threat and solution framing in German climate news articles, not scam, phishing, or fraud detection."
+P372,Structured Prompt Optimization Meets Reinforcement Learning for Global and Local Interpretability over Complex Text,EXCLUDE,"EC1: Focuses on structured prompt optimization and reinforcement learning for general text classification interpretability, not scam or phishing text detection."
+P373,Open-Weight LLMs Are Often Competitive with Commercial APIs for Political Science Text Classification,EXCLUDE,"EC1: Focuses on benchmarking open-weight LLMs versus commercial APIs for political science text classification tasks, not scam or phishing detection."
+P374,LLMs as annotators of credibility assessment in Danish asylum decisions: evaluating classification performance and errors beyond aggregated metrics,EXCLUDE,"EC1: Focuses on LLMs as annotators for credibility assessment in Danish asylum decisions, not scam or phishing message detection."
+P375,Researchers waste 80% of LLM annotation costs by classifying one text at a time,EXCLUDE,EC1: Focuses on general LLM batching and cost reduction for social science text coding rather than scam/phishing message detection.
+P376,Navigating the Prompt Space: Improving LLM Classification of Social Science Texts Through Prompt Engineering,EXCLUDE,EC1: Focuses on prompt engineering for general social science texts rather than scam message classification.
+P377,"BTZSC: A Benchmark for Zero-Shot Text Classification Across Cross-Encoders, Embedding Models, Rerankers and LLMs",EXCLUDE,"EC1: Focuses on a general zero-shot text classification benchmark (BTZSC) spanning sentiment, topic, intent, and emotion rather than scam detection."
+P378,Temporal Text Classification with Large Language Models,EXCLUDE,EC1: Focuses on temporal text classification (dating historical texts) rather than scam or phishing detection.
+P379,Leveraging Large Language Models for Automated Scalable Development of Open Scientific Databases,EXCLUDE,EC1: Focuses on building open scientific databases for agriculture and crop yield using LLMs rather than scam message detection.
+P380,A Human-Centered Workflow for Using Large Language Models in Content Analysis,EXCLUDE,EC1: Focuses on a general human-centered workflow for content analysis across political science and sociology rather than scam detection.
+P381,TATRA: Training-Free Instance-Adaptive Prompting Through Rephrasing and Aggregation,EXCLUDE,EC1: Focuses on training-free instance-adaptive prompting for standard text classification and mathematical reasoning benchmarks.
+P382,Cost-Aware Model Selection for Text Classification: Multi-Objective Trade-offs Between Fine-Tuned Encoders and LLM Prompting in Production,EXCLUDE,"EC1: Evaluates cost-aware model selection on general standard benchmarks (IMDB, SST-2, AG News, DBPedia) rather than scam message classification."
+P383,Revisiting Prompt Sensitivity in Large Language Models for Text Classification: The Role of Prompt Underspecification,EXCLUDE,EC1: Focuses on general prompt sensitivity and underspecification in text classification rather than scam message detection or phishing.
+P384,ICL-EVADER: Zero-Query Black-Box Evasion Attacks on In-Context Learning and Their Defenses,EXCLUDE,EC1: Focuses on adversarial black-box evasion attacks on in-context learning rather than scam or phishing message classification.
+P393,Beyond Zero-Shot: Enhancing LLM Financial Complaint Classification with Relevancy-Driven RAG-Based Few-Shot Prompting,EXCLUDE,EC4: Abstract is missing (N/A) and title indicates general financial complaint classification rather than scam/phishing message detection.
+P394,Reasoning Capabilities of Large Language Models in Network Traffic Mining: A Comparative Evaluation of Zero-Shot and Few-Shot Prompting,EXCLUDE,EC1: Focuses on network traffic mining and flow records rather than semantic text NLP for scam message detection.
+P396,"Evaluating LLM-generated questions across zero-shot, one-shot, and few-shot prompting strategies and different parameter sizes",EXCLUDE,EC4: Abstract is missing (N/A) and paper deals with LLM-generated questions rather than text classification of scam messages.
+P400,Evaluation of large language models for VI-RADS reports: a comparative analysis of zero-shot and few-shot prompting,EXCLUDE,EC1: Focuses on medical radiology reporting (VI-RADS) for bladder cancer rather than scam/phishing message classification.
+P406,Ordinal PCL+: A Prompt-based Multilingual Framework for Few-shot and Zero-shot Cross-lingual Text Classification,EXCLUDE,EC1: Focuses on general product reviews (multilingual review rating classification) rather than scam or phishing text detection.
+P409,Stochastic Gradient Descenders at SemEval-2026 Task 9: Few-Shot LLM Prompting for Polarization Type Classification,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P421,AI FOR ON-CHAIN FRAUD AND SCAM DETECTION,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P423,A Cost-Efficient Routing Pipeline for Multilingual Short-Text Classification Using Small Language Models,EXCLUDE,"EC1: Focuses on general multilingual short-text classification without spam, phishing, or scam message detection."
+P424,"When Benchmarks Mislead: Shortcut Learning, Length Confounds, and the Limits of Cross-Dataset Generalization in Multilingual Fake News and Sarcasm Detection",EXCLUDE,"EC1: Focuses on fake news and sarcasm detection rather than scam, phishing, or fraudulent message detection."
+P425,MADE: A Living Benchmark for Multi-Label Text Classification with Uncertainty Quantification of Medical Device Adverse Events,EXCLUDE,"EC1: Focuses on medical device adverse event reports rather than scam, phishing, or fraudulent messages."
+P426,GATech at AbjadMed: Bidirectional Encoders vs. Causal Decoders: Insights from 82-Class Arabic Medical Classification,EXCLUDE,"EC1: Focuses on Arabic medical text classification rather than scam, phishing, or fraudulent messages."
+P427,GFlowPO: Generative Flow Network as a Language Model Prompt Optimizer,EXCLUDE,EC1: Focuses on prompt optimization methodologies for general text classification and QA rather than scam detection.
+P441,"Domain-Adapted Language Models for English-Turkish Medical Text Translation: An Evaluation of Zero-Shot, Few-Shot, and Fine-Tuning Strategies",EXCLUDE,EC5: Publication abstract is completely inaccessible ('N/A').
+P444,Enhancing Certified Robustness in Few-Shot Classification with Contrastive Loss and Defensive Noise in Fine-Tuning,EXCLUDE,EC5: Publication abstract is completely inaccessible ('N/A').
+P445,Depression subtype classification from social media posts: few-shot prompting vs. fine-tuning of large language models,EXCLUDE,"EC1: Focuses on depression subtype classification from social media rather than scam messages, phishing, or fraud text."
+P446,A Comparative Investigation of Zero-shot Prompting and Fine-tuning for Clinical Note Summarization,EXCLUDE,EC1: Focuses on clinical note summarization and discharge summary generation rather than scam or phishing detection.
+P448,Multi-Source Domain Generalization with Few-Shot Fine-Tuning (MSDG-FT) for Cross-Dataset EEG Mental Workload Classification,EXCLUDE,EC1: Focuses on EEG signals and mental workload classification rather than text-based NLP scam detection.
+P450,Affinity Map: Few-Shot Protein Family Classification via Prototypical Networks: Benchmarking Sequence Encoders and Episodic ESM-2 Fine-Tuning,EXCLUDE,EC1: Focuses on computational biology and protein sequence classification rather than scam message NLP.
+P001,BantayText: Machine Learning-Based Detection of Scam SMS in the Philippines,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P002,Detection of Smishing and Vishing attacks using Deep Learning techniques,EXCLUDE,EC2: Papers dealing with acoustic voice/audio signal processing to detect fraudulent calls rather than processing message text or conversational scripts.
+P003,A Hybrid NLP and Deep Learning Framework for Intelligent SMS Phishing (Smishing) Detection,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P004,An Empirical study of Short Messaging Service - Smishing Detection using Machine Learning Algorithms,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P005,AI-Driven Smishing Detection in Android Devices Using TinyBERT and Aquila Optimization,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P006,Smishing Detection Using Fine-Tuned BERT,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P009,SMSHIELD: A Real-Time Smishing Detection in Mobile Messaging Systems using Deep Learning Approach,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P020,Few-Shot and Zero-Shot Classification with Large Language Models: A Comparative Study,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P023,Evaluating Zero-Shot and Few-Shot Learning on the Turkish Massive Multitask Language Understanding Dataset,EXCLUDE,EC1: Focuses on Turkish MMLU dataset evaluation for general academic/professional exams rather than scam message classification.
+P026,A Unified System with Large Language Model for Hierarchical Multi-Label Text Classification,EXCLUDE,EC1: Focuses on general hierarchical multi-label text classification rather than scam message detection.
+P027,PRECISION: A Structured Prompting Framework for Optimizing Large Language Model Interactions,EXCLUDE,EC1: Focuses purely on prompt engineering framework design rather than scam message detection.
+P028,Comparing Few-Shot Prompting and Machine Learning Models for Multi-Class Text Classification,EXCLUDE,EC1: Focuses on general Turkish news text classification rather than scam message detection.
+P030,A Rapid Construction Method for a Knowledge Graph of Relay Protection Operation Management Based on Prompt Engineering,EXCLUDE,EC1: Focuses on knowledge graph construction for relay protection in power systems rather than scam message classification.
+P031,Asymmetric Siamese Network with Large Language Model Enhancement for Text Classification,EXCLUDE,EC1: Focuses on general text classification using asymmetric Siamese networks and BERT rather than scam message detection.
+P034,Exploiting the Randomness of Large Language Models (LLM) in Text Classification Tasks: Locating Privileged Documents in Legal Matters,EXCLUDE,EC1: Focuses on identifying legally privileged documents in legal matters rather than scam message classification.
+P036,Leveraging Large Language Models for Zero-Shot Classification of Psychiatric Diseases,EXCLUDE,EC1: Focuses on zero-shot classification of psychiatric diseases rather than scam message classification.
+P039,A Prompt Engineering Methodology for Evaluating Large Language Models in Academic Processes,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics directly related to scam message classification."
+P040,Optimizing Multi-Class Text Classification with Hierarchical Label Filtering and Label Order Analysis,EXCLUDE,EC4: Purely theoretical frameworks or survey/position papers lacking specific domain application to scam message classification.
+P042,Ensembling Multiple Prompting Strategies with Role-Based Reasoning for Bloom's Taxonomy Classification,EXCLUDE,EC4: General NLP task without specific alignment to scam message classification or PICO population.
+P043,Is This the Best Prompt? Scoring Prompts for Arabic NLP Across LLMs,EXCLUDE,"EC4: Focuses on general Arabic NLP tasks (dialect identification, sentiment analysis, etc.) rather than scam/phishing message classification."
+P044,GMCoT: A Graph-Augmented Multimodal Chain-of-Thought Reasoning Framework for Multi-Label Zero-Shot Learning,EXCLUDE,"EC4: Focuses on multimodal zero-shot learning for image annotation and general text classification, not scam detection."
+P047,Evaluation of the Automated Labeling Method for Taxonomic Nomenclature Through Prompt-Optimized Large Language Model,EXCLUDE,EC4: Focuses on automated taxonomic nomenclature labeling in biology rather than fraud or scam message detection.
+P048,LLM-Powered Customer Segmentation for E-Commerce Dynamic Pricing,EXCLUDE,"EC4: Focuses on e-commerce customer segmentation for dynamic pricing, not scam message classification."
+P049,AugGPT: Leveraging ChatGPT for Text Data Augmentation,EXCLUDE,EC4: Focuses on general text data augmentation for few-shot learning rather than specific scam message classification.
+P050,Improving LLM's Response with a New Prompt Framework RCFOR,EXCLUDE,EC1: Focuses on prompt engineering for general food dataset classification rather than scam/fraud message detection.
+P051,Dual-Sided Adaptive Prompt Learning for Low-Resource Short Text Classification,EXCLUDE,EC1: Focuses on general TweetEval low-resource short text classification rather than scam or phishing message detection.
+P054,Cybersecurity Text Classification: Challenging the Perceived Superiority of LLMs Over Conventional Machine Learning,EXCLUDE,EC1: Focuses on general cybersecurity and news articles text classification rather than spam/scam/phishing messages.
+P057,Annotation Guideline-Based Knowledge Augmentation: Toward Enhancing Large Language Models for Educational Text Classification,EXCLUDE,EC1: Focuses on educational text classification (learning engagement) rather than scam or phishing detection.
+P059,Metaphors as Semantic Anchors: A Label-Constrained Contrastive Learning Approach for Chinese Text Classification,EXCLUDE,EC1: Focuses on metaphorical Chinese text classification rather than scam message detection.
+P061,LLM Based Bayesian Optimization for Prompt Search,EXCLUDE,EC1: Focuses on Bayesian optimization for general prompt search rather than scam text classification.
+P063,GIELLM: Japanese General Information Extraction Large Language Model Utilizing Mutual Reinforcement Effects,EXCLUDE,EC1: Focuses on general Japanese information extraction and text classification rather than fraud or scam message detection.
+P064,Assessing the capabilities of MBERT And Flan-T5 in detecting of multilingual suspicious messages,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P065,Improving E-Commerce Product Classification via Few-Shot Learning of Gemma2:2B,EXCLUDE,"EC1: Focuses on e-commerce product classification rather than spam, scam messages, phishing, or conversational fraud text."
+P066,ClassiED: Improving Zero-Shot Event Detection by Reducing LLM Hallucination,EXCLUDE,EC1: Focuses on general event detection in the military domain rather than scam message or fraud classification.
+P069,Zero-Shot Classification of Art With Large Language Models,EXCLUDE,EC1: Focuses on zero-shot classification of art for price prediction rather than scam or phishing message detection.
+P071,Zero-Shot Prediction of Conversational Derailment With Large Language Models,EXCLUDE,"EC1: Focuses on conversational derailment in online discussion platforms rather than scam, phishing, or fraud detection."
+P072,Transformers in Action,EXCLUDE,EC4: Missing abstract and lacks empirical study or quantitative dataset metrics.
+P076,Text2Graph: Combining Lightweight LLMs and GNNs for Efficient Text Classification in Label-Scarce Scenarios,EXCLUDE,EC1: Focuses on general topic classification and sentiment analysis rather than scam or phishing detection.
+P077,A Large Language Model Approach for In-Depth Qualitative Text Analysis,EXCLUDE,EC1: Focuses on qualitative text analysis and Structural Content Analysis in social sciences rather than scam detection.
+P078,"Evaluating the Performance of AI Text Detectors, Few-Shot and Chain-of-Thought Prompting Using DeepSeek-Generated Text",EXCLUDE,EC1: Focuses on AI-generated text detection rather than scam message classification or fraud detection.
+P080,Calibrating MLLM-as-a-judge via Multimodal Bayesian Prompt Ensembles,EXCLUDE,EC1: Focuses on evaluating text-to-image generation systems rather than spam/scam message classification.
+P082,Few-Shot Human Activity Recognition Using Lightweight Language Models,EXCLUDE,EC1: Focuses on Human Activity Recognition (HAR) using sensor data rather than scam or text message classification.
+P083,Prompt Inject Detection with Generative Explanation as an Investigative Tool,EXCLUDE,EC1: Focuses on adversarial prompt injection detection for AI security rather than scam message or phishing detection.
+P084,LLM Teacher-Student Framework for Text Classification With No Manually Annotated Data: A Case Study in IPTC News Topic Classification,EXCLUDE,EC1: Focuses on general news topic classification (IPTC Media Topic schema) rather than scam/phishing text classification.
+P085,Prompt Engineering-Assisted Malware Dynamic Analysis Using GPT-4,EXCLUDE,EC1: Focuses on malware dynamic analysis using API call sequences rather than textual scam or phishing message classification.
+P086,Enhancing Small Model Performance in Educational Classification Tasks through Knowledge Distillation,EXCLUDE,EC1: Focuses on educational classification tasks rather than spam/scam message detection.
+P088,A Large Language Model Based on the Retrieval-Augmented Generation and Prompt-Tuning Framework,EXCLUDE,EC1: Focuses on domain-specific dialogue systems for music robots using RAG and prompt-tuning rather than scam detection.
+P090,Prompt2Length: A Lightweight Model for Predicting Output Length in LLM Inference,EXCLUDE,EC1: Focuses on predicting output length for LLM inference serving systems rather than scam text classification.
+P098,Adapting Knowledge Prompt Tuning for Enhanced Automated Program Repair,EXCLUDE,EC4: Focuses on Automated Program Repair (APR) in software engineering rather than scam message classification.
+P104,AI Generated Text Detection using LORA based fine-tuning of LLM Models,EXCLUDE,EC4: Focuses on AI-generated text detection (SemEval Task 8) rather than scam or phishing message classification.
+P105,A Novel GNN-based Approach for Detection of Prompt Injection Attacks,EXCLUDE,EC4: Focuses on prompt injection attacks in LLM security rather than scam message or SMS phishing detection.
+P106,Comparative Analysis of Token Classification and Zero-Shot LLM Approaches for Named Entity Recognition in the Business Domain,EXCLUDE,EC4: Focuses on Named Entity Recognition (NER) in the business domain rather than scam classification.
+P108,Automatic Construction Accident Report Analysis Using Large Language Models (LLMs),EXCLUDE,EC4: Focuses on construction accident report analysis rather than scam message classification.
+P109,"Divide, Cache, Conquer: Dichotomic Prompting for Efficient Multi-Label LLM-Based Classification",EXCLUDE,EC4: Focuses on affective text analysis (emotions and sentiment) rather than scam message detection.
+P110,SarcasmBench: Towards Evaluating Large Language Models on Sarcasm Understanding,EXCLUDE,EC4: Focuses on sarcasm understanding and detection rather than scam message classification.
+P114,Research on Recognition of Emotional Support Behavior in Classroom Based on Teachers' Verbal and its Application,EXCLUDE,EC5: Publication abstract is completely inaccessible or empty.
+P117,Adaptive Test Healing using LLM/GPT and Reinforcement Learning,EXCLUDE,EC1: Focuses on software test healing and CI/CD pipelines rather than scam or spam message classification.
+P118,Phishing Email Detection Using Large Language Models: A Comparative Analysis of Standalone and Retrieval Augmented Generation Models,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P119,MCP-Orchestrated Multi-Agent System for Automated Disinformation Detection,EXCLUDE,EC1: Focuses on automated disinformation detection in news articles rather than scam or phishing messages.
+P122,Classifying Segments to Be Translated or Transliterated,EXCLUDE,EC1: Focuses on text translation and transliteration segmentation rather than scam classification.
+P123,Exploring N-Shot Learning Approaches in Generative Large Language Models for the Serbian Language,EXCLUDE,"IC1: Focuses on sentiment analysis of reviews rather than scam, spam, or fraudulent message detection."
+P125,Classification of Greek News Articles by Text Type Using Open Large Language Models,EXCLUDE,EC1: Focuses on text-type classification of news articles rather than scam message detection.
+P126,Feature Extraction and Compliance Classification of Text Files Using Large Language Models,EXCLUDE,EC1: Focuses on regulatory compliance classification of industrial text files rather than scam message detection.
+P130,Optimized Story Generation using DeepSeek LLM with Supervised Fine-Tuning,EXCLUDE,EC1: Focuses on generative story creation rather than scam classification.
+P132,AllHands :Ask Me Anything on Large-scale Verbatim Feedback via Large Language Models,EXCLUDE,EC1: Focuses on general user feedback analysis and topic modeling rather than scam message or phishing detection.
+P135,Are LLMs Really Underperforming in Stance Detection? Identifying Patterns of Challenging Instances in Zero-Shot Stance Detection,EXCLUDE,EC1: Focuses on stance detection in social media analytics rather than scam message or phishing classification.
+P137,CDE-CCL: A Classroom Dialogue Evaluation Framework for Chinese Core Literacy via LLM,EXCLUDE,EC1: Focuses on classroom dialogue evaluation for educational core literacy rather than fraud or scam message detection.
+P139,Prompting the Priorities: Evaluating LLMs for Organization-Specific Vulnerability Prioritization,EXCLUDE,EC1: Focuses on software vulnerability prioritization (SSVC framework) rather than scam/phishing message classification.
+P141,Adapting Generative LLMs for High-Accuracy Online Grooming Detection,EXCLUDE,EC1: Focuses on online sexual predator grooming detection in instant messaging rather than financial/phishing scam message classification.
+P143,Automated Criterion-Based Thai Text Evaluation with Rationale and Improvement Guidance Using LLMs,EXCLUDE,EC1: Focuses on automated Thai text essay evaluation and feedback generation rather than scam or phishing detection.
+P150,Utilization of Large Language Models for NER Tasks with Synonym-Based Text Generation in Health News Classification,EXCLUDE,EC1: Focuses on health news event classification and data balancing via NER rather than scam message or phishing detection.
+P151,Compromising LLM Driven Embodied Agents With Contextual Backdoor Attacks,EXCLUDE,EC1: Focuses on contextual backdoor security attacks on LLM-driven embodied agents rather than scam message classification.
+P152,Investigating the Impact of Japanese Names and Japanese Prompts on Social Bias in Hiring Decisions Using LLMs,EXCLUDE,EC1: Focuses on social bias in hiring decisions using LLMs rather than scam/spam message classification or fraud text detection.
+P153,A Chain of Diagnosis Framework for Accurate and Explainable Radiology Report Generation,EXCLUDE,EC1: Focuses on radiology report generation and clinical efficacy rather than scam/spam message classification.
+P154,Weaving Embeddings: A Fine-Tune-Free LLM Fusion Framework for Efficient Health and Safety Text Analysis,EXCLUDE,EC1: Focuses on occupational injury narratives and health/safety text analysis rather than scam or phishing detection.
+P158,A Vision-Language Career Chatbot with LLAMA and Explainable AI for Transparent Job Matching under Hallucination Mitigation Approaches,EXCLUDE,EC1: Focuses on career recommendation systems and job matching rather than scam message classification.
+P160,Assessing Methods to Categorize Questions According to Cognitive Level based on Blooms Taxonomy: Constraints and Future Direction,EXCLUDE,EC1: Focuses on classifying educational questions according to Bloom's Taxonomy rather than scam or phishing detection.
+P165,Zero-Shot Knowledge Graphs from Handwritten Notes with LLMs and OCR,EXCLUDE,EC1: Focuses on knowledge graph construction from handwritten medical and historical documents rather than scam message classification.
+P168,Legal Query RAG,EXCLUDE,EC1: Focuses on legal query retrieval-augmented generation (RAG) rather than scam message classification.
+P170,Synthetic Data Generation Using Large Language Models: Advances in Text and Code,EXCLUDE,EC4: Survey paper reviewing synthetic data generation for text and code rather than presenting a primary empirical study on scam classification.
+P172,"RAG Powered LLMs for QA: Evolution, Challenges, Applications, and Future Directions",EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics."
+P176,"M4SC: An MLLM-Based Multi-Modal, Multi-Task and Multi-User Semantic Communication System",EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P177,Synthetic Text Data Generation from LLMs for Knockoff Model Training in Sentiment Analysis,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P180,Integrihire: Combating Online Recruitment Scams with Groq-Powered Intelligence,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P182,Leveraging Synthetic Data and LLMs for Sarcasm Detection,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P184,Beyond Black Boxes: Implementing Recommender Systems That Generate Trust for Decision-Making in Sensitive Business Areas,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P185,Using Large Language Models for Cyber Threat News Prioritization,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P192,Explaining Pre-Trained Language Models in the Context of Higher Education,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P196,LLMs-Integrated Automatic Hate Speech Recognition Using Controllable Text Generation Models,EXCLUDE,EC1: Focuses on hate speech automatic speech recognition and censorship rather than scam message classification.
+P198,Anomaly Detection in Digital Payment Transactions,EXCLUDE,EC1: Focuses on numerical digital payment transaction anomaly detection rather than textual scam message classification.
+P202,Prompt-Guided Few-Shot Hierarchical Text Classification via Example Retrieval and Structured Decoding,EXCLUDE,EC1: Focuses on hierarchical text classification of DBpedia taxonomy rather than scam message or phishing detection.
+P205,Application of LoRA-Drop in Few-Shot Chinese Text Classification,EXCLUDE,EC1: Focuses on Chinese text classification in medical and legal domains rather than scam message detection.
+P206,Towards Robust Few-Shot Text Classification Using Transformer Architectures and Dual Loss Strategies,EXCLUDE,EC1: Focuses on relation extraction and general text classification on FewRel 2.0 rather than scam/phishing detection.
+P215,A Comparative Study of Task Adaptation Techniques of Large Language Models for Identifying Sustainable Development Goals,EXCLUDE,EC1: Focuses on Sustainable Development Goals (SDG) text classification rather than scam or phishing message detection.
+P219,Comprehensive Study on Zero-Shot Text Classification Using Category Mapping,EXCLUDE,EC1: Focuses on general zero-shot text classification using Wikipedia category mapping rather than scam message detection.
+P227,Fine-Tuning Techniques for Large Language Models: A Comprehensive survey,EXCLUDE,EC4: Comprehensive survey paper lacking specific empirical implementation or dataset evaluation for scam message classification.
+P234,Do LLMs Understand Environmental Discourse? Benchmarking Zero-Shot Performance in Solving Eco-Related Text Classification,EXCLUDE,"EC1: Focuses on environmental sustainability text classification rather than scam messages, spam, or phishing."
+P235,Overcoming Data Scarcity: Guiding Citation Function Classification With Prompt-Based Few-Shot Learning,EXCLUDE,EC1: Focuses on citation function classification in scientific publications instead of scam or fraudulent messages.
+P238,Combating Misinformation: A Comparative Evaluation of Zero-Shot Models for Fake News Detection,EXCLUDE,"EC1: Focuses on general fake news detection rather than scam messages, phishing, or fraudulent conversational scripts."
+P241,Convert Cross-Domain Classification Into Few-Shot Learning: A Unified Prompt-Tuning Framework for Unsupervised Domain Adaptation,EXCLUDE,EC1: Focuses on general unsupervised domain adaptation and cross-domain classification frameworks rather than scam message detection.
+P243,LDFS: LLMs with Dynamic Few-Shot for Offensive Language Detection,EXCLUDE,"EC1: Focuses on offensive language detection in social media rather than scam messages, phishing, or financial fraud."
+P244,Comparative Analysis of Gemini and LLaMA 3 for Zero-Shot Emotion Classification of Indonesian Texts,EXCLUDE,EC1: Focuses on zero-shot emotion classification of Indonesian texts rather than scam message detection.
+P249,Why Lift so Heavy? Slimming Large Language Models by Cutting Off the Layers,EXCLUDE,EC1: Focuses on architectural LLM pruning techniques rather than scam message detection or comparative NLP for fraud.
+P251,Improved Cervical Cancer Classification using Generative AI and Language Models,EXCLUDE,EC1: Focuses on cervical cancer classification using tabular and text-transformed medical data rather than scam or fraud detection.
+P252,Detecting AI-Generated Paraphrases in Bengali: A Comparative Study of Zero-Shot and Fine-Tuned Transformers,EXCLUDE,"EC1: Focuses on detecting AI-generated text/paraphrases in Bengali rather than spam, phishing, or scam message classification."
+P256,Setfit for Automated Essay Scoring: Extending Longformer to a Sentence Transformer,EXCLUDE,EC1: Focuses on Automated Essay Scoring (AES) rather than scam or fraudulent text classification.
+P257,Use of large language models to classify failure modes in damage notifications from transmission systems,EXCLUDE,EC4: Missing abstract and insufficient empirical information to assess methodology against inclusion criteria.
+P260,Evaluation of ChatGPT as a Classification Model to Detect Prostitution Sentences in SNS,EXCLUDE,"EC1: Focuses on detecting prostitution sentences in social network services rather than financial scams, phishing, or scam messages."
+P266,A Comprehensive Overview and Analysis of Large Language Models: Trends and Challenges,EXCLUDE,EC4: Purely a review/overview paper on Large Language Models lacking a specific primary dataset or empirical classification experiment for scam messages.
+P277,Beyond Words: Augmenting Discriminative Richness via Diffusions in Unsupervised Prompt Learning,EXCLUDE,EC1: Focuses on vision-language models and image classification tasks rather than scam message or text classification.
+P281,Cross-Lingual Sentiment Analysis Using Pre-Trained Transformer Models for Multilingual Social Media Data,EXCLUDE,EC1: Focuses on cross-lingual sentiment analysis for social media data rather than scam or phishing message classification.
+P284,Multi-Stage Retriever Model for Document Classification Using Fine Tuned Embedding Model,EXCLUDE,"EC1: Focuses on business document classification (invoices, contracts, financial reports) rather than scam or fraudulent message classification."
+P285,Overcoming Dataset Imbalances and Computational Challenges in IoT Intrusion Detection: A SMOTE-Enhanced Transformer-Based Model,EXCLUDE,EC1: Focuses on IoT network intrusion detection rather than scam/phishing text NLP
+P286,From Sample Generation to Efficacy Transfer: Optimization of Privacy-Preserving LLMs for Content Moderation,EXCLUDE,EC1: Focuses on general content moderation rather than specific scam message classification
+P289,General LLMs Versus Fine-Tuned Models on Algerian Dialect Classification Tasks,EXCLUDE,EC1: Focuses on dialectal sentiment and emotion classification rather than scam/phishing detection
+P292,"Text Classification for Cultural Heritage Corpora: A Review of Methods, Datasets, and Benchmarks",EXCLUDE,EC4: Review paper focused on cultural heritage corpora text classification rather than scam detection
+P294,A Survey on Large Language Models in Phishing Detection,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics."
+P295,Boosting Arabic Emotion Detection: Transformer Ensembles with Soft Voting,EXCLUDE,EC1: Focuses on Arabic emotion detection rather than scam message classification
+P296,JailbreakTracer: Explainable Detection of Jailbreaking Prompts in LLMs Using Synthetic Data Generation,EXCLUDE,EC1: Focuses on LLM jailbreak prompt detection rather than scam or phishing message classification
+P307,Hybrid Transformer-RNN Model for Classification of Indonesian Regional Language,EXCLUDE,EC1: Focuses on regional language classification rather than scam/phishing message detection
+P308,Optimizing Social Media Sentiment Analysis: RoBERTa Framework for Evaluating Public Perception of DeepSeek,EXCLUDE,EC1: Focuses on social media sentiment analysis of AI public perception rather than scam message classification or text fraud detection.
+P313,Auspex: Building Threat Modeling Tradecraft into an Artificial Intelligence-Based Copilot,EXCLUDE,EC4: Focuses on automated threat modeling for software system architecture rather than scam message text classification.
+P318,Developing Natural Language Processing Model using Git and GPT,EXCLUDE,EC4: General methodology and software engineering framework paper for Git and GPT integration rather than a targeted scam message detection study.
+P320,Sentiment-Enhanced Opinion Sentence Recognition Using AgriBERT-SentiDPCNN and Multi-Opinion Summarization via LLMs for Agricultural Scientific Literature,EXCLUDE,EC1: Focuses on sentiment-enhanced opinion sentence recognition in agricultural scientific literature rather than scam or phishing message detection.
+P327,AI-Generated Text Detection Using RoBERTa: A Generalizability and Explainability Analysis,EXCLUDE,EC1: Focuses on AI-generated text detection (general authorship attribution) rather than scam or phishing message classification.
+P330,Evaluating the Portability of BERT-based Misinformation Detection from Twitter to Bluesky,EXCLUDE,EC1: Focuses on general misinformation detection on social media (Twitter to Bluesky portability) rather than scam message classification.
+P331,Leveraging Large Language Models to Build Computationally Efficient Models for Sustainable Finance Investment Decision Support,EXCLUDE,EC1: Focuses on sustainable finance investment decision support and UN SDG contribution extraction rather than scam or phishing message classification.
+P333,Towards Natural Language-Based Document Image Retrieval: New Dataset and Benchmark,EXCLUDE,EC1: Focuses on natural language-based document image retrieval (multimodal VDU) rather than scam message text classification.
+P334,A Comparative Analysis of Transformer and Traditional ML Models for Cyberbullying Detection on Twitter (now X),EXCLUDE,"EC1: Focuses on cyberbullying detection on Twitter rather than scam, spam, or phishing messages."
+P336,Moral Decision-making with Artificial Intelligence,EXCLUDE,EC4: Focuses on moral decision-making and emotion classification from Reddit rather than scam/spam message detection.
+P338,Spam Message Classification Using Machine Learning and Deep Learning Approaches,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P339,Comparative Analysis of Machine Learning Models for Smishing Message Detection,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P343,Machine Learning-based Approach for Scam Message Detection in Kiswahili Using Natural Language,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P344,Multi-label commit message classification through p-tuning,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P351,Message from the Chairs,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics."
+P359,Spam SMS Classification,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics (Abstract is N/A)."
+P363,Ensemble Learning Approaches for SMS Spam Detection: A Comparative Study of Text Classification Models,EXCLUDE,"EC3: Relies on traditional machine learning models (TF-IDF with RVM, XGBoost, LightGBM, Logistic Regression) rather than deep learning or PLM/LLM architectures."
+P385,Fine-Tuning Causal LLMs for Text Classification: Embedding-Based vs. Instruction-Based Approaches,EXCLUDE,EC1: Focuses on patent classification benchmarks rather than scam messages or conversational fraud.
+P386,LabelFusion: Fusing Large Language Models with Transformer Encoders for Robust Financial News Classification,EXCLUDE,EC1: Focuses on financial news classification rather than scam/phishing message detection.
+P387,Complementary Learning Approach for Text Classification using Large Language Models,EXCLUDE,EC1: Focuses on human-machine collaboration for rating pharmaceutical alliance press releases rather than scam messages.
+P388,Efficient Text Classification with Conformal In-Context Learning,EXCLUDE,EC1: Focuses on conformal in-context learning for general NLP benchmarks rather than scam or phishing detection.
+P391,Evaluating Few-Shot Prompting for Spectrogram-Based Lung Sound Classification Using a Multimodal Language Model,EXCLUDE,EC2: Focuses on lung sound classification from mel-spectrograms rather than processing message text or conversational fraud scripts.
+P395,Ensembling Prompting Strategies for Zero-Shot Hierarchical Text Classification with Large Language Models,EXCLUDE,EC4: Abstract is missing (N/A) and title refers to general hierarchical text classification.
+P401,"Review of: ""LLM Confidence Evaluation Measures in Zero-Shot CSS Classification""",EXCLUDE,"EC5: Abstract is completely inaccessible or missing (""N/A"")."
+P404,LLM-GMP: Large Language Model-Based Message Passing for Zero-Shot Learning on Graphs,EXCLUDE,"EC5: Abstract is completely inaccessible or missing (""N/A"")."
+P410,SEA-Spoof: Bridging The Gap in Multilingual Audio Deepfake Detection for South-East Asian,EXCLUDE,EC2: Focuses on audio deepfake detection and speech signal processing rather than text-based scam message classification.
+P412,Sino-Vietnamese vocabulary in modern Vietnamese language,EXCLUDE,EC4: Lacks any scam detection or machine learning text classification empirical study.
+P417,Oath Expressions in Vietnamese Prose (1930–1945) and Reflections of Vietnamese Cultural Characteristics,EXCLUDE,EC4: Literary and cultural study of historical prose lacking empirical text classification or scam detection.
+P418,ThaiScamBench: Toward a Benchmark Dataset for Scam and Phishing Detection in the Thai Language,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P419,Classifiers in the Vietnamese language: functions and peculiarities of use,EXCLUDE,EC1: Focuses on network packet headers
+P428,LOCUS: A System and Method for Low-Cost Customization for Universal Specialization,EXCLUDE,EC1: Focuses on general NER and text classification benchmarks rather than scam or phishing detection.
+P429,State of the Art in Text Classification for South Slavic Languages: Fine-Tuning or Prompting?,EXCLUDE,"EC1: Focuses on sentiment, topic, and genre classification in South Slavic languages rather than scam or phishing detection."
+P430,SALSA: Single-pass Autoregressive LLM Structured Classification,EXCLUDE,EC1: Focuses on general instruction-tuned LLM text classification benchmarks rather than scam message detection.
+P431,CoGate-LSTM: Prototype-Guided Feature-Space Gating for Mitigating Gradient Dilution in Imbalanced Toxic Comment Classification,EXCLUDE,"EC1: Focuses on general toxic comment classification rather than spam, scam messages (phishing/smishing), or conversational fraud text."
+P432,Expert Merging in Sparse Mixture of Experts with Nash Bargaining,EXCLUDE,EC4: Focuses on algorithmic/architectural improvements for Mixture of Experts rather than evaluating models on scam message detection tasks.
+P433,The Impact of Role Design in In-Context Learning for Large Language Models,EXCLUDE,EC4: Focuses broadly on role design in in-context learning for general sentiment and QA tasks without an empirical evaluation on scam or fraud detection.
+P434,"LLM-as-classifier: Semi-Supervised, Iterative Framework for Hierarchical Text Classification using Large Language Models",EXCLUDE,EC4: Proposes a general semi-supervised framework for hierarchical text classification using LLMs without focusing on scam/phishing detection.
+P435,Cross-Prompt Encoder for Low-Performing Languages,EXCLUDE,EC4: Evaluates cross-prompt encoders for general multilingual text classification on the SIB-200 benchmark rather than scam detection.
+P436,XAutoLM: Efficient Fine-Tuning of Language Models via Meta-Learning and AutoML,EXCLUDE,EC4: Proposes an AutoML framework for general language model fine-tuning without targeting scam or phishing detection tasks.
+P439,"Classification of Hacker’s Posts Based on Zero-Shot, Few-Shot, and Fine-Tuned LLMs in Environments with Constrained Resources",EXCLUDE,"EC1: Focuses on hackers' forum posts rather than scam messages, phishing, smishing, or conversational fraud text."
+P447,Retrieval-Augmented Few-Shot Prompting Versus Fine-Tuning for Code Vulnerability Detection,EXCLUDE,EC1: Focuses on software code vulnerability detection rather than scam/spam message text classification.
+P451,Two-Stage Fine-tuning CLIP by Introducing Structure Knowledge for Few-shot Classification,EXCLUDE,EC1: Focuses on image classification and tangram cognitive tasks rather than text-based scam message classification.
+P452,Preserving Zero-shot Capability in Supervised Fine-tuning for Multi-label Text Classification,EXCLUDE,"EC1: Focuses on general multi-label text classification without addressing scam, phishing, or spam messages."
+P455,"Comparative Study of Zero-shot and Fine-tuned Vision Models--Evaluating CLIP, LiT, and Swin Transformer on Fine-grained Bird Classification",EXCLUDE,EC1: Focuses on computer vision and image classification (bird dataset) rather than text-based scam message detection.
+P458,Enhancing Anomaly Detection with Few-Shot Fine-Tuned Long Text-to-Image Models,EXCLUDE,EC5: Abstract is completely inaccessible (N/A) and unrelated domain (anomaly detection with text-to-image models).
+P007,Enhancing SMS Classification with Ensemble Machine Learning Techniques,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P008,Uncovering SMS Spam in Swahili Text Using Deep Learning Approaches,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P010,Performance Evaluation of Meta-data features for Spam SMS Classification using Sequential Models,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P011,Phishing Detection in Arabic SMS Messages using Natural Language Processing,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P013,On-Device Smishing Classifier Resistant to Text Evasion Attack,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P017,Zero-Shot and Few-Shot Learning for Telugu News Classification: A Large Language Model Approach,EXCLUDE,"EC1: Focuses on Telugu news categorization rather than scam, spam, or phishing message classification."
+P018,Exploiting Classification of LLM with Zero-shot Prompt & Fine-tuning,EXCLUDE,EC1: Focuses on medical text classification rather than scam messages or phishing texts.
+P019,Exploring Soft Prompt Initialization Strategy for Few-Shot Continual Text Classification,EXCLUDE,EC1: Focuses on few-shot continual text classification general NLP benchmarks rather than scam or phishing detection.
+P024,Evaluating LLM Prompts for Data Augmentation in Multi-Label Classification of Ecological Texts,EXCLUDE,EC1: Focuses on ecological texts and green practices on social media rather than scam or phishing messages.
+P029,Leveraging Few-Shot Learning in Generative AI for UPI Transaction Classification,EXCLUDE,EC1: Focuses on UPI financial transaction categorization rather than scam messages or conversational fraud.
+P032,A Framework for Categorizing Complaint Text via Large Language Model,EXCLUDE,EC1: Focuses on cross-industry customer complaint categorization rather than scam messages or phishing.
+P033,Experimental Study of In-Context Learning for Text Classification and Its Application to Legal Document Review in Construction Delay Disputes,EXCLUDE,EC1: Focuses on legal document review in construction delay disputes rather than scam messages.
+P035,Application of Large Language Model and In-Context Learning for Aviation Safety Prediction,EXCLUDE,EC1: Focuses on aviation safety reports rather than scam messages or phishing texts.
+P037,A Scene-Aware Prompt Template of Chinese Text Data Augmentation Method Based on Large Language Model,EXCLUDE,EC1: Focuses on general Chinese news text data augmentation rather than scam message classification.
+P038,Prompt Engineering to Classify Components of Standard Operating Procedure Steps Using Large Language Model (LLM)-Based Chatbots,EXCLUDE,EC1: Focuses on classifying Standard Operating Procedure (SOP) steps for flight safety and Monte Carlo simulations rather than scam messages or conversational fraud.
+P052,"Leveraging Biases in Large Language Models: ""bias-kNN"" for Effective Few-Shot Learning",EXCLUDE,EC1: Focuses on general few-shot text classification methodology ('bias-kNN') across generic datasets rather than scam/fraud message detection.
+P056,Poster: Exploring Explainability Techniques for Large Language Model Classification Predictions,EXCLUDE,EC1: Focuses on general LLM explainability using linear models and prompt engineering rather than spam or scam classification.
+P062,WHW: An Efficient Data Organization Method for Fine-tuning Large Language Models,EXCLUDE,EC1: Focuses on a general data organization method (WHW) for fine-tuning LLMs on vertical domain tasks rather than scam message classification.
+P068,Large Model-Based Data Augmentation for Imbalanced Text Classification,EXCLUDE,EC1: Focuses on general imbalanced text classification and data augmentation (SMOTE-inspired LLM prompting) rather than scam/phishing detection.
+P070,Exploring Radiology Reports of Brain Cancer Patients Using the Advanced Large Language Model ChatGPT,EXCLUDE,EC1: Focuses on processing medical radiology reports of brain cancer patients using ChatGPT rather than scam message classification.
+P073,Adaptable and Reliable Text Classification using Large Language Models,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P074,Exploring Multi-Label Data Augmentation for LLM Fine-Tuning and Inference in Requirements Engineering: A Study with Domain Expert Evaluation,EXCLUDE,EC1: Focuses on multi-label data augmentation for LLM fine-tuning and inference in requirements engineering rather than scam message classification.
+P075,POQC: Prompt-Optimized Model for Question Classification Using LLM-Based Data Augmentation,EXCLUDE,EC1: Focuses on question classification rather than scam/phishing/spam message detection.
+P079,Conditional Label Smoothing For LLM-Based Data Augmentation in Medical Text Classification,EXCLUDE,EC1: Focuses on medical text classification rather than scam or fraud detection.
+P087,A Step Towards Modern Disinformation Detection: Novel Methods for Detecting LLM-Generated Text,EXCLUDE,EC1: Focuses on detecting LLM-generated text and general disinformation rather than scam messages.
+P089,Enhanced Discriminative Fine-Tuning of Large Language Models for Chinese Text Classification,EXCLUDE,EC1: Focuses on general Chinese text classification rather than scam message detection.
+P092,ZDDR: A Zero-Shot Defender for Adversarial Samples Detection and Restoration,EXCLUDE,EC1: Focuses on adversarial sample detection and restoration in NLP models rather than scam messages.
+P095,MLLMIE: Multiple Large Language Model Information Extraction in Ancient Medical Texts,EXCLUDE,EC1: Focuses on information extraction from ancient medical texts rather than scam message detection.
+P096,LLM-Based Digital Twin Water Conservancy Knowledge Graph Construction,EXCLUDE,EC1: Focuses on domain-specific knowledge graph construction for water conservancy rather than scam detection.
+P099,Interactive Rubric Generator for Instructor's Assessment Using Prompt Engineering and Large Language Models,EXCLUDE,EC1: Focuses on interactive rubric generation and educational assessment feedback rather than scam messages.
+P107,LLM Chain Ensembles for Scalable and Accurate Data Annotation,EXCLUDE,EC1: Focuses on general LLM chain ensembles for data annotation rather than scam message classification.
+P111,How Reliable AI Chatbots are for Disease Prediction from Patient Complaints?,EXCLUDE,EC1: Focuses on disease prediction from patient complaints rather than scam message classification.
+P113,Character-level Adversarial Attacks Evaluation for AraBERT’s,EXCLUDE,EC1: Focuses on character-level adversarial attacks on AraBERT without addressing scam or spam text classification.
+P115,Prompt-Based Generation Strategy for Imbalanced Information Security Rating Dataset Augmentation,EXCLUDE,EC1: Focuses on information security rating and secret data classification (WikiLeaks) rather than scam/phishing message classification.
+P124,Zero-shot LLM-guided Counterfactual Generation: A Case Study on NLP Model Evaluation,EXCLUDE,EC1: Focuses on zero-shot LLM-guided counterfactual generation for general NLP model evaluation.
+P128,Effective Intended Sarcasm Detection Using Fine-tuned Llama 2 Large Language Models,EXCLUDE,EC1: Focuses on intended sarcasm detection using fine-tuned Llama 2 rather than scam message classification.
+P129,A Framework for automated selective Fine-Tuning of Domain-Specific Large Language Models Using Graph-Based Retrieval Augmented Generation,EXCLUDE,EC1: Focuses on a framework for selective fine-tuning of domain-specific LLMs using Graph-RAG rather than scam message classification.
+P131,Screening Automation for Systematic Reviews: A 5-Tier Prompting Approach Meeting Cochrane’s Sensitivity Requirement,EXCLUDE,EC1: Focuses on automated screening for systematic literature reviews using prompting rather than scam message classification.
+P140,Personalized Large Language Models,EXCLUDE,"EC1: Focuses on general emotion recognition and hate speech detection rather than scam, spam, or phishing message classification."
+P142,MindScape Continuum: Advancing Online Counseling with Bert-Based Strategy Classification and Professional Helping Skills,EXCLUDE,EC1: Focuses on online psychological counseling and helping skills strategy classification rather than scam or phishing message detection.
+P144,MediGPT: Exploring Potentials of Conventional and Large Language Models on Medical Data,EXCLUDE,"EC1: Focuses on medical text classification rather than scam, spam, or phishing message classification."
+P145,AraT5GQA: Arabic Question Answering model using automatic generated dataset,EXCLUDE,"EC1: Focuses on Arabic question-answering models rather than scam, spam, or phishing message classification."
+P155,"Towards Interpretable Emotion Classification: Evaluating LIME, SHAP, and Generative AI for Decision Explanations",EXCLUDE,"EC1: Focuses on multi-label emotion classification rather than scam, spam, or phishing message classification."
+P156,Generalizing Functional Error Correction for Language and Vision-Language Models,EXCLUDE,EC4: Focuses on functional error correction and robustness of neural network weights rather than applied scam message detection.
+P157,Pseudo-Labeling With Large Language Models for Multi-Label Emotion Classification of French Tweets,EXCLUDE,"EC1: Focuses on multi-label emotion classification of French tweets rather than scam, spam, or phishing message classification."
+P159,Model Attribution in LLM-Generated Disinformation: A Domain Generalization Approach with Supervised Contrastive Learning,EXCLUDE,"EC1: Focuses on model attribution for LLM-generated disinformation rather than scam, spam, or phishing message classification."
+P161,From Fiction to Forecast: Leveraging LLM-Enhanced Models and Science Fiction for Innovative Technology Predictions,EXCLUDE,EC1: Focuses on predicting technology trends from science fiction narratives rather than scam/spam message classification.
+P163,Autonomous Agents for Interrogation,EXCLUDE,EC1: Focuses on text-based deception detection in interrogation games rather than scam/spam messages.
+P164,Beyond Large Language Models: Rediscovering the Role of Classical Statistics in Modern Data Science,EXCLUDE,EC4: Methodological and statistical study on NLP models rather than a specific application to scam/spam detection.
+P166,Enhance Large Language Models for Multilingual Sentence Embedding with Knowledge Graph,EXCLUDE,EC1: Focuses on multilingual sentence embedding and sentence text similarity tasks rather than scam message detection.
+P167,Linguistic Intelligence in Large Language Models for Telecommunications,EXCLUDE,EC1: Focuses on natural language tasks in the telecommunications domain generally rather than scam message classification.
+P169,Emotion Classification of Lyrics through Summarization by Large Language Models,EXCLUDE,EC1: Focuses on emotion classification of song lyrics rather than scam or spam message classification.
+P171,Automating Maritime Risk Data Collection and Identification Leveraging Large Language Models,EXCLUDE,EC1: Focuses on automating maritime risk data collection and identification from news sources rather than scam messaging.
+P173,Synthetic Data Generation with Large Language Models for Personalized Community Question Answering,EXCLUDE,EC1: Focuses on synthetic data generation for personalized community question answering (StackExchange) rather than scam message detection.
+P175,MM-Narrator: Narrating Long-form Videos with Multimodal In-Context Learning,EXCLUDE,EC1: Focuses on video audio description generation using multimodal in-context learning rather than scam or text message classification.
+P183,Combining Financial Data and News Articles for Stock Price Movement Prediction Using Large Language Models,EXCLUDE,"EC1: Focuses on financial market and stock price movement prediction rather than spam, phishing, or scam text classification."
+P186,Enhanced Sentiment Classification in Code-Mixed Texts Using Hybrid Embeddings and Synthetic Data Generation,EXCLUDE,EC1: Focuses on general sentiment classification in code-mixed texts rather than scam/phishing message detection.
+P190,Automatic Taxonomy Generation Based on Large Language Models in the Automotive Domain,EXCLUDE,EC1: Focuses on automatic taxonomy and labeling system generation in the automotive domain rather than scam message detection.
+P193,iiPCS: Intent-Based In-Context Learning for Project-Specific Code Summarization,EXCLUDE,EC1: Focuses on source code summarization using intent-based in-context learning rather than fraudulent text classification.
+P195,Refining Sensitive Document Classification: Introducing an Enhanced Dataset Proposal,EXCLUDE,EC1: Focuses on sensitive business document classification and data privacy leakage prevention rather than scam/phishing messaging.
+P199,"8 Case Studies in AI: Translations, MRIs, Fraud Detection, Autonomous Vehicles, and Labor",EXCLUDE,"EC4: Completely lacks an abstract, experimental datasets, or quantitative methodology metrics."
+P200,A Hybrid Learning of Lexical and Language Processing for Domain Credibility Classification,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P201,Decrease the Prompt Uncertainty: Adversarial Prompt Learning for Few-shot Text Classification,EXCLUDE,"EC1: Focuses on general text classification and adversarial prompt learning rather than spam, phishing, or scam message detection."
+P207,Prompt-Learning for Short Text Classification,EXCLUDE,EC1: Focuses on general short text classification rather than scam or phishing detection.
+P208,Enhancing Multi-label text classification using adaptive promptify concepts,EXCLUDE,EC1: Focuses on general multi-label text classification rather than fraud or scam detection.
+P209,PSSOP: A Prompt-style Approach for Few-Shot Text Classification,EXCLUDE,"EC1: Focuses on general few-shot text classification (news, sentiment) rather than scam/phishing detection."
+P211,Prompt-Based Label-Aware Framework for Few-Shot Multi-Label Text Classification,EXCLUDE,EC1: Focuses on general multi-label text classification rather than scam message detection.
+P213,Prompt Engineering Adversarial Attack Against Image Captioning Models,EXCLUDE,EC1: Focuses on image captioning models and adversarial prompt attacks rather than text scam classification.
+P214,Enhancing Natural Language Instruction Document Comprehension with Large Language Models,EXCLUDE,EC1: Focuses on natural language instruction document comprehension rather than scam or phishing text detection.
+P218,An Emotion Text Classification Model Based on Llama3-8b Using Lora Technique,EXCLUDE,EC1: Focuses on emotion text classification rather than scam message or fraud classification.
+P222,A Long-Text Charge Prediction Method Based on the Prompt-Qwen-FIT Model: Integrating Few-Shot Learning and Incremental Adaptation Training,EXCLUDE,EC1: Focuses on legal charge prediction rather than scam message or phishing detection.
+P223,Chapter 5: Fine-Tuning LLMs (1),EXCLUDE,"EC4: Lacks an abstract, experimental datasets, or quantitative metrics."
+P224,Pilot Testing Transformers-based Models for Multi-class Classification of Greek Text,EXCLUDE,EC1: Focuses on general multi-class classification of Greek tweets rather than scam or phishing detection.
+P226,A Simple Method to Improve the Performance of Small Pre-trained Language Models on Few-shot Tasks,EXCLUDE,EC1: Focuses on general few-shot text classification methodology rather than scam message detection.
+P231,Single-pass Hierarchical Text Classification with Large Language Models,EXCLUDE,EC1: Focuses on hierarchical text classification for mental health diary entries and Wikipedia articles.
+P232,Financial Sentiment Analysis on News and Reports Using Large Language Models and FinBERT,EXCLUDE,EC1: Focuses on financial sentiment analysis rather than scam or phishing message detection.
+P233,Data-Efficient Fine-Tuning for Pre-Trained Language Model,EXCLUDE,EC1: Focuses on data pruning and data-efficient fine-tuning for general text classification.
+P237,Word and Character Semantic Fusion by Pretrained Language Models for Text Classification,EXCLUDE,EC1: Focuses on general word and character semantic fusion for benchmark text classification.
+P240,Adaptive Prompt Construction Method for Relation Extraction,EXCLUDE,EC1: Focuses on general relation extraction rather than scam/phishing message classification.
+P246,Fine-Tuning Bert On The Atis Dataset: Data Enhancement To Improve Intent Classification Accuracy,EXCLUDE,EC1: Focuses on airline travel information intent classification rather than scam/phishing.
+P250,Large Language Models for Anomaly Detection in Computational Workflows: From Supervised Fine-Tuning to In-Context Learning,EXCLUDE,EC1: Focuses on computational workflow anomaly detection rather than scam/phishing messages.
+P253,Taming Prompt-Based Data Augmentation for Long-Tailed Extreme Multi-Label Text Classification,EXCLUDE,EC1: Focuses on extreme multi-label text classification and long-tailed data augmentation rather than scam detection.
+P259,Fine-Tuning GPT on Biomedical NLP Tasks: An Empirical Evaluation,EXCLUDE,EC1: Focuses on biomedical NLP tasks rather than scam/phishing message classification.
+P267,Contrastive Meta-Learner for Automatic Text Labeling and Semantic Textual Similarity,EXCLUDE,EC1: Focuses on automatic text labeling and semantic textual similarity rather than scam detection.
+P269,Text Classification with Limited Training Data: Suicide Risk Detection on Social Media,EXCLUDE,EC1: Focuses on suicide risk detection on social media rather than scam/phishing message classification.
+P273,Leveraging Prompt Learning and Pause Encoding for Alzheimer's Disease Detection,EXCLUDE,EC1: Focuses on Alzheimer's disease detection from speech/transcripts rather than scam/phishing message classification.
+P275,MAVLingo: ‘A Natural Language Command Classification’ Dataset for MAVLink-Based Drones,EXCLUDE,EC1: Focuses on natural language command classification for unmanned aerial vehicles (MAVLink-based drones) rather than scam message detection.
+P280,Leveraging Large Language Models for Suicide Detection on Social Media with Limited Labels,EXCLUDE,EC1: Focuses on suicide detection on social media rather than scam message or phishing classification.
+P282,Mask Consistency and Contrast Regularization for Prompt-Based Learning,EXCLUDE,EC1: Focuses on general contrastive semi-supervised learning and mask consistency for few-shot sentence representation rather than specific scam message detection.
+P283,Leveraging Large Language Models for Activity Recognition in Smart Environments,EXCLUDE,EC1: Focuses on human activity recognition (HAR) in smart environments using sensor data rather than scam message classification.
+P287,Transforming Bengali Emails: Efficient Multi-Class Classification Using Transformers,EXCLUDE,EC1: Focuses on general multi-class Bengali email classification rather than spam or scam message detection.
+P291,IT Service Desk Ticket Classification via Large Language Models,EXCLUDE,EC1: Focuses on IT service desk ticket classification in Turkish rather than scam message detection.
+P301,Emotion Retrieval Using Generative Models: An Exploratory Study,EXCLUDE,EC1: Focuses on general emotion classification using generative models rather than scam message detection.
+P304,Mental Level Prediction using Long Sentence Discriminators and Language Generation Models,EXCLUDE,EC1: Focuses on mental level prediction and suicide risk detection on social media rather than scam message classification.
+P309,Multi-Label Classification with Generative Large Language Models,EXCLUDE,"EC1: Focuses on multi-label classification in aviation safety rather than scam messages, phishing, or conversational fraud text."
+P310,"Language Models for Hierarchical Classification of Radiology Reports With Attention Mechanisms, BERT, and GPT-4",EXCLUDE,EC1: Focuses on the hierarchical classification of radiology reports rather than scam/spam message detection.
+P312,Aspect-based Sentiment Analysis Techniques: A Comparative Study,EXCLUDE,EC1: Focuses on aspect-based sentiment analysis on customer reviews rather than scam or phishing message detection.
+P315,Defect Correction Method for Software Requirements Text Using Large Language Models,EXCLUDE,EC1: Focuses on software requirement text defect correction rather than spam or scam message text classification.
+P317,OVMR: Open-Vocabulary Recognition with Multi-Modal References,EXCLUDE,EC1: Focuses on open-vocabulary image recognition using multi-modal references rather than text-based scam classification.
+P322,AI - Assisted Text Composition for Automated Content Authoring Using Transformer-Based Language Models,EXCLUDE,EC1: Focuses on controllable text generation for authoring articles in Turkish rather than fraud detection.
+P324,Enhancing Healthcare Through Large Language Models: A Study on Medical Question Answering,EXCLUDE,EC1: Focuses on medical question answering datasets rather than scam or phishing text detection.
+P326,AI-based Multimodal Resume Ranking Web Application for Large Scale Job Recruitment,EXCLUDE,EC1: Focuses on resume ranking and job recruitment web applications rather than scam or phishing detection.
+P332,Automated Data Augmentation for Audio Classification,EXCLUDE,EC2: Focuses on audio signal processing rather than text classification of scam messages.
+P335,Leveraging Transfer Learning for Hate Speech Detection in Portuguese Social Media Posts,EXCLUDE,EC1: Focuses on hate speech detection in social media rather than scam/phishing messages.
+P341,Classifying Fraud in Indonesia Short Message Service (SMS) Using Machine Learning and Deep Learning,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P352,A Novel Optimized Classification approach for Spam Message Cyber Attack Detection and Prevention using Machine Learning Approach,EXCLUDE,EC5: Publication abstract is completely inaccessible (N/A).
+P355,Message from the Program Chair,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics (Abstract is N/A / front matter message)."
+P356,Multiclass Text Classification of Indonesian Short Message Service (SMS) Spam using Deep Learning Method and Easy Data Augmentation,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P361,A novel SMS spam dataset and bi-directional transformer based short-text representations for SMS spam detection,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics (Abstract is N/A)."
+P362,Email\ Sms Spam Classification Model,EXCLUDE,"EC3: Relies purely on traditional Naive Bayes theorem and IP address checks without employing modern Deep Learning, PLMs, or LLMs."
+P365,Enhancing Spam Filtering: A Machine Learning Approach to SMS and Email Fraud Classification,EXCLUDE,"EC3: Relies strictly on traditional lightweight baselines (Naive Bayes and TF-IDF) without any modern Deep Learning, PLM, or LLM text classification component."
+P366,Supplemental Information 1: SMS spam.,EXCLUDE,"EC4: Abstract is unavailable (N/A) and lacks methodological details, datasets, or quantitative results."
+P389,Zero/Few shot learning applied to text classification,EXCLUDE,EC1: Focuses on financial credit risk monitoring and unstructured text classification rather than scam message detection.
+P390,Multi-Label Classification for Fashion Data: Zero-Shot Classifiers via Few-Shot Learning on Large Language Models,EXCLUDE,EC5: Abstract is completely inaccessible (N/A).
+P398,promptr: Format and Complete Few-Shot LLM Prompts,EXCLUDE,EC4: Software package documentation (CRAN) lacking empirical evaluation on scam message classification datasets.
+P399,"Table 4: Performance of zero, one, and few-shot prompting.",EXCLUDE,"EC5: Abstract is completely inaccessible or missing (""N/A"")."
+P402,Zero-Shot Prompting and Few-Shot Fine-Tuning: Revisiting Document Image Classification Using Large Language Models,EXCLUDE,"EC5: Abstract is completely inaccessible or missing (""N/A"")."
+P403,Untitled,EXCLUDE,"EC5: Abstract is completely inaccessible or missing (""N/A"")."
+P407,"Automatic Text Classification With Large Language Models: A Review of
+                    <tt>openai</tt>
+                    for Zero- and Few-Shot Classification",EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics"
+P411,The Vietnamese Voice:,EXCLUDE,EC4: Missing abstract and lacks empirical classification methodology or metrics.
+P414,The Mechanisms of Language Game in the Vietnamese Language,EXCLUDE,EC4: Purely linguistic study lacking experimental text classification models or empirical performance metrics.
+P415,EASE Guidelines for Authors and Translators of Scientific Articles: Vietnamese,EXCLUDE,EC4: Editorial/guideline document lacking research methodology and scam classification experiments.
+P422,Chinese and Vietnamese,EXCLUDE,EC4: Completely out of PICO scope; focuses on biomedical cancer epidemiology rather than NLP text classification.
+P438,Transformer-Based Fine-Tuning and Zero-Shot Learning for Image Classification,EXCLUDE,EC2: Focuses on image classification rather than text-based scam message classification.
+P443,Earnings call scripts generation with large language models: A study of few-shot prompting and fine-tuning methods,EXCLUDE,"EC1: Focuses on financial earnings call script generation rather than scam messages, phishing, or fraud text classification."
+P449,"Towards unbiased, accurate and robust fine-tuning of zero-shot vision models",EXCLUDE,EC1: Focuses on vision models rather than text-based scam message classification.
+P454,ABSA for Chinese review with fine-tuned BERT and zero-shot classification,EXCLUDE,EC1: Focuses on Aspect-Based Sentiment Analysis of e-commerce customer reviews rather than scam or phishing message detection.
+P456,SyMFood: Synergistic Multi-Modal Prompting for Fine-Grained Zero-Shot Food Detection_supp1-3668226.pdf,EXCLUDE,EC5: Abstract is completely inaccessible (N/A) and unrelated domain (food detection).
+P457,Zero-Shot Prompting Engineering for Fine-Grained Annotation in Agriculture,EXCLUDE,EC5: Abstract is completely inaccessible (N/A) and unrelated domain (agriculture annotation).
+P012,SMSDect: A Prediction Model for Smishing Attack Detection Using Machine Learning and Text Analysis,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P014,A Survey of Intelligent Detection Designs of HTML URL Phishing Attacks,EXCLUDE,EC1: Focuses primarily on HTML and URL phishing attacks rather than semantic scam message text.
+P016,Proposing Appropriate SMS Spam Detection Approaches for Variations of the Vietnamese Language,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P025,"Generative AI with LangChain: Build large language model (LLM) apps with Python, ChatGPT, and other LLMs",EXCLUDE,"EC4: Lacks an abstract, empirical dataset, and quantitative evaluation metrics."
+P041,Helping Language Models Learn More: Multi-Dimensional Task Prompt for Few-shot Tuning,EXCLUDE,EC1: Focuses on general task prompting methodologies rather than scam or phishing message detection.
+P060,Identifying Euroscepticism Using a Text-As-Data Approach: An Experimental Study Employing Parliamentary Speeches,EXCLUDE,EC1: Focuses on identifying Euroscepticism in parliamentary speeches rather than scam message classification.
+P067,Fine-tuned generative LLM oversampling can improve performance over traditional techniques on multiclass imbalanced text classification,EXCLUDE,IC1: Focuses on general text classification and class imbalance rather than scam or phishing message detection.
+P093,Data Augmentation with GPT-3.5 for Vietnamese Natural Language Inference,EXCLUDE,IC1: Focuses on natural language inference (NLI) rather than scam or spam message detection.
+P121,"An Empirical Analysis of Topic Categorization Using PaLM, GPT and BERT Models",EXCLUDE,IC1: Focuses on general topic categorization rather than scam or spam detection.
+P127,Intelligent and Adaptive Multi-Tiered Taxonomy for Digital Workplace Request Fulfilment Automations and Remediations,EXCLUDE,IC1: Focuses on digital workplace request fulfillment rather than scam or phishing detection.
+P187,Fact or Opinion? – Essential Value for Financial Results Briefing,EXCLUDE,IC1: Focuses on financial results briefing classification ('facts' vs 'opinions') rather than scam detection.
+P204,Research on Meta-Learning Based Few-Shot Chinese Text Classification Algorithms,EXCLUDE,IC1: Focuses on few-shot Chinese text classification algorithms generally rather than scam message detection.
+P210,Prompt-Based Few-Shot Text Classification with Virtual Class Representation,EXCLUDE,IC1: Focuses on general prompt-based few-shot text classification with virtual class representation rather than scam detection.
+P216,Emotional Polar Predictions Based on Matching Prompts,EXCLUDE,IC1: Focuses on emotional polar predictions (sentiment analysis) on hotel reviews rather than scam detection.
+P225,A Prompt-tuning Method For Low-Resource Relation Extraction Based On Enhanced-Prototype,EXCLUDE,"EC1: Focuses on relation extraction in general text (TACRED dataset) rather than scam, phishing, or spam message classification."
+P242,Few-shot Class Incremental Learning for Event Extraction,EXCLUDE,"EC1: Focuses on event extraction rather than spam, phishing, or scam text classification."
+P247,B-Pet: The PET Model with Parameter-Efficient Learning,EXCLUDE,EC4: General methodological paper on parameter-efficient learning without a specific application domain matching scam/spam text classification.
+P248,Zero-shot Learning for Named Entity Recognition in Software Specification Documents,EXCLUDE,"EC1: Focuses on named entity recognition in software requirements specification documents, not scam or phishing text."
+P261,Detecting Clickbait in Chinese Social Media by Prompt Learning,EXCLUDE,EC1: Focuses on clickbait detection in Chinese social media rather than scam/phishing message classification.
+P262,Optimizing Election Result Prediction Through Fine-Tuned Transformer Models,EXCLUDE,"EC1: Focuses on election result prediction using sentiment analysis of Twitter data, not scam message classification."
+P264,Zero-Shot Information Extraction with Community-Fine-Tuned Large Language Models From Open-Ended Interview Transcripts,EXCLUDE,"EC1: Focuses on open-ended survey interview transcripts (semantic matching, exact answer extraction, sentiment analysis), not scam or fraud detection."
+P265,SiaKey: A Method for Improving Few-shot Learning with Clinical Domain Information,EXCLUDE,"EC1: Focuses on clinical domain online post classification and EHRs, not scam message detection."
+P268,A Deep Learning-Driven Disease Classification Method Using MIMIC-III Database and Natural Language Processing,EXCLUDE,EC1: Focuses on automated medical diagnosis (ICD coding) from clinical records rather than scam or spam message classification.
+P271,Improving Biomedical Claim Detection using Prompt Learning Approaches,EXCLUDE,"EC1: Focuses on biomedical claim detection rather than scam, phishing, or spam text classification."
+P274,Improved Visual Fine-tuning with Natural Language Supervision,EXCLUDE,EC1: Focuses on computer vision fine-tuning using natural language supervision rather than NLP-based scam classification.
+P279,ShoppingGPT: A GPT-based Product Recommendation Dialogue System,EXCLUDE,EC1: Focuses on a product recommendation dialogue system (ShoppingGPT) rather than scam or fraudulent message classification.
+P290,Unsupervised Out-of-Distribution Detection Using Few in-Distribution Samples,EXCLUDE,EC1: Focuses on general unsupervised out-of-distribution detection for natural language classifiers rather than scam detection.
+P298,Humor Level Recognition Based on Prompt Learning and Contrastive Learning,EXCLUDE,EC1: Focuses on humor level recognition in text rather than scam message classification.
+P306,Fine-Tuning Pre-Trained Language Model for Urgency Classification on Food Safety Feedback,EXCLUDE,EC1: Focuses on urgency classification of food safety feedback reports rather than scam or phishing message detection.
+P311,Harnessing Transformers for Detecting Adverse Drug Reaction and Customized Causality Explanation using Generative AI,EXCLUDE,EC1: Focuses on detecting adverse drug reactions (ADR) in social media and reviews rather than scam or spam classification.
+P316,Performance Analysis of Federated Learning Algorithms for Multilingual Protest News Detection Using Pre-Trained DistilBERT and BERT,EXCLUDE,EC1: Focuses on multilingual protest news detection rather than scam/spam message classification.
+P325,Neural Ensemble for Organizing Business News-Streams for Corporate Libraries,EXCLUDE,EC1: Focuses on business news categorization rather than scam/spam message detection.
+P328,Query-Focused Submodular Demonstration Selection for In-Context Learning in Large Language Models,EXCLUDE,EC1: Focuses on general in-context learning demonstration selection for sentiment and topic classification rather than scam message detection.
+P329,Methodologies for Email Spam Classification Using Large Language Models,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P342,Enhancing Spam Message Classification and Detection Using Transformer-Based Embedding and Ensemble Learning,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P346,Real-Time Deployment of Machine Learning-Based Audio Analysis Systems for Suspicious Message Detection,EXCLUDE,EC2: Papers dealing with acoustic voice/audio signal processing to detect fraudulent calls rather than processing message text or conversational scripts.
+P349,Evaluation of Machine Learning Algorithms for Message Spam Filtering,INCLUDE,Satisfies Title and Abstract inclusion criteria (IC1-IC4)
+P350,Message from the Organizers,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics."
+P353,A Method for SMS Spam Message Detection Using Machine Learning,EXCLUDE,"EC3: Studies relying purely on non-learning static keyword blacklists/regex heuristics or traditional shallow ML (J48, KNN, DT) without any Deep Learning, PLM, or LLM classification component as targeted in the research question and PICO scope."
+P364,Automated SMS Classification and spam analysis,EXCLUDE,EC4: Abstract is unavailable (N/A) and lacks necessary empirical details or quantitative metrics for review.
+P392,Large Language Models for Text Classification: From Zero-Shot Learning to Instruction-Tuning,EXCLUDE,"EC4: General text classification / stance detection study lacking application to spam, phishing, or scam messages."
+P453,"Machine Translation with Large Language Models: Prompting, Few-shot Learning, and Fine-tuning with QLoRA",EXCLUDE,EC1: Focuses on machine translation rather than scam message or fraud text classification.
+P228,Applying SoftTriple Loss for Supervised Language Model Fine Tuning,EXCLUDE,EC1: Focuses on general text classification loss functions rather than scam message detection.
+P229,Few-Shot Text Classification via Semi-Supervised Contrastive Learning,EXCLUDE,EC1: Focuses on Twitter sentiment and aspect classification rather than scam message detection.
+P239,UCL-AST: Active Self-Training with Uncertainty-Aware Clouded Logits for Few-Shot Text Classification,EXCLUDE,EC1: Focuses on general few-shot text classification using active self-training rather than scam message detection.
+P254,Improving Few-Shot Text Classification with Task-aware Contrastive Learning,EXCLUDE,EC1: Focuses on general natural language understanding benchmarks rather than scam message detection.
+P272,Zero-shot Topic Classification via Automatic Tagging on Chinese Text Datasets,EXCLUDE,EC1: Focuses on general Chinese topic classification rather than scam/phishing message detection.
+P288,Diagnosis of power operation and maintenance records based on pre-training model and prompt learning,EXCLUDE,EC1: Focuses on power equipment operation and maintenance records rather than scam/phishing text.
+P299,Early Risks Depression Prediction of Indonesian Twitter Users Through Indonesian Text Using Transfer Learning and Linguistic Metadata Features Approaches,EXCLUDE,EC1: Focuses on depression prediction from social media rather than scam message detection.
+P305,Sentiment Analysis of Reviews in Kazakh With Transfer Learning Techniques,EXCLUDE,EC1: Focuses on general sentiment analysis rather than scam message classification.
+P348,Detection of Shotgun Surgery and Message Chain Code Smells using Machine Learning Techniques,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P357,Classification of Unwanted SMS Data (Spam) with Text Mining Techniques,EXCLUDE,"EC3: Relies purely on traditional text mining feature selection and classical ML (SVM) without deep learning, PLMs, or LLMs as mandated by IC2."
+P397,Noisy Channel Language Model Prompting for Few-Shot Text Classification,EXCLUDE,EC4: Abstract is missing (N/A) and focuses on general noisy channel prompting for few-shot text classification without a scam detection application.
+P416,Euphemia as a linguocultural phenomenon of the Vietnamese language,EXCLUDE,EC4: Purely linguistic and cultural analysis of euphemisms without machine learning or NLP scam detection.
+P420,“The Vietnamese language for beginners”. A new textbook: traditions and innovations,EXCLUDE,"EC4: Purely theoretical frameworks or survey/position papers lacking experimental datasets, empirical implementations, or quantitative metrics."
+P437,Meta-learning Fine-tuned Feature Extractor for Few-shot Image Classification,EXCLUDE,EC2: Focuses on image classification rather than text-based scam message classification.
+P440,TransPrompt v2: Transferable Prompt-based Fine-tuning for Few-shot Text Classification,EXCLUDE,"EC1: General NLP study on transferable prompting frameworks without focus on scam, phishing, or fraud message detection."
+P442,Few shot learning with fine-tuned language model for suicidal text detection,EXCLUDE,"EC1: Focuses on suicidal text detection from social media rather than scam messages, phishing, or fraud."
+P255,Text Classification Method Based On Semi-Supervised Transfer Learning,EXCLUDE,EC1: Focuses on general short text classification using semi-supervised transfer learning rather than scam detection.
+P293,An Efficient Method of Supervised Contrastive Learning for Natural Language Understanding,EXCLUDE,EC1: Focuses on general natural language understanding and GLUE benchmark tasks rather than scam detection.
+P321,Mufin: Enriching Semantic Understanding of Sentence Embedding using Dual Tune Framework,EXCLUDE,"EC1: Focuses on general enterprise NLU applications (intent classification, chatbots) rather than scam detection."
+P405,Few-shot and Zero-shot Approaches to Legal Text Classification: A Case Study in the Financial Sector,EXCLUDE,"EC5: Abstract is completely inaccessible or missing (""N/A"")."
+P408,TransPrompt: Towards an Automatic Transferable Prompting Framework for Few-shot Text Classification,EXCLUDE,"EC5: Papers not written in English or Vietnamese, or where the publication abstract/full-text is completely inaccessible."
+P347,Integrating Machine Learning Pipelines into Clinical Workflows with DICOM Message Queues,EXCLUDE,"EC1: Studies focusing solely on binary malware analysis, network packet routing, or pure URL identification via hash algorithms without semantic text NLP."
+P413,THE VIETNAMESE LANGUAGE,EXCLUDE,EC4: Missing abstract and lacks experimental design or evaluation metrics.
+P319,An Evaluation of Transfer Learning for Classifying Sales Engagement Emails at Large Scale,EXCLUDE,EC1: Focuses on sales engagement email classification rather than scam/phishing detection; also published in 2019 (violates IC5 >= 2020).

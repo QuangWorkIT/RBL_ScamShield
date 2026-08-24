@@ -1,13 +1,10 @@
 id,title,year,relevance,final_inclusion_reason
-P045,Zero-Shot Prompting for SMS Spam Detection using Large Language Models,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P001,BantayText: Machine Learning-Based Detection of Scam SMS in the Philippines,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P003,A Hybrid NLP and Deep Learning Framework for Intelligent SMS Phishing (Smishing) Detection,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P004,An Empirical study of Short Messaging Service - Smishing Detection using Machine Learning Algorithms,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P005,AI-Driven Smishing Detection in Android Devices Using TinyBERT and Aquila Optimization,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P006,Smishing Detection Using Fine-Tuned BERT,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P009,SMSHIELD: A Real-Time Smishing Detection in Mobile Messaging Systems using Deep Learning Approach,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P064,Assessing the capabilities of MBERT And Flan-T5 in detecting of multilingual suspicious messages,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P180,Integrihire: Combating Online Recruitment Scams with Groq-Powered Intelligence,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P012,SMSDect: A Prediction Model for Smishing Attack Detection Using Machine Learning and Text Analysis,2023,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P016,Proposing Appropriate SMS Spam Detection Approaches for Variations of the Vietnamese Language,2023,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P329,Methodologies for Email Spam Classification Using Large Language Models,2023,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P197,A Mixed-Language Transformer Encoder Architecture for Social Media Phishing: Vietnamese-English Case Study,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P337,Multilingual Financial Fraud Detection Using Machine Learning and Transformer Models: A Bangla-English Study,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P340,GRPO-MMS: Reinforcement Learning with a Composite Reward for Multimodal Fraud Message Detection,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P343,Machine Learning-based Approach for Scam Message Detection in Kiswahili Using Natural Language,2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P008,Uncovering SMS Spam in Swahili Text Using Deep Learning Approaches,2024,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P013,On-Device Smishing Classifier Resistant to Text Evasion Attack,2024,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P356,Multiclass Text Classification of Indonesian Short Message Service (SMS) Spam using Deep Learning Method and Easy Data Augmentation,2024,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P342,Enhancing Spam Message Classification and Detection Using Transformer-Based Embedding and Ensemble Learning,2023,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P349,Evaluation of Machine Learning Algorithms for Message Spam Filtering,2023,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
