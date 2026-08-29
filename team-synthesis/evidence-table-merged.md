@@ -1,7 +1,8 @@
-# Master Evidence Synthesis Matrix (34 Core Papers)
-## Systematic Literature Review for ScamShield (SCS) Capstone
+# Bảng Tổng Hợp Bằng Chứng Toàn Nhóm (Evidence Table Merged)
+## Dự án: ScamShield – Nền tảng phát hiện tin nhắn/cuộc gọi lừa đảo & Cảnh báo cộng đồng (SCS)
 
-**Synthesized across 5 Researcher Streams:** `minh_quang`, `hai_phuc`, `hoang_tran`, `quoc_huy`, `trung_hieu`
+- **Tổng số bài báo sau khi lọc trùng toàn nhóm:** `34 bài core`
+- **Thành viên đóng góp:** `minh_quang`, `hai_phuc`, `hoang_tran`, `quoc_huy`, `trung_hieu`
 
 | Master ID | Paper (Title, Authors, Year, Venue, Link) | Contributors | Tool / LLM Architecture | Dataset & Context (N) | Evaluation Metrics | Empirical Results achieved | Limitations & Threats to Validity |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
