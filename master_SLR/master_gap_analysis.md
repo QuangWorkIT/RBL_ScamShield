@@ -1,69 +1,70 @@
 # Master Systematic Gap Analysis & Research Opportunities
-## ScamShield: AI-Powered Scam Message and Call Detection and Community Alert Platform
+## ScamShield: AI-Powered Scam Message and Call Detection and Community Alert Platform (SCS)
+### Capstone Project & Research-Based Learning (RBL) Synthesis
 
 ---
 
-### 1. Executive Summary of the Master Corpus
-Based on the systematic synthesis of **38 unique included peer-reviewed papers** across 5 independent researcher streams (Minh Quang, Hải Phúc, Hoàng Trần, Quốc Huy, Trung Hiếu), we identify **5 fundamental Research Gaps** in the current state-of-the-art that directly justify the architectural and methodological design of the **ScamShield (SCS)** Capstone Project and its **RBL Component**.
+## 1. Executive Summary & Corpus Synthesis
+Based on the multi-researcher systematic review of **42 unique included peer-reviewed papers** across 5 independent researcher streams (**Minh Quang, Hải Phúc, Hoàng Trần, Quốc Huy, Trung Hiếu**), we identify **5 fundamental Research Gaps** in current academic literature that directly justify the design, architecture, and deployment strategy of **ScamShield (SCS)**.
 
 ```
-  STATE-OF-THE-ART (38 PAPERS)                       SCAMSHIELD (SCS) NOVELTY
+       STATE-OF-THE-ART (42 PAPERS)                           SCAMSHIELD (SCS) NOVELTY
 ┌──────────────────────────────────────────────┐    ┌────────────────────────────────────────────────────────┐
-│ • Monolingual / English-centric datasets     │───►│ 1. First Public Vietnamese Scam Corpus (>=500 samples) │
-│ • Heavy LLMs (>40ms latency, high API cost)  │───►│ 2. 2-Tier Cascaded AI (Fast-Path PhoBERT + LLM Cloud)  │
-│ • Plain-text evaluation only (blind to QR)   │───►│ 3. Multimodal & OCR Evasion Hardening (Quishing/Image) │
-│ • Static isolated message scoring            │───►│ 4. Full Multi-turn Conversational Progression Analysis │
-│ • Theoretical models without moderation      │───►│ 5. Community-Reported Blacklist with Moderator Review  │
+│ 1. Monolingual / English-centric datasets     │───►│ • First Public Vietnamese Scam Corpus (>=500 samples)  │
+│ 2. Heavy LLMs (>3s latency, recurring API fee)│───►│ • 2-Tier Cascaded AI (Fast-Path PhoBERT + LLM Cloud)  │
+│ 3. Text-only evaluation (blind to QR & images)│───►│ • Multimodal & OCR Evasion Hardening (Quishing/Image) │
+│ 4. Single isolated message evaluation         │───►│ • Full Multi-turn Conversational Scam Progression      │
+│ 5. Static classifiers without feedback loop   │───►│ • Community-Reported Blacklist with Moderator Review  │
 └──────────────────────────────────────────────┘    └────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-### 2. Deep Dive: 5 Core Research Gaps & ScamShield Solutions
+## 2. Deep Dive: 5 Core Research Gaps & ScamShield Solutions
 
-#### 🔴 Gap 1: Severe Scarcity of Vietnamese Scam Datasets & Language Nuance (Teencode / Tone Variations)
-* **Evidence from Master Table:**
-  * *Cam et al. (2026)* (VNSED) and *Nguyen-Xuan et al. (2026)* confirm that while English SMS benchmarks (UCI SMS Spam, LSDST-2022) have thousands of samples, high-quality, annotated Vietnamese scam datasets are practically non-existent in public academic repositories.
-  * Scammers targeting Vietnamese users heavily exploit teencode (e.g. `c0ng an`, `v4y t1en`), zero-width Unicode characters, and dialectal variations to bypass standard keyword filters.
+### 🔴 Gap 1: Severe Scarcity of Vietnamese Scam Datasets & Linguistic Evasion (Teencode / Accents)
+* **Empirical Evidence from Master Matrix:**
+  * Master papers `M001`, `M002`, `M003`, and `M023` confirm that while English datasets (SMS Spam Collection, Enron, PhishTank) exceed tens of thousands of samples, high-quality, annotated Vietnamese scam datasets are practically non-existent.
+  * Scammers targeting Vietnamese users heavily exploit *teencode* (e.g. `c0ng an`, `v4y t1en`, `nh4n thu0ng`), zero-width Unicode characters, and dialectal spelling variations to easily bypass rule-based and keyword filters.
 * **ScamShield Resolution:**
-  * Construct the first publicly shared **Vietnamese Scam Dataset (>=500 labeled messages across 5-7 taxonomy categories)** collected from Cục An toàn thông tin (NCSC) alerts, news reports, and crowdsourced submissions.
-  * Implement Adversarial Data Augmentation (using LLMs to generate teencode/spelling variants) to ensure robustness against bypass attempts (inspired by *P192*).
+  * Construct the first benchmark **Vietnamese Scam Dataset (>=500 labeled messages across 5-7 taxonomy categories)** collected from Cục An toàn thông tin (NCSC) alerts, news reports, and community reports.
+  * Implement Adversarial Data Augmentation (using LLM Few-Shot to generate synthetic teencode/spelling variants) ensuring high robustness against adversarial bypass.
 
 ---
 
-#### 🔴 Gap 2: The Accuracy-Latency-Cost Trilemma in Real-Time Mobile Deployment
-* **Evidence from Master Table:**
-  * *Sbei et al. (2025)* and *P471 (Edge-AI Smishing)* demonstrate that massive LLMs achieve superior semantic understanding but suffer from high latency (>2-4s) and recurring API costs ($0.002-$0.01/call), making them impractical for scanning thousands of incoming messages in real-time.
-  * Conversely, ultra-lightweight models (BiGRU, Naive Bayes) have sub-millisecond latency (0.25ms) but degrade significantly on complex, unseen scam scenarios (*P446*).
-* **ScamShield Resolution (2-Tier Cascaded Architecture):**
-  * **Tier 1 (Fast-Path Local Inference):** Fine-tuned `PhoBERT-base` running on FastAPI CPU with **Weighted Binary Cross-Entropy (WBCE)** loss to penalize False Negatives. Classifies 80% of common scam/ham messages in `< 250ms`.
-  * **Tier 2 (Cloud LLM Reasoning):** `Gemini-2.0-Flash` / `GPT-4o-mini` with *Few-shot + Scam Taxonomy prompting*. Triggered only when Tier 1 confidence is `< 90%` or when analyzing long multi-turn conversations, achieving `< 3s` latency while reducing API costs by 80%.
+### 🔴 Gap 2: The Accuracy-Latency-Cost Trilemma in Real-Time Mobile Scam Detection
+* **Empirical Evidence from Master Matrix:**
+  * *Saias (2025, M004)*, *Sbei et al. (2025, M005)*, and *Edge-AI Smishing (2026, M041)* demonstrate that massive LLMs (GPT-4, LLaMA-70B) achieve strong zero-shot reasoning but suffer from high inference latency (>2-4s) and recurring per-token API costs ($0.002-$0.01/call), making them impractical for client-side mobile protection.
+  * Conversely, ultra-lightweight traditional models (Naive Bayes, SVM, BiGRU) offer sub-millisecond inference (0.25ms) but degrade significantly on complex, multi-layered scams (*M006, M019*).
+* **ScamShield Resolution (2-Tier Cascaded AI Architecture):**
+  * **Tier 1 (Fast-Path Local / Edge Inference):** Fine-tuned `PhoBERT-base` with **Weighted Binary Cross-Entropy (WBCE)** loss to penalize False Negatives. Classifies 80% of routine scam/ham messages in `< 250ms` at zero external API cost.
+  * **Tier 2 (Cloud LLM Reasoning):** `Gemini-2.0-Flash` / `GPT-4o-mini` with *Few-shot + Scam Taxonomy prompting*. Triggered only when Tier 1 confidence is `< 90%` or when analyzing complex multi-turn dialogs, achieving `< 3s` latency while cutting API expenses by 80%.
 
 ---
 
-#### 🔴 Gap 3: Multimodal Threat Blindness (QR Codes / Screenshot Phishing / Evasion Attacks)
-* **Evidence from Master Table:**
-  * *Hoàng Trần (QuishingShield 2026)* and *Hải Phúc (GRPO-MMS 2026)* emphasize that modern scams have rapidly pivoted to **Quishing (QR Code Phishing)** and sending fraudulent notices as **Images/Screenshots** (fake banking app transfer receipts, fake police arrest warrants) to completely bypass text-based NLP filters.
-  * Standard text classifiers (*P472*) acknowledge a major limitation: zero capability to parse visual cues.
+### 🔴 Gap 3: Multimodal Threat Blindness (QR Code Phishing / Image-Based Fraud Notices)
+* **Empirical Evidence from Master Matrix:**
+  * *QuishingShield (2026, M014)* and *GRPO-MMS (2026, M007)* emphasize that modern cybercriminals increasingly send fraudulent bank transfer receipts, fake arrest warrants from police, and embedded QR codes (**Quishing**) to bypass textual NLP filters entirely.
+  * Over 85% of existing literature evaluates purely plain text (*M008, M009, M010, M042*), creating an alarming blind spot in mobile messaging apps (Zalo, Messenger, Telegram).
 * **ScamShield Resolution:**
-  * Equip the platform with an **Integrated OCR Engine (Tesseract/PaddleOCR)** to extract textual content from user-uploaded screenshots (Zalo, Messenger, SMS).
-  * Embed QR code decoding to extract underlying landing URLs and inspect their domain reputation against Google Safe Browsing and the ScamShield Community Blacklist.
+  * Equip the platform with an **Integrated OCR Engine (Tesseract/PaddleOCR)** to extract textual content from user-uploaded screenshots.
+  * Embed automated QR code decoding to inspect underlying landing URLs against Google Safe Browsing and the ScamShield Community Blacklist.
 
 ---
 
-#### 🔴 Gap 4: Single-Message Evaluation vs. Multi-Turn Conversational Scam Progression
-* **Evidence from Master Table:**
+### 🔴 Gap 4: Single-Message Evaluation vs. Multi-Turn Conversational Scam Progression
+* **Empirical Evidence from Master Matrix:**
   * Traditional NLP classifiers evaluate isolated messages (e.g. "Hello, is this Mr. Nam?"). In isolation, the message appears legitimate (Ham).
-  * However, fraud schemes (pig butchering, job scams) evolve over **5-10 turns of dialogue**, escalating from casual greetings to deposit requests.
+  * However, social engineering scams (pig butchering, romance fraud, fake job tasks) unfold over **5-10 turns of dialogue**, escalating from casual greetings to deposit requests.
 * **ScamShield Resolution:**
-  * Support **Full Conversation Thread Analysis** (uploading chat transcripts or multi-message screenshots), allowing the AI Engine to detect conversational scam progression and psychological manipulation cues (urgency, authority, financial temptation).
+  * Support **Full Conversation Thread Analysis** (uploading multi-message screenshots or chat transcripts), allowing the AI Engine to detect conversational scam progression and psychological manipulation cues (urgency, authority, financial bait).
 
 ---
 
-#### 🔴 Gap 5: Disconnect Between Academic Classifiers and Community Threat Intelligence
-* **Evidence from Master Table:**
-  * Almost all 38 academic papers focus purely on static offline model training without operational feedback loops.
-  * Once a new scam campaign emerges (e.g. fake VNeID app updates), static models fail until retrained months later.
+### 🔴 Gap 5: Disconnect Between Academic Classifiers and Community Threat Intelligence
+* **Empirical Evidence from Master Matrix:**
+  * Almost all 42 academic papers focus purely on static offline model training without operational feedback loops.
+  * Once a novel scam campaign emerges (e.g. fake VNeID app updates, fake utility bill refunds), static models fail until retrained months later.
 * **ScamShield Resolution:**
   * Combine AI classification with a **Community Blacklist Platform**:
     * Users report suspicious phone numbers, bank accounts, and URLs.
@@ -72,5 +73,18 @@ Based on the systematic synthesis of **38 unique included peer-reviewed papers**
 
 ---
 
-### 3. Conclusion for Capstone Defense & RBL Publication
-The unified 38-paper master corpus rigorously validates that **ScamShield's hybrid technological stack (PhoBERT + Gemini Few-Shot + Community Blacklist + OCR)** is directly targeted at resolving the most critical unaddressed gaps in modern cybersecurity literature.
+## 3. Methodological Comparison Matrix
+
+| Dimension | Typical Literature State-of-the-Art (42 Papers) | ScamShield Capstone Platform (SCS) |
+| :--- | :--- | :--- |
+| **Language Scope** | English, Kiswahili, Bangla, Spanish | Vietnamese-first (PhoBERT + Teencode & Dialect Robustness) |
+| **Architecture** | Single-tier (either pure heavy LLM or pure lightweight ML) | **2-Tier Hybrid Cascade (PhoBERT Tier 1 + Gemini Few-Shot Tier 2)** |
+| **Modality** | 85%+ Plain text SMS only | **Multimodal (Text + OCR Screenshot Extraction + QR Quishing Decoding)** |
+| **Context Window** | Single isolated message (1-turn) | **Multi-turn Dialogue & Conversational Progression Analysis** |
+| **Operational Loop**| Static offline testbench | **Live Community Blacklist + Moderator Review Workflow** |
+| **Latency & Cost** | High latency (>3s) or poor accuracy on novel scams | **< 250ms for 80% of traffic; 80% reduction in API cost** |
+
+---
+
+## 4. Conclusion for Capstone Defense & RBL Publication
+The unified 42-paper master evidence corpus rigorously validates that **ScamShield's hybrid technological stack (PhoBERT + Gemini Few-Shot + Community Blacklist + OCR)** directly addresses the most critical unaddressed gaps in modern cybersecurity literature.

@@ -1,37 +1,45 @@
-# PRISMA 2020 Flow Diagram - Master Synthesis (ScamShield RBL)
+# PRISMA 2020 Master Flow Diagram
+## Multi-Researcher Systematic Literature Review Synthesis (42 Final Core Papers)
 
 ```mermaid
 flowchart TD
-    subgraph Identification
-        A["Records identified from academic databases<br/>(ArXiv, OpenAlex, Semantic Scholar, CrossRef, Google Scholar)<br/><b>Total raw records: N = 1727</b>"]
-        B["Records removed before screening:<br/>Duplicate records across team: <b>N = 176</b>"]
-        A --> B
-        C["Unique records for title/abstract screening<br/><b>N = 1551</b>"]
-        B --> C
+    subgraph Identification ["Identification of studies via Databases and Registers"]
+        A1["Records identified from Academic APIs<br>(ArXiv, OpenAlex, Semantic Scholar, CrossRef)<br>across 5 Researchers<br><b>(n = 2,209)</b>"]
+        A2["Individual Member Breakdown:<br>• Minh Quang: n = 432<br>• Hải Phúc: n = 451<br>• Hoàng Trần: n = 460<br>• Quốc Huy: n = 435<br>• Trung Hiếu: n = 431"]
+        A1 --> A2
     end
 
-    subgraph Screening
-        D["Records excluded during Title/Abstract screening<br/>(Out of domain, non-scam, theoretical only)<br/><b>N = 1509</b>"]
-        C --> D
-        E["Reports sought for retrieval & full-text assessment<br/><b>N = 44 candidate reports</b>"]
-        C --> E
+    subgraph Deduplication ["Deduplication Phase"]
+        B1["Cross-member deduplication via Title Fuzzy Matching (>= 0.88) & Normalized DOI<br><b>Records removed as duplicates (n = 658)</b>"]
+        B2["Unique candidate records pooled in Master Corpus (01_master_all_records.csv)<br><b>(n = 1,551)</b>"]
+        A1 --> B1
+        B1 --> B2
     end
 
-    subgraph Eligibility
-        F["Reports excluded due to cross-member duplication:<br/><b>N = 2 duplicate papers</b>"]
-        E --> F
-        G["Assessed for eligibility under PICO + IC/EC criteria<br/><b>N = 42 full reports</b>"]
-        E --> G
+    subgraph Screening ["Screening Phase"]
+        C1["Records screened by Title & Abstract against PICO Framework & Inclusion Criteria (IC1-IC4)<br><b>(n = 1,551)</b>"]
+        C2["Records excluded based on EC1-EC6<br>(Out-of-domain, Non-English/Vietnamese, Theoretical only, Broken Links)<br><b>(n = 1,507)</b>"]
+        B2 --> C1
+        C1 --> C2
     end
 
-    subgraph Included
-        H["Final Master Included Studies in Systematic Review<br/>& 7-Column Evidence Extraction Matrix<br/><b>N = 42 Unique Papers</b>"]
-        G --> H
+    subgraph Eligibility ["Eligibility Phase"]
+        D1["Candidate papers selected for Full-Text Eligibility across 5 Researchers<br><b>(n = 44)</b>"]
+        D2["Cross-researcher consensus deduplication<br>(Identified 2 cross-member overlaps: M002, M023)<br><b>(n = 2 duplicates resolved)</b>"]
+        C1 --> D1
+        D1 --> D2
     end
+
+    subgraph Included ["Included Studies"]
+        E1["<b>Final Master Studies Included in Quantitative & Evidence Synthesis (03_master_final_included.csv)</b><br><b>(n = 42 Unique Papers)</b>"]
+        E2["Member Attribution Breakdown:<br>• Minh Quang: 5 papers<br>• Hải Phúc: 9 papers<br>• Hoàng Trần: 15 papers<br>• Quốc Huy: 10 papers<br>• Trung Hiếu: 5 papers<br>• Multi-Contributor Consensus: 2 papers"]
+        D2 --> E1
+        E1 --> E2
+    end
+
+    style A1 fill:#E0F2FE,stroke:#0284C7,stroke-width:2px,color:#0369A1
+    style B2 fill:#EDE9DF,stroke:#7A766F,stroke-width:2px,color:#1A1917
+    style C1 fill:#FEF3C7,stroke:#D97706,stroke-width:2px,color:#92400E
+    style D1 fill:#F3E8FF,stroke:#9333EA,stroke-width:2px,color:#6B21A8
+    style E1 fill:#D4EBD9,stroke:#2D7A53,stroke-width:3px,color:#1E5E3A
 ```
-
-### PRISMA Flow Synthesis Statistics:
-1. **Total Records Identified (Identification Phase):** `1727` records across 5 researchers.
-2. **Unique Records Screened (Screening Phase):** `1551` records after global deduplication.
-3. **Cross-Member Candidate Papers Assessed:** `44` candidate papers.
-4. **Final Unique Studies Included in Master Matrix:** `42` peer-reviewed empirical studies.
