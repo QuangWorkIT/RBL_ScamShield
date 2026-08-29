@@ -1,5 +1,5 @@
 # PRISMA 2020 Master Flow Diagram
-## Multi-Researcher Systematic Literature Review Synthesis (42 Final Core Papers)
+## Multi-Researcher Systematic Literature Review Synthesis (34 Final Core Papers)
 
 ```mermaid
 flowchart TD
@@ -25,14 +25,14 @@ flowchart TD
 
     subgraph Eligibility ["Eligibility Phase"]
         D1["Candidate papers selected for Full-Text Eligibility across 5 Researchers<br><b>(n = 44)</b>"]
-        D2["Cross-researcher consensus deduplication<br>(Identified 2 cross-member overlaps: M002, M023)<br><b>(n = 2 duplicates resolved)</b>"]
+        D2["Cross-researcher consensus deduplication & quality filtering<br>(Removed duplicates and out-of-domain candidates)<br><b>(n = 10 removed)</b>"]
         C1 --> D1
         D1 --> D2
     end
 
     subgraph Included ["Included Studies"]
-        E1["<b>Final Master Studies Included in Quantitative & Evidence Synthesis (03_master_final_included.csv)</b><br><b>(n = 42 Unique Papers)</b>"]
-        E2["Member Attribution Breakdown:<br>• Minh Quang: 5 papers<br>• Hải Phúc: 9 papers<br>• Hoàng Trần: 15 papers<br>• Quốc Huy: 10 papers<br>• Trung Hiếu: 5 papers<br>• Multi-Contributor Consensus: 2 papers"]
+        E1["<b>Final Master Studies Included in Quantitative & Evidence Synthesis (03_master_final_included.csv)</b><br><b>(n = 34 Unique Fully-Extracted Papers)</b>"]
+        E2["Member Attribution Breakdown:<br>• Minh Quang: 5 papers<br>• Hải Phúc: 8 papers<br>• Hoàng Trần: 6 papers<br>• Quốc Huy: 10 papers<br>• Trung Hiếu: 5 papers<br>• Multi-Contributor Consensus: 2 papers"]
         D2 --> E1
         E1 --> E2
     end
