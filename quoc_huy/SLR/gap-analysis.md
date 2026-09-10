@@ -1,63 +1,65 @@
-# GAP Analysis — Lỗ Hổng Dữ Liệu và Năng Lực Phòng Thủ Đối Kháng Của Các Mô Hình Ngôn Ngữ Trước SMS Lừa Đảo Tiếng Việt
+# GAP Analysis — Sự Đứt Gãy Giữa Mô Hình Học Máy Tĩnh và Trí Tuệ Đe Dọa Cộng Đồng Trong Nhận Diện Lừa Đảo
 
 **Thành viên:** Nguyễn Quốc Huy
-**GAP type:** GAP-M
-**Ngày:** 2026-09-01
+**GAP type:** GAP-S
+**Ngày:** 2026-09-10
 **Evidence table nguồn:** `team-synthesis/evidence-table-merged.md`
 **N =** 10 bài báo core (`M029`, `M030`, `M031`, `M032`, `M033`, `M034`, `M035`, `M036`, `M037`, `M038`)
 
 ---
 
-## 1. Mô tả GAP
+## 1. Mô tả GAP & Căn cứ Bằng chứng (GAP Description & Evidence Grounding)
 
-Hiện nay, chưa có nghiên cứu nào xây dựng một bộ dữ liệu chuẩn hóa về tin nhắn lừa đảo tiếng Việt được tích hợp kỹ thuật tăng cường dữ liệu (Data Augmentation) nhằm chủ động mô phỏng các biến thể teencode, tiếng lóng và cố ý sai lỗi chính tả/mất dấu để huấn luyện mô hình chống vượt rào.
+Hiện nay, các nghiên cứu học thuật về phát hiện tin nhắn lừa đảo/spam chủ yếu tập trung vào việc huấn luyện các mô hình tĩnh trên những bộ dữ liệu đóng, thiếu vắng sự kết nối với tri thức từ cộng đồng theo thời gian thực. Khi các chiến dịch lừa đảo mới xuất hiện (ví dụ: mạo danh VNeID, nộp phạt giao thông online), các mô hình tĩnh này hoàn toàn bất lực và thường có độ trễ lớn trước khi được cập nhật dữ liệu và huấn luyện lại. Sự đứt gãy giữa mô hình học máy tĩnh và trí tuệ đe dọa cộng đồng (Community Threat Intelligence) khiến hệ thống thiếu tính thích ứng liên tục với thực tiễn.
 
 **Bằng chứng từ evidence table:**
-- Cột Dataset / Hạn chế: Toàn bộ 10/10 bài báo core đều tập trung vào dữ liệu tiếng Anh (như SMS Spam Collection, Enron) hoặc tiếng Trung (`M029`, `M036`), hoàn toàn không có bộ dữ liệu nào hỗ trợ tiếng Việt. Đồng thời, bài `M033` chỉ ra hạn chế khi đối mặt với từ địa phương (Pidgin English) nhưng chưa có phương pháp giải quyết triệt để.
-- Cột Tool/LLM / Hạn chế: Các nghiên cứu sử dụng LLM để sinh dữ liệu đối kháng (như PEEK - `M035`, Genshin - `M036`) phát hiện ra pattern rằng mô hình dễ bị đánh lừa bởi các thay đổi ký tự hoặc từ đồng nghĩa. Tuy nhiên, chưa có công trình nào áp dụng pattern này để xử lý đặc thù ngôn ngữ phi chuẩn của Việt Nam (mất dấu, teencode).
-- Cột Tool/LLM / Dataset: Mặc dù các nghiên cứu (`M030`, `M032`) đã ứng dụng LLM (GPT-4, Gemini) để sinh dữ liệu tổng hợp (synthetic data), việc sinh dữ liệu chỉ thực hiện trên văn bản chuẩn mực, không mô phỏng các biến thể đánh lừa thực tế của spammer.
+- Xuyên suốt 10/10 bài báo phân tích (từ các họ mô hình truyền thống như Naive Bayes, SVM trong `M031` đến các mô hình Transformer như RoBERTa, DeBERTa, LLM trong `M032`, `M033`, `M037`), tất cả đều chỉ dừng lại ở việc huấn luyện và đánh giá mô hình phân loại trên các bộ dữ liệu tĩnh, hoàn toàn không có cơ chế thu thập dữ liệu tự động hoặc tiếp nhận phản hồi từ người dùng cuối.
+- Các framework tiên tiến như FraudSMSWalker (`M029`), PEEK (`M035`), hay Genshin (`M036`) cố gắng sinh dữ liệu tấn công đối kháng để cải thiện độ bền vững của mô hình, nhưng vẫn đóng khung trong giới hạn phòng thí nghiệm, bỏ qua nguồn cập nhật dữ liệu khổng lồ và nhanh nhạy nhất là báo cáo từ cộng đồng.
 
 ---
 
-## 2. Kiểm tra phản chứng
+## 2. Kiểm tra phản chứng (Counter-Evidence Matrix)
 
 | Paper | Đã làm GAP này không? | Chi tiết |
 |---|---|---|
-| `M029` (FraudSMSWalker) | Không | Benchmarking lừa đảo đa kênh SMS-to-Webpage, sử dụng tiếng Anh và tiếng Trung. Không giải quyết tiếng Việt hay teencode. |
-| `M030`, `M032` | Không | Dùng LLM (Claude, GPT-4, Gemini) để sinh dữ liệu tổng hợp huấn luyện mô hình SLM/DeBERTa, nhưng chỉ tập trung vào tiếng Anh chuẩn. |
-| `M031`, `M033`, `M038` | Không | Đánh giá các mô hình ML truyền thống và Transformer trên dữ liệu tĩnh mất cân bằng. Có ghi nhận khó khăn với phương ngữ nhưng không dùng Data Augmentation. |
-| `M034`, `M037` | Không | Tập trung vào Explainable AI (LIME, SHAP, LITA) để giải thích mô hình (RoBERTa, DistilBERT). Hoàn toàn không liên quan đến sinh dữ liệu teencode. |
-| `M035` (PEEK), `M036` (Genshin) | Có (một phần) | Sinh mẫu đối kháng bằng LLM/GAN (thay đổi ký tự, từ vựng) để vượt mặt bộ phân loại. Tuy nhiên, chỉ áp dụng cho tiếng Anh/Trung, chưa có quy tắc xử lý mất dấu hay teencode tiếng Việt. |
+| `M029` (FraudSMSWalker) | Không | Tập trung benchmark khả năng phân loại của LLM agent trên chuỗi SMS-to-Webpage, hoàn toàn không có module tiếp nhận phản ánh cộng đồng. |
+| `M032` (Agentic KD), `M033` (SecureNet) | Không | Dùng LLM lớn (Teacher) để chưng cất tri thức sang SLM (Student) hoặc so sánh với DeBERTa. Đều huấn luyện offline trên tập dữ liệu đóng. |
+| `M031`, `M038` | Không | Đánh giá các mô hình ML và Transformer trên dữ liệu tĩnh (Kaggle SMS, SpamAssassian). Không có cơ chế thu thập dữ liệu mới. |
+| `M034`, `M037` | Không | Sử dụng Explainable AI (LIME, Transformers Interpret) để giải thích mô hình, không liên quan đến hệ thống cộng đồng. |
+| `M035` (PEEK), `M036` (Genshin) | Không | Framework sinh dữ liệu đối kháng bằng LLM/GAN để vượt rào bộ lọc, nhưng tự động sinh dữ liệu chứ không lấy từ cộng đồng người dùng thực. |
 
-**Kết luận:** GAP xác nhận ✅ Các nghiên cứu hiện tại đã chứng minh hiệu quả của việc sinh dữ liệu đối kháng bằng LLM để tăng tính bền vững, nhưng chưa có công trình nào áp dụng Data Augmentation cho tiếng Việt với các đặc thù như teencode và mất dấu.
+**Kết luận:** GAP xác nhận ✅ Tất cả các nghiên cứu hiện tại đều có một lỗ hổng chung (GAP-S): thiếu sự kết hợp giữa mô hình nhận diện tĩnh và hệ thống thông minh từ cộng đồng (cơ chế báo cáo, blacklist động, quy trình kiểm duyệt).
 
 ---
 
-## 3. Đánh giá khả thi (Feasibility)
+## 3. Đánh giá khả thi 7 yếu tố (7-Factor Feasibility Evaluation Matrix)
 
 | Tiêu chí | Mức | Ghi chú |
 |---|---|---|
-| Dataset | ✅ | Có thể thu thập SMS lừa đảo từ ChongLuaDao, NCSC và phản ánh thực tế (>= 500 mẫu) trong < 1 tuần. |
-| API/Tool | ✅ | Dùng Free Tier Gemini 1.5 Flash / GPT-4o-mini kết hợp tập luật (rule-based) để sinh teencode. |
-| Tính toán | ✅ | Dùng Kaggle/Colab free (GPU T4/P100) đủ để fine-tune PhoBERT. |
-| Ground truth | ✅ | Gán nhãn thủ công hoặc dùng automated proxy (<= 5 giờ cho cả nhóm). |
-| Code base | ✅ | Có thư viện Transformers (HuggingFace) và các rule thay thế ký tự tiếng Việt có thể dễ dàng code từ đầu. |
-| Kỹ năng | ✅ | Nhóm có thể implement data augmentation pipeline và train model NLP cơ bản. |
-| Thời gian | ⚠️ | Xong nhưng tight. Cần chia việc song song (gom dữ liệu + viết script). |
+| **1. Dataset** | ✅ | Có thể sử dụng các nguồn dữ liệu từ ChongLuaDao và tạo giả lập các báo cáo cộng đồng để thử nghiệm. |
+| **2. API / Tooling** | ✅ | Stack web/app cơ bản (Node.js/Python, React) có thể dễ dàng thiết kế hệ thống workflow kiểm duyệt và API thu thập. |
+| **3. Compute** | ✅ | Hệ thống workflow và heatmap không đòi hỏi GPU cấu hình cao, chủ yếu thao tác trên cơ sở dữ liệu. Phân tích AI đính kèm có thể chạy trên Colab. |
+| **4. Ground Truth** | ⚠️ | Cần xây dựng quy trình kiểm duyệt đa tầng (Moderator review) để tránh báo cáo giả mạo từ cộng đồng. |
+| **5. Codebase** | ✅ | Có sẵn các thư viện/framework phát triển web và xử lý luồng dữ liệu (workflow). |
+| **6. Skill Set** | ✅ | Nhóm có kỹ năng phát triển Web/Backend và xây dựng luồng Moderation Workflow. |
+| **7. Time Budget** | ✅ | Hoàn toàn khả thi để tích hợp tính năng Blacklist và Heatmap trong thời gian môn học. |
 
-**Kết quả:** 0 ❌ / 1 ⚠️ -> An toàn, tiến hành
-
----
-
-## 4. Phát biểu GAP chính thức
-
-Chưa có nghiên cứu nào xây dựng tập dữ liệu tin nhắn lừa đảo tiếng Việt đa lớp kết hợp kỹ thuật tăng cường dữ liệu chủ động sinh các biến thể teencode và mất dấu, nhằm nâng cao độ bền vững (adversarial robustness) của mô hình ngôn ngữ (như PhoBERT) trước các thủ thuật né tránh bộ lọc.
+**Kết quả:** 0 ❌ / 1 ⚠️ -> Đã có phương án giảm thiểu rủi ro (Moderation Workflow) cho tiêu chí Ground Truth. An toàn, tiến hành.
 
 ---
 
-## 5. Đề xuất sơ bộ cho nhóm (chuẩn bị họp RBL-3)
+## 4. Phát biểu GAP chính thức (Formal GAP Statement)
 
-**Dataset khả thi:** Tự xây dựng `Scam-VN-SMS` từ NCSC/ChongLuaDao và áp dụng Data Augmentation để tạo thêm phiên bản chứa teencode/mất dấu.
-**Metric đề xuất:** Macro-F1, Precision, Recall và Adversarial Robustness Score (đánh giá mức độ sụt giảm F1 khi test trên tập teencode).
-**LLM/Tool đề xuất:** PhoBERT-base (cho phân loại) + LLM Prompting (Gemini/GPT-4o-mini) kết hợp Rule-based script để tạo các augmentation teencode.
-**Baseline đề xuất:** So sánh PhoBERT (được train trên tập có augmentation) với PhoBERT chuẩn (chỉ train trên text sạch) và các mô hình ML truyền thống (SVM + TF-IDF) từ bài `M031`/`M033` khi test trên tập teencode.
+Mặc dù các mô hình ngôn ngữ và học máy hiện đại đạt độ chính xác cao trong việc phát hiện lừa đảo trên các tập dữ liệu đóng, nhưng chưa có nghiên cứu nào tích hợp các mô hình tĩnh này với nền tảng trí tuệ đe dọa cộng đồng (Community Threat Intelligence) — bao gồm cơ chế tiếp nhận báo cáo thời gian thực, quy trình kiểm duyệt đa tầng chống báo cáo giả, và bản đồ nhiệt (Threat Heatmap) — để giải quyết triệt để sự đứt gãy trong việc thích ứng với các chiến dịch lừa đảo mới.
+
+---
+
+## 5. Đề xuất sơ bộ phương pháp thuật toán & Hệ thống (Preliminary Technical Proposal)
+
+- **Hệ thống mục tiêu:** Nền tảng ScamShield với sự kết hợp giữa AI Classifier (từ các thành viên khác) và **Hệ thống Blacklist Cộng đồng**.
+- **Luồng hoạt động (Workflow):**
+  1. Người dùng báo cáo số điện thoại, tài khoản ngân hàng, hoặc link lừa đảo thông qua Nền tảng.
+  2. Hệ thống thu thập và gom cụm các báo cáo trùng lặp (dùng thuật toán clustering đơn giản hoặc match string).
+  3. **Quy trình kiểm duyệt đa tầng (Moderation Workflow):** AI chấm điểm độ tin cậy sơ bộ -> Moderator duyệt thủ công chống phá hoại/spam.
+  4. Cập nhật Blacklist và **Bản đồ nhiệt rủi ro (Threat Heatmap)** theo thời gian thực.
+- **Tiêu chí đánh giá (Metrics):** Tốc độ cập nhật blacklist, độ chính xác của bộ lọc báo cáo rác/giả mạo (Moderation Accuracy), và khả năng visualize dữ liệu trên Heatmap.
