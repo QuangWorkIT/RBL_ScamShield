@@ -1,0 +1,26 @@
+model,lead_member,run_id,seed,accuracy,precision,recall_scam,f1_score,duration_sec
+ViSoBERT + WBCE (alpha=5.0),Nguyen Trung Hieu,1,42,95.42,89.61,94.52,92.00,97.3
+ViSoBERT + WBCE (alpha=5.0),Nguyen Trung Hieu,2,100,95.04,89.47,93.15,91.28,80.6
+ViSoBERT + WBCE (alpha=5.0),Nguyen Trung Hieu,3,123,94.27,84.71,98.63,91.14,80.8
+ViSoBERT + WBCE (alpha=5.0),Nguyen Trung Hieu,4,999,97.71,94.74,96.00,95.36,81.3
+ViSoBERT + WBCE (alpha=5.0),Nguyen Trung Hieu,5,2026,95.80,90.41,95.80,92.96,82.2
+PhoBERT-large,Le Quoc Huy,1,42,96.56,94.52,93.24,93.88,290.5
+PhoBERT-large,Le Quoc Huy,2,100,95.42,91.89,91.89,91.89,288.4
+PhoBERT-large,Le Quoc Huy,3,123,94.66,90.54,90.54,90.54,295.2
+PhoBERT-large,Le Quoc Huy,4,999,97.71,96.00,96.00,96.00,291.6
+PhoBERT-large,Le Quoc Huy,5,2026,95.42,92.70,90.00,91.19,292.0
+FPT ViBERT-base,Hoang Hai Phuc,1,42,94.66,89.33,91.78,90.54,89.2
+FPT ViBERT-base,Hoang Hai Phuc,2,100,95.80,92.00,93.24,92.62,90.1
+FPT ViBERT-base,Hoang Hai Phuc,3,123,93.89,86.25,94.52,90.20,89.5
+FPT ViBERT-base,Hoang Hai Phuc,4,999,96.18,93.24,93.24,93.24,89.8
+FPT ViBERT-base,Hoang Hai Phuc,5,2026,94.66,89.66,90.20,89.93,89.3
+PhoBERT-base-v2,Phan Tran Hoang Tran,1,42,95.42,90.67,93.15,91.89,72.9
+PhoBERT-base-v2,Phan Tran Hoang Tran,2,100,96.18,93.15,93.15,93.15,73.8
+PhoBERT-base-v2,Phan Tran Hoang Tran,3,123,95.04,91.67,90.41,91.03,75.0
+PhoBERT-base-v2,Phan Tran Hoang Tran,4,999,93.89,89.04,89.04,89.04,76.5
+PhoBERT-base-v2,Phan Tran Hoang Tran,5,2026,95.04,91.67,90.41,91.03,76.5
+Gemini 3.5 Flash (5-shot ICL),Nguyen Minh Quang,1,42,85.02,65.22,100.00,78.95,1260.0
+Gemini 3.5 Flash (5-shot ICL),Nguyen Minh Quang,2,42,86.14,66.96,100.00,80.21,1350.0
+Gemini 3.5 Flash (5-shot ICL),Nguyen Minh Quang,3,42,83.15,62.50,100.00,76.92,1281.6
+Gemini 3.5 Flash (5-shot ICL),Nguyen Minh Quang,4,42,83.90,63.56,100.00,77.72,1386.0
+Gemini 3.5 Flash (5-shot ICL),Nguyen Minh Quang,5,42,84.27,64.10,100.00,78.12,1260.0

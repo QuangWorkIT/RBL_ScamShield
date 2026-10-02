@@ -1,0 +1,13 @@
+{
+    "model_name": "ViSoBERT-ScamShield-Tier1",
+    "optimal_temperature_T": 1.0,
+    "pos_weight_alpha": 5.0,
+    "threshold_low": 0.1,
+    "threshold_high": 0.9,
+    "metrics_test": {
+        "accuracy": 0.9251,
+        "recall_scam": 0.9867,
+        "f1_score": 0.881,
+        "precision": 0.7957
+    }
+}
