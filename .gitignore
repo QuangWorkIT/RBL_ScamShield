@@ -65,3 +65,7 @@ scamshield_visobert_artifacts/
 models/*.safetensors
 models/*.onnx
 models/*.bin
+
+# Exclude synthesized Word reports from Git tracking
+team-synthesis/*.docx
+
