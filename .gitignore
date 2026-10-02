@@ -1,0 +1,67 @@
+# ==============================================================================
+# Git Ignore Configuration for ScamShield-VN RBL Repository
+# Conforms strictly to rbl_docs/04_tai_lieu_rbl.md security guidelines.
+# ==============================================================================
+
+# API Keys, Tokens & Secrets (CRITICAL: NEVER COMMIT)
+.env
+*.env
+secrets.json
+api_key.txt
+config.py
+
+# Python & Environment Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+
+# Jupyter Notebook & Checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Operating System Temporary Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+~$*
+
+# Large Binary Model Checkpoints & Raw Weights (> 100MB)
+*.onnx
+**/*.onnx
+*.safetensors
+**/*.safetensors
+*.bin
+**/*.bin
+*.pt
+**/*.pt
+checkpoints/
+scamshield_visobert_artifacts/
+models/*.safetensors
+models/*.onnx
+models/*.bin
