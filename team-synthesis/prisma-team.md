@@ -33,7 +33,7 @@ flowchart TD
     end
 
     subgraph Included["4. Giai đoạn Đưa vào Bảng Bằng chứng (Included)"]
-        D1["TỔNG SỐ BÀI BÁO ĐƯỢC ĐƯA VÀO BẢNG BẰNG CHỨNG GỘP<br>(evidence-table-merged.md)<br>★ N = 34 BÀI BÁO ĐẠT CHUẨN ★<br>(Đạt và vượt xa ngưỡng tối thiểu N >= 12 của RBL-1)"]
+        D1["TỔNG SỐ BÀI BÁO ĐƯỢC ĐƯA VÀO BẢNG BẰNG CHỨNG GỘP<br>(evidence-table-merged.md)<br>★ N = 40 BÀI BÁO ĐẠT CHUẨN ★<br>(34 bài cơ sở RBL-1 + 6 bài Hội đồng Pháp y Tầng 2)"]
         C1 --> D1
     end
 ```
@@ -48,12 +48,12 @@ flowchart TD
 | **Lê Quốc Huy** | IEEE Xplore, Google Scholar | $112$ | $115$ | $10$ | $8.70\%$ |
 | **Hoàng Hải Phúc** | ACM Digital Library, CrossRef | $458$ | $458$ | $9$ | $1.97\%$ |
 | **Phan Trần Hoàng Trân** | Scopus, Web of Science, Zenodo | $255$ | $255$ | $15$ | $5.88\%$ |
-| **Nguyễn Minh Quang** | SpringerLink, ScienceDirect, ACL Anthology | $431$ | $425$ | $5$ | $1.18\%$ |
-| **TỔNG CỘNG CẢ NHÓM** | **Đa nguồn học thuật quốc tế** | **$2.199$** | **$2.196$** | **$50$ (Gộp/Bỏ trùng $\rightarrow 34$)** | **$1.55\%$** |
+| **Nguyễn Minh Quang** | SpringerLink, ScienceDirect, ACL Anthology | $431$ | $425$ | $6$ | $1.41\%$ |
+| **TỔNG CỘNG CẢ NHÓM** | **Đa nguồn học thuật quốc tế** | **$2.199$** | **$2.196$** | **$51$ (Gộp/Bỏ trùng $\rightarrow 40$)** | **$1.82\%$** |
 
 ---
 
 ## 3. Đối Soát Tính Nhất Quán Giữa PRISMA Và File Dữ Liệu
 1. **Khớp số dòng CSV:** Toàn bộ số lượng bản ghi thể hiện trong sơ đồ PRISMA trên hoàn toàn khớp với số dòng dữ liệu thực tế tại các file `01_all_records.csv`, `02_after_screening_v1.csv` và `03_final_included.csv` trong từng thư mục cá nhân.
-2. **Khớp bảng gộp:** $34$ bài báo chính thức được đưa vào tổng hợp đại diện đầy đủ cho 34 hàng dữ liệu từ `M001` đến `M042` trong [`team-synthesis/evidence-table-merged.md`](file:///C:/Users/USER/RBL_ScamShield/team-synthesis/evidence-table-merged.md).
-3. **Tuân thủ quy tắc RBL-1:** Cả nhóm có $34$ bài báo included, vượt xa điều kiện tiên quyết của cổng kiểm tra RBL-1 ($\ge 12$ bài báo).
+2. **Khớp bảng gộp:** $40$ bài báo chính thức được đưa vào tổng hợp đại diện đầy đủ cho 40 hàng dữ liệu từ `M001` đến `M048` trong [`team-synthesis/evidence-table-merged.md`](file:///C:/Users/USER/RBL_ScamShield/team-synthesis/evidence-table-merged.md).
+3. **Tuân thủ quy tắc RBL-1:** Cả nhóm có $40$ bài báo included, vượt xa điều kiện tiên quyết của cổng kiểm tra RBL-1 ($\ge 12$ bài báo).
