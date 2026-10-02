@@ -18,6 +18,7 @@ import logging
 from typing import Dict, List, Optional, Any
 from .model_registry import ModelRegistry
 from .local_classifier import LocalPhoBERTClassifier
+from .forensic_council import ForensicCouncil
 
 logger = logging.getLogger("ScamShield.TwoTierRouter")
 if not logger.handlers:
@@ -52,8 +53,10 @@ class TwoTierRouter:
         confidence_threshold: float = 0.90,
         api_key: Optional[str] = None,
         config_path: Optional[str] = None,
+        council_config_path: Optional[str] = None,
         tier1_temperature: float = 1.30,
         tier1_cost_alpha: float = 5.0,
+        use_council: bool = True,
     ):
         """
         Initialize the 2-Tier Router.
@@ -62,10 +65,13 @@ class TwoTierRouter:
             confidence_threshold: Confidence threshold (tau) for Tier 1 -> Tier 2 escalation. Default 0.90.
             api_key: Gemini API Key for Tier 2 fallback.
             config_path: Path to YAML config for dynamic model registry.
+            council_config_path: Path to YAML config for Forensic Council.
             tier1_temperature: Temperature Scaling parameter for Tier 1.
             tier1_cost_alpha: WBCE penalty alpha for Tier 1.
+            use_council: Whether to escalate to 5-Agent Forensic Council (default True).
         """
         self.tau = confidence_threshold
+        self.use_council = use_council
         self.tier1_classifier = LocalPhoBERTClassifier(
             temperature=tier1_temperature,
             cost_alpha=tier1_cost_alpha,
@@ -75,7 +81,9 @@ class TwoTierRouter:
             config_path=config_path,
             auto_discover=True,
         )
-        logger.info(f"TwoTierRouter Initialized. Fallback Threshold (tau) = {self.tau:.2f}")
+        self.council = ForensicCouncil(config_path=council_config_path) if use_council else None
+        mode_str = "5-Agent Forensic Council" if use_council else "Single Cloud LLM"
+        logger.info(f"TwoTierRouter Initialized. Fallback Threshold (tau) = {self.tau:.2f} | Tier-2 Mode: {mode_str}")
 
     def classify(self, message: str, force_tier2: bool = False) -> Dict[str, Any]:
         """
@@ -152,11 +160,53 @@ class TwoTierRouter:
         # Reason: Ambiguous case (Confidence < tau) or forced audit
         # -------------------------------------------------------------
         fallback_trigger = "FORCED_AUDIT" if force_tier2 else f"LOW_CONFIDENCE ({t1_confidence*100:.1f}% < {self.tau*100:.0f}%)"
+
+        # Check if Forensic Council is enabled
+        if self.use_council and self.council:
+            routing_reason = (
+                f"Tầng 1 phân vân ({t1_confidence*100:.1f}% < {self.tau*100:.0f}%), rơi vào vùng rủi ro bỏ sót lừa đảo (FNR). "
+                f"Kích hoạt Tầng 2 (5-Agent Forensic Council) với cơ chế Early-Exit và phản biện chống Alarm Fatigue."
+            )
+            logger.info(f"Escalating message to Tier 2 Forensic Council. Reason: {fallback_trigger}")
+            try:
+                council_res = self.council.evaluate_sync(message)
+                total_elapsed_ms = (time.perf_counter() - start_overall) * 1000 + t1_result["latency_ms"]
+                return {
+                    "message": message,
+                    "final_label": council_res["final_label"],
+                    "final_confidence": council_res["consensus_scam_prob"],
+                    "is_scam": (council_res["final_label"] == "SCAM"),
+                    "scam_type": "Hội đồng Pháp y Đa Tác tử (5 Chuyên gia)",
+                    "risk_level": council_res["risk_level"],
+                    "explanation": council_res["unified_rationale"],
+                    "routing_path": "TIER_2_FORENSIC_COUNCIL",
+                    "routing_reason": routing_reason,
+                    "tier_used": "Tier 2 (5-Agent Forensic Council)",
+                    "model_name": f"ForensicCouncil-v1.1 ({'EarlyExit' if council_res['early_exit_triggered'] else 'FullPanel'})",
+                    "tier1_telemetry": tier1_summary,
+                    "tier2_telemetry": {
+                        "status": "EXECUTED",
+                        "architecture": "5-Agent Multi-LLM Heterogeneous Council",
+                        "consensus_score": council_res["consensus_scam_prob"],
+                        "early_exit": council_res["early_exit_triggered"],
+                        "defender_intervened": council_res["defender_intervened"],
+                        "latency_ms": council_res["total_latency_ms"],
+                        "cost_usd": council_res["estimated_council_cost_usd"],
+                        "fallback_trigger": fallback_trigger,
+                        "specialist_votes": council_res["specialist_votes"],
+                    },
+                    "total_latency_ms": round(total_elapsed_ms + council_res["total_latency_ms"], 2),
+                    "total_cost_usd": council_res["estimated_council_cost_usd"],
+                    "escalated": True,
+                }
+            except Exception as e:
+                logger.error(f"Forensic Council execution failed: {e}. Falling back to single LLM registry.")
+
         routing_reason = (
             f"Tầng 1 phân vân ({t1_confidence*100:.1f}% < {self.tau*100:.0f}%), rơi vào vùng rủi ro bỏ sót lừa đảo (FNR). "
             f"Kích hoạt Tầng 2 (Cloud LLM) để phân tích ngữ cảnh xã hội và bẫy thao túng tâm lý sâu."
         )
-        logger.info(f"Escalating message to Tier 2 Cloud LLM. Reason: {fallback_trigger}")
+        logger.info(f"Escalating message to Tier 2 Single Cloud LLM. Reason: {fallback_trigger}")
 
         t2_response = self.tier2_registry.generate_content(
             prompt=f"Hãy phân tích tin nhắn sau:\n\n{message}",
