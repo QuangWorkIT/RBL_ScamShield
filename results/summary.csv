@@ -1,0 +1,6 @@
+model_name,role,lead_member,parameters,model_size_mb,train_time_sec,accuracy_mean,accuracy_std,precision_mean,precision_std,recall_scam_mean,recall_scam_std,f1_scam_mean,f1_scam_std,status
+ViSoBERT + WBCE (alpha=5.0),Proposed Model (Tier 1 Edge),Nguyen Trung Hieu,110M,390,422.2,95.65,1.54,89.79,5.15,95.62,2.25,92.51,2.39,Completed (5/5 Runs)
+PhoBERT-large,Baseline B2.3 (370M),Le Quoc Huy,370M,1480,1457.7,95.95,1.57,93.13,3.17,92.33,3.44,92.70,2.87,Completed (5/5 Runs)
+FPT ViBERT-base,Baseline B2.2,Hoang Hai Phuc,124M,480,447.9,95.04,1.11,90.10,4.12,92.60,2.84,91.25,1.81,Completed (5/5 Runs)
+PhoBERT-base-v2,Baseline B2.1,Phan Tran Hoang Tran,135M,540,374.7,95.11,0.83,91.24,1.52,91.23,1.84,91.23,1.50,Completed (5/5 Runs)
+Gemini 3.5 Flash (5-shot ICL),Baseline B3 (Cloud LLM),Nguyen Minh Quang,Cloud API,Cloud,6537.0,84.50,1.02,64.47,1.52,100.00,0.00,78.38,1.12,Completed (5/5 Runs)
