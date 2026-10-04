@@ -1,0 +1,56 @@
+# ==============================================================================
+# ScamShield-VN: Dynamic Model Registry Configuration
+# ==============================================================================
+# Decoupled configuration for Google Gemini Cloud Fallback (Tier 2).
+# Ensures zero hardcoding of model versions in application business logic.
+# ==============================================================================
+
+api:
+  discovery_endpoint: "https://generativelanguage.googleapis.com/v1beta/models"
+  request_timeout_seconds: 10
+
+cache:
+  ttl_seconds: 43200  # 12 hours TTL in memory
+  file_cache_path: "config/.gemini_models_cache.json"
+
+circuit_breaker:
+  failure_threshold: 3
+  cooldown_seconds: 300  # 5 minutes cooldown when Google API fails / rate limits
+
+tier_routing:
+  # Priority order when resolving models: try lite first (cheapest & fastest), then standard, then pro
+  priority:
+    - lite
+    - standard
+    - pro
+
+  # Matching patterns based on model ID / display name
+  patterns:
+    lite:
+      - "flash-lite"
+      - "flash_lite"
+      - "8b"
+      - "lite"
+    standard:
+      - "flash"
+      - "instant"
+    pro:
+      - "pro"
+      - "ultra"
+      - "advanced"
+
+  # Models to strictly filter out (non-text LLM or special modalities)
+  exclusions:
+    - "embedding"
+    - "tts"
+    - "audio"
+    - "imagen"
+    - "vision-only"
+    - "robotics"
+    - "aqa"
+
+# Cold-start bootstrap fallback aliases (used only if initial discovery fails with no cache)
+bootstrap_fallbacks:
+  lite: "gemini-2.5-flash-lite"
+  standard: "gemini-2.5-flash"
+  pro: "gemini-2.5-pro"

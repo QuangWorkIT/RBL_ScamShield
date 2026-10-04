@@ -1,0 +1,115 @@
+# ==============================================================================
+# ScamShield-VN: 5-Agent Forensic Council Registry Configuration
+# ==============================================================================
+# Decoupled Multi-Provider Heterogeneous AI Council for Tier-2 Deep Forensic Analysis.
+# Complies with RBL Methodology, eliminating hardcoded models and mitigating Alarm Fatigue.
+# Reference Papers: MultiPhishGuard (2025), PoLL (2024), ChatEval (2024), NAACL (2025).
+# ==============================================================================
+
+council_metadata:
+  name: "ScamShield 5-Agent Forensic Council"
+  version: "1.1"
+  architecture: "Multi-Provider Heterogeneous Consensus Panel"
+  consensus_mode: "Weighted Borda & Public Defender Review"
+  early_exit_enabled: true
+  early_exit_threshold: 4  # 4-1 or 5-0 supermajority triggers instant exit
+
+execution_policy:
+  async_parallel: true
+  max_parallel_workers: 5
+  timeout_per_agent_seconds: 6.0
+  overall_timeout_seconds: 10.0
+  temperature_default: 0.1
+
+circuit_breaker:
+  failure_threshold: 3
+  cooldown_seconds: 300  # 5 minutes cooldown on provider HTTP 429 / 5xx
+  retry_attempts: 1
+  backoff_seconds: 0.5
+
+# ==============================================================================
+# The 5 Forensic Specialist Personas & Standby Priority Chains
+# ==============================================================================
+specialists:
+
+  cyber_threat_url_inspector:
+    role_id: "ROLE_CYBER_URL"
+    display_name: "Cyber Threat & Malicious URL Inspector"
+    description: "Specializes in URL homoglyphs, brand spoofing subdomains, obfuscated redirects, APK downloads, and fake web portals."
+    primary_model: "gemini-2.5-flash"
+    standby_priority_chain:
+      - "gpt-4o-mini"
+      - "qwen-2.5-7b-instruct"
+      - "deepseek-chat"
+    weight: 1.2  # Higher authority on technical IOCs / URL risks
+    prompt_template: |
+      Bạn là Chuyên gia Giám định Kỹ thuật và URL độc hại thuộc Hội đồng Pháp y ScamShield-VN.
+      Nhiệm vụ: Tập trung phân tích hạ tầng kỹ thuật của tin nhắn, phát hiện tên miền giả mạo (homoglyph/typosquatting, ví dụ: vietcombankk-login.com), đường link rút gọn đáng ngờ, đuôi file APK độc hại, và cổng thông tin mạo danh.
+      Chỉ tập trung vào yếu tố kỹ thuật, link, tên miền và số điện thoại liên hệ.
+
+  social_engineering_profiler:
+    role_id: "ROLE_SOC_ENG"
+    display_name: "Social Engineering & Psychological Urgency Profiler"
+    description: "Identifies psychological triggers, artificial urgency, fear pretexting, authority impersonation (police/procuracy), and greed/lottery traps."
+    primary_model: "gemini-2.5-pro"
+    standby_priority_chain:
+      - "claude-3-5-haiku"
+      - "gpt-4o-mini"
+      - "gemini-2.5-flash"
+    weight: 1.1
+    prompt_template: |
+      Bạn là Chuyên gia Tâm lý Học Tội phạm và Thao túng Xã hội thuộc Hội đồng Pháp y ScamShield-VN.
+      Nhiệm vụ: Phát hiện các đòn bẩy tâm lý: tạo áp lực thời gian khẩn cấp vô lý ("trong 24h", "khóa ngay"), đe dọa tố tụng/bắt giữ ("Công an, Viện kiểm sát"), bẫy lòng tham ("trúng thưởng xe SH, quà tri ân"), hoặc thao túng tình cảm/tuyển dụng CTV ảo.
+
+  vietnamese_teencode_analyst:
+    role_id: "ROLE_VN_TEENCODE"
+    display_name: "Vietnamese Linguistic & Teencode Analyst"
+    description: "Decodes Vietnamese colloquialisms, teencode, deliberate spelling mutations, zero-width spaces, and phonetic substitutions used to evade lexical filters."
+    primary_model: "qwen-2.5-14b-instruct"
+    standby_priority_chain:
+      - "gemini-2.5-flash"
+      - "deepseek-v3"
+      - "gpt-4o-mini"
+    weight: 1.1
+    prompt_template: |
+      Bạn là Chuyên gia Ngôn ngữ học Tiếng Việt và Biến thể Ký tự thuộc Hội đồng Pháp y ScamShield-VN.
+      Nhiệm vụ: Bóc tách ngôn ngữ tuổi teen (teencode), viết tắt cố ý, thay thế ký tự số (ví dụ: "t4i kh04n", "n9an h4n9"), chèn ký tự đặc biệt lách bộ lọc, và phân tích sắc thái ngữ nghĩa đời thường tại Việt Nam.
+
+  banking_protocol_verifier:
+    role_id: "ROLE_BANK_VERIFY"
+    display_name: "Banking & Financial Protocol Verifier"
+    description: "Validates authentic banking procedures, SBV regulations, biometric update policies (Circular 23/2023), OTP regulations, and Brandname norms."
+    primary_model: "claude-3-5-haiku"
+    standby_priority_chain:
+      - "gpt-4o-mini"
+      - "gemini-2.5-flash"
+      - "qwen-2.5-7b-instruct"
+    weight: 1.2
+    prompt_template: |
+      Bạn là Chuyên gia Quy trình và Pháp lý Ngân hàng Việt Nam thuộc Hội đồng Pháp y ScamShield-VN.
+      Nhiệm vụ: Đối chiếu nội dung tin nhắn với quy định của Ngân hàng Nhà nước và các NHTM Việt Nam: Ngân hàng KHÔNG BAO GIỜ yêu cầu nhập mã OTP hoặc click link lạ để cập nhật sinh trắc học (Quyết định 2345/QĐ-NHNN), không yêu cầu cung cấp mật khẩu qua tin nhắn.
+
+  public_defender_advocate:
+    role_id: "ROLE_DEFENDER"
+    display_name: "Public Defender & Anti-False-Positive Advocate"
+    description: "Devil's advocate persona focused strictly on protecting legitimate communication, identifying authentic e-commerce, legitimate OTPs, and preventing Alarm Fatigue."
+    primary_model: "gpt-4o-mini"
+    standby_priority_chain:
+      - "gemini-2.5-flash"
+      - "claude-3-5-haiku"
+      - "deepseek-chat"
+    weight: 1.3  # Strong weight to defend legitimate non-scam messages
+    prompt_template: |
+      Bạn là Luật sư Bào chữa Công cộng (Public Defender) thuộc Hội đồng Pháp y ScamShield-VN.
+      Nhiệm vụ sống còn của bạn là CHỐNG BÁO ĐỘNG GIẢ (Anti-False-Positive) và chống lại hội chứng Alarm Fatigue.
+      Hãy tìm mọi lý do hợp lý chứng minh tin nhắn này là GIAO DỊCH BÌNH THƯỜNG / HỢP PHÁP: tin nhắn OTP tiêu chuẩn, mã xác thực dịch vụ, thông báo tiền điện nước định kỳ, quảng cáo khuyến mãi hợp pháp không có yếu tố chiếm đoạt. Nếu không có bằng chứng lừa đảo rõ ràng, bạn BẮT BUỘC bỏ phiếu là HAM (Hợp pháp).
+
+# ==============================================================================
+# Consensus & Decision Engine Thresholds
+# ==============================================================================
+consensus_rules:
+  unanimous_scam_threshold: 0.85    # Score >= 0.85 -> SCAM (High/Critical Risk)
+  suspected_scam_threshold: 0.60    # Score >= 0.60 -> SCAM (Medium Risk)
+  borderline_threshold: 0.40        # 0.40 <= Score < 0.60 -> SUSPICIOUS_AUDIT
+  ham_threshold: 0.40               # Score < 0.40 -> HAM (Legitimate)
+  public_defender_veto_boost: 0.25  # Subtracted from scam score if Defender strongly asserts legitimacy with valid protocol

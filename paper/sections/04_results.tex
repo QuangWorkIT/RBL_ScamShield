@@ -1,0 +1,87 @@
+% ==============================================================================
+% SECTION 4: RESULTS (04_results.tex)
+% VAI TRÒ PHỤ TRÁCH: Metrics & Statistics Specialist (MS)
+% THỨ TỰ VIẾT: BƯỚC 4 (Sau khi đã xong §1, §2, §3)
+% NGUYÊN LIỆU ĐỐI SOÁT: results/summary.csv, results/mcnemar_analysis.csv, figures/
+% ĐỘ DÀI MỤC TIÊU: ~1 - 1.5 trang, Bảng Table II & Table III chuẩn IEEE
+% ==============================================================================
+%
+% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH (MS)]:
+% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ VÀ CHÍNH XÁC 100% TỪ summary.csv VÀ mcnemar_analysis.csv.
+% 2. Nhiệm vụ của bạn:
+%    - Đối soát lại từng con số trong Bảng Table II (Accuracy, Precision, Scam Recall, Macro-F1).
+%    - Đối soát lại các giá trị b, c, chi2, exact p-value, Odds Ratio trong Bảng Table III.
+%    - Đọc rà soát lại văn phong tiếng Anh báo cáo số liệu xem đã chuẩn xác, khách quan chưa.
+%    - LƯU Ý: Tuyệt đối giữ nguyên tắc "Chỉ báo số liệu, không suy đoán nguyên nhân" ở §4.
+% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
+% ==============================================================================
+
+\section{Results}
+\label{sec:results}
+
+This section strictly reports empirical performance metrics, computational benchmarks, and paired statistical hypothesis testing on the frozen evaluation benchmark.
+
+\subsection{Research Question Evaluation and Descriptive Metrics}
+Our primary research question investigates whether fine-tuning ViSoBERT under a cost-sensitive objective function yields superior Scam Recall compared to standard transformer baselines and few-shot cloud LLMs on the isolated $N = 267$ message partition:
+\begin{itemize}
+    \item \textbf{$H_0$ (Null Hypothesis):} There is no statistically significant difference in paired classification performance between the proposed ViSoBERT + WBCE ($\alpha=5.0$) model and comparative baselines on the frozen test partition ($p \ge 0.05$).
+    \item \textbf{$H_1$ (Alternative Hypothesis):} The paired classification performance differs significantly between the proposed ViSoBERT model and comparative baselines ($p < 0.05$).
+\end{itemize}
+
+Table~\ref{tab:benchmark_summary} presents the empirical results aggregated over $K = 5$ independent deterministic random seeds ($\text{SEEDS} = [42, 100, 123, 999, 2026]$) for the deep learning models, alongside the deterministic few-shot Gemini 3.5 Flash baseline (temperature = 0.0). Across all $267$ test samples and $5$ experimental runs, exactly $0$ invalid responses were observed ($0.0\%$ invalid rate).
+
+% --- BẢNG II: TỔNG HỢP KẾT QUẢ 5 RUNS BENCHMARK ---
+% [TODO: Đối soát số liệu trích xuất trực tiếp từ results/summary.csv]
+\begin{table*}[t]
+\centering
+\caption{Empirical Benchmark Across 5 Independent Runs on the Frozen Test Set ($N=267$ Samples: 192 Ham, 75 Scam)}
+\label{tab:benchmark_summary}
+\begin{tabular}{llcccccc}
+\toprule
+\textbf{Model Configuration} & \textbf{Role / Category} & \textbf{Parameters} & \textbf{Accuracy (\%)} & \textbf{Precision (\%)} & \textbf{Scam Recall (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Model Size} \\
+\midrule
+\textbf{ViSoBERT + WBCE ($\alpha=5.0$)} & \textbf{Proposed (Tier 1 Edge)} & \textbf{110M} & \textbf{$95.65 \pm 1.54$} & \textbf{$89.79 \pm 5.15$} & \textbf{$95.62 \pm 2.25$} & \textbf{$92.51 \pm 2.39$} & \textbf{390 MB} \\
+PhoBERT-large & Baseline B2.3 (370M) & 370M & $95.95 \pm 1.57$ & $93.13 \pm 3.17$ & $92.33 \pm 3.44$ & $92.70 \pm 2.87$ & 1,480 MB \\
+FPT ViBERT-base & Baseline B2.2 & 124M & $95.04 \pm 1.11$ & $90.10 \pm 4.12$ & $92.60 \pm 2.84$ & $91.25 \pm 1.81$ & 480 MB \\
+PhoBERT-base-v2 & Baseline B2.1 & 135M & $95.11 \pm 0.83$ & $91.24 \pm 1.52$ & $91.23 \pm 1.84$ & $91.23 \pm 1.50$ & 540 MB \\
+Gemini 3.5 Flash (5-shot ICL) & Baseline B3 (Cloud API) & Proprietary & $84.50 \pm 1.02$ & $64.47 \pm 1.52$ & $100.00 \pm 0.00$ & $78.38 \pm 1.12$ & Cloud API \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+As detailed in Table~\ref{tab:benchmark_summary}, the proposed ViSoBERT model achieves the highest Scam Recall among all deployable neural models at $95.62\% \pm 2.25\%$, while maintaining a high Precision of $89.79\% \pm 5.15\%$ and an overall Macro-F1 score of $92.51\% \pm 2.39\%$. 
+In comparison, PhoBERT-large recorded a marginally higher Accuracy ($95.95\%$) but yielded an inferior Scam Recall of $92.33\% \pm 3.44\%$, missing approximately $3.29\%$ more active scam lures. 
+Gemini 3.5 Flash detected $100.00\%$ of fraudulent messages but suffered from an extreme collapse in Precision down to $64.47\% \pm 1.52\%$, resulting in an Accuracy of only $84.50\% \pm 1.02\%$.
+
+% --- BẢNG III: KIỂM ĐỊNH MCNEMAR TEST ---
+% [TODO: Đối soát số liệu trích xuất trực tiếp từ results/mcnemar_analysis.csv]
+\begin{table}[h]
+\centering
+\caption{Paired McNemar Test Analysis on Isolated Frozen Test Partition ($N=267$ Samples, $\alpha=0.05$)}
+\label{tab:mcnemar}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Pairwise Comparison} & \textbf{$b$} & \textbf{$c$} & \textbf{$\chi^2_{\text{cont}}$} & \textbf{Exact $p$-value} & \textbf{Odds Ratio} & \textbf{Reject $H_0$?} \\
+\midrule
+ViSoBERT vs. PhoBERT-base-v2 & 12 & 4 & 3.0625 & 0.0768 & 3.00 & False ($p \ge 0.05$) \\
+ViSoBERT vs. FPT ViBERT-base  & 14 & 5 & 3.3684 & 0.0636 & 2.80 & False ($p \ge 0.05$) \\
+ViSoBERT vs. PhoBERT-large    & 9  & 3 & 2.0833 & 0.1460 & 3.00 & False ($p \ge 0.05$) \\
+ViSoBERT vs. Gemini 3.5 Flash & 38 & 2 & 30.625 & \textbf{0.0000} & \textbf{19.00} & \textbf{True ($p < 0.001$)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Paired Statistical Significance Testing}
+Table~\ref{tab:mcnemar} reports the paired two-tailed McNemar test statistics across the $N=267$ test partition, where $b$ represents the count of samples correctly classified exclusively by ViSoBERT, and $c$ denotes samples correctly classified exclusively by the respective baseline:
+\begin{enumerate}
+    \item \textbf{Comparison with Cloud LLM (Gemini 3.5 Flash):} ViSoBERT was uniquely correct on $b = 38$ instances, whereas Gemini was uniquely correct on $c = 2$ instances. The resulting continuity-corrected test statistic was $\chi^2 = 30.625$ with an exact two-tailed $p$-value of $p = 0.0000 < 0.001$ and an Odds Ratio of $\text{OR} = 19.00$. Consequently, the null hypothesis $H_0$ is decisively rejected.
+    \item \textbf{Comparison with Transformer Baselines:} In pairwise comparisons against PhoBERT-base-v2 ($b=12, c=4, p=0.0768$), FPT ViBERT-base ($b=14, c=5, p=0.0636$), and PhoBERT-large ($b=9, c=3, p=0.1460$), the exact $p$-values exceeded the threshold $\alpha = 0.05$. Thus, $H_0$ cannot be rejected on overall paired binary accuracy alone. However, across all three comparisons, ViSoBERT consistently demonstrated an Odds Ratio of $2.80\text{--}3.00$ in positive discordance.
+\end{enumerate}
+
+\subsection{Inference Latency and Resource Utilization}
+Computational profiling indicates substantial operational divergence:
+\begin{itemize}
+    \item \textbf{ViSoBERT ONNX INT8:} Achieved a CPU execution latency of $15.8\text{ ms/message}$, requiring $422.2\text{ seconds}$ total fine-tuning across 4 epochs and occupying $390\text{ MB}$ of storage.
+    \item \textbf{PhoBERT-large:} Required $1,457.7\text{ seconds}$ training time ($3.45\times$ slower) and occupies $1,480\text{ MB}$ ($3.79\times$ larger).
+    \item \textbf{Gemini 3.5 Flash API:} Incurred an average network response latency of $4,912\text{ ms/message}$ ($326\times$ slower than ViSoBERT on CPU), totaling $6,537.0\text{ seconds}$ for full-set inference.
+\end{itemize}

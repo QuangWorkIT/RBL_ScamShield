@@ -1,0 +1,5 @@
+comparison,b_visobert_better,c_baseline_better,chi2_continuity,exact_p_value,odds_ratio,reject_h0,statistical_conclusion
+ViSoBERT vs PhoBERT-base-v2 (Trân),12,4,3.0625,0.0768,3.0,False,Chưa đủ cơ sở bác bỏ H0
+ViSoBERT vs FPT ViBERT-base (Phúc),14,5,3.3684,0.0636,2.8,False,Chưa đủ cơ sở bác bỏ H0
+ViSoBERT vs PhoBERT-large (370M) (Huy),9,3,2.0833,0.1460,3.0,False,Chưa đủ cơ sở bác bỏ H0
+ViSoBERT vs Gemini 3.5 Flash (Quang),38,2,30.625,0.0000,19.0,True,"Bác bỏ H0, Chấp nhận H1 (Khác biệt có ý nghĩa thống kê)"

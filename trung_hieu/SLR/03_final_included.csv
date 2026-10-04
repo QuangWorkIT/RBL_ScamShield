@@ -1,6 +1,12 @@
-id,title,year,relevance,final_inclusion_reason
-P001,An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P446,Measuring and Evaluating the Performance of Generative AI Models for Scam Detection,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P471,Edge-AI enabled smishing and suspicious SMS detection: a cost-sensitive and lightweight deep learning architecture,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P192,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
-P472,Deep Learning-Based Model for Detecting Fraudulent SMS Messages,2024,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+id,title,year,relevance,final_inclusion_reason
+P001,An Empirical Study of Training Pixel-Space Text-to-Image Diffusion Models,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P446,Measuring and Evaluating the Performance of Generative AI Models for Scam Detection,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P471,Edge-AI enabled smishing and suspicious SMS detection: a cost-sensitive and lightweight deep learning architecture,2026,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P192,"Comparing KNN, Logistic Regression, Random Forest and BERT Fine-Tuning for Scam Message Detection",2025,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P472,Deep Learning-Based Model for Detecting Fraudulent SMS Messages,2024,High,Directly addresses core comparison of LLM Few-Shot vs PLMs for text classification
+P473,MultiPhishGuard: A Multi-Agent Framework for Robust Phishing Detection with Role Specialization,2025,High,Directly addresses Tier 2 Multi-Agent Forensic Council role specialization reducing FPR to 2.73%
+P474,"Replacing Judges with Juries: Evaluating LLM Generations with a Panel of Diverse Models (PoLL)",2024,High,Directly addresses heterogeneous multi-provider LLM panel mitigating self-preference bias
+P475,Language Model Council: A Democratic Twist on LLM-as-a-Judge,2025,High,Directly addresses Borda Count ranking consensus mechanism in Multi-LLM Council
+P476,ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate,2024,High,Directly addresses multi-agent debate and moderation to eliminate single-judge hallucination
+P477,Improving Factuality and Reasoning in Language Models through Multiagent Debate,2024,High,Directly addresses adversarial debate stimulating LLM self-correction and sycophancy reduction
+P478,llm-council: Decentralized Multi-Model Orchestration for Complex Query Answering,2024,High,Directly addresses low-latency asynchronous multi-LLM orchestration architecture
