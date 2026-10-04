@@ -1,0 +1,37 @@
+% ==============================================================================
+% SECTION 6: THREATS TO VALIDITY (06_threats.tex)
+% VAI TRÒ PHỤ TRÁCH: Report Writer (RW)
+% THỨ TỰ VIẾT: BƯỚC 6 (Sau khi hoàn tất §4 Results và §5 Discussion)
+% NGUYÊN LIỆU ĐỐI SOÁT: team-synthesis/proposal.md (§7), notes.md
+% ĐỘ DÀI MỤC TIÊU: ~0.5 - 1 trang, đủ 4 nhóm threats
+% ==============================================================================
+%
+% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH (RW)]:
+% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ 4 NHÓM THREATS (Internal, External, Construct, Conclusion).
+% 2. Nhiệm vụ của bạn:
+%    - Đọc rà soát lại từng nhóm: đảm bảo mỗi threat đều có đủ 3 vế (Định nghĩa -> Tác động rủi ro -> Hành động giảm thiểu cụ thể).
+%    - Kiểm tra số liệu: 5 seeds [42, 100, 123, 999, 2026], Frozen Set N=267, IAA kappa = 0.88, Statistical power > 0.85.
+%    - Chỉnh sửa câu từ tiếng Anh cho mạch lạc và tự nhiên.
+% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
+% ==============================================================================
+
+\section{Threats to Validity}
+\label{sec:threats}
+
+In alignment with our pre-registered research protocol, we explicitly analyze potential threats to validity and the concrete mitigation measures enacted.
+
+% --- 1. INTERNAL VALIDITY (TÍNH KHÔNG TẤT ĐỊNH) ---
+\subsection{Internal Validity}
+Internal validity concerns internal experimental factors that could confound outcome attribution. Neural network convergence and weight initialization inherently exhibit non-deterministic variance across stochastic runs. To mitigate this threat, we instituted a multi-seed evaluation protocol over $K = 5$ fixed deterministic seeds ($\text{SEEDS} = [42, 100, 123, 999, 2026]$), reporting both mean estimates and sample standard deviations. For the cloud LLM baseline, we enforced a deterministic greedy decoding configuration ($\text{temperature} = 0.0$).
+
+% --- 2. EXTERNAL VALIDITY (PHẠM VI KHÁI QUÁT HÓA) ---
+\subsection{External Validity}
+External validity concerns the generalizability of empirical conclusions across broader contexts. Our benchmark corpus is localized to contemporary Vietnamese telecommunications messages and social engineering lure patterns. Consequently, findings regarding specific teencode tokenization and slang resilience may not directly generalize to Western languages or distinct threat mediums such as enterprise email compromise. To mitigate this threat, we explicitly delimit our operational claims to Vietnamese mobile text channels, while formulating the two-tier routing architecture in a language-agnostic manner.
+
+% --- 3. CONSTRUCT VALIDITY (RÒ RỈ DỮ LIỆU & TÍNH ĐÚNG CỦA NHÃN) ---
+\subsection{Construct Validity}
+Construct validity examines whether experimental metrics accurately reflect the target operational concepts. A significant vulnerability in modern NLP evaluation is data contamination between pre-training corpora and evaluation sets. To mitigate this threat, we performed rigorous cryptographic deduplication across the raw corpus, isolating a strictly sequestered Frozen Test Set of $N = 267$ samples prior to hyperparameter search. Furthermore, ground truth labels were validated via dual-analyst cross-tagging, ensuring high construct fidelity (Cohen's $\kappa = 0.88$).
+
+% --- 4. CONCLUSION VALIDITY (ĐỘ MẠNH THỐNG KÊ) ---
+\subsection{Conclusion Validity}
+Conclusion validity evaluates whether statistical conclusions regarding relationship significance are justified. With an isolated test set of $N = 267$, underpowered tests could induce Type II errors (failing to identify genuine performance divergence). Statistical power analysis confirmed that for an expected effect difference of $\ge 3\%$ under $\alpha = 0.05$, $N=267$ provides statistical power exceeding $0.85$. Moreover, rather than relying exclusively on point estimates, we applied two-tailed McNemar paired tests with continuity correction and reported exact $p$-values alongside Odds Ratios.
