@@ -8,14 +8,6 @@
 % ĐỘ DÀI MỤC TIÊU: ~1.5 - 2 trang, công thức toán và quy chuẩn niêm phong Frozen Set
 % ==============================================================================
 %
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH MỤC 3.1 & 3.2 (DATA & EDGE PIPELINE)]:
-% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ CÁC CÔNG THỨC TOÁN, THÔNG SỐ VÀ CẤU HÌNH.
-% 2. Nhiệm vụ của bạn:
-%    - Đọc rà soát Mục 3.1 (Dataset): đối soát số mẫu 2.665 tin, Frozen Set N=267, IAA kappa = 0.88.
-%    - Đọc rà soát Mục 3.2 (Model & ONNX): kiểm tra thông số ViSoBERT 110M và cấu hình ONNX opset=18.
-%    - Tinh chỉnh câu từ tiếng Anh cho mạch lạc và tự nhiên.
-% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa khối comment hướng dẫn này đi.
-%
 % [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH MỤC 3.3, 3.4 & 3.5 (LOSS & METRICS/STATS)]:
 % 1. Nhiệm vụ của bạn:
 %    - Đọc rà soát Mục 3.3 (Loss WBCE): kiểm tra công thức L_WBCE (alpha=5.0) và giải thích penalty gradient.
@@ -33,21 +25,19 @@ This section describes the dataset curation protocol, mathematical formulation o
 % MỤC 3.1 & 3.2: DO DATA & EDGE PIPELINE SPECIALIST (LR) PHỤ TRÁCH
 % ------------------------------------------------------------------------------
 \subsection{Benchmark Dataset and Frozen Test Partition}
-% [TODO: Rà soát và đối chiếu tính nhất quán với data/raw/README.md]
-We curated a unified corpus of $2,665$ genuine Vietnamese telecommunications messages by merging verified public repositories, community reports from ChongLuaDao, and national cybersecurity warning feeds (\texttt{data/raw/vietnamese\_sms\_merged\_all.csv}). The corpus consists of $1,918$ benign messages ($72.0\%$) and $747$ confirmed scam instances ($28.0\%$). 
+We curated a unified corpus of $2,664$ genuine Vietnamese telecommunications messages by combining verified public repositories, community reports from ChongLuaDao, and national cybersecurity warning feeds (\texttt{data/raw/vietnamese\_sms\_merged\_all.csv}). The corpus contains $1,918$ benign messages ($72.0\%$) and $746$ confirmed scam instances ($28.0\%$).
 
-To establish an uncompromised evaluation standard, we applied a stratified split (fixed random seed = 42):
+The dataset was divided using a stratified split with a fixed random seed of 42:
 \begin{itemize}
-    \item \textbf{Training and Internal Validation Partition ($90\%$):} $2,398$ messages utilized for hyperparameter optimization and model convergence.
+    \item \textbf{Training and Internal Validation Partition ($90\%$):} $2,397$ messages used for hyperparameter optimization and model convergence.
     \item \textbf{Frozen Test Partition ($10\%$):} Exactly \textbf{$N = 267$ messages} ($192$ Ham, $75$ Scam).
 \end{itemize}
-In accordance with our pre-registered research protocol, the $N=267$ Frozen Test Set was strictly sequestered during fine-tuning, threshold search, and pipeline refinement. All ground-truth annotations were independently verified by two cybersecurity analysts, achieving an Inter-Annotator Agreement of Cohen's $\kappa = 0.88$, signifying near-perfect consensus.
+The $N=267$ Frozen Test Set was not used during fine-tuning, threshold selection, or pipeline development. It was kept separate until the final evaluation.
 
 \subsection{Model Architecture and ONNX Edge Quantization}
-% [TODO: Rà soát thông số cấu hình xuất ONNX trong models/visobert_tier1.onnx]
-For our primary on-device model, we select ViSoBERT (\texttt{uitnlp/visobert})~\cite{nguyen2023visobert}. ViSoBERT employs a RoBERTa architecture comprising 12 transformer encoder layers, 768 hidden dimensions, 12 attention heads, and 110M parameters. Crucially, ViSoBERT was pre-trained on a massive 60 GB corpus of Vietnamese social network communications, blog posts, and colloquial user discussions, providing robust tokenization and contextual representations for emerging internet slang, abbreviations, and informal teencode.
+ViSoBERT (\texttt{uitnlp/visobert})~\cite{nguyen2023visobert} was selected as the primary backbone model. It follows the XLM-RoBERTa architecture, with 12 transformer encoder layers, 768 hidden dimensions, 12 attention heads, and approximately 97 million parameters. Its relatively small parameter count is associated with a custom vocabulary of roughly 15,000 tokens. It was pre-trained on a curated corpus of Vietnamese social media comments totaling approximately 1 GB of uncompressed text. The model uses a custom SentencePiece tokenizer designed for this domain. The pre-training data and tokenizer allow ViSoBERT to capture contextual patterns in informal Vietnamese text, including teencode, emojis, and text without diacritics.
 
-To evaluate real-time mobile deployability without external server dependency, trained checkpoints were exported to the Open Neural Network Exchange (ONNX) format utilizing \texttt{opset\_version=18}. Dynamic axes were configured for variable batch size and sequence length dimensions. The resulting serialized model file (\texttt{visobert\_tier1.onnx}) occupies $390\text{ MB}$, yielding a mean inference latency of approximately $15.8\text{ ms}$ per message on standard consumer CPU threads.
+The trained checkpoints were exported to the Open Neural Network Exchange (ONNX) format using \texttt{opset\_version=18} for mobile deployment. Dynamic axes were configured for variable batch size and sequence length. The resulting serialized model file (\texttt{visobert\_tier1.onnx}) is $390\text{ MB}$ and achieves a mean inference latency of approximately $15.8\text{ ms}$ per message on standard consumer CPU threads.
 
 % ------------------------------------------------------------------------------
 % MỤC 3.3, 3.4 & 3.5: DO METRICS & STATISTICS SPECIALIST (MS) PHỤ TRÁCH
