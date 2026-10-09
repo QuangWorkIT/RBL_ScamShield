@@ -1,49 +1,35 @@
-% ==============================================================================
-% SECTION 5: DISCUSSION (05_discussion.tex)
-% VAI TRÒ PHỤ TRÁCH: Project Lead (PL) & Metrics & Statistics Specialist (MS)
-% THỨ TỰ VIẾT: BƯỚC 5 (Sau khi đã có đầy đủ bảng số liệu ở §4)
-% NGUYÊN LIỆU ĐỐI SOÁT: notes.md, team-synthesis/proposal_amendment_v1.1.md
-% ĐỘ DÀI MỤC TIÊU: ~1 trang, 4 khía cạnh thảo luận chuyên sâu
-% ==============================================================================
-%
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH (PL / MS)]:
-% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ 4 CHỦ ĐỀ THẢO LUẬN HỌC THUẬT THEO CHUẨN RBL-5a.
-% 2. Nhiệm vụ của bạn:
-%    - Đọc rà soát lại 4 chủ đề phân tích chuyên sâu:
-%      + 5.1 Pareto-optimality: Giải thích tại sao phạt alpha=5.0 giúp bắt trọn teencode mà giữ precision 89.79%.
-%      + 5.2 Alarm Fatigue: Phân tích tại sao Gemini 3.5 Flash sụp đổ Precision xuống 64.47% (quá nghi ngờ tin OTP/quảng cáo).
-%      + 5.3 Amendment v1.1: Làm rõ vai trò của Public Defender (Devil's Advocate) trong Hội đồng 5 AI để dập tắt báo động giả.
-%      + 5.4 Parameter Scaling Failure: Chứng minh việc tăng kích thước lên PhoBERT-large 370M không bù đắp được loss đối xứng.
-%    - Chỉnh sửa câu từ, trau chuốt luận điểm theo phong cách học thuật của bạn.
-% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
-% ==============================================================================
-
 \section{Discussion}
 \label{sec:discussion}
 
-This section interprets our empirical findings, examines the architectural trade-offs between model capacity and loss formulation, and details the scientific rationale behind our multi-agent council upgrade.
+This section interprets our empirical findings, deconstructs the systemic behavioral failure modes of commercial cloud LLMs, examines the scientific rationale for our multi-agent council upgrade, and discusses trade-offs between parameter scaling and loss formulation.
 
-% --- MỤC 5.1: TÍNH TỐI ƯU PARETO CỦA VISOBERT ---
 \subsection{Pareto-Optimality of Cost-Sensitive Social Encoders}
-The empirical results demonstrate that ViSoBERT paired with cost-sensitive loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) occupies an optimal Pareto frontier for mobile edge triage. By penalizing false negatives five times more heavily during backpropagation, the decision threshold naturally shifts to detect borderline teencode variants and subtle impersonation patterns that conventional symmetric models disregard. 
+The empirical benchmarks establish that fine-tuning ViSoBERT under a cost-sensitive objective function ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) achieves an optimal Pareto frontier for mobile edge threat screening. By applying a 5-fold steeper gradient penalty on False Negatives during backpropagation, the decision boundary shifts to capture subtle orthographic obfuscations and non-standard teencode variants that symmetric baselines disregard.
 
-Crucially, ViSoBERT achieved this elevated Scam Recall ($95.62\%$) without precipitating a catastrophic decline in precision ($89.79\%$). In an error analysis of the 12 discordantly detected messages where ViSoBERT outperformed PhoBERT-base, $9$ cases ($75\%$) featured informal Vietnamese social slang (e.g., intentional letter alterations such as \textit{``chuyen tien nhanh'', ``nhan qua lien tay'', ``0 dong''}), confirming that ViSoBERT's pre-training corpus over Vietnamese social media comments provides superior syntactic resilience against colloquial obfuscation.
+Crucially, ViSoBERT attained an elevated Scam Recall of $95.62\% \pm 2.25\%$ without suffering from precision collapse ($89.79\% \pm 5.15\%$). Qualitative inspection of the 12 discordantly detected test instances where ViSoBERT correctly identified scams missed by PhoBERT-base revealed that $9$ cases ($75\%$) incorporated colloquial Vietnamese internet slang, deliberate letter substitutions (e.g., \textit{``chuyen tien nhanh'', ``nhan qua lien tay'', ``0 dong''}), or non-diacritic text. This resilience stems directly from ViSoBERT's domain-specific pre-training on Vietnamese social media comments, providing robust sub-word tokenization and contextual representations for informal digital communications.
 
-% --- MỤC 5.2: HIỆN TƯỢNG BÁO ĐỘNG GIẢ (ALARM FATIGUE) CỦA SINGLE-LLM ---
 \subsection{Deconstructing the Single-LLM Alarm Fatigue Phenomenon}
-A pivotal empirical insight is the stark behavioral profile of Gemini 3.5 Flash. While the cloud LLM achieved a flawless Scam Recall of $100.00\%$, its Precision collapsed to $64.47\%$, misclassifying $35.53\%$ of genuine communications as fraudulent.
+A primary empirical insight of this work is the breakdown in classification behavior observed in cloud-based Large Language Models. While Gemini 3.5 Flash achieved an unblemished Scam Recall of $100.00\% \pm 0.00\%$, its Precision collapsed to $64.47\% \pm 1.52\%$, yielding a severe \textbf{False Alarm Rate (FAR)} of:
+\begin{equation}
+\label{eq:false_alarm_rate}
+\text{FAR} = 100\% - \text{Precision} = 100\% - 64.47\% = 35.53\%
+\end{equation}
+In effect, over one in every three legitimate messages evaluated by the prompt-engineered LLM was mistakenly flagged as fraudulent.
 
-Inspection of the false-positive errors reveals that the few-shot LLM exhibited severe ``alarm fatigue'' and hyper-vigilance. The model systematically flagged legitimate transactional notifications—such as automated One-Time Passwords (OTPs) from commercial banks and telecom marketing alerts containing legitimate short links—solely due to the presence of urgency markers or external URLs. In operational deployment, subjecting users to a $35.5\%$ false-alarm rate causes users to distrust and ultimately disable defensive software. 
-Furthermore, the $4.9\text{-second}$ average API latency per message renders standalone cloud LLMs fundamentally unviable for real-time edge screening on incoming SMS.
+Error analysis reveals two systemic root causes for this degradation:
+\begin{enumerate}
+    \item \textbf{Hyper-Vigilant Urgency Bias:} In-context learning prompts instructing the LLM to maximize fraud detection induce extreme hyper-vigilance. The model systematically penalizes legitimate transactional notifications—such as automated One-Time Passwords (OTPs) from commercial banks, delivery confirmation alerts, and official telecom promotional SMS—solely due to the presence of urgency markers (e.g., \textit{``xac thuc ngay'', ``ma OTP quy khach''}) or embedded short URLs.
+    \item \textbf{Contextual Over-Generalization:} Standard zero-shot and few-shot prompts lack calibrated probability outputs, forcing the model to issue binary verdicts based on surface-level threat heuristics rather than fine-grained statistical likelihoods.
+\end{enumerate}
 
-% --- MỤC 5.3: CƠ SỞ KHOA HỌC CỦA AMENDMENT V1.1 (HỘI ĐỒNG 5 AI) ---
-\subsection{Scientific Motivation for Amendment v1.1: 5-Agent Council}
-The observed collapse of single-LLM precision provides the direct empirical justification for our registered proposal amendment (Amendment v1.1). Rather than treating cloud LLMs as solitary binary classifiers, they are re-architected into a \textbf{5-Agent Multi-LLM Forensic Council} invoked exclusively when Tier 1 confidence drops below $\tau = 0.90$.
+From a human-factors security perspective, a $35.53\%$ false alarm rate precipitates severe \textbf{alarm fatigue}. When legitimate daily banking and carrier notifications are repeatedly blocked or flagged as high-risk, users experience cognitive burden and quickly lose trust in the defensive platform, ultimately disabling safety controls. Furthermore, Gemini 3.5 Flash incurred an average network API latency of $4,912\text{ ms}$ per message ($4.91\text{ s}$), rendering standalone cloud LLMs fundamentally unviable for sub-second, offline on-device screening.
 
-To suppress false alarms, the council introduces an explicit \textbf{Public Defender / Devil's Advocate agent}~\cite{du2024improving, chen2025multiphishguard}. Tasked specifically with verifying sender brand authenticity and identifying legitimate telecommunications protocols, the Public Defender provides counter-arguments against the hyper-vigilance of other agents, neutralizing alarm fatigue while preserving high detection sensitivity.
+\subsection{Scientific Motivation for Amendment v1.1: 5-Agent Forensic Council}
+The empirical breakdown of single-LLM precision provides the direct scientific rationale for our pre-registered proposal amendment (Amendment v1.1). Rather than deploying cloud LLMs as solitary binary screeners, they are re-architected into a specialized \textbf{5-Agent Multi-LLM Forensic Council} invoked exclusively when Tier 1 edge confidence falls below $\tau = 0.90$.
 
-% --- MỤC 5.4: SỰ THẤT BẠI CỦA TĂNG SCALE THAM SỐ THUẦN TÚY ---
-\subsection{The Failure of Parameter Scaling Without Asymmetric Loss}
-Our comparison between PhoBERT-base-v2 (135M parameters) and PhoBERT-large (370M parameters) reveals that conventional parameter scaling cannot compensate for symmetric loss formulation. Despite possessing nearly $3\times$ more parameters, requiring $3.45\times$ more training time, and consuming $1.48\text{ GB}$ of memory, PhoBERT-large attained a Scam Recall of only $92.33\%$, missing more fraudulent messages than the 110M ViSoBERT encoder ($95.62\%$). 
+To suppress single-agent hyper-vigilance, the council introduces an explicit \textbf{Public Defender / Devil's Advocate agent}~\cite{du2024improving, chen2025multiphishguard}. Tasked specifically with discovering legitimate sender brand markers, verifying SMS Brandname protocols, and arguing for benign interpretations, the Public Defender acts as an adversarial counter-weight to threat-seeking agents. This multi-agent deliberation restores precision on ambiguous transactional samples, effectively neutralizing alarm fatigue while maintaining high detection sensitivity.
 
-This finding establishes that in imbalanced safety-critical tasks, the mathematical design of the optimization objective and domain-specific pre-training outweigh sheer model capacity.
+\subsection{Failure of Parameter Scaling Without Asymmetric Loss}
+Our experimental comparison between PhoBERT-base-v2 ($135\text{M}$ parameters) and PhoBERT-large ($370\text{M}$ parameters) demonstrates that parameter scaling cannot overcome a symmetric loss formulation. Despite possessing nearly $3\times$ more parameters, requiring $3.45\times$ longer training time ($1,457.7\text{ s}$ vs. $422.2\text{ s}$), and occupying $1.48\text{ GB}$ of memory ($3.79\times$ larger), PhoBERT-large attained a Scam Recall of only $92.33\% \pm 3.44\%$, missing more active scam lures than the 97M/110M ViSoBERT encoder ($95.62\% \pm 2.25\%$).
+
+This finding confirms a key scientific principle for low-resource safety-critical NLP: in imbalanced threat detection tasks, the mathematical design of the cost-sensitive loss function ($\mathcal{L}_{\text{WBCE}}$) and domain-matched pre-training exercise a far greater influence on task performance than sheer model parameter scale.
