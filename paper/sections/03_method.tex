@@ -1,84 +1,55 @@
-% ==============================================================================
-% SECTION 3: METHODOLOGY (03_method.tex)
-% VAI TRÒ PHỐI HỢP:
-%   - Data & Edge Pipeline Specialist (LR): Phụ trách Mục 3.1 & 3.2
-%   - Metrics & Statistics Specialist (MS): Phụ trách Mục 3.3, 3.4 & 3.5
-% THỨ TỰ VIẾT: BƯỚC 1 (VIẾT ĐẦU TIÊN CỦA TOÀN BÀI - Cố định thuật ngữ & tham số)
-% NGUYÊN LIỆU ĐỐI SOÁT: team-synthesis/proposal.md (§5), data/raw/README.md, models/
-% ĐỘ DÀI MỤC TIÊU: ~1.5 - 2 trang, công thức toán và quy chuẩn niêm phong Frozen Set
-% ==============================================================================
-%
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH MỤC 3.1 & 3.2 (DATA & EDGE PIPELINE)]:
-% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ CÁC CÔNG THỨC TOÁN, THÔNG SỐ VÀ CẤU HÌNH.
-% 2. Nhiệm vụ của bạn:
-%    - Đọc rà soát Mục 3.1 (Dataset): đối soát số mẫu 2.665 tin, Frozen Set N=267, IAA kappa = 0.88.
-%    - Đọc rà soát Mục 3.2 (Model & ONNX): kiểm tra thông số ViSoBERT 110M và cấu hình ONNX opset=18.
-%    - Tinh chỉnh câu từ tiếng Anh cho mạch lạc và tự nhiên.
-% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa khối comment hướng dẫn này đi.
-%
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH MỤC 3.3, 3.4 & 3.5 (LOSS & METRICS/STATS)]:
-% 1. Nhiệm vụ của bạn:
-%    - Đọc rà soát Mục 3.3 (Loss WBCE): kiểm tra công thức L_WBCE (alpha=5.0) và giải thích penalty gradient.
-%    - Đọc rà soát Mục 3.4 (Two-Tier): kiểm tra ngưỡng định tuyến tau=0.90 và phân luồng Council.
-%    - Đọc rà soát Mục 3.5 (Protocol): kiểm tra định nghĩa metric và giao thức kiểm định McNemar paired test.
-% 2. SAU KHI HOÀN THÀNH: Bạn hãy xóa khối comment hướng dẫn này đi.
-% ==============================================================================
-
 \section{Methodology}
 \label{sec:method}
 
-This section describes the dataset curation protocol, mathematical formulation of the cost-sensitive objective function, on-device quantization, and the multi-tier escalation framework.
+This section describes the benchmark dataset curation protocol, mathematical formulation of the cost-sensitive objective function, on-device ONNX edge quantization, the two-tier hybrid routing framework, and the paired statistical testing protocol.
 
-% ------------------------------------------------------------------------------
-% MỤC 3.1 & 3.2: DO DATA & EDGE PIPELINE SPECIALIST (LR) PHỤ TRÁCH
-% ------------------------------------------------------------------------------
 \subsection{Benchmark Dataset and Frozen Test Partition}
-% [TODO: Rà soát và đối chiếu tính nhất quán với data/raw/README.md]
-We curated a unified corpus of $2,665$ genuine Vietnamese telecommunications messages by merging verified public repositories, community reports from ChongLuaDao, and national cybersecurity warning feeds (\texttt{data/raw/vietnamese\_sms\_merged\_all.csv}). The corpus consists of $1,918$ benign messages ($72.0\%$) and $747$ confirmed scam instances ($28.0\%$). 
+We curated a unified corpus of $2,664$ genuine Vietnamese telecommunications messages by merging verified public repositories, community reports from ChongLuaDao, and national cybersecurity warning feeds (\texttt{data/raw/vietnamese\_sms\_merged\_all.csv}). The corpus contains $1,918$ benign messages ($72.0\%$) and $746$ confirmed scam instances ($28.0\%$).
 
-To establish an uncompromised evaluation standard, we applied a stratified split (fixed random seed = 42):
+To establish an uncompromised evaluation standard, we applied a stratified split with a fixed random seed of 42:
 \begin{itemize}
-    \item \textbf{Training and Internal Validation Partition ($90\%$):} $2,398$ messages utilized for hyperparameter optimization and model convergence.
+    \item \textbf{Training and Internal Validation Partition ($90\%$):} $2,397$ messages utilized for hyperparameter optimization, loss weighting search, and model convergence.
     \item \textbf{Frozen Test Partition ($10\%$):} Exactly \textbf{$N = 267$ messages} ($192$ Ham, $75$ Scam).
 \end{itemize}
-In accordance with our pre-registered research protocol, the $N=267$ Frozen Test Set was strictly sequestered during fine-tuning, threshold search, and pipeline refinement. All ground-truth annotations were independently verified by two cybersecurity analysts, achieving an Inter-Annotator Agreement of Cohen's $\kappa = 0.88$, signifying near-perfect consensus.
+The $N=267$ Frozen Test Set was not used during fine-tuning, threshold selection, or pipeline development. It was kept separate until the final evaluation.
 
 \subsection{Model Architecture and ONNX Edge Quantization}
-% [TODO: Rà soát thông số cấu hình xuất ONNX trong models/visobert_tier1.onnx]
-For our primary on-device model, we select ViSoBERT (\texttt{uitnlp/visobert})~\cite{nguyen2023visobert}. ViSoBERT employs a RoBERTa architecture comprising 12 transformer encoder layers, 768 hidden dimensions, 12 attention heads, and 110M parameters. Crucially, ViSoBERT was pre-trained on a massive 60 GB corpus of Vietnamese social network communications, blog posts, and colloquial user discussions, providing robust tokenization and contextual representations for emerging internet slang, abbreviations, and informal teencode.
+ViSoBERT (\texttt{uitnlp/visobert})~\cite{nguyen2023visobert} was selected as our primary on-device backbone encoder. ViSoBERT employs an XLM-RoBERTa architecture comprising 12 transformer encoder layers, 768 hidden dimensions, 12 attention heads, and approximately 97M parameters paired with a custom vocabulary of 15,000 SentencePiece tokens. Pre-trained on a curated corpus of Vietnamese social network communications, ViSoBERT captures domain-specific contextual representations for emerging internet slang, teencode, emojis, and non-diacritic text.
 
-To evaluate real-time mobile deployability without external server dependency, trained checkpoints were exported to the Open Neural Network Exchange (ONNX) format utilizing \texttt{opset\_version=18}. Dynamic axes were configured for variable batch size and sequence length dimensions. The resulting serialized model file (\texttt{visobert\_tier1.onnx}) occupies $390\text{ MB}$, yielding a mean inference latency of approximately $15.8\text{ ms}$ per message on standard consumer CPU threads.
+To evaluate real-time mobile deployability without external server dependencies, fine-tuned checkpoints were exported to the Open Neural Network Exchange (ONNX) format utilizing \texttt{opset\_version=18}. Dynamic axes were configured for variable batch size and sequence length dimensions. The resulting serialized model file (\texttt{visobert\_tier1.onnx}) occupies $390\text{ MB}$, yielding a mean inference latency of approximately $15.8\text{ ms}$ per message on standard consumer CPU threads.
 
-% ------------------------------------------------------------------------------
-% MỤC 3.3, 3.4 & 3.5: DO METRICS & STATISTICS SPECIALIST (MS) PHỤ TRÁCH
-% ------------------------------------------------------------------------------
 \subsection{Cost-Sensitive Loss Formulation ($\mathcal{L}_{\text{WBCE}}$)}
-% [TODO: Rà soát công thức toán học và giải thích gradient đạo hàm]
-In binary spam and scam classification, error outcomes impose deeply asymmetric consequences. Flagging a benign notification incurs mild user annoyance, whereas failing to intercept an active smishing vector exposes the victim to irreversible credential harvesting and financial extortion. Standard Binary Cross-Entropy (BCE) treats both error types symmetrically.
+In telecommunications security, binary classification error outcomes impose deeply asymmetric real-world consequences. Misclassifying a benign notification as scam (False Positive) incurs mild user annoyance, whereas failing to intercept an active smishing vector (False Negative) exposes victims to credential theft and financial extortion. Standard Binary Cross-Entropy (BCE) treats both error outcomes symmetrically, optimizing overall sample accuracy at the expense of positive class sensitivity.
 
-To impose an explicit inductive bias favoring recall on deceptive samples, we formulate the \textbf{Cost-Sensitive Weighted Binary Cross-Entropy Loss ($\mathcal{L}_{\text{WBCE}}$)}:
+To impose an explicit inductive bias favoring scam recall, we formulate the \textbf{Cost-Sensitive Weighted Binary Cross-Entropy Loss ($\mathcal{L}_{\text{WBCE}}$)}:
 \begin{equation}
 \label{eq:wbce}
 \mathcal{L}_{\text{WBCE}} = -\frac{1}{N} \sum_{i=1}^{N} \left[ \alpha \cdot y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
 \end{equation}
-where $y_i \in \{0, 1\}$ represents the ground-truth binary label ($0 = \text{Ham}$, $1 = \text{Scam}$), $\hat{y}_i \in [0, 1]$ denotes the predicted sigmoid probability, and $\alpha > 1$ represents the penalty scalar applied to False Negatives. In our experiments, we lock $\alpha = 5.0$, exerting a five-fold steeper gradient penalty whenever the model misclassifies a true scam message as benign.
-
-Models were trained utilizing the AdamW optimizer with an initial learning rate of $2\times 10^{-5}$, linear learning rate warmup of $0.1$, weight decay of $0.01$, and batch size of 16 for 4 epochs with mixed-precision (FP16).
+where $y_i \in \{0, 1\}$ represents the ground-truth binary label ($0 = \text{Ham}$, $1 = \text{Scam}$), $\hat{y}_i \in [0, 1]$ denotes the predicted sigmoid probability, and $\alpha > 1$ represents the cost penalty scalar assigned to False Negatives. Differentiating Eq.~(\ref{eq:wbce}) with respect to model logits $z_i$ reveals the asymmetric gradient magnitude:
+\begin{equation}
+\label{eq:wbce_gradient}
+\frac{\partial \mathcal{L}_{\text{WBCE}}}{\partial z_i} = \begin{cases} \alpha (\hat{y}_i - 1), & \text{if } y_i = 1 \text{ (False Negative penalty)} \\ \hat{y}_i, & \text{if } y_i = 0 \text{ (False Positive penalty)} \end{cases}
+\end{equation}
+In our experiments, we set $\alpha = 5.0$, exerting a 5-fold steeper gradient update whenever a true scam message is misclassified, effectively driving backpropagation to prioritize high Scam Recall. Models were fine-tuned using the AdamW optimizer with an initial learning rate of $2\times 10^{-5}$, linear warmup ratio of $0.1$, weight decay of $0.01$, and batch size of 16 across 4 epochs with FP16 mixed-precision.
 
 \subsection{Two-Tier Routing Framework}
-To resolve the trade-off between edge efficiency and semantic reasoning over ambiguous edge-cases, ScamShield-VN employs a two-tier hybrid architecture governed by a confidence threshold $\tau = 0.90$:
+To resolve the operational trade-off between edge efficiency and deep semantic reasoning over ambiguous messages, ScamShield-VN implements a two-tier hybrid architecture governed by a confidence threshold $\tau = 0.90$:
+\begin{equation}
+\label{eq:routing}
+\text{Verdict}(x) = \begin{cases} \text{Tier 1 Edge Decision}, & \text{if } \max(P(\hat{y}=1|x), 1 - P(\hat{y}=1|x)) \ge \tau \\ \text{Tier 2 Council Escalation}, & \text{if } \max(P(\hat{y}=1|x), 1 - P(\hat{y}=1|x)) < \tau \end{cases}
+\end{equation}
 \begin{enumerate}
-    \item \textbf{Tier 1 (Edge Screener):} Every incoming message is screened instantaneously by on-device ViSoBERT. If the model's confidence satisfies $P(\hat{y}) \ge 0.90$, a definitive verdict is returned in $<15\text{ ms}$, covering approximately $80\text{--}85\%$ of regular daily traffic at zero cloud token cost.
-    \item \textbf{Tier 2 (Forensic Council Escalation):} If confidence falls into the ambiguous boundary ($P < 0.90$), the sample is routed to a 5-Agent Multi-LLM Forensic Council comprising: (1) Forensic Lead, (2) Psycholinguistic Analyst, (3) Cyber Threat Intelligence Agent, (4) Financial Fraud Specialist, and (5) Public Defender / Devil's Advocate (tasked with actively seeking benign explanations to suppress false alarms).
+    \item \textbf{Tier 1 (Edge Screener):} Incoming messages are processed on-device via quantized ViSoBERT. High-confidence predictions ($P \ge 0.90$) receive instantaneous verdicts ($< 15.8\text{ ms}$), absorbing approximately $80\text{--}85\%$ of daily message volume locally with zero cloud API costs.
+    \item \textbf{Tier 2 (Forensic Council Escalation):} Ambiguous messages ($P < 0.90$) are escalated to a 5-Agent Multi-LLM Forensic Council comprising: (1) Forensic Lead, (2) Psycholinguistic Analyst, (3) Cyber Threat Intelligence Agent, (4) Financial Fraud Specialist, and (5) Public Defender / Devil's Advocate (tasked with actively identifying legitimate brand markers to suppress false alarms).
 \end{enumerate}
 
 \subsection{Evaluation Metrics and Statistical Testing Protocol}
-% [TODO: Rà soát định nghĩa metric và công thức kiểm định McNemar]
-In accordance with our pre-registered protocol, performance is quantified via:
-\begin{itemize}
-    \item \textbf{Scam Recall:} Sensitivity on the positive scam class ($TP / [TP + FN]$), representing our primary optimization metric.
-    \item \textbf{Macro F1-Score \& Accuracy:} Balanced performance across classes.
-    \item \textbf{Precision \& False Positive Rate (FPR):} Tracking potential alarm fatigue.
-    \item \textbf{Paired Statistical Testing:} Because all baseline and candidate models were evaluated on the identical $N=267$ isolated instances, we execute two-tailed \textbf{McNemar's tests} with continuity correction ($\alpha = 0.05$) to establish whether observed pairwise classification differences achieve statistical significance.
-\end{itemize}
-All neural models were evaluated over \textbf{5 independent runs} using distinct random seeds: $\text{SEEDS} = [42, 100, 123, 999, 2026]$.
+Model performance is evaluated on the isolated $N=267$ Frozen Test Set using four primary metrics: Scam Recall ($TP / [TP + FN]$), Precision ($TP / [TP + FP]$), Macro F1-Score, and False Positive Rate ($FPR = FP / [FP + TN]$).
+
+To rigorously establish statistical significance across paired binary classifiers on the identical test partition, we perform two-tailed \textbf{McNemar's tests} with continuity correction ($\alpha = 0.05$):
+\begin{equation}
+\label{eq:mcnemar}
+\chi^2_{\text{cont}} = \frac{(|b - c| - 1)^2}{b + c}
+\end{equation}
+where $b$ represents the number of test samples correctly classified exclusively by ViSoBERT, and $c$ denotes instances correctly classified exclusively by the comparative baseline model. We evaluate the null hypothesis $H_0$ (no performance difference, $p \ge 0.05$) against the alternative hypothesis $H_1$ ($p < 0.05$). All neural models were evaluated across $K=5$ independent deterministic random seeds ($\text{SEEDS} = [42, 100, 123, 999, 2026]$).
