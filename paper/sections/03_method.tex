@@ -11,7 +11,7 @@ To establish an uncompromised evaluation standard, we applied a stratified split
     \item \textbf{Training and Internal Validation Partition ($90\%$):} $2,397$ messages utilized for hyperparameter optimization, loss weighting search, and model convergence.
     \item \textbf{Frozen Test Partition ($10\%$):} Exactly \textbf{$N = 267$ messages} ($192$ Ham, $75$ Scam).
 \end{itemize}
-In accordance with our pre-registered research protocol, the $N=267$ Frozen Test Set was strictly sequestered during fine-tuning, threshold search, and pipeline refinement. All ground-truth annotations were independently verified by two cybersecurity analysts, achieving an Inter-Annotator Agreement of Cohen's $\kappa = 0.88$, signifying near-perfect consensus.
+The $N=267$ Frozen Test Set was not used during fine-tuning, threshold selection, or pipeline development. It was kept separate until the final evaluation.
 
 \subsection{Model Architecture and ONNX Edge Quantization}
 ViSoBERT (\texttt{uitnlp/visobert})~\cite{nguyen2023visobert} was selected as our primary on-device backbone encoder. ViSoBERT employs an XLM-RoBERTa architecture comprising 12 transformer encoder layers, 768 hidden dimensions, 12 attention heads, and approximately 97M parameters paired with a custom vocabulary of 15,000 SentencePiece tokens. Pre-trained on a curated corpus of Vietnamese social network communications, ViSoBERT captures domain-specific contextual representations for emerging internet slang, teencode, emojis, and non-diacritic text.

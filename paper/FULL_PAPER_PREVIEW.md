@@ -2,7 +2,7 @@
 
 > **Authors:** Nguyen Trung Hieu, Le Quoc Huy, Hoang Hai Phuc, Phan Tran Hoang Tran, Nguyen Minh Quang  
 > **Affiliation:** Department of Software Engineering, FPT University, Ho Chi Minh City, Vietnam  
-> **Contact:** `cristand2825@gmail.com`, `{huylq, phuchh, tranpth, quangnm}@fpt.edu.vn`  
+> **Contact:** `cristand2825@gmail.com`, `haiphuchoang2675@gmail.com`, `{huylq, tranpth, quangnm}@fpt.edu.vn`  
 > **Status:** Full Manuscript Draft (IEEE Conference Format Preview)
 
 ---
