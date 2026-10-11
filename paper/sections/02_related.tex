@@ -1,45 +1,17 @@
-% ==============================================================================
-% SECTION 2: RELATED WORK (02_related.tex)
-% VAI TRÒ PHỤ TRÁCH: Data & Ground Truth Specialist (DG)
-% THỨ TỰ VIẾT: BƯỚC 2 (Sau khi đã có khung §3 Methodology)
-% NGUYÊN LIỆU ĐỐI SOÁT: team-synthesis/evidence-table-merged.md (40 papers), proposal.md (§3)
-% ĐỘ DÀI MỤC TIÊU: ~1 - 1.5 trang, chia 3 Theme khoa học + Bảng Table I đối sánh
-% ==============================================================================
-%
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH (DG)]:
-% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN SẴN ĐẦY ĐỦ THEO 3 THEME VĂN HIẾN VÀ BẢNG TABLE I.
-% 2. Nhiệm vụ của bạn:
-%    - Đọc rà soát lại văn phong tiếng Anh của 3 Theme:
-%      + Theme 1: Traditional ML & Rules (Xie, Saeed, Ghourabi...)
-%      + Theme 2: Vietnamese Pre-trained Models (PhoBERT, MLTEA, VNSED...)
-%      + Theme 3: LLMs & Small Models on Edge (FraudSMSWalker, QuishingShield, Phap...)
-%    - Kiểm tra các con số trong Bảng Table I xem đã chuẩn xác với Evidence Table chưa.
-%    - Chỉnh sửa câu từ, thêm bớt chi tiết kỹ thuật nếu muốn tự nhiên hơn.
-% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
-% ==============================================================================
-
 \section{Related Work}
 \label{sec:related}
 
-To systematically situate our contribution within the broader literature, we synthesize 40 peer-reviewed investigations into three dominant research themes.
+To systematically position our work within the current literature, we analyze 40 peer-reviewed studies organized across three core research themes.
 
-% --- THEME 1: ML TRUYỀN THỐNG & RULE-BASED ---
 \subsection{Theme 1: Traditional Machine Learning and Rule-Based Filtering}
-Early investigations into telecommunications spam detection predominantly evaluated classical shallow algorithms including Support Vector Machines (SVM), Naive Bayes (NB), and ensemble tree structures paired with TF-IDF or Bag-of-Words feature representations~\cite{tuan2023evaluating, xie2025comparing, ghourabi2023enhancing}. For example, Saeed~\cite{saeed2023method} observed an accuracy of $98.1\%$ with SVM on standard Western benchmark datasets. 
-However, as documented by Xie~\cite{xie2025comparing}, shallow classifiers degrade precipitously when encountering out-of-vocabulary teencode, deliberate orthographic obfuscations, and adversarial synonym replacements commonly engineered by modern cyber syndicates. Furthermore, static rule-based heuristics fail to model long-range semantic dependencies and contextual urgency.
+Early research on telecommunication spam detection heavily relied on classical shallow algorithms, such as Support Vector Machines (SVM), Naive Bayes, and decision tree ensembles paired with TF-IDF or n-gram feature representations~\cite{tuan2023evaluating, xie2025comparing, ghourabi2023enhancing}. For instance, Saeed~\cite{saeed2023method} reported a $98.1\%$ accuracy using SVM on standard English benchmark datasets. However, Xie~\cite{xie2025comparing} demonstrated that shallow classifiers degrade significantly when encountering out-of-vocabulary teencode, deliberate orthographic obfuscations, and adversarial synonym replacements typical of modern Vietnamese cyber scams. Moreover, static rule-based filters fail to capture long-range semantic dependencies and subtle contextual urgency.
 
-% --- THEME 2: MÔ HÌNH NGÔN NGỮ TIẾNG VIỆT ---
 \subsection{Theme 2: Pretrained Language Models for Vietnamese NLP}
-The emergence of transformer-based architectures revolutionized low-resource natural language understanding. For the Vietnamese linguistic space, PhoBERT~\cite{nguyen2020phobert} established foundational benchmarks for syllable-level contextual embeddings across diverse parsing tasks. Nguyen-Xuan et al.~\cite{nguyenxuan2026mixed} introduced a mixed-language dual-encoder reaching an F1-score of $0.94$ on code-mixed social media lures, while Cam and Binh~\cite{cam2026vnsed} achieved $86.47\%$ accuracy utilizing PhoBERT on Vietnamese email spam. 
-Nevertheless, a critical shared deficiency across existing Vietnamese transformer applications is their reliance on standard unweighted cross-entropy loss. Because spam and scam instances represent an extreme minority in genuine traffic, symmetric loss optimization biases decision thresholds toward majority benign classes, yielding unacceptably high false-negative rates on subtle, indirect fraud scenarios.
+Transformer-based architectures have significantly improved natural language understanding in low-resource settings. In Vietnamese NLP, PhoBERT~\cite{nguyen2020phobert} established the primary benchmark for syllable-level contextual representations across downstream tasks. Building on pre-trained transformers, Nguyen-Xuan et al.~\cite{nguyenxuan2026mixed} introduced a mixed-language dual-encoder achieving an F1-score of $0.940$ on code-mixed phishing text, while Cam and Binh~\cite{cam2026vnsed} reached $86.47\%$ accuracy applying PhoBERT to Vietnamese email spam. Despite these advances, existing Vietnamese transformer models rely almost exclusively on standard symmetric cross-entropy loss. Because scam messages represent a minor fraction of real-world message traffic, unweighted loss functions bias decision thresholds toward the majority benign class, leading to high false-negative rates on subtle fraud lures.
 
-% --- THEME 3: LLM VÀ EDGE SMALL LANGUAGE MODELS ---
 \subsection{Theme 3: LLMs and Edge-Deployed Small Language Models}
-Recent initiatives have explored Large Language Models and on-device Small Language Models (SLMs) for threat triage~\cite{saias2025advances, zhou2026fraudsmswalker, elzemity2026agentic}. Zhou et al.~\cite{zhou2026fraudsmswalker} benchmarked leading commercial models (GPT-4o, Claude, Gemini) on SMS fraud, finding that fraud recall fluctuated widely between $64.16\%$ and $90.13\%$ while benign recall dropped as low as $12.81\%$ due to severe over-flagging. In contrast, edge-oriented frameworks such as QuishingShield~\cite{banda2026quishingshield} and knowledge distillation pipelines~\cite{mrinal2026resilient, phap2026edgeai} have targeted low-latency mobile inference, reporting CPU execution times under $50\text{ ms}$. 
-Nonetheless, these architectures have focused almost exclusively on English corpora and fail to integrate cost-asymmetric penalty functions tailored to the nuances of Vietnamese social media text.
+Recent studies have evaluated Large Language Models (LLMs) and on-device Small Language Models (SLMs) for threat triage~\cite{saias2025advances, zhou2026fraudsmswalker, elzemity2026agentic}. Zhou et al.~\cite{zhou2026fraudsmswalker} benchmarked leading commercial models (GPT-4o, Claude, and Gemini) on SMS fraud, finding that scam recall varied from $64.16\%$ to $90.13\%$, while benign recall dropped as low as $12.81\%$ due to severe over-flagging. Conversely, lightweight mobile frameworks such as QuishingShield~\cite{banda2026quishingshield} and distilled edge models~\cite{mrinal2026resilient, phap2026edgeai} prioritize low-latency mobile inference, achieving execution times under $50\text{ ms}$ on CPUs. However, these edge architectures focus on English corpora and lack cost-sensitive penalty functions designed for the linguistic nuances of Vietnamese social media text.
 
-% --- BẢNG ĐỐI SÁNH VĂN HIẾN (TABLE I) ---
-% [LƯU Ý: Cột cuối trỏ thẳng vào GAP để dẫn vào phần đóng góp của nhóm]
 \begin{table*}[t]
 \centering
 \caption{Comparative Overview of Representative Threat Detection Studies vs. Proposed ScamShield-VN}
@@ -60,6 +32,6 @@ Phap et al.~\cite{phap2026edgeai} & English & BiGRU + MaskedPool + WBCE & UCI \&
 \end{tabular}
 \end{table*}
 
-% --- ĐOẠN ĐỊNH VỊ VỊ THẾ BÀI BÁO (POSITIONING STATEMENT) ---
 \subsection{Positioning of ScamShield-VN}
-Unlike prior work, this paper explicitly bridges the gap between low-latency on-device processing and robust semantic understanding for Vietnamese fraud by pairing a social-media specialized encoder (\texttt{uitnlp/visobert}) with an asymmetric cost-sensitive loss formulation ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$), backed by an empirical fail-safe multi-agent council.
+Unlike existing approaches, ScamShield-VN directly addresses the trade-off between low-latency on-device execution and semantic accuracy for Vietnamese fraud detection. By combining a social-media-specialized transformer encoder (\texttt{uitnlp/visobert}) with weighted binary cross-entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) and a fail-safe multi-agent council, our architecture achieves high fraud recall with minimal on-device latency.
+
