@@ -1,41 +1,17 @@
-% ==============================================================================
-% SECTION 1: INTRODUCTION (01_intro.tex)
-% VAI TRÒ PHỤ TRÁCH: Report Writer (RW)
-% THỨ TỰ VIẾT: BƯỚC 3 (Sau khi đã xong §3 và §2 để nắm chắc Gap & Method)
-% NGUYÊN LIỆU ĐỐI SOÁT: team-synthesis/proposal.md (§2), team-synthesis/gap-list.md
-% ĐỘ DÀI MỤC TIÊU: ~1 trang, cấu trúc chuẩn 5 đoạn văn độc lập
-% ==============================================================================
-%
-% [HƯỚNG DẪN DÀN Ý 5 ĐOẠN DÀNH CHO NGƯỜI PHỤ TRÁCH (RW)]:
-% - Đoạn 1: Vấn đề thực tế lừa đảo viễn thông tại VN (thiệt hại hàng ngàn tỷ đồng, teencode lẩn tránh).
-% - Đoạn 2: Các nghiên cứu trước đã làm gì (BERT, PhoBERT, LLMs).
-% - Đoạn 3: GAP - 3 điểm nghẽn: loss đối xứng, alarm fatigue của LLM, độ trễ viễn thông.
-% - Đoạn 4: 4 đóng góp cụ thể của bài báo (dạng itemize).
-% - Đoạn 5: Bố cục các phần tiếp theo của bài báo.
-%
-% [TODO: Rà soát câu từ, bổ sung số liệu báo chí/chính phủ nếu muốn mở rộng Đoạn 1]
-
 \section{Introduction}
 
-% --- ĐOẠN 1: BỐI CẢNH THỰC TIỄN & NGUY CƠ VIỄN THÔNG TẠI VIỆT NAM ---
-Digital telecommunications fraud, smishing (SMS phishing), and impersonation attacks have surged dramatically across Southeast Asia, inflicting estimated damages exceeding hundreds of millions of dollars annually in Vietnam alone~\cite{cam2026vnsed}. Attackers systematically exploit deceptive social engineering tactics, targeting vulnerable mobile users with fraudulent banking alerts, fake tax arrears notices, and fictitious job opportunities. In Vietnam, this operational landscape is characterized by extensive linguistic evasion tactics: scammers intentionally incorporate colloquial slang, compound teencode abbreviations, irregular spacing, and diacritic-stripped text to circumvent static keyword blacklists and carrier-level regex filters.
+Online scams caused an estimated VND 18.9 trillion (approximately US\$744 million) in losses in Vietnam in 2024, according to a National Cybersecurity Association survey reported by VietNamNet \cite{vietnamnet2024scams}. Smishing, or SMS phishing, uses fraudulent text messages containing malicious links to steal sensitive information or cause financial losses; research has also identified message variants and text-evasion attacks as challenges for detection \cite{seo2024ondevice}. In Vietnam, authorities have warned of fake traffic-fine notices delivered through calls or messages and fraudulent online job offers requiring upfront payments \cite{mst2024scams}. Beyond these deceptive tactics, Vietnamese language processing presents additional challenges. Vietnamese social media texts contain informal vocabulary, teencode, and missing diacritics, and experiments have shown that removing diacritics can reduce the performance of pre-trained language models \cite{nguyen2023visobert}. These findings motivate evaluating Vietnamese SMS detectors against both deceptive message content and non-standard linguistic forms.
 
-% --- ĐOẠN 2: CÁC TIẾP CẬN STATE-OF-THE-ART HIỆN TẠI ---
-% [TODO: Có thể thêm 1-2 citation bài báo mới nếu muốn cập nhật xu hướng 2026]
-Recent advances in natural language processing (NLP) have motivated researchers to deploy deep learning architectures and Large Language Models (LLMs) for message-based cyber defense~\cite{saias2025advances}. Standard transformer-based architectures, including PhoBERT~\cite{nguyen2020phobert} and multilingual variants~\cite{nguyenxuan2026mixed}, have demonstrated competitive overall classification accuracy on benchmark corpora. Simultaneously, prompt-based LLMs such as GPT-4 and Gemini have shown emergent reasoning capabilities in zero-shot and few-shot fraudulent intent classification~\cite{mahendru2024securenet}.
+Researchers have applied deep learning and large language models (LLMs) to detect threats in text messages \cite{saias2025advances}. For Vietnamese, PhoBERT provides a pre-trained encoder that has been evaluated on several NLP tasks \cite{nguyen2020phobert}. More directly related to phishing detection, MLTEA combines PhoBERT and XLM-RoBERTa to process Vietnamese--English social media text. The model outperforms monolingual and multilingual baselines on both clean text and inputs with structural obfuscation \cite{nguyenxuan2026mixed}. Other studies have examined whether generative LLMs can identify phishing through prompting. SecureNet compares GPT-4 and Gemini 1.5, using instruction and chain-of-thought prompting, with a fine-tuned DeBERTa V3 classifier. Its findings show that prompt-based LLMs can detect phishing content across the evaluated datasets \cite{mahendru2024securenet}.
 
-% --- ĐOẠN 3: KHOẢNG TRỐNG NGHIÊN CỨU (GAP STATEMENT) ---
-% [LƯU Ý: Đoạn này phải khớp 100% với GAP trong §2 Related Work và claims.md]
-However, in the empirical literature we reviewed, existing systems encounter a critical tripartite bottleneck. First, conventional neural classifiers are universally trained under symmetric loss functions (such as unweighted cross-entropy), treating false positives (misidentifying a legitimate message as scam) and catastrophic false negatives (failing to intercept a scam message that causes financial ruin) as mathematically identical. Second, state-of-the-art cloud LLMs suffer from severe ``alarm fatigue'': hyper-vigilant prompting causes precision to collapse as benign promotional and transactional notifications are mistakenly flagged~\cite{zhou2026fraudsmswalker}. Third, cloud API calls incur multi-second latencies ($3\text{--}6\text{ seconds/message}$) and recurring monetary costs, violating the strict sub-second latency and offline privacy constraints required for mobile edge deployment~\cite{seo2024ondevice, mrinal2026resilient}.
+However, the on-device and cloud-based studies reviewed here do not evaluate a cost-sensitive local--cloud cascade for Vietnamese SMS \cite{seo2024ondevice,mahendru2024securenet}. The missing evidence concerns when an uncertain local prediction should be referred to an LLM and how the routing threshold affects missed scams, false alarms, end-to-end latency, and API cost. This matters because accepting uncertain local predictions can leave scams undetected or flag legitimate messages, while sending every message to the cloud adds delay and operating costs. SecureNet reports LLM prediction latencies of 13--15~s per sample in its experimental setup \cite{mahendru2024securenet}. An empirical evaluation is therefore needed to determine whether selective cloud fallback improves scam recall while keeping false alarms, response time, and API expenditure within deployment requirements.
 
-% --- ĐOẠN 4: 4 ĐÓNG GÓP CỐT LÕI CỦA BÀI BÁO (CONTRIBUTIONS) ---
-To resolve these challenges, this paper presents an evidence-grounded empirical study and architectural solution. Our primary contributions are summarized as follows:
+This paper evaluates Vietnamese language models and cloud LLMs for SMS scam detection and proposes a two-tier architecture. Our primary contributions are summarized as follows:
 \begin{itemize}
-    \item \textbf{Rigorous Multi-Seed Benchmark:} We establish a standardized benchmark on $2,665$ real-world Vietnamese SMS messages ($N=267$ isolated frozen test set) across 5 deterministic random seeds, comparing fine-tuned Vietnamese language models (PhoBERT-base, PhoBERT-large, FPT ViBERT) against few-shot cloud LLMs (Gemini 3.5 Flash).
-    \item \textbf{Cost-Sensitive Social Media Modeling:} We fine-tune ViSoBERT~\cite{nguyen2023visobert} under a Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$), demonstrating a dominant Scam Recall of $95.62\% \pm 2.25\%$ and Macro-F1 of $92.51\% \pm 2.39\%$.
+    \item \textbf{Multi-Seed Evaluation:} We establish a standardized benchmark on $2,665$ real-world Vietnamese SMS messages ($N=267$ isolated frozen test set) across 5 deterministic random seeds, comparing fine-tuned Vietnamese language models (PhoBERT-base, PhoBERT-large, FPT ViBERT) against few-shot cloud LLMs (Gemini 3.5 Flash).
+    \item \textbf{Cost-Sensitive Fine-Tuning:} We fine-tune ViSoBERT~\cite{nguyen2023visobert} under a Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$), demonstrating a dominant Scam Recall of $95.62\% \pm 2.25\%$ and Macro-F1 of $92.51\% \pm 2.39\%$.
     \item \textbf{Statistical and Pareto Profiling:} Through McNemar's paired tests and deployment profiling, we establish that ViSoBERT attains Pareto-optimality over large-scale encoders ($3.8\times$ smaller than PhoBERT-large) while operating at $\approx 15\text{ ms/message}$ on consumer CPU hardware.
-    \item \textbf{Two-Tier Architecture Grounding:} Based on the empirical breakdown of single-LLM precision collapse, we formulate an evidence-backed two-tier triage pipeline transitioning ambiguous edge samples to a specialized multi-agent forensic council.
+    \item \textbf{Two-Tier Local--Cloud Architecture:} We propose a pipeline that first classifies SMS messages using a local model. The system returns the local prediction when its confidence meets a chosen threshold and routes the remaining messages to a cloud LLM for further analysis. This design reserves cloud API calls for uncertain cases.
 \end{itemize}
 
-% --- ĐOẠN 5: BỐ CỤC BÀI BÁO ---
 The rest of this paper is organized as follows: Section~\ref{sec:related} reviews related work across three core research themes. Section~\ref{sec:method} details the dataset, loss formulation, and experimental pipeline. Section~\ref{sec:results} reports empirical results and statistical testing. Section~\ref{sec:discussion} discusses trade-offs and error analyses. Section~\ref{sec:threats} examines threats to validity, and Section~\ref{sec:conclusion} concludes the paper.
