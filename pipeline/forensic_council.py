@@ -87,10 +87,12 @@ class ForensicCouncil:
             cooldown_seconds=self.cb_cfg.get("cooldown_seconds", 300),
         )
 
-        # API Keys
+        # API Keys & URLs
         self.gemini_api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or ""
+        self.groq_api_key = os.getenv("GROQ_API_KEY") or ""
         self.openai_api_key = os.getenv("OPENAI_API_KEY") or ""
         self.anthropic_api_key = os.getenv("ANTHROPIC_API_KEY") or ""
+        self.vibi_base_url = os.getenv("VIBI_BASE_URL", "https://vibi.top/v1")
 
         logger.info(
             f"ForensicCouncil initialized with {len(self.specialists)} specialists. "
@@ -106,18 +108,23 @@ class ForensicCouncil:
             return {}
 
     async def _call_gemini_api(self, model: str, prompt: str, system_prompt: str) -> Dict[str, Any]:
-        """Calls Google Gemini REST API asynchronously."""
+        """Calls Google Gemini REST API securely via x-goog-api-key header."""
         if not self.gemini_api_key:
             raise ValueError("GEMINI_API_KEY missing")
 
-        # Map to valid public Gemini model name if needed
-        api_model = model
-        if "gemini-2.5" in api_model:
-            api_model = "gemini-2.5-flash" if "flash" in api_model else "gemini-2.5-pro"
-        elif "gemini-1.5" in api_model:
+        api_model = model.lower()
+        if "pro" in api_model:
+            api_model = "gemini-1.5-pro"
+        elif "3.5" in api_model or "lite" in api_model:
+            api_model = "gemini-3.5-flash-lite"
+        else:
             api_model = "gemini-1.5-flash"
 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{api_model}:generateContent?key={self.gemini_api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{api_model}:generateContent"
+        headers = {
+            "x-goog-api-key": self.gemini_api_key,
+            "Content-Type": "application/json"
+        }
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
             "systemInstruction": {"parts": [{"text": system_prompt}]},
@@ -129,12 +136,94 @@ class ForensicCouncil:
 
         loop = asyncio.get_event_loop()
         def _sync_post():
-            resp = requests.post(url, json=payload, timeout=7.0)
+            resp = requests.post(url, headers=headers, json=payload, timeout=12.0)
             resp.raise_for_status()
             return resp.json()
 
         data = await loop.run_in_executor(None, _sync_post)
         raw_text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+        if raw_text.startswith("```json"):
+            raw_text = raw_text.replace("```json", "").replace("```", "").strip()
+        elif raw_text.startswith("```"):
+            raw_text = raw_text.replace("```", "").strip()
+        return json.loads(raw_text)
+
+    async def _call_vibi_api(self, model: str, prompt: str, system_prompt: str) -> Dict[str, Any]:
+        """Calls vibi.top OpenAI-compatible proxy for GPT and Claude models."""
+        key = self.openai_api_key if ("gpt" in model or "sol" in model) else (self.anthropic_api_key or self.openai_api_key)
+        if not key:
+            raise ValueError("VIBI / OPENAI API KEY missing")
+
+        url = f"{self.vibi_base_url.rstrip('/')}/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {key}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.1,
+            "stream": False
+        }
+
+        loop = asyncio.get_event_loop()
+        def _sync_post():
+            resp = requests.post(url, headers=headers, json=payload, timeout=25.0)
+            resp.raise_for_status()
+            return resp.json()
+
+        data = await loop.run_in_executor(None, _sync_post)
+        raw_text = data["choices"][0]["message"]["content"].strip()
+        if raw_text.startswith("```json"):
+            raw_text = raw_text.replace("```json", "").replace("```", "").strip()
+        elif raw_text.startswith("```"):
+            raw_text = raw_text.replace("```", "").strip()
+        try:
+            return json.loads(raw_text)
+        except Exception:
+            # Fallback regex parsing if JSON format is broken
+            vote = "SCAM" if "SCAM" in raw_text.upper() else "HAM"
+            return {"vote": vote, "confidence": 0.90, "analysis": raw_text[:200]}
+
+    async def _call_groq_api(self, model: str, prompt: str, system_prompt: str) -> Dict[str, Any]:
+        """Calls Groq OpenAI-compatible REST API asynchronously."""
+        if not self.groq_api_key:
+            raise ValueError("GROQ_API_KEY missing")
+
+        api_model = model
+        if "llama" in api_model:
+            api_model = "llama-3.3-70b-versatile"
+        elif "qwen" in api_model:
+            api_model = "qwen-2.5-72b-instruct"
+        elif "mixtral" in api_model:
+            api_model = "mixtral-8x7b-32768"
+
+        url = "https://api.groq.com/openai/v1/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {self.groq_api_key}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": api_model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.1,
+            "response_format": {"type": "json_object"}
+        }
+
+        loop = asyncio.get_event_loop()
+        def _sync_post():
+            resp = requests.post(url, headers=headers, json=payload, timeout=8.0)
+            resp.raise_for_status()
+            return resp.json()
+
+        data = await loop.run_in_executor(None, _sync_post)
+        raw_text = data["choices"][0]["message"]["content"].strip()
         return json.loads(raw_text)
 
     async def _execute_agent(
@@ -165,8 +254,11 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
     "analysis": "1-2 câu lý giải chuyên môn ngắn gọn"
 }}"""
 
-        # Priority chain: primary model -> standby models
-        chain = [spec.get("primary_model")] + spec.get("standby_priority_chain", [])
+        # Priority chain: primary maker model -> secondary checker model -> standby models
+        primary = spec.get("primary_maker_model") or spec.get("primary_model")
+        secondary = spec.get("secondary_checker_model")
+        raw_chain = [primary, secondary] + spec.get("standby_priority_chain", [])
+        chain = [m for m in raw_chain if m]
         last_error = ""
 
         for model_candidate in chain:
@@ -179,8 +271,16 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
             try:
                 # Try calling live API if keys available
                 parsed_result = None
-                if "gemini" in model_candidate and self.gemini_api_key:
+                if ("gpt" in model_candidate or "sol" in model_candidate or "claude" in model_candidate) and (self.openai_api_key or self.anthropic_api_key):
+                    parsed_result = await self._call_vibi_api(model_candidate, user_prompt, system_prompt)
+                elif "gemini" in model_candidate and self.gemini_api_key:
                     parsed_result = await self._call_gemini_api(model_candidate, user_prompt, system_prompt)
+                elif ("llama" in model_candidate or "qwen" in model_candidate or "mixtral" in model_candidate or "groq" in model_candidate) and self.groq_api_key:
+                    parsed_result = await self._call_groq_api(model_candidate, user_prompt, system_prompt)
+                elif self.gemini_api_key:
+                    parsed_result = await self._call_gemini_api("gemini-3.5-flash-lite", user_prompt, system_prompt)
+                elif self.openai_api_key:
+                    parsed_result = await self._call_vibi_api("gpt-6.1-sol", user_prompt, system_prompt)
                 else:
                     # Deterministic heuristic fallback when external multi-provider keys are absent
                     parsed_result = self._local_heuristic_agent_eval(role_key, message)

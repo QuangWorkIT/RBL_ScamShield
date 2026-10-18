@@ -1,0 +1,111 @@
+{
+  "summary": [
+    {
+      "arm_id": "ARM_1_SOLO_FAST",
+      "total_samples": 117,
+      "accuracy": 94.87,
+      "macro_f1": 97.0,
+      "precision": 95.1,
+      "recall": 98.98,
+      "fpr": 26.32,
+      "avg_latency_ms": 2001.7,
+      "total_cost_usd": 0.0334,
+      "cost_per_1k_usd": 0.2856,
+      "early_exit_rate": 0.0,
+      "defender_veto_count": 0,
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 66.7,
+        "ROLE_SOC_ENG": 96.7,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    },
+    {
+      "arm_id": "ARM_2_SOLO_SOTA",
+      "total_samples": 117,
+      "accuracy": 99.15,
+      "macro_f1": 99.49,
+      "precision": 100.0,
+      "recall": 98.98,
+      "fpr": 0.0,
+      "avg_latency_ms": 5785.2,
+      "total_cost_usd": 0.1761,
+      "cost_per_1k_usd": 1.5049,
+      "early_exit_rate": 0.0,
+      "defender_veto_count": 0,
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 100.0,
+        "ROLE_SOC_ENG": 96.7,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    },
+    {
+      "arm_id": "ARM_3_NAIVE_VOTING",
+      "total_samples": 117,
+      "accuracy": 96.58,
+      "macro_f1": 98.0,
+      "precision": 96.08,
+      "recall": 100.0,
+      "fpr": 21.05,
+      "avg_latency_ms": 19277.2,
+      "total_cost_usd": 5.925,
+      "cost_per_1k_usd": 50.6412,
+      "early_exit_rate": 0.0,
+      "defender_veto_count": 0,
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 73.3,
+        "ROLE_SOC_ENG": 100.0,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    },
+    {
+      "arm_id": "ARM_4_HYBRID_COUNCIL",
+      "total_samples": 117,
+      "accuracy": 100.0,
+      "macro_f1": 100.0,
+      "precision": 100.0,
+      "recall": 100.0,
+      "fpr": 0.0,
+      "avg_latency_ms": 3276.3,
+      "total_cost_usd": 0.0727,
+      "cost_per_1k_usd": 0.6214,
+      "early_exit_rate": 77.8,
+      "defender_veto_count": 19,
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 100.0,
+        "ROLE_SOC_ENG": 100.0,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    }
+  ],
+  "mcnemar": {
+    "ARM_1_SOLO_FAST": {
+      "b_arm4_win": 6,
+      "c_other_win": 0,
+      "chi2": 4.1667,
+      "p_value": 0.0412,
+      "statistically_significant": true
+    },
+    "ARM_2_SOLO_SOTA": {
+      "b_arm4_win": 1,
+      "c_other_win": 0,
+      "chi2": 0.0,
+      "p_value": 1.0,
+      "statistically_significant": false
+    },
+    "ARM_3_NAIVE_VOTING": {
+      "b_arm4_win": 4,
+      "c_other_win": 0,
+      "chi2": 2.25,
+      "p_value": 0.1336,
+      "statistically_significant": false
+    }
+  }
+}
