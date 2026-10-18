@@ -305,6 +305,46 @@ def create_report():
         alert_type="success"
     )
 
+    add_h2("2.3. Cơ Chế Tối Ưu Bằng Chứng: Ghế 1 và Ghế 2 Đã Chạy Xong Ngay Từ Vòng Ngoài")
+    add_body(
+        "Một trong những sáng kiến kiến trúc then chốt tạo nên sự đột phá về chi phí và độ trễ của Hệ thống ScamShield-VN "
+        "là cơ chế TÁI SỬ DỤNG BẰNG CHỨNG PHÁP Y (Context & Draft Evidence Re-use Pipeline):"
+    )
+
+    add_bullet(
+        "Ở bước Fast-Path đầu tiên tại Vòng Ngoài, gemini-3.5-flash-lite không đơn thuần là một bộ lọc nhị phân thô sơ, "
+        "mà đã chính thức hoàn thành toàn bộ vai trò Maker cho Ghế 1 (Giám định URL & Hạ tầng mạng) và Ghế 2 (Hồ sơ Tâm lý & Thao túng xã hội). "
+        "Chỉ trong ~2.0 giây, mô hình đã bóc tách toàn diện: tên miền giả mạo (typosquatting/homoglyph), đường dẫn rút gọn, đuôi file APK, "
+        "và các đòn bẩy tâm lý (tạo áp lực thời gian, đe dọa bắt giữ, bẫy việc làm CTV). Toàn bộ bằng chứng này đã được chuẩn hóa thành một "
+        "bản Thảo Luận Pháp Y Sơ Bộ (Draft Forensic Report).",
+        "1. Ghế 1 và Ghế 2 đã hoàn tất 100% nhiệm vụ Maker: "
+    )
+
+    add_bullet(
+        "Khi một tin nhắn bị đánh giá là phức tạp, mập mờ hoặc thuộc nhóm giao dịch nhạy cảm (chiếm khoảng 22% lưu lượng đời thực), "
+        "hệ thống kích hoạt leo thang (Escalate) sang Vòng Trong. Lúc này, dữ liệu bóc tách của Ghế 1 và Ghế 2 ĐÃ CÓ SẴN TRONG BỘ NHỚ ĐỆM "
+        "(Pipeline Context Cache). Hệ sinh thái tuyệt đối KHÔNG gọi lại API của Ghế 1 và Ghế 2 từ đầu, loại bỏ hoàn toàn sự lãng phí kép "
+        "về thời gian mạng (Network Round-trip Time) và hạn mức token/tiền bạc.",
+        "2. Không chạy lại từ đầu (Zero-Redundancy Context Cache): "
+    )
+
+    add_bullet(
+        "Các chuyên gia phân tích chuyên sâu ở Vòng Trong (gpt-6.1-sol và claude-sonnet-5) khi nhận yêu cầu xử lý sẽ được truyền trực tiếp "
+        "bản Draft Report của Ghế 1 & 2 làm ngữ cảnh đầu vào (In-Context Injection). Các mô hình này sẽ đóng vai trò Checker (Thẩm định chéo "
+        "và Phản biện) đối với kết luận ban đầu của Gemini, đồng thời tập trung toàn bộ năng lực tính toán vào 3 bài toán đặc thù còn lại: "
+        "Ghế 3 (Teencode & Ngôn ngữ ẩn danh), Ghế 4 (Pháp lý ngân hàng & Quyết định 2345/QĐ-NHNN), và Ghế 5 (Public Defender).",
+        "3. Cộng tác Maker - Checker tuần tự khép kín: "
+    )
+
+    add_callout(
+        "LỢI ÍCH CỐT TỬ CỦA CƠ CHẾ KẾ THỪA BẰNG CHỨNG GHẾ 1 & 2:\n"
+        "• Tiết kiệm 40% chi phí gọi API ở Vòng Trong: Chỉ cần kích hoạt 3 ghế thay vì phải gọi lại toàn bộ 5 ghế từ đầu.\n"
+        "• Cố định trần độ trễ Deep-Path: Độ trễ của ca khó chỉ là 2.0s (Gemini) + 5.7s (GPT-6.1) = ~7.7s (thay vì 19.3s như Naive Voting).\n"
+        "• Triệt tiêu hiện tượng Hallucination: Checker có sẵn bằng chứng thô và chuỗi suy luận của Maker để đối soát chéo.",
+        title="Ý NGHĨA KỸ THUẬT CỦA CƠ CHẾ KẾ THỪA NGỮ CẢNH",
+        alert_type="info"
+    )
+
     # -------------------------------------------------------------
     # 3. QUÁ TRÌNH THỰC HIỆN & XỬ LÝ SỰ CỐ PRODUCTION
     # -------------------------------------------------------------
@@ -520,6 +560,7 @@ def create_report():
     add_h2("5.3. Hiệu Quả Kinh Tế & Tốc Độ Của Mô Hình Phân Tầng Thích Ứng (Mô hình C)")
     add_bullet("Chi phí xử lý 1,000 tin nhắn giảm từ 50.64$ (ở Naive Voting khi phải gọi cả 5 model) xuống chỉ còn 0.62$ (ở Arm 4 Hybrid Council). Tiết kiệm kinh tế lên tới 98.8%.", "Siêu tiết kiệm chi phí: ")
     add_bullet("Độ trễ trung bình giảm từ 19.3 giây xuống chỉ còn 3.2 giây. Có tới 77.8% số tin nhắn được giải phóng ngay ở Fast-Path (Stage 1) chỉ trong 2.0 giây mà không cần gọi đến mô hình tầng sâu.", "Tối ưu hóa độ trễ: ")
+    add_bullet("Ở các ca leo thang sang Deep-Path (22.2%), việc Ghế 1 và Ghế 2 đã hoàn thành bóc tách bằng chứng từ Vòng Ngoài giúp hệ thống không phải chạy lại từ đầu. Độ trễ của Deep-Path chỉ là 2.0s (Gemini Maker) + 5.7s (GPT-6.1 Checker) = ~7.7s, thay vì mất 19.3s như Naive Voting khi phải khởi động lại cả 5 ghế từ con số không.", "Kế thừa dữ liệu Ghế 1 & 2 triệt tiêu độ trễ dư thừa: ")
 
     # -------------------------------------------------------------
     # 6. BACKLOG KỸ THUẬT & QUẢN TRỊ RỦI RO
