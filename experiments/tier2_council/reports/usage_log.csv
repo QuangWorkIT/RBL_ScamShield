@@ -11,3 +11,573 @@ timestamp,run_id,model_id,sample_id,task_role,gold_label,predicted_label,is_corr
 2026-10-18 17:10:24,bb35ea5b,claude-sonnet-5,BANK_01,ROLE_CYBER_URL,SCAM,SCAM,1,0.97,8339.5,23827.1,418,776,0.011820,OK
 2026-10-18 17:10:38,e9ac6091,claude-sonnet-5,BANK_02,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.98,4916.5,14047.2,4996,175,0.016145,OK
 2026-10-18 17:10:56,1c649f88,claude-sonnet-5,BANK_03,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6230.5,17801.3,8474,156,0.025448,OK
+2026-10-18 17:26:04,7416af16,gemini-3.5-flash-lite,BANK_04,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,487.1,1217.8,96,92,0.000259,OK
+2026-10-18 17:26:06,3aa04b26,gemini-3.5-flash-lite,BANK_05,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,529.2,1323.0,102,110,0.000306,OK
+2026-10-18 17:26:07,3b907668,gemini-3.5-flash-lite,BANK_06,ROLE_BANK_VERIFY,SCAM,SCAM,1,1.00,515.6,1289.0,104,98,0.000276,OK
+2026-10-18 17:26:09,d22b6ddb,gemini-3.5-flash-lite,BANK_07,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,529.4,1323.6,84,94,0.000260,OK
+2026-10-18 17:26:11,c3e6a4f3,gemini-3.5-flash-lite,BANK_08,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,445.3,1113.2,80,110,0.000299,OK
+2026-10-18 17:26:12,83fa6b49,gemini-3.5-flash-lite,BANK_09,ROLE_BANK_VERIFY,SCAM,SCAM,1,1.00,554.1,1385.3,88,130,0.000351,OK
+2026-10-18 17:26:14,6f4873b6,gemini-3.5-flash-lite,BANK_10,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,453.5,1133.8,76,98,0.000268,OK
+2026-10-18 17:26:15,1eb1de31,gemini-3.5-flash-lite,BANK_11,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,435.4,1088.4,72,112,0.000302,OK
+2026-10-18 17:26:17,0c97585e,gemini-3.5-flash-lite,BANK_12,ROLE_BANK_VERIFY,SCAM,SCAM,1,1.00,501.7,1254.2,90,124,0.000337,OK
+2026-10-18 17:26:19,f393bb60,gemini-3.5-flash-lite,BANK_13,ROLE_BANK_VERIFY,SCAM,SCAM,1,1.00,497.7,1244.3,92,120,0.000328,OK
+2026-10-18 17:26:21,084213f9,gemini-3.5-flash-lite,BANK_14,ROLE_BANK_VERIFY,SCAM,SCAM,1,1.00,659.1,1647.8,90,118,0.000322,OK
+2026-10-18 17:26:22,6eb00e6e,gemini-3.5-flash-lite,BANK_15,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,538.7,1346.6,88,118,0.000321,OK
+2026-10-18 17:26:24,f407f190,gemini-3.5-flash-lite,BANK_16,ROLE_DEFENDER,HAM,HAM,1,0.95,511.6,1278.9,88,126,0.000341,OK
+2026-10-18 17:26:26,65dea73a,gemini-3.5-flash-lite,BANK_17,ROLE_DEFENDER,HAM,SCAM,0,0.95,505.3,1263.4,154,122,0.000351,OK
+2026-10-18 17:26:27,32c7b3a7,gemini-3.5-flash-lite,BANK_18,ROLE_DEFENDER,HAM,HAM,1,0.95,437.4,1093.5,86,84,0.000236,OK
+2026-10-18 17:26:29,a61cd941,gemini-3.5-flash-lite,BANK_19,ROLE_DEFENDER,HAM,HAM,1,0.95,443.2,1108.1,92,102,0.000283,OK
+2026-10-18 17:26:30,0839a19b,gemini-3.5-flash-lite,BANK_20,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,572.5,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:31,21597676,gemini-3.5-flash-lite,BANK_21,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,560.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:32,b58f14ab,gemini-3.5-flash-lite,BANK_22,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,576.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:33,8079e497,gemini-3.5-flash-lite,BANK_23,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,581.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:34,f78456b5,gemini-3.5-flash-lite,BANK_24,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,461.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:35,3e24086b,gemini-3.5-flash-lite,BANK_25,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,498.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:36,b8992be7,gemini-3.5-flash-lite,BANK_26,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,603.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:37,0a170f9c,gemini-3.5-flash-lite,BANK_27,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,555.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:37,b02c1b5f,gemini-3.5-flash-lite,BANK_28,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,495.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:38,24cb1b8f,gemini-3.5-flash-lite,BANK_29,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,568.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:39,afacf42b,gemini-3.5-flash-lite,BANK_30,ROLE_DEFENDER,HAM,ERROR,0,0.00,0.0,514.2,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:40,9a100694,gemini-3.5-flash-lite,SOC_01,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,517.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:41,b8c82c4c,gemini-3.5-flash-lite,SOC_02,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,537.7,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:42,1365ca9e,gemini-3.5-flash-lite,SOC_03,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,593.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:43,94a4b5fa,gemini-3.5-flash-lite,SOC_04,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,492.7,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:44,d063d142,gemini-3.5-flash-lite,SOC_05,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,519.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:45,ebbbbe48,gemini-3.5-flash-lite,SOC_06,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,533.7,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:46,8bbab654,gemini-3.5-flash-lite,SOC_07,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,561.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:47,ca0d2bcb,gemini-3.5-flash-lite,SOC_08,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,504.2,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:48,f4f3e559,gemini-3.5-flash-lite,SOC_09,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,507.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:49,2432e952,gemini-3.5-flash-lite,SOC_10,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,509.2,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:50,b4bf1bfa,gemini-3.5-flash-lite,SOC_11,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,549.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:51,5d4320fc,gemini-3.5-flash-lite,SOC_12,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,438.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:51,34a9718d,gemini-3.5-flash-lite,SOC_13,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,480.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:53,6a248f20,gemini-3.5-flash-lite,SOC_14,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,622.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:53,351fd5a4,gemini-3.5-flash-lite,SOC_15,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,537.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:54,50c1b7cc,gemini-3.5-flash-lite,SOC_16,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,489.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:55,b4dca7a3,gemini-3.5-flash-lite,SOC_17,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,544.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:56,e26086bb,gemini-3.5-flash-lite,SOC_18,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,503.0,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:57,69deffc6,gemini-3.5-flash-lite,SOC_19,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,559.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:58,f882dff1,gemini-3.5-flash-lite,SOC_20,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,571.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:26:59,029c42b1,gemini-3.5-flash-lite,SOC_21,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,477.0,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:00,a61b498a,gemini-3.5-flash-lite,SOC_22,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,482.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:01,e98a8c36,gemini-3.5-flash-lite,SOC_23,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,602.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:02,b847633e,gemini-3.5-flash-lite,SOC_24,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,489.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:03,78f1a5f2,gemini-3.5-flash-lite,SOC_25,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,588.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:04,6b5e5145,gemini-3.5-flash-lite,SOC_26,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,559.5,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:05,2c52d6d2,gemini-3.5-flash-lite,SOC_27,ROLE_SOC_ENG,SCAM,ERROR,0,0.00,0.0,573.2,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:07,34cb7fed,gemini-3.5-flash-lite,SOC_28,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,545.3,1363.2,94,96,0.000268,OK
+2026-10-18 17:27:08,d893dfa7,gemini-3.5-flash-lite,URL_25,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,468.0,1170.1,46,86,0.000229,OK
+2026-10-18 17:27:10,2efbf165,gemini-3.5-flash-lite,URL_30,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,496.1,1240.3,72,92,0.000252,OK
+2026-10-18 17:27:11,4d6485dc,gemini-3.5-flash-lite,URL_40,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,413.0,1032.6,70,84,0.000231,OK
+2026-10-18 17:27:13,f0da76af,gemini-3.5-flash-lite,URL_378,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,498.7,1246.8,78,80,0.000223,OK
+2026-10-18 17:27:15,b08c1e88,gemini-3.5-flash-lite,URL_381,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,511.7,1279.2,86,88,0.000246,OK
+2026-10-18 17:27:16,87e10d50,gemini-3.5-flash-lite,URL_388,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,448.9,1122.3,84,84,0.000235,OK
+2026-10-18 17:27:18,b3ecf0c6,gemini-3.5-flash-lite,URL_01,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,458.3,1145.9,94,64,0.000188,OK
+2026-10-18 17:27:19,a84faa56,gemini-3.5-flash-lite,URL_03,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,470.0,1175.0,90,108,0.000297,OK
+2026-10-18 17:27:21,b2320708,gemini-3.5-flash-lite,URL_04,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,448.4,1121.0,114,100,0.000284,OK
+2026-10-18 17:27:22,002fd2a5,gemini-3.5-flash-lite,URL_06,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,472.2,1180.6,86,94,0.000261,OK
+2026-10-18 17:27:24,4af08a5f,gemini-3.5-flash-lite,URL_07,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,470.8,1176.9,84,96,0.000265,OK
+2026-10-18 17:27:26,62d31bf1,gemini-3.5-flash-lite,URL_08,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,461.5,1153.8,94,82,0.000233,OK
+2026-10-18 17:27:27,5aa9baf2,gemini-3.5-flash-lite,URL_10,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,497.2,1242.9,102,98,0.000276,OK
+2026-10-18 17:27:29,81fa24a9,gemini-3.5-flash-lite,URL_12,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,461.8,1154.6,94,92,0.000258,OK
+2026-10-18 17:27:30,662b8593,gemini-3.5-flash-lite,URL_13,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,440.0,1099.9,84,90,0.000250,OK
+2026-10-18 17:27:31,c0d87ea6,gemini-3.5-flash-lite,URL_33,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,526.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:32,ac8266a3,gemini-3.5-flash-lite,URL_41,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,499.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:33,7596a614,gemini-3.5-flash-lite,URL_43,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,538.2,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:34,302fb7d2,gemini-3.5-flash-lite,URL_44,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,508.5,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:35,10077efc,gemini-3.5-flash-lite,URL_45,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,525.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:36,c24cca86,gemini-3.5-flash-lite,URL_47,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,509.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:37,451bbce4,gemini-3.5-flash-lite,URL_51,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,531.0,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:38,17cf6f97,gemini-3.5-flash-lite,URL_113,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,521.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:39,aac5ea96,gemini-3.5-flash-lite,URL_125,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,486.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:40,2bbe9d7f,gemini-3.5-flash-lite,URL_126,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,552.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:41,1260779c,gemini-3.5-flash-lite,URL_127,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,568.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:42,72fb7ece,gemini-3.5-flash-lite,URL_134,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,544.7,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:42,b4470650,gemini-3.5-flash-lite,URL_140,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,492.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:43,4c7477ab,gemini-3.5-flash-lite,URL_141,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,509.5,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:44,34e1529e,gemini-3.5-flash-lite,URL_143,ROLE_CYBER_URL,SCAM,ERROR,0,0.00,0.0,522.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:45,1c4fcc39,gemini-3.5-flash-lite,TEEN_01,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,537.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:46,0a1fdda4,gemini-3.5-flash-lite,TEEN_02,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,511.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:47,c09a5201,gemini-3.5-flash-lite,TEEN_03,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,525.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:48,98f43c88,gemini-3.5-flash-lite,TEEN_04,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,491.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:49,1c2bfbe9,gemini-3.5-flash-lite,TEEN_05,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,524.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:50,3fa8da80,gemini-3.5-flash-lite,TEEN_06,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,492.0,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:51,a22c8ff6,gemini-3.5-flash-lite,TEEN_07,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,590.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:52,af2849e5,gemini-3.5-flash-lite,TEEN_08,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,470.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:53,10d50018,gemini-3.5-flash-lite,TEEN_09,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,572.7,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:54,c8fa663f,gemini-3.5-flash-lite,TEEN_10,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,490.7,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:55,2f9d7d33,gemini-3.5-flash-lite,TEEN_11,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,564.0,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:56,27bd2c54,gemini-3.5-flash-lite,TEEN_12,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,677.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:57,c5c67b7f,gemini-3.5-flash-lite,TEEN_13,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,504.8,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:58,ae8d186b,gemini-3.5-flash-lite,TEEN_14,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,569.3,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:58,5bfb2ccd,gemini-3.5-flash-lite,TEEN_15,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,477.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:27:59,dc609549,gemini-3.5-flash-lite,TEEN_16,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,599.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:00,39505d02,gemini-3.5-flash-lite,TEEN_17,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,519.1,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:01,5b5b3480,gemini-3.5-flash-lite,TEEN_18,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,501.9,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:02,991c7a32,gemini-3.5-flash-lite,TEEN_19,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,506.2,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:03,8b1e4ecc,gemini-3.5-flash-lite,TEEN_20,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,520.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:05,cfe17c7e,gemini-3.5-flash-lite,TEEN_21,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,445.3,1113.2,84,120,0.000325,OK
+2026-10-18 17:28:06,06ef3a99,gemini-3.5-flash-lite,TEEN_22,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,536.4,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:07,a3c80944,gemini-3.5-flash-lite,TEEN_23,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,487.6,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:07,cd710faa,gemini-3.5-flash-lite,TEEN_24,ROLE_VN_TEENCODE,SCAM,ERROR,0,0.00,0.0,478.5,0,0,0.000000,"HTTP_429_{
+  ""error"": {
+    ""code"": 429,
+    ""message"": ""You exceeded your current quota, please check your p"
+2026-10-18 17:28:09,23e23fd3,gemini-3.5-flash-lite,TEEN_25,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,478.7,1196.9,100,110,0.000305,OK
+2026-10-18 17:28:11,fd6625e4,gemini-3.5-flash-lite,TEEN_26,ROLE_VN_TEENCODE,HAM,HAM,1,0.95,602.1,1505.3,94,146,0.000393,OK
+2026-10-18 17:28:13,f418b2c6,gemini-3.5-flash-lite,TEEN_27,ROLE_VN_TEENCODE,HAM,HAM,1,0.95,469.8,1174.6,120,92,0.000266,OK
+2026-10-18 17:28:14,329dee76,gemini-3.5-flash-lite,TEEN_28,ROLE_VN_TEENCODE,HAM,HAM,1,1.00,478.9,1197.3,124,132,0.000367,OK
+2026-10-18 17:28:16,fa5a9b56,gemini-3.5-flash-lite,TEEN_29,ROLE_VN_TEENCODE,HAM,HAM,1,0.95,494.7,1236.7,92,140,0.000378,OK
+2026-10-18 17:28:21,de62dc72,gpt-6.1-sol,BANK_04,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1854.5,5298.4,250,175,0.001478,OK
+2026-10-18 17:28:28,388f77d0,gpt-6.1-sol,BANK_05,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2113.1,6037.5,255,177,0.001498,OK
+2026-10-18 17:28:34,35722d09,gpt-6.1-sol,BANK_06,ROLE_BANK_VERIFY,SCAM,SCAM,1,1.00,1867.1,5334.7,251,162,0.001397,OK
+2026-10-18 17:28:39,98afc5f4,gpt-6.1-sol,BANK_07,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,1654.2,4726.2,235,148,0.001285,OK
+2026-10-18 17:28:45,750a3e69,gpt-6.1-sol,BANK_08,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,2007.1,5734.5,236,163,0.001381,OK
+2026-10-18 17:28:52,4cb07f04,gpt-6.1-sol,BANK_09,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.99,2244.5,6413.0,243,224,0.001776,OK
+2026-10-18 17:28:57,46a8b7be,gpt-6.1-sol,BANK_10,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,1754.2,5011.9,233,138,0.001219,OK
+2026-10-18 17:29:03,9a607240,gpt-6.1-sol,BANK_11,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,1994.3,5697.9,237,184,0.001515,OK
+2026-10-18 17:29:10,84bdb0f7,gpt-6.1-sol,BANK_12,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.93,2233.0,6380.0,234,212,0.001687,OK
+2026-10-18 17:29:18,7e85f7c1,gpt-6.1-sol,BANK_13,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.96,2525.0,7214.2,233,177,0.001465,OK
+2026-10-18 17:29:25,b1a057b3,gpt-6.1-sol,BANK_14,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.93,2346.5,6704.3,234,206,0.001649,OK
+2026-10-18 17:29:33,7daa2f0d,gpt-6.1-sol,BANK_15,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2677.5,7650.1,252,201,0.001644,OK
+2026-10-18 17:29:39,d55eb414,gpt-6.1-sol,BANK_16,ROLE_DEFENDER,HAM,HAM,1,0.98,2055.0,5871.4,242,157,0.001352,OK
+2026-10-18 17:29:47,a4b1ea88,gpt-6.1-sol,BANK_17,ROLE_DEFENDER,HAM,HAM,1,0.95,2534.7,7241.9,298,210,0.001770,OK
+2026-10-18 17:29:52,f0be3254,gpt-6.1-sol,BANK_18,ROLE_DEFENDER,HAM,HAM,1,0.99,1716.6,4904.6,235,135,0.001203,OK
+2026-10-18 17:29:57,801c5d4d,gpt-6.1-sol,BANK_19,ROLE_DEFENDER,HAM,HAM,1,0.99,1639.6,4684.4,243,169,0.001429,OK
+2026-10-18 17:30:02,58a3ae42,gpt-6.1-sol,BANK_20,ROLE_DEFENDER,HAM,HAM,1,0.98,1686.9,4819.7,241,144,0.001269,OK
+2026-10-18 17:30:07,3f282d16,gpt-6.1-sol,BANK_21,ROLE_DEFENDER,HAM,HAM,1,0.96,1435.9,4102.7,233,139,0.001225,OK
+2026-10-18 17:30:12,cd3a734a,gpt-6.1-sol,BANK_22,ROLE_DEFENDER,HAM,HAM,1,0.97,1452.5,4150.1,214,115,0.001045,OK
+2026-10-18 17:30:18,18229b05,gpt-6.1-sol,BANK_23,ROLE_DEFENDER,HAM,HAM,1,0.95,1959.4,5598.2,243,169,0.001429,OK
+2026-10-18 17:30:22,64175381,gpt-6.1-sol,BANK_24,ROLE_DEFENDER,HAM,HAM,1,0.98,1503.6,4295.9,259,151,0.001340,OK
+2026-10-18 17:30:28,20655d4b,gpt-6.1-sol,BANK_25,ROLE_DEFENDER,HAM,HAM,1,0.94,1892.7,5407.6,268,179,0.001530,OK
+2026-10-18 17:30:35,7e7e92a5,gpt-6.1-sol,BANK_26,ROLE_DEFENDER,HAM,HAM,1,0.98,2078.8,5939.4,310,186,0.001637,OK
+2026-10-18 17:30:41,e3fdf125,gpt-6.1-sol,BANK_27,ROLE_DEFENDER,HAM,HAM,1,0.96,2238.3,6395.2,279,207,0.001723,OK
+2026-10-18 17:30:48,f2a49fda,gpt-6.1-sol,BANK_28,ROLE_DEFENDER,HAM,HAM,1,0.94,2321.4,6632.7,276,239,0.001920,OK
+2026-10-18 17:30:55,32339550,gpt-6.1-sol,BANK_29,ROLE_DEFENDER,HAM,HAM,1,0.99,1971.0,5631.5,362,172,0.001627,OK
+2026-10-18 17:31:01,9cb65af0,gpt-6.1-sol,BANK_30,ROLE_DEFENDER,HAM,HAM,1,0.98,2244.8,6413.7,237,168,0.001414,OK
+2026-10-18 17:31:07,4acd6d1f,gpt-6.1-sol,SOC_01,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1820.4,5201.1,235,147,0.001279,OK
+2026-10-18 17:31:13,b822b63d,gpt-6.1-sol,SOC_02,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,2045.3,5843.8,249,170,0.001445,OK
+2026-10-18 17:31:19,d6320da4,gpt-6.1-sol,SOC_03,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1746.1,4989.0,233,172,0.001433,OK
+2026-10-18 17:31:26,73627500,gpt-6.1-sol,SOC_04,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2373.5,6781.4,252,198,0.001625,OK
+2026-10-18 17:31:32,cfd3cfe3,gpt-6.1-sol,SOC_05,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2080.1,5943.0,254,197,0.001622,OK
+2026-10-18 17:31:39,8ccab365,gpt-6.1-sol,SOC_06,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2195.7,6273.6,243,198,0.001612,OK
+2026-10-18 17:31:47,63ce2fb2,gpt-6.1-sol,SOC_07,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,2784.2,7955.0,282,223,0.001828,OK
+2026-10-18 17:31:53,42d0ff7e,gpt-6.1-sol,SOC_08,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1819.9,5199.6,227,147,0.001267,OK
+2026-10-18 17:32:01,1f0c33be,gpt-6.1-sol,SOC_09,ROLE_SOC_ENG,SCAM,SCAM,1,0.76,2607.5,7450.1,233,217,0.001717,OK
+2026-10-18 17:32:06,709fa25f,gpt-6.1-sol,SOC_10,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1625.7,4645.0,245,161,0.001382,OK
+2026-10-18 17:32:11,ff940254,gpt-6.1-sol,SOC_11,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1586.0,4531.4,245,165,0.001407,OK
+2026-10-18 17:32:16,e42e7e03,gpt-6.1-sol,SOC_12,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1829.1,5226.1,250,154,0.001345,OK
+2026-10-18 17:32:21,91ad0623,gpt-6.1-sol,SOC_13,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1418.5,4052.8,231,139,0.001222,OK
+2026-10-18 17:32:27,3fba48be,gpt-6.1-sol,SOC_14,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1905.9,5445.4,244,157,0.001355,OK
+2026-10-18 17:32:32,3fa8dd3c,gpt-6.1-sol,SOC_15,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1661.7,4747.7,258,178,0.001508,OK
+2026-10-18 17:32:37,01ee820a,gpt-6.1-sol,SOC_16,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1605.8,4588.1,246,153,0.001333,OK
+2026-10-18 17:32:43,f8256727,gpt-6.1-sol,SOC_17,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,2008.6,5738.8,322,201,0.001749,OK
+2026-10-18 17:32:50,5dadefc1,gpt-6.1-sol,SOC_18,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2379.8,6799.3,255,185,0.001548,OK
+2026-10-18 17:32:56,727960b3,gpt-6.1-sol,SOC_19,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1955.8,5587.9,226,138,0.001208,OK
+2026-10-18 17:33:01,babe228c,gpt-6.1-sol,SOC_20,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,1701.8,4862.2,246,182,0.001516,OK
+2026-10-18 17:33:07,8fbaf801,gpt-6.1-sol,SOC_21,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,1852.8,5293.6,241,154,0.001332,OK
+2026-10-18 17:33:14,b8bc3d89,gpt-6.1-sol,SOC_22,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2184.0,6239.9,245,183,0.001520,OK
+2026-10-18 17:33:20,7cf28428,gpt-6.1-sol,SOC_23,ROLE_SOC_ENG,SCAM,SCAM,1,1.00,2089.6,5970.4,248,203,0.001651,OK
+2026-10-18 17:33:28,c1b71d75,gpt-6.1-sol,SOC_24,ROLE_SOC_ENG,SCAM,SCAM,1,0.86,2609.3,7455.1,293,262,0.002090,OK
+2026-10-18 17:33:35,9068805f,gpt-6.1-sol,SOC_25,ROLE_SOC_ENG,SCAM,SCAM,1,0.92,2401.4,6861.1,232,190,0.001545,OK
+2026-10-18 17:33:43,aabe3b89,gpt-6.1-sol,SOC_26,ROLE_SOC_ENG,SCAM,SCAM,1,0.93,2374.1,6783.2,239,190,0.001556,OK
+2026-10-18 17:33:50,ae37884d,gpt-6.1-sol,SOC_27,ROLE_SOC_ENG,SCAM,HAM,0,0.88,2555.3,7300.9,231,184,0.001506,OK
+2026-10-18 17:33:57,341af75e,gpt-6.1-sol,SOC_28,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,2142.4,6121.2,254,192,0.001591,OK
+2026-10-18 17:34:02,5eba9427,gpt-6.1-sol,URL_25,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,1648.0,4708.7,210,145,0.001228,OK
+2026-10-18 17:34:09,59264065,gpt-6.1-sol,URL_30,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2299.5,6570.0,228,179,0.001470,OK
+2026-10-18 17:34:16,b1b5c6a9,gpt-6.1-sol,URL_40,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,2178.2,6223.3,227,164,0.001374,OK
+2026-10-18 17:34:23,b2ef823f,gpt-6.1-sol,URL_378,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2537.7,7250.5,235,190,0.001550,OK
+2026-10-18 17:34:29,8776c79f,gpt-6.1-sol,URL_381,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,1967.0,5620.1,243,166,0.001410,OK
+2026-10-18 17:34:36,7474c7a5,gpt-6.1-sol,URL_388,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,2120.6,6058.8,241,151,0.001313,OK
+2026-10-18 17:34:42,9fcb5dfe,gpt-6.1-sol,URL_01,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1917.4,5478.3,248,185,0.001538,OK
+2026-10-18 17:34:48,c6820db2,gpt-6.1-sol,URL_03,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1974.0,5639.9,242,170,0.001434,OK
+2026-10-18 17:34:54,763ac3fc,gpt-6.1-sol,URL_04,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2050.9,5859.8,249,184,0.001533,OK
+2026-10-18 17:35:00,81a3666d,gpt-6.1-sol,URL_06,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2007.2,5734.7,250,184,0.001534,OK
+2026-10-18 17:35:06,96cafd67,gpt-6.1-sol,URL_07,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1967.3,5620.8,242,170,0.001434,OK
+2026-10-18 17:35:11,0b009c4b,gpt-6.1-sol,URL_08,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1660.3,4743.7,248,148,0.001304,OK
+2026-10-18 17:35:17,ed49dae4,gpt-6.1-sol,URL_10,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2010.9,5745.5,256,182,0.001531,OK
+2026-10-18 17:35:23,5ba8dc1b,gpt-6.1-sol,URL_12,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1682.1,4806.0,248,163,0.001399,OK
+2026-10-18 17:35:28,ec95bdfa,gpt-6.1-sol,URL_13,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,1773.0,5065.9,235,155,0.001329,OK
+2026-10-18 17:35:34,c17361fc,gpt-6.1-sol,URL_33,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,1763.0,5037.2,244,176,0.001475,OK
+2026-10-18 17:35:39,43c9c7d6,gpt-6.1-sol,URL_41,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1764.7,5042.0,252,182,0.001525,OK
+2026-10-18 17:35:44,916806d5,gpt-6.1-sol,URL_43,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1731.7,4947.6,237,168,0.001414,OK
+2026-10-18 17:35:49,2e8ed2c0,gpt-6.1-sol,URL_44,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1584.5,4527.3,324,162,0.001507,OK
+2026-10-18 17:35:57,450d90dc,gpt-6.1-sol,URL_45,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2525.6,7216.1,264,211,0.001725,OK
+2026-10-18 17:36:02,abe18ce2,gpt-6.1-sol,URL_47,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1593.3,4552.2,255,163,0.001409,OK
+2026-10-18 17:36:08,e15d24f3,gpt-6.1-sol,URL_51,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,2152.3,6149.3,237,178,0.001477,OK
+2026-10-18 17:36:15,91e73711,gpt-6.1-sol,URL_113,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2009.0,5740.0,265,213,0.001739,OK
+2026-10-18 17:36:21,916077f3,gpt-6.1-sol,URL_125,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1940.7,5544.9,246,189,0.001560,OK
+2026-10-18 17:36:26,e87d1003,gpt-6.1-sol,URL_126,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1714.1,4897.5,244,164,0.001399,OK
+2026-10-18 17:36:32,1f73e9ba,gpt-6.1-sol,URL_127,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1843.8,5268.0,235,157,0.001342,OK
+2026-10-18 17:36:37,6b6e1ab9,gpt-6.1-sol,URL_134,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,1814.8,5185.1,252,177,0.001493,OK
+2026-10-18 17:36:42,e662d9c4,gpt-6.1-sol,URL_140,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,1694.2,4840.6,238,154,0.001327,OK
+2026-10-18 17:36:49,a26f84ba,gpt-6.1-sol,URL_141,ROLE_CYBER_URL,SCAM,SCAM,1,0.99,2301.3,6575.1,245,177,0.001483,OK
+2026-10-18 17:36:57,0075c023,gpt-6.1-sol,URL_143,ROLE_CYBER_URL,SCAM,SCAM,1,1.00,2374.8,6785.2,255,188,0.001567,OK
+2026-10-18 17:37:02,c97072ac,gpt-6.1-sol,TEEN_01,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,1834.2,5240.6,237,192,0.001565,OK
+2026-10-18 17:37:07,692ab58f,gpt-6.1-sol,TEEN_02,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,1590.7,4545.0,220,155,0.001306,OK
+2026-10-18 17:37:13,ffea5be2,gpt-6.1-sol,TEEN_03,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,1937.6,5536.1,224,170,0.001407,OK
+2026-10-18 17:37:21,f34bb4ca,gpt-6.1-sol,TEEN_04,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.94,2611.9,7462.5,265,214,0.001746,OK
+2026-10-18 17:37:28,9d546503,gpt-6.1-sol,TEEN_05,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.96,2462.6,7036.0,240,209,0.001677,OK
+2026-10-18 17:37:34,5162f884,gpt-6.1-sol,TEEN_06,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,1913.5,5467.0,225,156,0.001320,OK
+2026-10-18 17:37:40,b1520697,gpt-6.1-sol,TEEN_07,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,1870.2,5343.5,244,172,0.001450,OK
+2026-10-18 17:37:47,8234d4de,gpt-6.1-sol,TEEN_08,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,2172.3,6206.6,260,233,0.001858,OK
+2026-10-18 17:37:55,fa6e1db6,gpt-6.1-sol,TEEN_09,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,2834.9,8099.8,238,195,0.001586,OK
+2026-10-18 17:38:04,fa2e5a20,gpt-6.1-sol,TEEN_10,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.97,2814.5,8041.4,226,228,0.001775,OK
+2026-10-18 17:38:11,a8b7d130,gpt-6.1-sol,TEEN_11,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,2348.1,6708.9,246,183,0.001522,OK
+2026-10-18 17:38:16,f8447c44,gpt-6.1-sol,TEEN_12,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,1831.9,5234.0,245,181,0.001508,OK
+2026-10-18 17:38:22,e5bae0c6,gpt-6.1-sol,TEEN_13,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,1691.3,4832.3,258,194,0.001609,OK
+2026-10-18 17:38:29,66e473df,gpt-6.1-sol,TEEN_14,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,2456.5,7018.5,263,204,0.001680,OK
+2026-10-18 17:38:36,8cdc5e63,gpt-6.1-sol,TEEN_15,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,2238.9,6396.9,260,190,0.001587,OK
+2026-10-18 17:38:43,8172eabe,gpt-6.1-sol,TEEN_16,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,2407.6,6879.0,252,201,0.001644,OK
+2026-10-18 17:38:49,b7cf5e40,gpt-6.1-sol,TEEN_17,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,2041.5,5833.0,253,205,0.001671,OK
+2026-10-18 17:38:55,ca778474,gpt-6.1-sol,TEEN_18,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,1950.1,5571.6,256,181,0.001524,OK
+2026-10-18 17:39:00,eafb7331,gpt-6.1-sol,TEEN_19,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,1510.8,4316.5,260,168,0.001448,OK
+2026-10-18 17:39:07,bcf74380,gpt-6.1-sol,TEEN_20,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,2191.5,6261.4,262,196,0.001628,OK
+2026-10-18 17:39:13,11ef9071,gpt-6.1-sol,TEEN_21,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.80,1883.8,5382.4,233,186,0.001521,OK
+2026-10-18 17:39:21,6ed2ccef,gpt-6.1-sol,TEEN_22,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.97,2689.2,7683.4,262,219,0.001773,OK
+2026-10-18 17:39:27,cd8f5412,gpt-6.1-sol,TEEN_23,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,2179.4,6226.9,244,197,0.001607,OK
+2026-10-18 17:39:33,0f4884d2,gpt-6.1-sol,TEEN_24,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.99,1876.3,5360.9,264,173,0.001486,OK
+2026-10-18 17:39:40,00093635,gpt-6.1-sol,TEEN_25,ROLE_VN_TEENCODE,SCAM,SCAM,1,1.00,2119.0,6054.3,259,205,0.001680,OK
+2026-10-18 17:39:46,d86bec80,gpt-6.1-sol,TEEN_26,ROLE_VN_TEENCODE,HAM,HAM,1,0.98,1992.6,5693.0,242,201,0.001629,OK
+2026-10-18 17:39:52,6acff45b,gpt-6.1-sol,TEEN_27,ROLE_VN_TEENCODE,HAM,HAM,1,0.97,2003.2,5723.4,267,208,0.001711,OK
+2026-10-18 17:39:58,7e4494c5,gpt-6.1-sol,TEEN_28,ROLE_VN_TEENCODE,HAM,HAM,1,0.98,1994.3,5698.0,274,204,0.001696,OK
+2026-10-18 17:40:04,53b23abb,gpt-6.1-sol,TEEN_29,ROLE_VN_TEENCODE,HAM,HAM,1,0.97,1821.5,5204.2,278,169,0.001482,OK
+2026-10-18 17:40:22,de485f90,claude-sonnet-5,BANK_04,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6307.1,18020.2,7569,170,0.023152,OK
+2026-10-18 17:40:40,2b2b376c,claude-sonnet-5,BANK_05,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6192.0,17691.5,7520,144,0.022660,OK
+2026-10-18 17:41:06,7b90c197,claude-sonnet-5,BANK_06,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.98,8904.7,25441.9,10208,331,0.032623,OK
+2026-10-18 17:41:22,8dff453c,claude-sonnet-5,BANK_07,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,5311.2,15174.9,4786,175,0.015568,OK
+2026-10-18 17:41:40,dd0e6d76,claude-sonnet-5,BANK_08,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6278.3,17937.9,8677,201,0.026625,OK
+2026-10-18 17:42:06,213943a9,claude-sonnet-5,BANK_09,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.98,9096.1,25988.9,10924,303,0.034207,OK
+2026-10-18 17:42:30,35bc2c8b,claude-sonnet-5,BANK_10,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,8102.8,23150.9,398,851,0.012796,OK
+2026-10-18 17:42:47,833c7f73,claude-sonnet-5,BANK_11,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,6009.5,17169.9,9460,147,0.028036,OK
+2026-10-18 17:43:12,4fe73fba,claude-sonnet-5,BANK_12,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.95,8573.2,24494.7,10471,282,0.032673,OK
+2026-10-18 17:43:27,c769d623,claude-sonnet-5,BANK_13,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.95,4860.5,13887.2,4977,160,0.015887,OK
+2026-10-18 17:43:45,98ef87cb,claude-sonnet-5,BANK_14,ROLE_BANK_VERIFY,SCAM,SCAM,1,0.95,6439.3,18398.1,8954,165,0.026892,OK
+2026-10-18 17:44:14,e1422e84,claude-sonnet-5,BANK_15,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,9932.8,28379.5,10745,342,0.034251,OK
+2026-10-18 17:44:28,839a87c1,claude-sonnet-5,BANK_16,ROLE_DEFENDER,HAM,HAM,1,0.92,4677.5,13364.3,4849,85,0.014504,OK
+2026-10-18 17:44:53,e802e8fe,claude-sonnet-5,BANK_17,ROLE_DEFENDER,HAM,SCAM,0,0.95,8611.1,24603.0,10691,265,0.033044,OK
+2026-10-18 17:45:10,cdd8fe3a,claude-sonnet-5,BANK_18,ROLE_DEFENDER,HAM,HAM,1,0.92,5904.7,16870.6,8582,135,0.025457,OK
+2026-10-18 17:45:38,5495fe2f,claude-sonnet-5,BANK_19,ROLE_DEFENDER,HAM,SCAM,0,0.95,9498.6,27138.8,417,1036,0.015392,OK
+2026-10-18 17:45:55,3a010887,claude-sonnet-5,BANK_20,ROLE_DEFENDER,HAM,HAM,1,0.85,5905.1,16871.6,7637,137,0.022885,OK
+2026-10-18 17:46:21,20dd25c5,claude-sonnet-5,BANK_21,ROLE_DEFENDER,HAM,HAM,1,0.75,8783.5,25095.8,10372,146,0.030530,OK
+2026-10-18 17:46:35,0d393d5d,claude-sonnet-5,BANK_22,ROLE_DEFENDER,HAM,HAM,1,0.92,4768.9,13625.6,4562,81,0.013659,OK
+2026-10-18 17:46:53,8c200701,claude-sonnet-5,BANK_23,ROLE_DEFENDER,HAM,HAM,1,0.85,6118.6,17481.8,7664,130,0.022863,OK
+2026-10-18 17:47:10,233c6a04,claude-sonnet-5,BANK_24,ROLE_DEFENDER,HAM,HAM,1,0.92,6030.3,17229.4,10624,143,0.031182,OK
+2026-10-18 17:47:45,36ed4818,claude-sonnet-5,BANK_25,ROLE_DEFENDER,HAM,SCAM,0,0.95,11876.9,33934.0,10300,293,0.032354,OK
+2026-10-18 17:48:01,75058713,claude-sonnet-5,BANK_26,ROLE_DEFENDER,HAM,SCAM,0,0.95,5467.7,15622.1,5015,245,0.017160,OK
+2026-10-18 17:48:20,7a75d958,claude-sonnet-5,BANK_27,ROLE_DEFENDER,HAM,SCAM,0,0.95,6651.5,19004.4,10181,196,0.030693,OK
+2026-10-18 17:48:42,0dce2c11,claude-sonnet-5,BANK_28,ROLE_DEFENDER,HAM,SCAM,0,0.98,7607.6,21736.1,10402,318,0.032978,OK
+2026-10-18 17:48:56,fd99a4a1,claude-sonnet-5,BANK_29,ROLE_DEFENDER,HAM,SCAM,0,0.85,4860.2,13886.2,4842,139,0.015227,OK
+2026-10-18 17:49:15,dc4d782f,claude-sonnet-5,BANK_30,ROLE_DEFENDER,HAM,HAM,1,0.95,6273.6,17924.5,7781,133,0.023227,OK
+2026-10-18 17:49:32,de8b064a,claude-sonnet-5,SOC_01,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6008.4,17166.9,7717,139,0.023133,OK
+2026-10-18 17:49:47,682b398f,claude-sonnet-5,SOC_02,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,5106.2,14589.1,5032,187,0.016409,OK
+2026-10-18 17:50:13,452eb0f9,claude-sonnet-5,SOC_03,ROLE_SOC_ENG,SCAM,SCAM,1,0.95,8689.5,24827.2,10557,265,0.032676,OK
+2026-10-18 17:50:31,133bed2f,claude-sonnet-5,SOC_04,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6230.3,17801.0,8421,144,0.025138,OK
+2026-10-18 17:50:50,8481bbe8,claude-sonnet-5,SOC_05,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6675.0,19071.5,10624,186,0.031774,OK
+2026-10-18 17:51:10,0f35e4f6,claude-sonnet-5,SOC_06,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6767.7,19336.2,8607,181,0.026158,OK
+2026-10-18 17:51:39,edbcc6b6,claude-sonnet-5,SOC_07,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,10082.3,28806.5,10602,364,0.034161,OK
+2026-10-18 17:51:55,2c62f7f0,claude-sonnet-5,SOC_08,ROLE_SOC_ENG,SCAM,SCAM,1,0.95,5200.3,14858.1,4977,143,0.015653,OK
+2026-10-18 17:52:12,53be724e,claude-sonnet-5,SOC_09,ROLE_SOC_ENG,SCAM,SCAM,1,0.92,6088.4,17395.4,8848,156,0.026477,OK
+2026-10-18 17:52:38,77b83933,claude-sonnet-5,SOC_10,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,9001.6,25719.0,10746,327,0.034048,OK
+2026-10-18 17:52:54,b40decb5,claude-sonnet-5,SOC_11,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,5268.7,15053.3,4782,178,0.015598,OK
+2026-10-18 17:53:12,43834a72,claude-sonnet-5,SOC_12,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6283.9,17954.1,7598,187,0.023466,OK
+2026-10-18 17:53:32,df43e273,claude-sonnet-5,SOC_13,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6776.7,19362.0,10556,246,0.032412,OK
+2026-10-18 17:53:47,75b2bcf1,claude-sonnet-5,SOC_14,ROLE_SOC_ENG,SCAM,SCAM,1,0.99,5237.5,14964.2,4791,208,0.016035,OK
+2026-10-18 17:54:08,b1ebcfa2,claude-sonnet-5,SOC_15,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6933.7,19810.5,8801,203,0.026994,OK
+2026-10-18 17:54:34,0ca25448,claude-sonnet-5,SOC_16,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,9076.2,25931.9,10381,320,0.032948,OK
+2026-10-18 17:54:49,5f15e0e1,claude-sonnet-5,SOC_17,ROLE_SOC_ENG,SCAM,SCAM,1,0.95,5153.6,14724.5,4977,223,0.016753,OK
+2026-10-18 17:55:08,ce7b4b2e,claude-sonnet-5,SOC_18,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6530.5,18658.7,7647,186,0.023587,OK
+2026-10-18 17:55:28,281d6bc3,claude-sonnet-5,SOC_19,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6593.0,18837.0,14260,198,0.041938,OK
+2026-10-18 17:55:43,4c51e807,claude-sonnet-5,SOC_20,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,5234.6,14956.0,5007,173,0.016148,OK
+2026-10-18 17:56:03,2887415b,claude-sonnet-5,SOC_21,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6862.8,19608.0,7729,223,0.024321,OK
+2026-10-18 17:56:18,06d8885c,claude-sonnet-5,SOC_22,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,5027.1,14363.1,5036,174,0.016241,OK
+2026-10-18 17:56:37,4448738e,claude-sonnet-5,SOC_23,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6480.8,18516.5,8576,172,0.025949,OK
+2026-10-18 17:56:56,5bb8b143,claude-sonnet-5,SOC_24,ROLE_SOC_ENG,SCAM,SCAM,1,0.95,6720.7,19202.1,8170,204,0.025272,OK
+2026-10-18 17:57:24,9f55aef7,claude-sonnet-5,SOC_25,ROLE_SOC_ENG,SCAM,SCAM,1,0.95,9491.2,27117.6,11097,365,0.035535,OK
+2026-10-18 17:57:44,8a54182c,claude-sonnet-5,SOC_26,ROLE_SOC_ENG,SCAM,SCAM,1,0.92,7052.0,20148.5,8634,202,0.026521,OK
+2026-10-18 17:57:58,3ebe8e4c,claude-sonnet-5,SOC_27,ROLE_SOC_ENG,SCAM,SCAM,1,0.92,4794.2,13697.7,4702,141,0.014869,OK
+2026-10-18 17:58:17,735ef8b0,claude-sonnet-5,SOC_28,ROLE_SOC_ENG,SCAM,SCAM,1,0.98,6469.7,18484.9,7661,165,0.023336,OK
+2026-10-18 17:58:34,417d3a49,claude-sonnet-5,URL_25,ROLE_CYBER_URL,SCAM,SCAM,1,0.95,5801.1,16574.5,8125,117,0.023953,OK
+2026-10-18 17:59:01,55269ba8,claude-sonnet-5,URL_30,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,9081.2,25946.3,10912,255,0.033514,OK
+2026-10-18 17:59:25,8fac601c,claude-sonnet-5,URL_40,ROLE_CYBER_URL,SCAM,SCAM,1,0.97,8312.2,23749.1,381,770,0.011635,OK
+2026-10-18 17:59:43,8661f5a4,claude-sonnet-5,URL_378,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6248.2,17852.0,8721,171,0.026334,OK
+2026-10-18 17:59:58,920afbcd,claude-sonnet-5,URL_381,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,5174.1,14783.1,5013,183,0.016302,OK
+2026-10-18 18:00:31,00c87204,claude-sonnet-5,URL_388,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,11201.2,32003.5,11376,249,0.034708,OK
+2026-10-18 18:00:48,af596d3b,claude-sonnet-5,URL_01,ROLE_CYBER_URL,SCAM,SCAM,1,0.97,5746.8,16419.4,418,1031,0.015326,OK
+2026-10-18 18:00:51,16ec24a3,claude-sonnet-5,URL_03,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,1233.8,3525.1,4970,156,0.015813,OK
+2026-10-18 18:00:58,80d8af06,claude-sonnet-5,URL_04,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,2151.6,6147.3,10479,143,0.030783,OK
+2026-10-18 18:01:16,d7b2b2a8,claude-sonnet-5,URL_06,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6312.0,18034.3,9112,181,0.027547,OK
+2026-10-18 18:01:35,5e71dab5,claude-sonnet-5,URL_07,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6381.1,18231.7,7696,163,0.023405,OK
+2026-10-18 18:02:03,872743fa,claude-sonnet-5,URL_08,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,9731.1,27803.0,10978,306,0.034397,OK
+2026-10-18 18:02:22,48dc0ece,claude-sonnet-5,URL_10,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6425.8,18359.4,7570,183,0.023334,OK
+2026-10-18 18:02:37,6683375c,claude-sonnet-5,URL_12,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,4921.3,14060.9,4993,169,0.016054,OK
+2026-10-18 18:02:41,8aeedc91,claude-sonnet-5,URL_13,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,1231.0,3517.3,4780,182,0.015648,OK
+2026-10-18 18:03:07,e2e288f5,claude-sonnet-5,URL_33,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,9185.9,26245.6,10200,316,0.032395,OK
+2026-10-18 18:03:34,f4bdfb29,claude-sonnet-5,URL_41,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,9406.1,26874.4,428,924,0.013882,OK
+2026-10-18 18:03:43,928e33e0,claude-sonnet-5,URL_43,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,2778.0,7937.2,10142,173,0.030269,OK
+2026-10-18 18:04:13,5dc69926,claude-sonnet-5,URL_44,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,10273.8,29353.9,10515,387,0.034237,OK
+2026-10-18 18:04:37,49f141d0,claude-sonnet-5,URL_45,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,8450.0,24143.0,467,789,0.012133,OK
+2026-10-18 18:04:55,0fb75a8e,claude-sonnet-5,URL_47,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6098.8,17425.1,7515,148,0.022701,OK
+2026-10-18 18:05:19,5c89323a,claude-sonnet-5,URL_51,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,8272.9,23636.8,11196,227,0.033910,OK
+2026-10-18 18:05:34,d710bbae,claude-sonnet-5,URL_113,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,5049.5,14427.3,4808,169,0.015546,OK
+2026-10-18 18:05:38,3d2482f8,claude-sonnet-5,URL_125,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,1160.5,3315.7,4985,159,0.015895,OK
+2026-10-18 18:05:57,7316658e,claude-sonnet-5,URL_126,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6728.5,19224.2,10857,200,0.032607,OK
+2026-10-18 18:06:23,ead598a0,claude-sonnet-5,URL_127,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,8863.1,25323.2,11376,227,0.034405,OK
+2026-10-18 18:06:42,328c1fd2,claude-sonnet-5,URL_134,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,6396.2,18274.8,10756,162,0.031807,OK
+2026-10-18 18:06:56,7e176eb8,claude-sonnet-5,URL_140,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,4998.7,14282.0,4987,153,0.015818,OK
+2026-10-18 18:07:27,fb0187b1,claude-sonnet-5,URL_141,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,10513.0,30037.2,11651,264,0.035670,OK
+2026-10-18 18:07:35,4347f9ba,claude-sonnet-5,URL_143,ROLE_CYBER_URL,SCAM,SCAM,1,0.98,2595.6,7416.1,7629,179,0.023441,OK
+2026-10-18 18:07:42,2aa98548,claude-sonnet-5,TEEN_01,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,2507.4,7164.0,9474,158,0.028226,OK
+2026-10-18 18:08:00,942ce071,claude-sonnet-5,TEEN_02,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,6011.2,17174.8,8929,140,0.026480,OK
+2026-10-18 18:08:25,43778896,claude-sonnet-5,TEEN_03,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,8635.8,24673.8,376,814,0.012226,OK
+2026-10-18 18:08:43,bd9d8216,claude-sonnet-5,TEEN_04,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,6209.9,17742.6,9426,151,0.027998,OK
+2026-10-18 18:09:07,813c77f0,claude-sonnet-5,TEEN_05,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,8392.7,23979.0,403,764,0.011613,OK
+2026-10-18 18:09:26,030d05d6,claude-sonnet-5,TEEN_06,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,6282.3,17949.5,8225,165,0.024887,OK
+2026-10-18 18:09:41,4fe2d8ea,claude-sonnet-5,TEEN_07,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,5215.6,14901.8,4831,214,0.016228,OK
+2026-10-18 18:10:05,2b77d694,claude-sonnet-5,TEEN_08,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,8289.4,23684.1,10230,275,0.031914,OK
+2026-10-18 18:10:24,516dc912,claude-sonnet-5,TEEN_09,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,6299.3,17998.1,9711,162,0.028933,OK
+2026-10-18 18:10:41,48bcc90f,claude-sonnet-5,TEEN_10,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,6095.0,17414.2,9887,156,0.029334,OK
+2026-10-18 18:11:07,434782bf,claude-sonnet-5,TEEN_11,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.97,8698.0,24851.5,416,852,0.012859,OK
+2026-10-18 18:11:12,0d8e4dcb,claude-sonnet-5,TEEN_12,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,1588.5,4538.6,5096,212,0.016929,OK
+2026-10-18 18:11:40,e82c4d28,claude-sonnet-5,TEEN_13,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,9851.2,28146.2,10378,306,0.032747,OK
+2026-10-18 18:12:00,5ff3b3f6,claude-sonnet-5,TEEN_14,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,6816.2,19474.9,481,429,0.007221,OK
+2026-10-18 18:12:33,654416c4,claude-sonnet-5,TEEN_15,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,11324.0,32354.2,10294,394,0.033726,OK
+2026-10-18 18:12:47,3ba56110,claude-sonnet-5,TEEN_16,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,4880.0,13942.9,4775,162,0.015359,OK
+2026-10-18 18:13:07,6d4d7ec2,claude-sonnet-5,TEEN_17,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,6825.5,19501.4,7700,201,0.023939,OK
+2026-10-18 18:13:35,c25cc295,claude-sonnet-5,TEEN_18,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,9416.1,26903.0,10835,307,0.034017,OK
+2026-10-18 18:14:01,dc63c050,claude-sonnet-5,TEEN_19,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,9239.4,26398.3,430,1148,0.016967,OK
+2026-10-18 18:14:22,81e9ccb8,claude-sonnet-5,TEEN_20,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,7220.0,20628.5,8519,257,0.026961,OK
+2026-10-18 18:14:30,83d02a8d,claude-sonnet-5,TEEN_21,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.92,2608.1,7451.7,7882,182,0.024178,OK
+2026-10-18 18:14:58,0edf8dba,claude-sonnet-5,TEEN_22,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.95,9585.7,27387.6,11626,267,0.035643,OK
+2026-10-18 18:15:14,62a4db27,claude-sonnet-5,TEEN_23,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,5270.1,15057.5,5049,189,0.016484,OK
+2026-10-18 18:15:34,c77d9cfe,claude-sonnet-5,TEEN_24,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,6914.5,19755.6,7862,189,0.024219,OK
+2026-10-18 18:15:59,cb0e49ae,claude-sonnet-5,TEEN_25,ROLE_VN_TEENCODE,SCAM,SCAM,1,0.98,8820.3,25200.7,11839,279,0.036394,OK
+2026-10-18 18:16:13,b1b67dab,claude-sonnet-5,TEEN_26,ROLE_VN_TEENCODE,HAM,HAM,1,0.95,4621.9,13205.6,4865,101,0.014767,OK
+2026-10-18 18:16:31,e6a08e0e,claude-sonnet-5,TEEN_27,ROLE_VN_TEENCODE,HAM,HAM,1,0.92,6331.4,18089.6,7363,168,0.022558,OK
+2026-10-18 18:17:00,a0f1457a,claude-sonnet-5,TEEN_28,ROLE_VN_TEENCODE,HAM,SCAM,0,0.95,9919.5,28341.4,470,1120,0.016692,OK
+2026-10-18 18:17:24,bae75e81,claude-sonnet-5,TEEN_29,ROLE_VN_TEENCODE,HAM,HAM,1,0.92,8138.0,23251.5,11850,147,0.034609,OK

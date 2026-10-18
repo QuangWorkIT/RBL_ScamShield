@@ -1,36 +1,42 @@
 [
   {
     "model_id": "claude-sonnet-5",
-    "total_runs": 3,
-    "accuracy": 100.0,
-    "precision": 100.0,
+    "total_runs": 117,
+    "accuracy": 93.16,
+    "precision": 92.45,
     "recall": 100.0,
-    "f1_score": 100.0,
-    "fpr": 0.0,
-    "avg_ttft_ms": 6495.5,
-    "avg_duration_ms": 18558.5,
-    "total_cost_usd": 0.05341,
-    "cost_per_success": 0.017804,
+    "f1_score": 96.08,
+    "fpr": 42.11,
+    "avg_ttft_ms": 6727.3,
+    "avg_duration_ms": 19220.9,
+    "total_cost_usd": 2.84106,
+    "cost_per_success": 0.026065,
     "roles": {
       "ROLE_BANK_VERIFY": 100.0,
-      "ROLE_CYBER_URL": 100.0
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 53.333333333333336,
+      "ROLE_SOC_ENG": 100.0,
+      "ROLE_VN_TEENCODE": 96.875
     }
   },
   {
     "model_id": "gemini-3.5-flash-lite",
-    "total_runs": 3,
-    "accuracy": 100.0,
-    "precision": 100.0,
+    "total_runs": 41,
+    "accuracy": 97.56,
+    "precision": 97.06,
     "recall": 100.0,
-    "f1_score": 100.0,
-    "fpr": 0.0,
-    "avg_ttft_ms": 462.7,
-    "avg_duration_ms": 1156.7,
-    "total_cost_usd": 0.00085,
-    "cost_per_success": 0.000283,
+    "f1_score": 98.51,
+    "fpr": 12.5,
+    "avg_ttft_ms": 486.9,
+    "avg_duration_ms": 1217.3,
+    "total_cost_usd": 0.01172,
+    "cost_per_success": 0.000293,
     "roles": {
       "ROLE_BANK_VERIFY": 100.0,
-      "ROLE_CYBER_URL": 100.0
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 75.0,
+      "ROLE_SOC_ENG": 100.0,
+      "ROLE_VN_TEENCODE": 100.0
     }
   },
   {
@@ -47,24 +53,30 @@
     "cost_per_success": 0.00055,
     "roles": {
       "ROLE_BANK_VERIFY": 0.0,
-      "ROLE_CYBER_URL": 100.0
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 0.0,
+      "ROLE_SOC_ENG": 0.0,
+      "ROLE_VN_TEENCODE": 0.0
     }
   },
   {
     "model_id": "gpt-6.1-sol",
-    "total_runs": 3,
-    "accuracy": 100.0,
+    "total_runs": 117,
+    "accuracy": 99.15,
     "precision": 100.0,
-    "recall": 100.0,
-    "f1_score": 100.0,
+    "recall": 98.98,
+    "f1_score": 99.49,
     "fpr": 0.0,
-    "avg_ttft_ms": 1890.2,
-    "avg_duration_ms": 5400.6,
-    "total_cost_usd": 0.00405,
-    "cost_per_success": 0.00135,
+    "avg_ttft_ms": 2024.8,
+    "avg_duration_ms": 5785.2,
+    "total_cost_usd": 0.17607,
+    "cost_per_success": 0.001518,
     "roles": {
       "ROLE_BANK_VERIFY": 100.0,
-      "ROLE_CYBER_URL": 100.0
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 100.0,
+      "ROLE_SOC_ENG": 96.66666666666667,
+      "ROLE_VN_TEENCODE": 100.0
     }
   }
 ]
