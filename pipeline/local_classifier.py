@@ -52,14 +52,33 @@ class LocalViSoBERTClassifier:
             enable_regex_heuristics: Whether to run instant pre-regex pattern matching.
         """
         base_dir = os.path.dirname(os.path.dirname(__file__))
-        self.model_path = model_path or os.path.join(base_dir, "models", "visobert_tier1.onnx")
+        self.release_dir = os.path.join(base_dir, "visobert_5runs_release")
+        self.model_path = model_path or (self.release_dir if os.path.exists(self.release_dir) else os.path.join(base_dir, "models", "visobert_tier1.onnx"))
         self.config_path = config_path or os.path.join(base_dir, "models", "scamshield_config.json")
         self.enable_regex_heuristics = enable_regex_heuristics
 
         # Load config if available
         self.temperature = temperature
         self.cost_alpha = cost_alpha
-        self.has_onnx = os.path.exists(self.model_path)
+        self.has_onnx = os.path.exists(self.model_path) and self.model_path.endswith(".onnx")
+        self.pytorch_model = None
+        self.tokenizer = None
+
+        # Attempt to load 5-runs PyTorch release model
+        try:
+            tok_json_path = os.path.join(self.release_dir, "tokenizer.json") if os.path.exists(self.release_dir) else None
+            if tok_json_path and os.path.exists(tok_json_path):
+                from tokenizers import Tokenizer
+                import torch
+                from transformers import AutoModelForSequenceClassification
+                self.tokenizer = Tokenizer.from_file(tok_json_path)
+                self.tokenizer.enable_padding(length=128, pad_id=1, pad_token='<pad>')
+                self.tokenizer.enable_truncation(max_length=128)
+                self.pytorch_model = AutoModelForSequenceClassification.from_pretrained(self.release_dir)
+                self.pytorch_model.eval()
+                logger.info("Successfully loaded ViSoBERT 5-runs PyTorch model from visobert_5runs_release")
+        except Exception as e:
+            logger.warning(f"Could not load PyTorch ViSoBERT model: {e}. Falling back to ONNX/Heuristic.")
 
         if os.path.exists(self.config_path):
             try:
@@ -178,6 +197,42 @@ class LocalViSoBERTClassifier:
 
         # Step 1: Feature / Logit computation
         scam_score, ham_score, matched_cues = self._extract_semantic_features(text)
+
+        # Real PyTorch ViSoBERT 5-runs model inference
+        if self.pytorch_model is not None and self.tokenizer is not None:
+            import torch
+            try:
+                enc = self.tokenizer.encode(text)
+                input_ids = torch.tensor([enc.ids], dtype=torch.long)
+                attention_mask = torch.tensor([enc.attention_mask], dtype=torch.long)
+                with torch.no_grad():
+                    out = self.pytorch_model(input_ids=input_ids, attention_mask=attention_mask)
+                    raw_scam_logit = out.logits.item()
+
+                # Post-hoc Temperature Scaling calibration
+                calibrated_logit = raw_scam_logit / self.temperature
+                scam_prob = 1.0 / (1.0 + math.exp(-calibrated_logit))
+                scam_prob = max(0.0001, min(0.9999, scam_prob))
+                confidence = max(scam_prob, 1.0 - scam_prob)
+                predicted_class = 1 if scam_prob >= 0.5 else 0
+                predicted_label = "SCAM" if predicted_class == 1 else "HAM"
+                elapsed_ms = (time.perf_counter() - start_time) * 1000
+
+                return {
+                    "tier": "Tier 1 (Local ViSoBERT 5-Runs/CPU)",
+                    "label": predicted_label,
+                    "class_id": predicted_class,
+                    "raw_logits": [round(-raw_scam_logit, 4), round(raw_scam_logit, 4)],
+                    "calibrated_scam_prob": round(scam_prob, 4),
+                    "confidence": round(confidence, 4),
+                    "latency_ms": round(elapsed_ms, 2),
+                    "cost_usd": 0.0,
+                    "matched_cues": matched_cues,
+                    "temperature": self.temperature,
+                    "model_path": self.release_dir,
+                }
+            except Exception as e:
+                logger.warning(f"PyTorch prediction error: {e}. Falling back to heuristics.")
 
         # Baseline logit generation simulating ViSoBERT Head with Cost-sensitive WBCE
         bias_alpha = math.log(self.cost_alpha) * 0.4
