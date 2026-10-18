@@ -1,33 +1,12 @@
-% ==============================================================================
-% SECTION 7: CONCLUSION & FUTURE WORK (07_conclusion.tex)
-% VAI TRÒ PHỤ TRÁCH: Report Writer (RW)
-% THỨ TỰ VIẾT: BƯỚC 7 (Sau khi đã xong §1 - §6, trước Abstract)
-% NGUYÊN LIỆU ĐỐI SOÁT: rbl_docs/05_huong_dan_viet.md (§7), rbl_docs/06_mau_tai_lieu.md (§6)
-% ĐỘ DÀI MỤC TIÊU: ~0.5 trang, 3 đoạn văn + Khai báo sử dụng AI
-% ==============================================================================
-%
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH (RW)]:
-% 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ 3 ĐOẠN ĐÚNG CHUẨN IEEE VÀ TUYÊN BỐ AI USAGE DECLARATION.
-% 2. Nhiệm vụ của bạn:
-%    - Đọc rà soát lại Đoạn 1 (Tóm tắt trả lời RQ với Scam Recall 95.62%, F1 92.51%, p < 0.0001).
-%    - Đọc rà soát Đoạn 2 (Đóng góp cốt lõi & Giới hạn chỉ xử lý plain-text SMS).
-%    - Đọc rà soát Đoạn 3 (3 hướng Future Work: QR phishing, triển khai nhà mạng, consensus 5-Agent).
-%    - Giữ nguyên mục AI Usage Declaration theo chuẩn RBL-5b.
-% 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
-% ==============================================================================
-
 \section{Conclusion and Future Work}
 \label{sec:conclusion}
 
-% --- ĐOẠN 1: TÓM TẮT TRẢ LỜI RQ ---
-This paper presented an empirical investigation into real-time on-device scam detection for Vietnamese telecommunications communications. Addressing our core research question, our results demonstrate that fine-tuning ViSoBERT under a Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) achieves a dominant Scam Recall of $95.62\% \pm 2.25\%$ and Macro-F1 of $92.51\% \pm 2.39\%$ on a frozen $N=267$ benchmark partition. ViSoBERT significantly outperformed few-shot Gemini 3.5 Flash ($p < 0.0001$, McNemar test), which suffered severe alarm fatigue with precision collapsing to $64.47\%$.
+This study evaluated the performance of real-time, on-device scam detection for Vietnamese telecommunications messages. The results show that fine-tuning ViSoBERT with Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha = 5.0$) achieved a Scam Recall of $95.62\%\pm 2.25\%$ and a Macro-F1 score of $92.51\% \pm 2.39\%$ on a fixed benchmark partition of $N = 267$ samples. ViSoBERT also significantly outperformed few-shot Gemini 3.5 Flash Lite ($p < 0.0001$, McNemar test). Gemini 3.5 Flash Lite achieved a precision of $64.47\%$, indicating a greater risk of false-positive predictions.
 
-% --- ĐOẠN 2: ĐÓNG GÓP CỐT LÕI & GIỚI HẠN CHÍNH ---
-Our primary contribution is the demonstration that domain-specific social pre-training combined with cost-asymmetric penalty weighting achieves Pareto-optimal edge detection ($15\text{ ms/msg}$, $390\text{ MB}$ ONNX footprint), surpassing unweighted models that are nearly $4\times$ larger. A key limitation of our current implementation is that on-device triage is restricted to plain-text SMS semantics, without multimodal verification of embedded QR codes or live URL endpoints.
+These results suggest that combining Vietnamese social-media pre-training with cost-sensitive learning can improve scam detection while supporting on-device deployment. The fine-tuned model achieved an inference time of $15,\text{ms/message}$ with an ONNX model footprint of $390,\text{MB}$. Compared with the unweighted models evaluated in this study, the proposed approach also offers a smaller model footprint. However, the current implementation analyzes plain-text SMS messages only. It does not yet support QR-code analysis or verification of URLs embedded in messages.
 
-% --- ĐOẠN 3: CÁC HƯỚNG FUTURE WORK KHẢ THI ---
-Future work will expand in three promising directions: (1) integrating quantized vision-language models for edge-based QR phishing verification; (2) conducting real-world pilot deployments within Vietnamese carrier networks; and (3) empirically benchmarking the complete consensus dynamics of the 5-Agent Multi-LLM Forensic Council on live telecommunications streams.
+Future work will focus on three areas. First, quantized vision-language models will be investigated for on-device QR-code phishing detection. Second, pilot deployments within Vietnamese telecommunications networks will be conducted to evaluate the system under real-world conditions. Third, the proposed 5-Agent Multi-LLM Forensic Council will be evaluated on live telecommunications streams to examine how its agents reach consensus and how their combined decisions affect detection performance.
 
-% --- TUYÊN BỐ LIÊM CHÍNH HỌC THUẬT & KHAI BÁO AI (RBL-5B) ---
 \section*{AI Usage Declaration}
-During the preparation of this manuscript, the authors utilized Google Gemini for language editing, grammatical polishing, and formatting verification against IEEE specifications. All experimental designs, model training pipelines, empirical benchmarks, and statistical analyses were independently conducted by the authors. The authors take full responsibility for the integrity and veracity of the published work.
+
+Google Gemini was used during manuscript preparation to assist with language editing, grammatical corrections, and verification of formatting against IEEE specifications. The authors independently conducted the experimental design, model training, benchmarking, and statistical analyses. The authors take responsibility for the accuracy and integrity of the reported results.

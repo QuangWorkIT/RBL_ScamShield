@@ -1,23 +1,5 @@
-% ==============================================================================
-% SECTION: ABSTRACT (00_abstract.tex)
-% VAI TRÒ PHỤ TRÁCH: Project Lead (PL)
-% THỨ TỰ VIẾT: BƯỚC 8 (VIẾT SAU CÙNG - Sau khi chốt đủ số liệu ở §4 và §5)
-% NGUYÊN LIỆU ĐỐI SOÁT: results/summary.csv, notes.md, mcnemar_analysis.csv
-% ĐỘ DÀI MỤC TIÊU: 150 - 200 từ, cấu trúc chuẩn 5 câu vàng
-% ==============================================================================
-%
-% [HƯỚNG DẪN DÀNH CHO NGƯỜI PHỤ TRÁCH (PL)]:
-% [ ] Câu 1 (Context): Nêu rõ bối cảnh lừa đảo viễn thông Việt Nam và thiệt hại thực tế.
-% [ ] Câu 2 (Gap): Nêu rõ 2 điểm nghẽn: loss đối xứng bỏ lọt lừa đảo và single-LLM bị alarm fatigue.
-% [ ] Câu 3 (Method): Giới thiệu giải pháp ViSoBERT + WBCE (alpha=5.0) và lượng tử hóa ONNX INT8.
-% [ ] Câu 4 (Results): Báo đúng số liệu: N=267, 5 seeds, Recall 95.62%, F1 92.51%, p < 0.0001, 15ms.
-% [ ] Câu 5 (Implication): Giá trị thực tiễn và cơ sở cho kiến trúc 2 tầng.
-%
-% [TODO: Rà soát lại văn phong và tinh chỉnh nếu cần trước khi finalize]
-% SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
-
-Telecommunications scam and phishing campaigns in Vietnam inflict severe financial and social damage, increasingly exploiting localized syntactic nuances such as teencode, slang, and non-diacritic text to bypass keyword filters.
-However, current defensive solutions either depend on symmetric-loss classifiers that suffer from unacceptable false-negative rates on subtle lures, or rely exclusively on cloud Large Language Models (LLMs) that exhibit severe alarm fatigue and latency bottlenecks.
-In this work, we conduct an empirical study benchmarking pretrained Vietnamese language models against in-context LLMs, proposing a lightweight edge screener that pairs ViSoBERT with a Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) quantized via ONNX INT8.
-Evaluated across 5 deterministic random seeds on a frozen benchmark of 2,665 real-world Vietnamese SMS messages ($N=267$ isolated test set), our proposed ViSoBERT model achieves a dominant Scam Recall of $95.62\% \pm 2.25\%$ and Macro-F1 of $92.51\% \pm 2.39\%$, significantly outperforming Gemini 3.5 Flash ($p < 0.0001$, McNemar test) whose precision collapsed to $64.47\%$ due to hyper-vigilant over-flagging, while maintaining an on-device CPU inference latency of $15\text{ ms/message}$ and a $390\text{ MB}$ footprint.
-These results demonstrate that asymmetric penalty weighting on social-specialized encoders provides Pareto-optimal edge triage, establishing the empirical grounding for a two-tier hybrid defense architecture.
+Telecommunications scam and phishing campaigns in Vietnam inflict severe damage by exploiting localized syntactic nuances like teencode and non-diacritic text. 
+Current defensive solutions either depend on symmetric-loss classifiers suffering from unacceptable false-negative rates, or rely on cloud-based Large Language Models (LLMs) exhibiting severe alarm fatigue and latency bottlenecks. 
+In this work, we conducted an empirical study benchmarking pretrained Vietnamese language models against in-context LLMs, and proposed a lightweight edge screener that pairs ViSoBERT with a Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) quantized via ONNX INT8. Evaluated across $5$ independent random seeds on an isolated frozen test partition ($N=267$) from a corpus of $2,664$ real-world Vietnamese SMS messages, the proposed ViSoBERT model achieved a Scam Recall of $95.62\% \pm 2.25\%$ and a Macro-F1 score of $92.51\% \pm 2.39\%$. 
+It significantly outperformed the Gemini 3.5 Flash baseline ($p < 0.0001$, McNemar test), whose precision collapsed to $64.47\%$ due to hyper-vigilant over-flagging, while maintaining an on-device CPU execution latency of $15.8\text{ ms/message}$ and a $390\text{ MB}$ footprint. 
+These results demonstrate that asymmetric penalty weighting on social-specialized encoders provides Pareto-optimal edge triage, establishing the empirical grounding for a two-tier multi-agent hybrid defense architecture.
