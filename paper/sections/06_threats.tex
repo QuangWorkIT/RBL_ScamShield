@@ -10,7 +10,7 @@
 % 1. Nội dung bên dưới ĐÃ ĐƯỢC ĐIỀN ĐẦY ĐỦ 4 NHÓM THREATS (Internal, External, Construct, Conclusion).
 % 2. Nhiệm vụ của bạn:
 %    - Đọc rà soát lại từng nhóm: đảm bảo mỗi threat đều có đủ 3 vế (Định nghĩa -> Tác động rủi ro -> Hành động giảm thiểu cụ thể).
-%    - Kiểm tra số liệu: 5 seeds [42, 100, 123, 999, 2026], Frozen Set N=267, IAA kappa = 0.88, Statistical power > 0.85.
+%    - Kiểm tra số liệu: 5 seeds [42, 100, 123, 999, 2026], Frozen Set N=267, Statistical power > 0.85.
 %    - Chỉnh sửa câu từ tiếng Anh cho mạch lạc và tự nhiên.
 % 3. SAU KHI HOÀN THÀNH: Bạn hãy xóa toàn bộ khối comment hướng dẫn (từ dòng 1 đến dòng này) đi.
 % ==============================================================================
@@ -30,7 +30,7 @@ External validity concerns the generalizability of empirical conclusions across 
 
 % --- 3. CONSTRUCT VALIDITY (RÒ RỈ DỮ LIỆU & TÍNH ĐÚNG CỦA NHÃN) ---
 \subsection{Construct Validity}
-Construct validity examines whether experimental metrics accurately reflect the target operational concepts. A significant vulnerability in modern NLP evaluation is data contamination between pre-training corpora and evaluation sets. To mitigate this threat, we performed rigorous cryptographic deduplication across the raw corpus, isolating a strictly sequestered Frozen Test Set of $N = 267$ samples prior to hyperparameter search. Furthermore, ground truth labels were validated via dual-analyst cross-tagging, ensuring high construct fidelity (Cohen's $\kappa = 0.88$).
+Construct validity examines whether experimental metrics accurately reflect the target operational concepts. A significant vulnerability in modern NLP evaluation is data contamination between pre-training corpora and evaluation sets. To mitigate this threat, we performed rigorous cryptographic deduplication across the raw corpus, strictly isolating an uncompromised Frozen Test Set of $N = 267$ samples prior to hyperparameter search to preserve evaluation integrity and prevent data leakage.
 
 % --- 4. CONCLUSION VALIDITY (ĐỘ MẠNH THỐNG KÊ) ---
 \subsection{Conclusion Validity}

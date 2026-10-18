@@ -59,8 +59,7 @@ Recent initiatives have explored Large Language Models and on-device Small Langu
 We curated a unified corpus of $2,665$ genuine Vietnamese telecommunications messages by merging verified public repositories, community reports from ChongLuaDao, and national cybersecurity warning feeds (`data/raw/vietnamese_sms_merged_all.csv`). The corpus consists of $1,918$ benign messages ($72.0\%$) and $747$ confirmed scam instances ($28.0\%$). 
 
 * **Training and Validation Partition ($90\%$):** $2,398$ messages.
-* **Frozen Test Partition ($10\%$):** Exactly **$N = 267$ messages** ($192$ Ham, $75$ Scam).
-* Inter-Annotator Agreement: Cohen's $\kappa = 0.88$.
+* **Frozen Test Partition ($10\%$):** Exactly **$N = 267$ messages** ($192$ Ham, $75$ Scam) strictly isolated to prevent data leakage.
 
 ### 3.2 Cost-Sensitive Loss Formulation ($\mathcal{L}_{\text{WBCE}}$)
 To impose an explicit inductive bias favoring recall on deceptive samples:
@@ -119,7 +118,7 @@ Despite having nearly $3\times$ more parameters, taking $3.45\times$ longer to t
 ## 6. Threats to Validity
 * **Internal Validity:** Mitigated via 5 deterministic seeds ($[42, 100, 123, 999, 2026]$) and greedy temperature = 0 for LLMs.
 * **External Validity:** Focused on Vietnamese SMS telecommunications; findings delimited from English emails.
-* **Construct Validity:** Cryptographic deduplication and strict isolation of Frozen Test Set ($N=267$, IAA $\kappa = 0.88$).
+* **Construct Validity:** Cryptographic deduplication and strict isolation of Frozen Test Set ($N=267$) prior to model evaluation.
 * **Conclusion Validity:** High statistical power ($>0.85$ on $N=267$), paired McNemar tests with continuity correction.
 
 ---
