@@ -1,0 +1,5 @@
+model_id,accuracy,f1_score,precision,recall,fpr,avg_duration_ms,cost_usd,cost_per_success,ROLE_BANK_VERIFY,ROLE_CYBER_URL
+claude-sonnet-5,100.0,100.0,100.0,100.0,0.0,18558.5,0.05341,0.017804,100.0,100.0
+gemini-3.5-flash-lite,100.0,100.0,100.0,100.0,0.0,1156.7,0.00085,0.000283,100.0,100.0
+gemini-3.8-flash,100.0,100.0,100.0,100.0,0.0,18904.4,0.00055,0.00055,0.0,100.0
+gpt-6.1-sol,100.0,100.0,100.0,100.0,0.0,5400.6,0.00405,0.00135,100.0,100.0

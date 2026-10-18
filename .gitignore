@@ -69,3 +69,7 @@ models/*.bin
 # Exclude synthesized Word reports from Git tracking
 team-synthesis/*.docx
 
+# SQLite Databases & Local Test Caches
+*.db
+*.sqlite
+*.sqlite3

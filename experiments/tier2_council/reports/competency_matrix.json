@@ -1,0 +1,70 @@
+[
+  {
+    "model_id": "claude-sonnet-5",
+    "total_runs": 3,
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1_score": 100.0,
+    "fpr": 0.0,
+    "avg_ttft_ms": 6495.5,
+    "avg_duration_ms": 18558.5,
+    "total_cost_usd": 0.05341,
+    "cost_per_success": 0.017804,
+    "roles": {
+      "ROLE_BANK_VERIFY": 100.0,
+      "ROLE_CYBER_URL": 100.0
+    }
+  },
+  {
+    "model_id": "gemini-3.5-flash-lite",
+    "total_runs": 3,
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1_score": 100.0,
+    "fpr": 0.0,
+    "avg_ttft_ms": 462.7,
+    "avg_duration_ms": 1156.7,
+    "total_cost_usd": 0.00085,
+    "cost_per_success": 0.000283,
+    "roles": {
+      "ROLE_BANK_VERIFY": 100.0,
+      "ROLE_CYBER_URL": 100.0
+    }
+  },
+  {
+    "model_id": "gemini-3.8-flash",
+    "total_runs": 1,
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1_score": 100.0,
+    "fpr": 0.0,
+    "avg_ttft_ms": 7561.8,
+    "avg_duration_ms": 18904.4,
+    "total_cost_usd": 0.00055,
+    "cost_per_success": 0.00055,
+    "roles": {
+      "ROLE_BANK_VERIFY": 0.0,
+      "ROLE_CYBER_URL": 100.0
+    }
+  },
+  {
+    "model_id": "gpt-6.1-sol",
+    "total_runs": 3,
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1_score": 100.0,
+    "fpr": 0.0,
+    "avg_ttft_ms": 1890.2,
+    "avg_duration_ms": 5400.6,
+    "total_cost_usd": 0.00405,
+    "cost_per_success": 0.00135,
+    "roles": {
+      "ROLE_BANK_VERIFY": 100.0,
+      "ROLE_CYBER_URL": 100.0
+    }
+  }
+]

@@ -1,0 +1,438 @@
+[
+  {
+    "sample_id": "SOC_01",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Thông báo từ Bộ Công an: thuê bao của bạn liên quan đến một vụ án rửa tiền. Gọi ngay [NUMBER] trong [TIME] để làm việc, nếu không sẽ bị khởi tố.",
+    "key_evidence": "Sử dụng đòn bẩy tâm lý đe dọa (Fear) mạo danh Bộ Công an, đe dọa khởi tố vụ án rửa tiền và ép buộc liên hệ khẩn cấp qua số điện thoại cá nhân/không chính thống.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 95,
+      "tactic": "Mạo danh Bộ Công an đe dọa tố tụng",
+      "has_url": false,
+      "original_message_id": "COM_1783"
+    }
+  },
+  {
+    "sample_id": "SOC_02",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Cuc duong bo thong bao: Phuong tien cua ban co 1 bien ban PHAT NGUOI chua nop phat tai Ha Noi. Tra cuu bien ban va dong phat tai: [http://phatnguoi.cucduongbo.top]",
+    "key_evidence": "Đánh vào tâm lý lo sợ vi phạm pháp luật (phạt nguội) và ép truy cập domain giả mạo .top thay vì cổng Dịch vụ công chính thống.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 80,
+      "tactic": "Đe dọa phạt nguội giao thông",
+      "has_url": true,
+      "domain": "phatnguoi.cucduongbo.top",
+      "original_message_id": "COM_1508"
+    }
+  },
+  {
+    "sample_id": "SOC_03",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Bưu điện: bạn có 1 bưu phẩm chứa tài liệu pháp lý chưa nhận. Liên hệ tổng đài [NUMBER] để được hướng dẫn, quá hạn sẽ chuyển Bộ Công an.",
+    "key_evidence": "Kích hoạt tâm lý hoảng sợ bằng việc đe dọa bưu phẩm pháp lý liên quan Bộ Công an, không có đường link nhưng yêu cầu gọi hotline giả mạo.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 85,
+      "tactic": "Đe dọa giấy tờ pháp lý/chuyển Bộ Công an",
+      "has_url": false,
+      "original_message_id": "COM_1489"
+    }
+  },
+  {
+    "sample_id": "SOC_04",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[ToaAn_Online] Thông báo: Tòa án nhân dân quận đang thụ lý đơn khởi kiện tranh chấp tài sản có tên của bạn. Vui lòng bấm vào liên kết để nhận văn bản điện tử: http://toaan.ho-so-online.vip",
+    "key_evidence": "Gây hoảng sợ bằng thông báo thụ lý vụ án tại Tòa án và hối thúc truy cập tên miền giả mạo .vip.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 85,
+      "tactic": "Mạo danh Tòa án thụ lý khởi kiện",
+      "has_url": true,
+      "domain": "toaan.ho-so-online.vip",
+      "original_message_id": "COM_1573"
+    }
+  },
+  {
+    "sample_id": "SOC_05",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[VKSND_ToiCao] Viện kiểm sát thông báo: Quyết định phong tỏa tài sản và tài khoản ngân hàng đối với công dân có số CCCD trùng khớp với bạn. Xem chi tiết: http://vksnd.ho-so-dieu-tra.net",
+    "key_evidence": "Mạo danh Viện kiểm sát tối cao đe dọa phong tỏa tài khoản/tài sản công dân nhằm khiến nạn nhân hoảng loạn truy cập link lừa đảo.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 95,
+      "tactic": "Mạo danh VKSND đe dọa phong tỏa tài sản",
+      "has_url": true,
+      "domain": "vksnd.ho-so-dieu-tra.net",
+      "original_message_id": "COM_1576"
+    }
+  },
+  {
+    "sample_id": "SOC_06",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Yeu cau cong dan co sdt nay vao phan mem xac minh so lieu so ho khau dien tu vi co lien quan den vu an kinh te. Tai app tai: [http://bocongan.apk-chinhphu.cc]",
+    "key_evidence": "Buộc nạn nhân tải ứng dụng độc hại (.apk) bằng cách gán ghép liên quan tới 'vụ án kinh tế' và sổ hộ khẩu điện tử.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 90,
+      "tactic": "Dọa dẫm vụ án kinh tế ép tải file APK độc hại",
+      "has_url": true,
+      "domain": "bocongan.apk-chinhphu.cc",
+      "original_message_id": "COM_1510"
+    }
+  },
+  {
+    "sample_id": "SOC_07",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[TrungTamCIC] Cảnh báo: Hệ thống thông tin tín dụng quốc gia ghi nhận căn cước công dân của quý khách đang có lịch sử nợ xấu nhóm 3, ảnh hưởng trực tiếp đến quyền lợi vay vốn ngân hàng sau này. Để được hỗ trợ kiểm tra lý do và làm thủ tục xóa tên khỏi danh sách nợ xấu, vui lòng gọi ngay hotline tra cứu: [NUMBER]",
+    "key_evidence": "Thao thao tâm lý lo sợ dính nợ xấu CIC, mạo danh Trung tâm Tín dụng Quốc gia để dụ gọi hotline trục lợi/lừa đảo.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 75,
+      "tactic": "Đe dọa dính nợ xấu CIC",
+      "has_url": false,
+      "original_message_id": "COM_1756"
+    }
+  },
+  {
+    "sample_id": "SOC_08",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Tài khoản của bạn bị nghi ngờ gian lận. Gọi lại số [NUMBER] gặp cán bộ phụ trách để xác minh, tránh bị phong tỏa.",
+    "key_evidence": "Đe dọa phong tỏa tài khoản do nghi ngờ gian lận, ép buộc người dùng liên hệ ngay số điện thoại cá nhân.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 85,
+      "tactic": "Đe dọa phong tỏa tài khoản gian lận",
+      "has_url": false,
+      "original_message_id": "COM_1770"
+    }
+  },
+  {
+    "sample_id": "SOC_09",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Nhà 51/9 dg 475. Anh còn ở ko. Anh xác minh lại em Dũng công an khu vực. Ko phải lừa đảo cung cấp thông tin em cái.???",
+    "key_evidence": "Giả danh công an khu vực hỏi thông tin cá nhân/cư trú với văn phong thân quen, tạo tâm lý tâm lý tin tưởng hoảng hốt giả tạo.",
+    "sub_metadata": {
+      "leverage_type": "Fear / Trust Manipulation",
+      "urgency_score": 60,
+      "tactic": "Giả danh công an khu vực điều tra thông tin",
+      "has_url": false,
+      "original_message_id": "COM_1464"
+    }
+  },
+  {
+    "sample_id": "SOC_10",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[TikTok] Chuc mung ban da may man quay trung thuong 1 chiec xe may Honda SH 125i tu su kien tich luy xem video. Nhap thong tin nhan thuong tai: https://tiktokshopvn.com",
+    "key_evidence": "Kích thích lòng tham (Greed) bằng phần thưởng giá trị cao (xe máy Honda SH 125i) nhằm dẫn dụ người dùng truy cập web mạo danh TikTok.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 65,
+      "tactic": "Thông báo trúng thưởng xe SH 125i",
+      "has_url": true,
+      "domain": "tiktokshopvn.com",
+      "original_message_id": "COM_1527"
+    }
+  },
+  {
+    "sample_id": "SOC_11",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Shopee Mall: Quy khach co 1 phan qua TRI AN Mien Phi la Tai nghe không day tri gia [MONEY]. Xac nhan dia chi giao hang tai link: [http://shopee.qua-tri-an.vip]",
+    "key_evidence": "Lợi dụng tâm lý thích quà miễn phí (tri ân Shopee Mall) để chiếm đoạt thông tin giao hàng hoặc thông tin cá nhân.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 60,
+      "tactic": "Tặng quà tri ân Shopee miễn phí",
+      "has_url": true,
+      "domain": "shopee.qua-tri-an.vip",
+      "original_message_id": "COM_1528"
+    }
+  },
+  {
+    "sample_id": "SOC_12",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Điện Máy Xanh thông báo: Số điện thoại của bạn trúng thưởng giải nhì chương trình bốc thăm tuần gồm 1 tủ lạnh Samsung. Hoàn tất thủ tục nhận quà tại: [http://dienmayxanh.traothuong.top]",
+    "key_evidence": "Mạo danh thương hiệu lớn (Điện Máy Xanh) thông báo trúng thưởng tủ lạnh Samsung để dụ nạn nhân đóng phí/điền thông tin.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 70,
+      "tactic": "Thông báo trúng thưởng Điện Máy Xanh",
+      "has_url": true,
+      "domain": "dienmayxanh.traothuong.top",
+      "original_message_id": "COM_1530"
+    }
+  },
+  {
+    "sample_id": "SOC_13",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Bạn trúng thưởng [MONEY]! Để nhận, đóng phí hồ sơ [MONEY] vào số tài khoản [NUMBER] Techcombank. Tiền thưởng chuyển ngay sau đó.",
+    "key_evidence": "Thủ đoạn lừa đảo đóng phí trước (Advance-fee scam): Dụ dỗ trúng tiền lớn nhưng yêu cầu nộp tiền phí hồ sơ trước qua STK cá nhân.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 80,
+      "tactic": "Trúng thưởng yêu cầu nộp phí trước",
+      "has_url": false,
+      "original_message_id": "COM_1780"
+    }
+  },
+  {
+    "sample_id": "SOC_14",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[META Việt Nam] Sự kiện tri ân người dùng Facebook tích cực. Tài khoản của bạn nhận được gói quà tặng tiền mặt trị giá [MONEY] đồng. Nhận giải tại: https://facebook-helpdesk.blogspot.de",
+    "key_evidence": "Đánh vào lòng tham quà tặng tiền mặt từ Meta/Facebook qua link blogspot giả mạo.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 65,
+      "tactic": "Quà tặng tiền mặt Meta/Facebook",
+      "has_url": true,
+      "domain": "facebook-helpdesk.blogspot.de",
+      "original_message_id": "COM_1533"
+    }
+  },
+  {
+    "sample_id": "SOC_15",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[Vjetjet_Alr] Chúc mừng! Số điện thoại của bạn trúng thưởng giải đặc biệt sự kiện bay hè: Cặp vé khứ hồi đi Nhật Bản [MONEY]. Hoàn tất thủ tục nhận vé: http://vietjet.ve-khu-hoi-[MONEY].vip",
+    "key_evidence": "Thông báo trúng thưởng vé máy bay đi Nhật Bản để thu hút nạn nhân bấm vào link lừa đảo .vip.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 70,
+      "tactic": "Trúng thưởng vé máy bay Vietjet",
+      "has_url": true,
+      "domain": "vietjet.ve-khu-hoi.vip",
+      "original_message_id": "COM_1590"
+    }
+  },
+  {
+    "sample_id": "SOC_16",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[M88.Com] Chào b, hệ thống chọn ngẫu nhiên sđt của b trúng thưởng hũ nổ Jackpot trị giá [MONEY] tiền tươi. Click link nhận thưởng luôn: http://m88.nohu-jackpot.online",
+    "key_evidence": "Dụ dỗ trúng hũ Jackpot 'tiền tươi' ngẫu nhiên để lôi kéo vào cổng cờ bạc/lừa đảo trực tuyến.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 75,
+      "tactic": "Trúng thưởng cờ bạc/Jackpot",
+      "has_url": true,
+      "domain": "m88.nohu-jackpot.online",
+      "original_message_id": "COM_1705"
+    }
+  },
+  {
+    "sample_id": "SOC_17",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Xin chào, tôi là trưởng phòng nhân sự của Cty HVS hiện tại Cty đang tuyển dụng nhân viên bán thời gian. Tiền lương được trả hàng ngày. Bạn có thể làm việc tại nhà và thu nhập từ [MONEY] đến [MONEY] một tháng bình quân [MONEY]-[MONEY]/ngày ,\nCông việc đơn giản và có thể thực hiện mọi lúc mọi nơi. Để ứng tuyển, vui lòng liên hệ với chúng tôi qua Yêu cầu độ tuổi : 23 - 65tuổi\nzalo: zalo.me/[NUMBER] Liên hệ / zalo:[NUMBER]",
+    "key_evidence": "Lợi dụng nhu cầu kiếm tiền để dụ dỗ tuyển dụng việc nhẹ lương cao ('làm việc tại nhà', 'trả lương hàng ngày'), dẫn dắt sang Zalo cá nhân để lừa đảo nhiệm vụ.",
+    "sub_metadata": {
+      "leverage_type": "Greed / Job Scam",
+      "urgency_score": 50,
+      "tactic": "Tuyển dụng việc nhẹ lương cao tại nhà",
+      "has_url": false,
+      "original_message_id": "COM_079"
+    }
+  },
+  {
+    "sample_id": "SOC_18",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[SHOPEE VIETNAM] Thong bao tuyen dung CTV giat don hang ao nhan hoa hong 10-15%. Khong can kinh nghiem, lam viec tai nha qua dt. Lien he: [http://shopee.tuyendung-ctv.top]",
+    "key_evidence": "Dụ dỗ làm cộng tác viên giặt đơn hàng ảo hưởng hoa hồng 10-15% không cần kinh nghiệm nhằm chiếm đoạt tiền nạp nhiệm vụ.",
+    "sub_metadata": {
+      "leverage_type": "Greed / Job Scam",
+      "urgency_score": 60,
+      "tactic": "Tuyển CTV giặt đơn hàng Shopee",
+      "has_url": true,
+      "domain": "shopee.tuyendung-ctv.top",
+      "original_message_id": "COM_1518"
+    }
+  },
+  {
+    "sample_id": "SOC_19",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Cần người cho thuê tài khoản ngân hàng, 5-[MONEY]/tháng, an toàn. Quan tâm nhắn Zalo [NUMBER] trao đổi.",
+    "key_evidence": "Đánh vào nhu cầu tài chính bằng chiêu trò cho thuê tài khoản ngân hàng thu nhập cao, thực chất phục vụ mục đích rửa tiền vi phạm pháp luật.",
+    "sub_metadata": {
+      "leverage_type": "Greed / Money Manipulation",
+      "urgency_score": 40,
+      "tactic": "Dụ dỗ cho thuê tài khoản ngân hàng",
+      "has_url": false,
+      "original_message_id": "COM_1775"
+    }
+  },
+  {
+    "sample_id": "SOC_20",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[Techcombank]: Ưu đãi tri ân! Bạn có 15.[POINT] thưởng chuẩn bị hết hạn vào cuối ngày. Đổi ngay quà tặng công nghệ tại: http://techcombank.huy-the-visa-vn.com",
+    "key_evidence": "Ép buộc thời gian gấp gáp (Urgency) 'chuẩn bị hết hạn vào cuối ngày' để nạn nhân thiếu cảnh giác và bấm ngay vào link đánh cắp tài khoản.",
+    "sub_metadata": {
+      "leverage_type": "Urgency (Ép thời gian) + Greed",
+      "urgency_score": 90,
+      "tactic": "Cảnh báo điểm thưởng hết hạn cuối ngày",
+      "has_url": true,
+      "domain": "techcombank.huy-the-visa-vn.com",
+      "original_message_id": "COM_1500"
+    }
+  },
+  {
+    "sample_id": "SOC_21",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Tai khoan Telegram cua ban bi nghi ngo vi pham quy dinh. Vui long dang nhap vao trang web chinh thuc imad-TG.com trong vòng [TIME] de xac minh va go bo han che.",
+    "key_evidence": "Ép thời gian gắt gao (trong vòng 24h/[TIME]) đe dọa hạn chế tài khoản để buộc người dùng nhập mật khẩu/OTP ngay lập tức.",
+    "sub_metadata": {
+      "leverage_type": "Urgency (Ép thời gian) + Fear",
+      "urgency_score": 90,
+      "tactic": "Đe dọa khóa Telegram ép xác minh trong thời hạn ngắn",
+      "has_url": true,
+      "domain": "imad-TG.com",
+      "original_message_id": "TE_046"
+    }
+  },
+  {
+    "sample_id": "SOC_22",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[M0M0] Cảnh báo: Ví MoMo của bạn đang bị yêu cầu rút toàn bộ số dư về tài khoản ngân hàng lạ. Nếu khg phải b hành động, vào chặn ngay tại: https://momovuive.fun",
+    "key_evidence": "Tạo bối cảnh khẩn cấp giả tạo (đang bị rút toàn bộ tiền) khiến người dùng hoảng sợ vội vàng click link lừa đảo momovuive.fun.",
+    "sub_metadata": {
+      "leverage_type": "Urgency + Fear",
+      "urgency_score": 95,
+      "tactic": "Cảnh báo ví MoMo đang bị rút hết tiền",
+      "has_url": true,
+      "domain": "momovuive.fun",
+      "original_message_id": "COM_1553"
+    }
+  },
+  {
+    "sample_id": "SOC_23",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[VlB-Bank] Khẩn cấp: Mã PIN ứng dụng ngân hàng điện tử của bạn đã bị thay đổi thành công. Nếu có sai sót, vui lòng đăng nhập khôi phục tại: http://vib.khoifuc-matkhau.top",
+    "key_evidence": "Gây hoảng sợ khẩn cấp với từ khóa 'Khẩn cấp: Mã PIN đã bị thay đổi', thúc ép nạn nhân khôi phục tài khoản qua web lừa đảo.",
+    "sub_metadata": {
+      "leverage_type": "Urgency + Fear",
+      "urgency_score": 95,
+      "tactic": "Cảnh báo mã PIN ngân hàng bị đổi",
+      "has_url": true,
+      "domain": "vib.khoifuc-matkhau.top",
+      "original_message_id": "COM_1556"
+    }
+  },
+  {
+    "sample_id": "SOC_24",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[PXLN TIN VAY] Nho Ho Tro KH [NAME] hop dong [NUMBER]. Co Khoan Vay Tin Chap da chuyen NO QUA HAN nhung van CO TINH KHONG Thanh Toan. Nho nhan KH Thanh Toan GAP tien ky T3 [NUMBER] de khong anh huong den No Xau Ngan Hang Nha Nuoc va lien quan den phap ly. Nho a/c nhac nho, cam on!",
+    "key_evidence": "Tin nhắn khủng bố đòi nợ/đe dọa nợ xấu Ngân hàng Nhà nước và pháp lý (Không chứa bất kỳ đường link nào). Thách thức AI phân tích ngữ nghĩa đe dọa.",
+    "sub_metadata": {
+      "leverage_type": "Fear / Debt Harassment",
+      "urgency_score": 85,
+      "tactic": "Đe dọa nợ xấu Ngân hàng Nhà nước & Pháp lý",
+      "has_url": false,
+      "original_message_id": "COM_1334"
+    }
+  },
+  {
+    "sample_id": "SOC_25",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "Phương tiện biển số [TIME]-329.52 của bạn vi phạm tốc độ, mức phạt [MONEY]. Tra cứu và nộp phạt, liên hệ [NUMBER].",
+    "key_evidence": "Thông báo phạt nguội giao thông yêu cầu gọi số điện thoại lạ (Không có liên kết URL). Thử thách AI nhận diện thủ đoạn qua ngữ nghĩa.",
+    "sub_metadata": {
+      "leverage_type": "Fear (Sợ hãi)",
+      "urgency_score": 75,
+      "tactic": "Cảnh báo phạt nguội yêu cầu gọi điện thoại",
+      "has_url": false,
+      "original_message_id": "COM_1414"
+    }
+  },
+  {
+    "sample_id": "SOC_26",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "San thuong mai dien tu Chiaki hop tac to chuc tri an nam [NUMBER]. Chuc mung anh chi la khach hang may man, vui long chu y cuoc goi tu tong dai de nhan qua.",
+    "key_evidence": "Tin nhắn giả mạo tri ân không có link, dẫn dụ nạn nhân nghe cuộc gọi tổng đài lừa đảo tiếp theo.",
+    "sub_metadata": {
+      "leverage_type": "Greed (Lòng tham)",
+      "urgency_score": 50,
+      "tactic": "Thông báo tri ân chờ cuộc gọi nhận quà",
+      "has_url": false,
+      "original_message_id": "COM_1747"
+    }
+  },
+  {
+    "sample_id": "SOC_27",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "VPBank thông báo: thẻ của quý khách vừa phát sinh giao dịch [MONEY] lúc [TIME]. Nếu không phải quý khách, gọi ngay [NUMBER] để khóa thẻ.",
+    "key_evidence": "Giả mạo biến động dư nợ thẻ ngân hàng gây hoảng sợ khẩn cấp, hối thúc gọi số hotline giả để thu thập thông tin thẻ.",
+    "sub_metadata": {
+      "leverage_type": "Fear + Urgency",
+      "urgency_score": 90,
+      "tactic": "Giả thông báo biến động giao dịch đe dọa khóa thẻ qua hotline",
+      "has_url": false,
+      "original_message_id": "COM_1782"
+    }
+  },
+  {
+    "sample_id": "SOC_28",
+    "task_role": "ROLE_SOC_ENG",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "gold_label": "SCAM",
+    "raw_message": "[EMS Viet Nam] Buu phat khan cap: Ban co 1 thu bao co chu ky tu toa an duoc gui den nhung chua co nguoi nhan. Xem lich trinh phat lai tai: [http://ems.buuphat-khancap.vip]",
+    "key_evidence": "Kết hợp mạo danh Bưu điện EMS + Thư báo Tòa án + Nhãn 'Bưu phát khẩn cấp' để tạo áp lực tâm lý tối đa thúc ép nạn nhân click link.",
+    "sub_metadata": {
+      "leverage_type": "Fear + Urgency",
+      "urgency_score": 95,
+      "tactic": "Giả EMS gửi thư báo Tòa án khẩn cấp",
+      "has_url": true,
+      "domain": "ems.buuphat-khancap.vip",
+      "original_message_id": "COM_1543"
+    }
+  }
+]

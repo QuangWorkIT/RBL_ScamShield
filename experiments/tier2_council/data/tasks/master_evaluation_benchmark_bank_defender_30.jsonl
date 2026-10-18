@@ -1,0 +1,254 @@
+//15 Mẫu SCAM Ngân Hàng (BANK_01 → BANK_15)
+{
+    "sample_id": "BANK_01", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Tai khoan cua ban dang duoc dang nhap tren thiet bi khac, neu khong phai ban dang nhap vui long vao https://vietcombank.vn-gll.top de sua doi mat khau hoac thoat khoi thiet bi kia", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_CYBER_URL", 
+    "key_evidence": "Mạo danh Vietcombank cảnh báo đăng nhập lạ, chèn link giả mạo vietcombank.vn-gll.top sử dụng kỹ thuật Subdomain Spoofing và đuôi tên miền .top giá rẻ để đánh cắp tài khoản ngân hàng và OTP.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Vietcombank\", \"malicious_url\": \"https://vietcombank.vn-gll.top\", \"tld\": \".top\", \"attack_vector\": \"Credential Phishing / Subdomain Spoofing\", \"psychological_trigger\": \"Security Alarm / Urgency\"}"
+}
+{
+    "sample_id": "BANK_02", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "(ACB) Chung toi phat hien tai khoan cua ban dang tieu dung o nuoc ngoai, neu khong phai ban dang giao dich, vui long dang nhap https://acb.i-pay.vip de huy giao dich", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_BANK_VERIFY", 
+    "key_evidence": "Mạo danh ACB bịa đặt giao dịch tiêu dùng ở nước ngoài; vi phạm quy tắc ngân hàng: ACB không bao giờ yêu cầu khách hàng đăng nhập web lạ đuôi .vip (acb.i-pay.vip) để 'hủy giao dịch', mà bắt buộc qua ứng dụng ACB ONE hoặc hotline chính thức.", 
+    "sub_metadata": "{\"impersonated_bank\": \"ACB\", \"malicious_url\": \"https://acb.i-pay.vip\", \"tld\": \".vip\", \"attack_vector\": \"Fake Transaction Reversal\", \"psychological_trigger\": \"Financial Panic / Loss Aversion\"}"
+}
+{
+    "sample_id": "BANK_03", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Thông báo từ VIETINBANK: Bạn dùng vui lòng đăng nhập vào vietinbamk.com ngay khi có thể để cập nhật xác thực. quá hạn tài khoản sẽ bị khóa. chúng tôi xin lỗi vì sự bất tiện (nếu có) đã gây ra cho bạn", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_CYBER_URL", 
+    "key_evidence": "Mạo danh VietinBank đe dọa khóa tài khoản; sử dụng kỹ thuật Typosquatting tinh vi (vietinbamk.com - thay chữ 'n' bằng chữ 'm') nhằm đánh lừa người dùng khi đọc lướt qua.", 
+    "sub_metadata": "{\"impersonated_bank\": \"VietinBank\", \"malicious_url\": \"vietinbamk.com\", \"attack_vector\": \"Typosquatting Phishing\", \"psychological_trigger\": \"Account Lock Threat / Urgency\"}"
+}
+{
+    "sample_id": "BANK_04", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Tai khoan cua ban dang duoc dang nhap tren thiet bi khac, neu khong phai ban dang nhap vui long vao https://techcombank.vn-ctt .vip de sua doi mat khau hoac thoat khoi thiet bi kia", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_SOC_ENG", 
+    "key_evidence": "Mạo danh Techcombank thao túng tâm lý lo sợ bị chiếm đoạt tài sản trên thiết bị lạ, kèm URL lừa đảo techcombank.vn-ctt .vip cố ý chèn dấu cách để lách bộ lọc regex phân tích URL tự động của SMS gateway.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Techcombank\", \"malicious_url\": \"https://techcombank.vn-ctt .vip\", \"obfuscation\": \"Space insertion in URL\", \"psychological_trigger\": \"Fear of Account Takeover\"}"
+}
+{
+    "sample_id": "BANK_05", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "UNG DUNG VCB DIGIBANK cua ban duoc PHAT HIEN KICH HOAT tren thiet bi la. Neu KHONG PHAI BAN KICH HOA vui long bam vao https://vietcombank.vn-nng.top de doi thiet bi hoac huy de tranh mat tai san", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_SOC_ENG", 
+    "key_evidence": "Đòn tâm lý đe dọa trực diện ('tranh mat tai san', 'PHAT HIEN KICH HOAT tren thiet bi la'), viết hoa các từ khóa gây sốc để ép nạn nhân nhấn ngay vào đường link lừa đảo vietcombank.vn-nng.top.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Vietcombank\", \"malicious_url\": \"https://vietcombank.vn-nng.top\", \"tld\": \".top\", \"psychological_trigger\": \"Asset Loss Fear / High Urgency\"}"
+}
+{
+    "sample_id": "BANK_06", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Tai khoan cua ban da mo dich vu tai chinh toan cau phi dich vu hang thang la [MONEY] se bi tru trong [TIME]. Neu khong phai ban mo dich vu vui long nhan vao https://vpbank.com.vn-hb.life de huy", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_BANK_VERIFY", 
+    "key_evidence": "Mạo danh VPBank bịa đặt đăng ký gói dịch vụ tài chính toàn cầu để đe dọa trừ tiền định kỳ; vi phạm quy tắc ngân hàng vì VPBank không có gói phí tự động này và không bao giờ gửi link đuôi .life (vpbank.com.vn-hb.life) để hủy gói.", 
+    "sub_metadata": "{\"impersonated_bank\": \"VPBank\", \"malicious_url\": \"https://vpbank.com.vn-hb.life\", \"tld\": \".life\", \"attack_vector\": \"Fake Recurring Subscription Fee\", \"psychological_trigger\": \"Financial Loss Panic\"}"
+}
+{
+    "sample_id": "BANK_07", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Tran trong thong bao toi quy khach! Tai khoan cua ban se bi tam ngung dich vu va0 ngay 3 thang 10. Vui long vao https://bidv.cc hom nay", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_VN_TEENCODE", 
+    "key_evidence": "Sử dụng kỹ thuật lách bộ lọc từ vựng (Homoglyphs / Obfuscation) bằng cách thay chữ 'o' thành số '0' trong từ 'va0', kết hợp tên miền giả mạo BIDV đuôi ngắn lừa đảo bidv.cc để đe dọa tạm ngừng dịch vụ.", 
+    "sub_metadata": "{\"impersonated_bank\": \"BIDV\", \"malicious_url\": \"https://bidv.cc\", \"homoglyph_words\": [\"va0\"], \"tld\": \".cc\", \"psychological_trigger\": \"Service Disruption Threat\"}"}
+{
+    "sample_id": "BANK_08", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Phat hien tai khoan cua ban dang nhap khac vung bat thuong, vui long dang nhap https://i-sacombank.com xac nhan thong tin va thay doi mat khau", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_CYBER_URL", 
+    "key_evidence": "Mạo danh Sacombank cảnh báo đăng nhập khác vùng bất thường, dẫn dụ vào website phishing i-sacombank.com (mô phỏng cổng e-banking hợp pháp) để chiếm đoạt tên đăng nhập và mật khẩu.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Sacombank\", \"malicious_url\": \"https://i-sacombank.com\", \"attack_vector\": \"Phishing Impersonation Portal\", \"psychological_trigger\": \"Location Anomaly Alarm\"}"
+}
+{
+    "sample_id": "BANK_09", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Tai khoan cua ban da dang ky chuong trinh quang cao tren Tik Tok, moi thang thu phi [MONEY]. Vui long vao https://vietcombank.vn -llc.top de kiem tra hoac de huy", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_BANK_VERIFY", 
+    "key_evidence": "Kịch bản lừa đảo trừ phí quảng cáo TikTok qua tài khoản Vietcombank; vi phạm nguyên tắc ngân hàng: ngân hàng không thu hộ phí mạng xã hội theo dạng ép buộc và không bao giờ yêu cầu khách click đường link lạ (.top) để hủy dịch vụ.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Vietcombank\", \"malicious_url\": \"https://vietcombank.vn -llc.top\", \"tld\": \".top\", \"attack_vector\": \"Fake TikTok Ad Subscription\", \"psychological_trigger\": \"Unexpected Bill Avoidance\"}"
+}
+{
+    "sample_id": "BANK_10", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Vietinbank tran trong thong bao tai khoan cua quy khach hien tai da bi khoa dnag nhap https://www.vniatinbanks.cc de xac thuc ngay hom nay", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_VN_TEENCODE", 
+    "key_evidence": "Xuất hiện lỗi đánh máy/chữ đảo có chủ đích ('dnag nhap') để qua mặt hệ thống kiểm duyệt SMS Brandname tự động, kết hợp tên miền giả mạo Vietinbank sai lệch hoàn toàn (vniatinbanks.cc, đuôi .cc).", 
+    "sub_metadata": "{\"impersonated_bank\": \"VietinBank\", \"malicious_url\": \"https://www.vniatinbanks.cc\", \"spelling_typos\": [\"dnag nhap\", \"vniatinbanks\"], \"tld\": \".cc\", \"psychological_trigger\": \"Immediate Account Suspension\"}"
+}
+{
+    "sample_id": "BANK_11", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Th0ng ba0:BIDV nang cap he thong. Vui l0ng dang nhap https://bidv.xyz va nang cap. Neu khong tai khoan se bi kh0a. aabd", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_VN_TEENCODE", 
+    "key_evidence": "Kỹ thuật Leetspeak/Homoglyphs thay chữ 'o' bằng số '0' liên tục ('Th0ng ba0', 'Vui l0ng', 'kh0a'), đuôi chuỗi ngẫu nhiên 'aabd' tránh trùng hash SMS, chèn URL độc hại đuôi .xyz (bidv.xyz).", 
+    "sub_metadata": "{\"impersonated_bank\": \"BIDV\", \"malicious_url\": \"https://bidv.xyz\", \"leetspeak_tokens\": [\"Th0ng ba0\", \"Vui l0ng\", \"kh0a\"], \"tld\": \".xyz\", \"psychological_trigger\": \"System Upgrade Coercion\"}"
+}
+{
+    "sample_id": "BANK_12", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Quý khách chưa cập nhật sinh trắc học nên tài khoản Vietcombank sẽ tạm ngưng giao dịch từ ngày mai. Vui lòng liên hệ [NUMBER] để được hỗ trợ cập nhật.", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_BANK_VERIFY", 
+    "key_evidence": "Lợi dụng quy định thu thập sinh trắc học theo Quyết định 2345/QĐ-NHNN để lừa đảo; Vietcombank chỉ cho phép cài đặt sinh trắc học trực tiếp trên App VCB Digibank (quét NFC căn cước CCCD gắn chip) hoặc tại quầy giao dịch, tuyệt đối không hỗ trợ cập nhật qua số điện thoại/hotline cá nhân ngoài luồng.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Vietcombank\", \"legal_violation\": \"Quyết định 2345/QĐ-NHNN\", \"attack_vector\": \"Phone Phishing / Social Engineering for Biometrics\", \"psychological_trigger\": \"Transaction Suspension Threat\"}"
+}
+{
+    "sample_id": "BANK_13", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Quý khách chưa cập nhật sinh trắc học nên tài khoản MB Bank sẽ tạm ngưng giao dịch từ ngày mai. Vui lòng liên hệ [NUMBER] để được hỗ trợ cập nhật.", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_BANK_VERIFY", 
+    "key_evidence": "Mạo danh MB Bank đe dọa ngừng giao dịch vì thiếu sinh trắc học; vi phạm nghiêm trọng quy trình bảo mật của MB Bank và Quyết định 2345/QĐ-NHNN. Kẻ gian dụ gọi vào số hotline giả mạo để lừa cài app độc chiếm quyền trợ năng (Accessibility) hoặc đọc mã OTP.", 
+    "sub_metadata": "{\"impersonated_bank\": \"MB Bank\", \"legal_violation\": \"Quyết định 2345/QĐ-NHNN\", \"attack_vector\": \"Voice Phishing / Social Engineering\", \"psychological_trigger\": \"Deadline Urgency\"}"}
+{
+    "sample_id": "BANK_14", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Quý khách chưa cập nhật sinh trắc học nên tài khoản Techcombank sẽ tạm ngưng giao dịch từ ngày mai. Vui lòng liên hệ [NUMBER] để được hỗ trợ cập nhật.", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_BANK_VERIFY", 
+    "key_evidence": "Tương tự kịch bản mạo danh Techcombank; NHNN quy định việc xác thực khuôn mặt sinh trắc học bắt buộc phải đối chiếu với dữ liệu từ chip CCCD qua kết nối bảo mật nội bộ, không một nhân viên ngân hàng nào được phép 'cập nhật hộ' qua điện thoại.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Techcombank\", \"legal_violation\": \"Quyết định 2345/QĐ-NHNN\", \"attack_vector\": \"Remote Support Scam\", \"psychological_trigger\": \"Urgent Coercion\"}"}
+{
+    "sample_id": "BANK_15", 
+    "data_source": "canhbao.khonggianmang.vn", 
+    "raw_message": "[VCB] Thong bao: QK can dong bo Sinh trac hoc va Dinh danh dien tu VNeID muc 2 truoc 24h de khong bi khao tai khoan. Truy cap ngay: https://vcb-sinhtrachoc.vn-net.cc", 
+    "gold_label": "SCAM", 
+    "task_role": "ROLE_CYBER_URL", 
+    "key_evidence": "Mạo danh VCB kết hợp thuật ngữ cơ quan nhà nước 'VNeID mức 2' và 'Sinh trắc học' theo Quyết định 2345/QĐ-NHNN, lỗi cố ý viết 'khao tai khoan', ép nạn nhân truy cập đường dẫn phishing độc hại tên miền lạ vcb-sinhtrachoc.vn-net.cc để chiếm đoạt tài khoản.", 
+    "sub_metadata": "{\"impersonated_bank\": \"Vietcombank\", \"malicious_url\": \"https://vcb-sinhtrachoc.vn-net.cc\", \"legal_violation\": \"Quyết định 2345/QĐ-NHNN & VNeID Impersonation\", \"tld\": \".cc\", \"psychological_trigger\": \"24h Ultimatum\"}"}
+
+//Mẫu HAM Hợp Pháp (BANK_16 → BANK_30)
+{
+    "sample_id": "BANK_16", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Ma OTP xac thuc GD la 066595, hieu luc [TIME]. Chi tiet GD: Chuyen khoan nhanh qua so TK, so tien [MONEY] tren kenh Mobile cua dich vu VCB Digibank.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Tin nhắn Brandname VCB Digibank chính thống gửi mã OTP xác thực giao dịch chuyển khoản. Chứa đầy đủ thông tin giao dịch minh bạch (loại GD, số tiền, kênh thanh toán), không chứa bất kỳ đường link (URL) bên ngoài nào yêu cầu bấm vào.", 
+    "sub_metadata": "{\"sender\": \"VCB Digibank\", \"message_type\": \"Transaction OTP\", \"defense_ground\": \"No external link, transparent transaction details, standard bank OTP template\"}"}
+{
+    "sample_id": "BANK_17", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "(CANH BAO) Techcombank nhan duoc yeu cau dang ky su dung Techcombank Mobile tren thiet bi iPhone XS Max. Neu KHONG PHAI Quy khach yeu cau, TUYET DOI KHONG CUNG CAP ma xac thuc va lien he ngay [NUMBER] de tranh rui ro bi CHIEM DOAT TAI KHOAN. Neu Quy khach yeu cau, vui long nhap ma [NUMBER] de hoan tat dang ky.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Dễ gây False Positive vì chứa từ ngữ báo động mạnh ('CANH BAO', 'CHIEM DOAT TAI KHOAN', 'TUYET DOI KHONG CUNG CAP'). Thực chất đây là tin nhắn cảnh báo bảo mật chính thống của Techcombank khi người dùng đăng ký thiết bị mới, hoàn toàn không có URL ngoài, hướng dẫn gọi hotline chính thống nếu bị kẻ gian thao túng.", 
+    "sub_metadata": "{\"sender\": \"Techcombank\", \"message_type\": \"Device Registration Security Alert\", \"defense_ground\": \"Official proactive security warning, no phishing link, instructs to protect OTP\"}"}
+{
+    "sample_id": "BANK_18", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[NUMBER] la ma OTP dang nhap My MobiFone tu iPhone XS Max, CANH BAO: Bao mat OTP tranh lua dao chiem doat SIM va mat tien trong tai khoan", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Dễ bị AI gắn cờ nhầm do cụm từ 'CANH BAO: Bao mat OTP tranh lua dao chiem doat SIM va mat tien'. Đây là thông điệp cảnh báo phòng ngừa lừa đảo đạt chuẩn của nhà mạng MobiFone khi gửi OTP đăng nhập ứng dụng My MobiFone, không có liên kết đáng ngờ.", 
+    "sub_metadata": "{\"sender\": \"My MobiFone\", \"message_type\": \"Login OTP & Security Notice\", \"defense_ground\": \"Standard telco security footer against SIM swap, zero phishing indicators\"}"}
+{
+    "sample_id": "BANK_19", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Quy khach dang thuc hien Lien ket the/TK Sacombank Ma OTP: 587437 hieu luc [TIME] Quy khach se MAT TIEN va THONG TIN neu cung cap Ma OTP cho bat ky ai", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Xuất hiện từ khóa nhạy cảm 'MAT TIEN va THONG TIN' (thường xuất hiện trong các bộ lọc từ khóa lừa đảo). Tuy nhiên, đây là khuyến cáo an toàn bắt buộc của Sacombank nhằm răn đe khách hàng không chia sẻ OTP cho đối tượng lừa đảo, mẫu tin nhắn hợp chuẩn Ngân hàng Nhà nước.", 
+    "sub_metadata": "{\"sender\": \"Sacombank\", \"message_type\": \"Account Linking OTP\", \"defense_ground\": \"Mandatory regulatory security caution, protects users from social engineering\"}"}
+{
+    "sample_id": "BANK_20", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Quy khach dang thuc hien Bat dang ky sinh trac hoc. Ma OTP: 962372 hieu luc [TIME] Quy khach se MAT TIEN va THONG TIN neu cung cap Ma OTP cho bat ky ai", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Tin nhắn hệ thống khi khách hàng chủ động kích hoạt tính năng sinh trắc học trên ứng dụng ngân hàng. Chứa cụm từ 'sinh trac hoc' và 'MAT TIEN va THONG TIN' nhưng là thông báo giao dịch hợp lệ, đi kèm mã OTP ngẫu nhiên, không dẫn ra link web độc hại.", 
+    "sub_metadata": "{\"sender\": \"Vietcombank\", \"message_type\": \"Biometric Activation OTP\", \"defense_ground\": \"Legitimate biometric enrollment notification strictly following Quyết định 2345/QĐ-NHNN\"}"}
+{
+    "sample_id": "BANK_21", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Công ty điện lực thủ đức đã tiếp nhận thông tin của quý khách ! ĐL đã cử a Hoàng khảo sát với số ĐT :[NUMBER] khảo sát ngày [DATE]", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Tin nhắn dịch vụ khách hàng từ Điện lực Thủ Đức (EVN HCMC) thông báo cử nhân viên kỹ thuật liên hệ khảo sát thực địa. Nội dung cụ thể, không đòi tiền, không dọa cắt điện, không có liên kết web đòi nộp phạt.", 
+    "sub_metadata": "{\"sender\": \"EVN HCMC / Điện lực Thủ Đức\", \"message_type\": \"Customer Service Dispatch\", \"defense_ground\": \"Genuine utility survey notice with transparent operational personnel details\"}"}
+{
+    "sample_id": "BANK_22", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[EVNSPC_CSKH] Ma OTP xac thuc dang ky tai khoan 232738", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Tin nhắn Brandname chính thức EVNSPC_CSKH (Tổng công ty Điện lực Miền Nam) cung cấp OTP đăng ký tài khoản tra cứu tiền điện. Cấu trúc tin nhắn tối giản, chuẩn mực, không có liên kết thanh toán ngoài.", 
+    "sub_metadata": "{\"sender\": \"EVNSPC_CSKH\", \"message_type\": \"Account Registration OTP\", \"defense_ground\": \"Official EVN Brandname, pure OTP delivery without coercive call-to-action\"}"}
+{
+    "sample_id": "BANK_23", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[EVN.TAYNINH] Ma xac thuc de ky ho so dien tu cua Quy khach hang la [NUMBER]. Quy khach hang hay nhap ma so nay vao o xac thuc tren website. Xin cam on.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Tin nhắn Brandname EVN.TAYNINH gửi mã xác thực ký hợp đồng mua bán điện điện tử. Không đính kèm đường link dẫn lạ (khách tự thao tác trên cổng dịch vụ đã mở sẵn), thái độ lịch sự văn minh.", 
+    "sub_metadata": "{\"sender\": \"EVN Tây Ninh\", \"message_type\": \"E-Contract Authentication\", \"defense_ground\": \"Official administrative process, zero external URL, customer-initiated workflow\"}"}
+{
+    "sample_id": "BANK_24", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[TB] MỪNG QUỐC KHÁNH! Viettel khuyến mại 20% giá trị tất cả thẻ nạp trong ngày 31/08. Tiền KM sử dụng trong 15 ngày (liên lạc nội mạng). Chi tiết liên hệ 198 (0đ). Trân trọng.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Dễ nhầm với tin rác/lừa đảo nạp thẻ nhân đôi. Căn cứ chứng minh hợp pháp: Chương trình khuyến mại 20% thực tế của Viettel nhân dịp lễ Quốc khánh; đầu số tổng đài tra cứu là 198 (tổng đài chăm sóc khách hàng miễn phí chính thức của Viettel).", 
+    "sub_metadata": "{\"sender\": \"Viettel\", \"message_type\": \"Top-up Promotion\", \"defense_ground\": \"Verified national holiday promo, official toll-free hotline 198, realistic 20% discount\"}"}
+{
+    "sample_id": "BANK_25", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "(QC) Soạn XNC gửi [NUMBER], MobiFone sẽ tặng bạn [MONEY] vào TKC cùng DV KhoGiaiTri. Duy trì DV 03 ngày để nhận thưởng, sau đó [MONEY]/ngày. Để hủy soạn HUY XNC gửi [NUMBER]. Chi tiết LH [NUMBER] (0đ).", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Có gắn nhãn tiền tố (QC) bắt buộc theo Nghị định 91/2020/NĐ-CP về chống tin nhắn rác. Minh bạch cước phí dịch vụ, có hướng dẫn cú pháp hủy rõ ràng (HUY XNC) và hotline CSKH miễn phí 0đ.", 
+    "sub_metadata": "{\"sender\": \"MobiFone\", \"message_type\": \"Licensed Telco Advertisement\", \"defense_ground\": \"Compliant with Decree 91/2020/ND-CP, transparent fee and opt-out syntax\"}"}
+{
+    "sample_id": "BANK_26", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[TB] CMND đăng ký thuê bao của Quý khách đã hết hiệu lực từ [DATE] (theo quy định luật Căn cước). Quý khách vui lòng truy cập https://viettel.vn/doigiayto và cập nhật thông tin CC/CCCD mới nhất hoặc đến cửa hàng giao dịch Viettel để được hỗ trợ.\nTặng [MONEY] vào tài khoản khuyến mại khi thực hiện online qua My Viettel trước [DATE], ưu đãi cộng vào ngày hôm sau. Chi tiết liên hệ 198 ([MONEY]). Trân trọng.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Dễ bị nghi ngờ là tin nhắn lừa đảo cập nhật thông tin cá nhân. Bằng chứng an toàn: Đường dẫn thuộc tên miền gốc chính danh của Viettel (viettel.vn/doigiayto), hỗ trợ trực tiếp tại cửa hàng giao dịch Viettel hoặc App My Viettel, tổng đài xác minh 198.", 
+    "sub_metadata": "{\"sender\": \"Viettel\", \"message_type\": \"Subscriber KYC Standardization\", \"defense_ground\": \"Official primary domain viettel.vn, legal basis in Law on Identification, physical store option\"}"}
+{
+    "sample_id": "BANK_27", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "Xác thực NGAY để không bị TẠM NGỪNG dịch vụ data! - Truy cập https://viettel.vn/xacthucTB (app My Viettel) để thực hiện và nhận [MONEY] (cộng ngày hôm sau) khi hoàn thành. - Hoặc truy cập VNeID để xác nhận sử dụng. Chi tiết liên hệ 198 ([MONEY]). Trân trọng", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Có yếu tố thúc ép mạnh ('Xác thực NGAY', 'không bị TẠM NGỪNG', 'nhận [MONEY]') rất giống lừa đảo. Tuy nhiên, căn cứ xác minh là tin nhắn chuẩn của Viettel: Domain trỏ về viettel.vn, gợi ý xác nhận qua ứng dụng quốc gia VNeID của Bộ Công an, hotline hỗ trợ 198.", 
+    "sub_metadata": "{\"sender\": \"Viettel\", \"message_type\": \"Urgent Data Subscription Verification\", \"defense_ground\": \"Domain authority viettel.vn, authentic VNeID integration recommendation, hotline 198\"}"}
+{
+    "sample_id": "BANK_28", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[TB] Chi con 18 ngay de cap nhat sinh trac hoc theo quy dinh cua Ngan hang Nha nuoc. Sau khi cap nhat thanh cong, ban se nhan duoc phan qua den [MONEY] tai: https://km.vtmoney.vn/314y/sinhtrachoc2 . Vui long bo qua tin nhan neu da cap nhat thong tin.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Nhắc nhở hạn chót cập nhật sinh trắc học theo Quyết định 2345/QĐ-NHNN từ Viettel Money. Tên miền thuộc sở hữu chính thức của Viettel Digital (vtmoney.vn), hướng dẫn rõ ràng và cho phép bỏ qua nếu đã cập nhật.", 
+    "sub_metadata": "{\"sender\": \"Viettel Money\", \"message_type\": \"Biometric Compliance Reminder\", \"defense_ground\": \"Legitimate fintech brand under Viettel, authoritative vtmoney.vn subdomain\"}"}
+{
+    "sample_id": "BANK_29", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[CẢNH BÁO] Cục An ninh mạng và Phòng, chống tội phạm sử dụng công nghệ cao cảnh báo: Xuất hiện tình trạng lừa đảo, giả mạo lực lượng chức năng xã/phường... thông báo về việc sắp xếp đơn vị hành chính mới trên cả nước. Các đối tượng yêu cầu người dân truy cập đường dẫn hoặc cài ứng dụng VNeID giả mạo chứa mã độc, dụ dỗ người dân để lấy mã OTP tài khoản ngân hàng hoặc dữ liệu sinh trắc học nhằm chiếm đoạt tài sản. Người dân cần cảnh giác, không làm theo các yêu cầu qua điện thoại, chỉ thực hiện cập nhật thông tin trực tiếp tại Công an xã/phường nơi sinh sống; trình báo đến cơ quan Công an nơi gần nhất để được hướng dẫn.", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Chứa nhiều từ khóa độc hại cao như 'lừa đảo', 'VNeID giả mạo', 'mã độc', 'chiếm đoạt tài sản', 'sinh trắc học', 'mã OTP'. Đây là tin nhắn phát sóng toàn quốc (Cell Broadcast / SMS Brandname) của Cục A05 (Bộ Công an) nhằm nâng cao cảnh giác cộng đồng; không có link, yêu cầu người dân đến trực tiếp cơ quan công an.", 
+    "sub_metadata": "{\"sender\": \"Cục A05 - Bộ Công an\", \"message_type\": \"Public Cyber Security Broadcast\", \"defense_ground\": \"National authority public safety advisory, instructs offline police reporting\"}"}
+{
+    "sample_id": "BANK_30", 
+    "data_source": "vietnamese_sms_merged_all.csv", 
+    "raw_message": "[NUMBER] la ma xac thuc OTP dang nhap vi MoMo. De tranh bi mat tien, tuyet doi KHONG chia se ma nay voi bat ky ai. zniHFS3HBXG", 
+    "gold_label": "HAM", 
+    "task_role": "ROLE_DEFENDER", 
+    "key_evidence": "Dễ gây nhầm lẫn do chứa chuỗi hash bảo mật ngẫu nhiên ở cuối (zniHFS3HBXG - SMS verification token theo chuẩn Android SMS Retriever API) và cảnh báo 'mat tien'. Căn cứ chứng minh an toàn: Mẫu OTP đăng nhập ví điện tử MoMo chính danh, lời răn đe 'KHONG chia se' bảo vệ người dùng, token dùng để tự động điền OTP an toàn.", 
+    "sub_metadata": "{\"sender\": \"Ví MoMo\", \"message_type\": \"E-Wallet Login OTP\", \"defense_ground\": \"Official MoMo OTP format, Android SMS Retriever hash token, zero phishing link\"}"}
