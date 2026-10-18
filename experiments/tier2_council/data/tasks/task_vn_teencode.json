@@ -1,0 +1,1449 @@
+[
+  {
+    "sample_id": "TEEN_01",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "Th0ng ba0:BIDV nang cap he thong. Vui l0ng dang nhap https://bidv.xyz va nang cap. Neu khong tai khoan se bi kh0a. aabd",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Giả mạo BIDV, tên miền lạ bidv.xyz (không phải tên miền chính thức), đe dọa khóa tài khoản; thay 'o' bằng '0' trong các từ khóa 'thông báo/vui lòng/khóa' để né bộ lọc; có token rác 'aabd' ở cuối.",
+    "sub_metadata": {
+      "message_id": "NEW_052",
+      "teencode_words": [
+        {
+          "teencode": "Th0ng",
+          "standard": "Thông"
+        },
+        {
+          "teencode": "ba0",
+          "standard": "báo"
+        },
+        {
+          "teencode": "l0ng",
+          "standard": "lòng"
+        },
+        {
+          "teencode": "kh0a",
+          "standard": "khóa"
+        },
+        {
+          "teencode": "dang nhap",
+          "standard": "đăng nhập"
+        },
+        {
+          "teencode": "nang cap",
+          "standard": "nâng cấp"
+        }
+      ],
+      "normalized_sentence": "Thông báo: BIDV nâng cấp hệ thống. Vui lòng đăng nhập https://bidv.xyz và nâng cấp. Nếu không tài khoản sẽ bị khóa.",
+      "obfuscation_types": [
+        "LEET_NUMBER",
+        "NO_DIACRITICS",
+        "NOISE_TOKEN"
+      ],
+      "impersonated_brand": "BIDV",
+      "malicious_domain": "bidv.xyz",
+      "psych_lure": "đe dọa khóa tài khoản",
+      "noise_tokens": [
+        "aabd"
+      ]
+    }
+  },
+  {
+    "sample_id": "TEEN_02",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "Vietcom: Diem Priority cua quy khach sap het han. Vui long quy doi tai V-C-B-priority.com",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh Vietcombank (VCB) bằng tên 'Vietcom'; tên miền V-C-B-priority.com chèn gạch ngang vào 'VCB' để né lọc thương hiệu; mồi 'điểm sắp hết hạn' tạo áp lực thời gian.",
+    "sub_metadata": {
+      "message_id": "TE_043",
+      "teencode_words": [
+        {
+          "teencode": "V-C-B-priority.com",
+          "standard": "vcb-priority.com (VCB bị chèn dấu gạch ngang)"
+        },
+        {
+          "teencode": "Diem",
+          "standard": "Điểm"
+        },
+        {
+          "teencode": "cua",
+          "standard": "của"
+        },
+        {
+          "teencode": "quy khach",
+          "standard": "quý khách"
+        },
+        {
+          "teencode": "sap het han",
+          "standard": "sắp hết hạn"
+        }
+      ],
+      "normalized_sentence": "Vietcom: Điểm Priority của quý khách sắp hết hạn. Vui lòng quy đổi tại V-C-B-priority.com",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "HYPHEN_SPLIT_BRAND"
+      ],
+      "impersonated_brand": "Vietcombank (VCB)",
+      "malicious_domain": "V-C-B-priority.com",
+      "psych_lure": "điểm thưởng sắp hết hạn"
+    }
+  },
+  {
+    "sample_id": "TEEN_03",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "6geR #Ban da-du D1EU KIEN HOAN-TH.UE TNCN, tai: www.dichvucong.vip",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mồi 'hoàn thuế TNCN' mạo danh cơ quan nhà nước/cổng dịch vụ công; tên miền đuôi .vip không phải .gov.vn; chèn '-' và '.' vào giữa 'HOÀN THUẾ', thay I bằng 1 để né lọc từ khóa.",
+    "sub_metadata": {
+      "message_id": "NEW_062",
+      "teencode_words": [
+        {
+          "teencode": "6geR",
+          "standard": "(chuỗi rác đầu tin)"
+        },
+        {
+          "teencode": "D1EU KIEN",
+          "standard": "ĐIỀU KIỆN"
+        },
+        {
+          "teencode": "da-du",
+          "standard": "đã đủ"
+        },
+        {
+          "teencode": "HOAN-TH.UE",
+          "standard": "HOÀN THUẾ"
+        },
+        {
+          "teencode": "Ban",
+          "standard": "Bạn"
+        }
+      ],
+      "normalized_sentence": "Bạn đã đủ điều kiện hoàn thuế TNCN, tại: www.dichvucong.vip",
+      "obfuscation_types": [
+        "LEET_NUMBER",
+        "NO_DIACRITICS",
+        "SPECIAL_CHAR_INSERT",
+        "NOISE_TOKEN"
+      ],
+      "impersonated_brand": "Cổng dịch vụ công / cơ quan thuế",
+      "malicious_domain": "www.dichvucong.vip",
+      "psych_lure": "hoàn thuế TNCN",
+      "noise_tokens": [
+        "6geR"
+      ]
+    }
+  },
+  {
+    "sample_id": "TEEN_04",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "c0 g4i live sTre4m C0 ng0Ai hinh Xink De3p C0 tke hen ,h0 TrrUc ,tIE3p R4t nkieU tu tke v4 c4ch ,ch0i t3Le;Tuanhcorona z4l0;[NUMBER]",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Tin mời gọi hẹn hò/dịch vụ người lớn, kéo nạn nhân sang Telegram/Zalo; viết hoa-thường lộn xộn, thay chữ bằng số (a→4, o→0, e→3), chèn chữ thừa (nkieU, TrrUc) để né lọc. Một số từ giải mã ở mức suy đoán.",
+    "sub_metadata": {
+      "message_id": "COM_469",
+      "teencode_words": [
+        {
+          "teencode": "c0",
+          "standard": "có"
+        },
+        {
+          "teencode": "g4i",
+          "standard": "gái"
+        },
+        {
+          "teencode": "sTre4m",
+          "standard": "stream"
+        },
+        {
+          "teencode": "ng0Ai",
+          "standard": "ngoài"
+        },
+        {
+          "teencode": "Xink",
+          "standard": "xinh"
+        },
+        {
+          "teencode": "De3p",
+          "standard": "đẹp"
+        },
+        {
+          "teencode": "tke",
+          "standard": "thể (suy đoán)"
+        },
+        {
+          "teencode": "h0",
+          "standard": "hò"
+        },
+        {
+          "teencode": "TrrUc tIE3p",
+          "standard": "trực tiếp"
+        },
+        {
+          "teencode": "R4t nkieU",
+          "standard": "rất nhiều"
+        },
+        {
+          "teencode": "tu tke",
+          "standard": "tư thế (suy đoán)"
+        },
+        {
+          "teencode": "v4",
+          "standard": "và"
+        },
+        {
+          "teencode": "c4ch",
+          "standard": "cách"
+        },
+        {
+          "teencode": "ch0i",
+          "standard": "chơi"
+        },
+        {
+          "teencode": "t3Le",
+          "standard": "tele"
+        },
+        {
+          "teencode": "z4l0",
+          "standard": "zalo"
+        }
+      ],
+      "normalized_sentence": "Có gái livestream, có ngoại hình xinh đẹp, có thể hẹn hò trực tiếp, rất nhiều tư thế và cách chơi. Tele: Tuanhcorona, zalo: [NUMBER]",
+      "obfuscation_types": [
+        "LEET_NUMBER",
+        "MIXED_CASE",
+        "TYPO_INSERTION",
+        "SPECIAL_CHAR_INSERT"
+      ],
+      "lure_type": "dụ dỗ hẹn hò/tình dục",
+      "contact_channel": "Telegram/Zalo",
+      "decode_confidence": "trung bình"
+    }
+  },
+  {
+    "sample_id": "TEEN_05",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "CHUC MUNG NAM MOI!\r\nTDTC Chuc quy kh@ch van su nhu y, an khang thinh vuong, phat tai phat loc!\r\nc.de ojyv09wt5q3j .",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Lời chúc đầu năm làm vỏ bọc, kèm chuỗi liên kết ngẫu nhiên 'c.de ojyv09wt5q3j' tách bằng khoảng trắng để né quét URL; dùng '@' thay 'á' trong 'khách'. Gán SCAM theo nhãn dataset.",
+    "sub_metadata": {
+      "message_id": "COM_386",
+      "teencode_words": [
+        {
+          "teencode": "kh@ch",
+          "standard": "khách"
+        },
+        {
+          "teencode": "CHUC MUNG NAM MOI",
+          "standard": "CHÚC MỪNG NĂM MỚI"
+        },
+        {
+          "teencode": "van su nhu y",
+          "standard": "vạn sự như ý"
+        },
+        {
+          "teencode": "an khang thinh vuong",
+          "standard": "an khang thịnh vượng"
+        },
+        {
+          "teencode": "phat tai phat loc",
+          "standard": "phát tài phát lộc"
+        }
+      ],
+      "normalized_sentence": "CHÚC MỪNG NĂM MỚI! TDTC chúc quý khách vạn sự như ý, an khang thịnh vượng, phát tài phát lộc! c.de ojyv09wt5q3j .",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "SYMBOL_SUBSTITUTION"
+      ],
+      "lure_type": "chúc mừng năm mới + liên kết lạ",
+      "suspicious_link": "c.de ojyv09wt5q3j"
+    }
+  },
+  {
+    "sample_id": "TEEN_06",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "NOHU tang CODE [MONEY] mien phi cho khach VIP: <FMN4BMHS>Link: https://nohucode50k.club",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo game nổ hũ (cờ bạc online) với 'code' miễn phí, mã khuyến mãi dạng chuỗi ngẫu nhiên và tên miền nohucode50k.club.",
+    "sub_metadata": {
+      "message_id": "COM_1245",
+      "teencode_words": [
+        {
+          "teencode": "NOHU",
+          "standard": "nổ hũ"
+        },
+        {
+          "teencode": "tang",
+          "standard": "tặng"
+        },
+        {
+          "teencode": "mien phi",
+          "standard": "miễn phí"
+        },
+        {
+          "teencode": "khach",
+          "standard": "khách"
+        }
+      ],
+      "normalized_sentence": "NỔ HŨ tặng CODE [MONEY] miễn phí cho khách VIP: <FMN4BMHS> Link: https://nohucode50k.club",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "GAMBLING_SLANG"
+      ],
+      "lure_type": "cờ bạc online / code miễn phí",
+      "malicious_domain": "nohucode50k.club"
+    }
+  },
+  {
+    "sample_id": "TEEN_07",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "Dky B99. WIN , Ma Code cua A/C la: QM6E5PASGKA8 nap dau tang 240%, nhan qua lien tay, free vong quay may man [MONEY]\r\nHttp://kiemtien.vin",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo nhà cái B99 với mã code, thưởng nạp đầu 240% và vòng quay may mắn; tên miền kiemtien.vin; viết tắt 'Dky', 'A/C' và không dấu.",
+    "sub_metadata": {
+      "message_id": "COM_1459",
+      "teencode_words": [
+        {
+          "teencode": "Dky",
+          "standard": "Đăng ký"
+        },
+        {
+          "teencode": "A/C",
+          "standard": "anh/chị"
+        },
+        {
+          "teencode": "nap dau tang",
+          "standard": "nạp đầu tặng"
+        },
+        {
+          "teencode": "nhan qua lien tay",
+          "standard": "nhận quà liền tay"
+        },
+        {
+          "teencode": "free",
+          "standard": "miễn phí"
+        },
+        {
+          "teencode": "vong quay may man",
+          "standard": "vòng quay may mắn"
+        }
+      ],
+      "normalized_sentence": "Đăng ký B99. WIN, Mã Code của A/C là: QM6E5PASGKA8, nạp đầu tặng 240%, nhận quà liền tay, miễn phí vòng quay may mắn [MONEY] Http://kiemtien.vin",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "ABBREVIATION"
+      ],
+      "lure_type": "cờ bạc online / thưởng nạp đầu",
+      "malicious_domain": "kiemtien.vin",
+      "brand_name": "B99"
+    }
+  },
+  {
+    "sample_id": "TEEN_08",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "859j ChucMung QK da nhan duoc cöde tri an 899'k, Vao: athd.cc/2MS6x7 ,chöi thu T.xiü, slot, tlmn..x3 nap lan dau, NapRut 1:1 7q8v",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mồi code tri ân 899k để dụ chơi tài xỉu/slot/tiến lên miền Nam; link rút gọn athd.cc; dùng ký tự ö/ü và dấu chấm trong 'T.xiü' để né lọc từ khóa cờ bạc.",
+    "sub_metadata": {
+      "message_id": "COM_1461",
+      "teencode_words": [
+        {
+          "teencode": "859j",
+          "standard": "(mã nhiễu đầu tin)"
+        },
+        {
+          "teencode": "QK",
+          "standard": "quý khách"
+        },
+        {
+          "teencode": "cöde",
+          "standard": "code"
+        },
+        {
+          "teencode": "tri an",
+          "standard": "tri ân"
+        },
+        {
+          "teencode": "chöi thu",
+          "standard": "chơi thử"
+        },
+        {
+          "teencode": "T.xiü",
+          "standard": "tài xỉu"
+        },
+        {
+          "teencode": "tlmn",
+          "standard": "tiến lên miền Nam"
+        },
+        {
+          "teencode": "NapRut",
+          "standard": "nạp rút"
+        }
+      ],
+      "normalized_sentence": "Chúc mừng quý khách đã nhận được code tri ân 899k. Vào: athd.cc/2MS6x7, chơi thử tài xỉu, slot, tiến lên miền Nam... x3 nạp lần đầu, nạp rút 1:1.",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "ABBREVIATION",
+        "DIACRITIC_ABUSE",
+        "SPECIAL_CHAR_INSERT"
+      ],
+      "lure_type": "cờ bạc online / code tri ân",
+      "suspicious_link": "athd.cc/2MS6x7"
+    }
+  },
+  {
+    "sample_id": "TEEN_09",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "Ky Tham Gja' Nha'n Ngay Qu'a Khung Len De'n 5'O'OK.Va Nhie'u Uu Dai Kha'c! W8RQ.mogfC.org Sp",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Chèn dấu nháy đơn (') vào giữa từ thay cho dấu tiếng Việt, dùng chữ 'O' thay số 0 ('5'O'OK' = 500K); tên miền ngẫu nhiên W8RQ.mogfC.org, đuôi .org lạ.",
+    "sub_metadata": {
+      "message_id": "COM_1466",
+      "teencode_words": [
+        {
+          "teencode": "Ky Tham Gja'",
+          "standard": "Ký tham gia"
+        },
+        {
+          "teencode": "Nha'n",
+          "standard": "nhận"
+        },
+        {
+          "teencode": "Qu'a",
+          "standard": "quà"
+        },
+        {
+          "teencode": "Khung",
+          "standard": "khủng"
+        },
+        {
+          "teencode": "Len De'n",
+          "standard": "lên đến"
+        },
+        {
+          "teencode": "5'O'OK",
+          "standard": "500K"
+        },
+        {
+          "teencode": "Nhie'u",
+          "standard": "nhiều"
+        },
+        {
+          "teencode": "Uu Dai Kha'c",
+          "standard": "ưu đãi khác"
+        }
+      ],
+      "normalized_sentence": "Ký tham gia, nhận ngay quà khủng lên đến 500K. Và nhiều ưu đãi khác! W8RQ.mogfC.org",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "SPECIAL_CHAR_INSERT",
+        "LEET_NUMBER"
+      ],
+      "lure_type": "quà khủng / ưu đãi",
+      "malicious_domain": "W8RQ.mogfC.org"
+    }
+  },
+  {
+    "sample_id": "TEEN_10",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "T -H-U -O-N- G C -H-A-O M -U-N- G 1 -T - R sadttr.aezalo.me",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Tách từng chữ bằng dấu gạch ngang và khoảng trắng bất thường ('T -H-U -O-N- G') để vô hiệu hóa lọc từ khóa; tên miền sadttr.aezalo.me mạo danh zalo.me.",
+    "sub_metadata": {
+      "message_id": "COM_1474",
+      "teencode_words": [
+        {
+          "teencode": "T -H-U -O-N- G",
+          "standard": "THƯỞNG"
+        },
+        {
+          "teencode": "C -H-A-O",
+          "standard": "CHÀO"
+        },
+        {
+          "teencode": "M -U-N- G",
+          "standard": "MỪNG"
+        },
+        {
+          "teencode": "1 -T - R",
+          "standard": "1 TR (triệu)"
+        }
+      ],
+      "normalized_sentence": "THƯỞNG CHÀO MỪNG 1 TR sadttr.aezalo.me",
+      "obfuscation_types": [
+        "CHAR_SPACING",
+        "HYPHEN_SPLIT",
+        "NO_DIACRITICS"
+      ],
+      "impersonated_brand": "Zalo",
+      "malicious_domain": "sadttr.aezalo.me",
+      "psych_lure": "thưởng chào mừng 1 triệu"
+    }
+  },
+  {
+    "sample_id": "TEEN_11",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "M.B.B.A.N.K Thong bao: Dich vu Smart OTP cua quy khach se bi tam dung do het han xac thuc dinh ky. Vui long cap nhat tai: https://mbank.odbnk.space trước [TIME].",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh MB Bank (tên bị tách 'M.B.B.A.N.K'), dọa tạm dừng Smart OTP, yêu cầu cập nhật tại tên miền mbank.odbnk.space không thuộc MB; đặt hạn chót [TIME] để tạo áp lực.",
+    "sub_metadata": {
+      "message_id": "COM_1499",
+      "teencode_words": [
+        {
+          "teencode": "M.B.B.A.N.K",
+          "standard": "MBBANK"
+        },
+        {
+          "teencode": "Thong bao",
+          "standard": "Thông báo"
+        },
+        {
+          "teencode": "Dich vu",
+          "standard": "Dịch vụ"
+        },
+        {
+          "teencode": "quy khach",
+          "standard": "quý khách"
+        },
+        {
+          "teencode": "tam dung",
+          "standard": "tạm dừng"
+        },
+        {
+          "teencode": "het han xac thuc dinh ky",
+          "standard": "hết hạn xác thực định kỳ"
+        },
+        {
+          "teencode": "cap nhat",
+          "standard": "cập nhật"
+        }
+      ],
+      "normalized_sentence": "MBBANK Thông báo: Dịch vụ Smart OTP của quý khách sẽ bị tạm dừng do hết hạn xác thực định kỳ. Vui lòng cập nhật tại: https://mbank.odbnk.space trước [TIME].",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "DOT_SPLIT_BRAND"
+      ],
+      "impersonated_brand": "MB Bank",
+      "malicious_domain": "mbank.odbnk.space",
+      "psych_lure": "dọa tạm dừng Smart OTP + hạn chót"
+    }
+  },
+  {
+    "sample_id": "TEEN_12",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[M0M0] Cảnh báo: Ví MoMo của bạn đang bị yêu cầu rút toàn bộ số dư về tài khoản ngân hàng lạ. Nếu khg phải b hành động, vào chặn ngay tại: https://momovuive.fun",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh MoMo, tạo hoảng sợ bằng giao dịch rút toàn bộ số dư; link momovuive.fun không phải miền chính thức; thay 'O' bằng '0' trong thương hiệu, viết tắt 'khg', 'b'.",
+    "sub_metadata": {
+      "message_id": "COM_1553",
+      "teencode_words": [
+        {
+          "teencode": "M0M0",
+          "standard": "MOMO"
+        },
+        {
+          "teencode": "khg",
+          "standard": "không"
+        },
+        {
+          "teencode": "b",
+          "standard": "bạn"
+        }
+      ],
+      "normalized_sentence": "[MOMO] Cảnh báo: Ví MoMo của bạn đang bị yêu cầu rút toàn bộ số dư về tài khoản ngân hàng lạ. Nếu không phải bạn hành động, vào chặn ngay tại: https://momovuive.fun",
+      "obfuscation_types": [
+        "LEET_NUMBER",
+        "ABBREVIATION"
+      ],
+      "impersonated_brand": "MoMo",
+      "malicious_domain": "momovuive.fun",
+      "psych_lure": "hoảng sợ mất tiền"
+    }
+  },
+  {
+    "sample_id": "TEEN_13",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[Sh0pee Trj An] Chúc mừg sđt a/c đượ¢ tặg 1 tivi Sony m jễn phí nhân dịρ sn sàn. Xjn vuj lòng click vô http://shopee.qua-tang-sn.top để nhận quà nhe mng!",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh Shopee, quà tặng tivi Sony miễn phí; dùng ký tự lạ (¢ thay c, ρ Hy Lạp thay p), j thay i, bỏ chữ cuối ('mừg','tặg'); link shopee.qua-tang-sn.top là miền phụ của tên miền .top không thuộc Shopee.",
+    "sub_metadata": {
+      "message_id": "COM_1558",
+      "teencode_words": [
+        {
+          "teencode": "Sh0pee Trj An",
+          "standard": "Shopee Tri Ân"
+        },
+        {
+          "teencode": "Chúc mừg",
+          "standard": "Chúc mừng"
+        },
+        {
+          "teencode": "sđt",
+          "standard": "số điện thoại"
+        },
+        {
+          "teencode": "a/c",
+          "standard": "anh/chị"
+        },
+        {
+          "teencode": "đượ¢",
+          "standard": "được"
+        },
+        {
+          "teencode": "tặg",
+          "standard": "tặng"
+        },
+        {
+          "teencode": "m jễn phí",
+          "standard": "miễn phí"
+        },
+        {
+          "teencode": "dịρ",
+          "standard": "dịp"
+        },
+        {
+          "teencode": "sn sàn",
+          "standard": "sinh nhật sàn"
+        },
+        {
+          "teencode": "Xjn vuj",
+          "standard": "Xin vui"
+        },
+        {
+          "teencode": "click vô",
+          "standard": "bấm vào"
+        },
+        {
+          "teencode": "nhe",
+          "standard": "nhé"
+        },
+        {
+          "teencode": "mng",
+          "standard": "mọi người"
+        }
+      ],
+      "normalized_sentence": "[Shopee Tri Ân] Chúc mừng số điện thoại anh/chị được tặng 1 tivi Sony miễn phí nhân dịp sinh nhật sàn. Xin vui lòng click vô http://shopee.qua-tang-sn.top để nhận quà nhé mọi người!",
+      "obfuscation_types": [
+        "LEET_NUMBER",
+        "HOMOGLYPH",
+        "ABBREVIATION",
+        "TYPO_SUBSTITUTION"
+      ],
+      "impersonated_brand": "Shopee",
+      "malicious_domain": "shopee.qua-tang-sn.top",
+      "psych_lure": "quà tặng miễn phí"
+    }
+  },
+  {
+    "sample_id": "TEEN_14",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[TlkI_VjP] Thg bao: Bạn có 1 đon hàng [MONEY] từ ctruong tri ân k/h cũ của Tiki. Vuj lòng logjn vô link này để điền đ/c nhận hàng gấp trg ngày hnay: https://xulydonhangtiki.com/register",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh Tiki ('TlkI' dùng l thay i), đơn hàng 'miễn phí' kèm yêu cầu điền địa chỉ gấp trong ngày; link xulydonhangtiki.com/register là miền giả; nhiều viết tắt (đ/c, k/h, trg, hnay).",
+    "sub_metadata": {
+      "message_id": "COM_1559",
+      "teencode_words": [
+        {
+          "teencode": "TlkI_VjP",
+          "standard": "TIKI_VIP"
+        },
+        {
+          "teencode": "Thg bao",
+          "standard": "Thông báo"
+        },
+        {
+          "teencode": "đon",
+          "standard": "đơn"
+        },
+        {
+          "teencode": "ctruong",
+          "standard": "chương trình"
+        },
+        {
+          "teencode": "k/h",
+          "standard": "khách hàng"
+        },
+        {
+          "teencode": "Vuj",
+          "standard": "Vui"
+        },
+        {
+          "teencode": "logjn",
+          "standard": "login"
+        },
+        {
+          "teencode": "đ/c",
+          "standard": "địa chỉ"
+        },
+        {
+          "teencode": "trg",
+          "standard": "trong"
+        },
+        {
+          "teencode": "hnay",
+          "standard": "hôm nay"
+        }
+      ],
+      "normalized_sentence": "[TIKI_VIP] Thông báo: Bạn có 1 đơn hàng [MONEY] từ chương trình tri ân khách hàng cũ của Tiki. Vui lòng login vô link này để điền địa chỉ nhận hàng gấp trong ngày hôm nay: https://xulydonhangtiki.com/register",
+      "obfuscation_types": [
+        "HOMOGLYPH",
+        "ABBREVIATION",
+        "TYPO_SUBSTITUTION"
+      ],
+      "impersonated_brand": "Tiki",
+      "malicious_domain": "xulydonhangtiki.com",
+      "psych_lure": "đơn hàng tri ân + hạn trong ngày"
+    }
+  },
+  {
+    "sample_id": "TEEN_15",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[Vie¢Lam_Online] Tuyển ctv seo vjde0 tiktok tại nhà, chỉ cần đt rảnh lúc nào làm lúc đó, lươg [MONEY]-[MONEY]/ngày nhận luog theo h. Ib nhận j0b: http://tiktok.tuyendung-ctv.top",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Tuyển 'cộng tác viên' làm tại nhà, lương cao nhận theo giờ — mẫu lừa việc nhẹ lương cao; mạo danh TikTok qua tên miền tiktok.tuyendung-ctv.top; ký tự ¢ thay c, j thay i, 0 thay o.",
+    "sub_metadata": {
+      "message_id": "COM_1560",
+      "teencode_words": [
+        {
+          "teencode": "Vie¢Lam_Online",
+          "standard": "ViecLam_Online"
+        },
+        {
+          "teencode": "ctv",
+          "standard": "cộng tác viên"
+        },
+        {
+          "teencode": "vjde0",
+          "standard": "video"
+        },
+        {
+          "teencode": "đt",
+          "standard": "điện thoại"
+        },
+        {
+          "teencode": "lươg",
+          "standard": "lương"
+        },
+        {
+          "teencode": "luog",
+          "standard": "lương"
+        },
+        {
+          "teencode": "h",
+          "standard": "giờ"
+        },
+        {
+          "teencode": "Ib",
+          "standard": "inbox"
+        },
+        {
+          "teencode": "j0b",
+          "standard": "job"
+        }
+      ],
+      "normalized_sentence": "[ViecLam_Online] Tuyển cộng tác viên seo video tiktok tại nhà, chỉ cần điện thoại, rảnh lúc nào làm lúc đó, lương [MONEY]-[MONEY]/ngày, nhận lương theo giờ. Inbox nhận job: http://tiktok.tuyendung-ctv.top",
+      "obfuscation_types": [
+        "HOMOGLYPH",
+        "LEET_NUMBER",
+        "ABBREVIATION",
+        "TYPO_DELETION"
+      ],
+      "lure_type": "việc làm online nhẹ lương cao",
+      "impersonated_brand": "TikTok",
+      "malicious_domain": "tiktok.tuyendung-ctv.top"
+    }
+  },
+  {
+    "sample_id": "TEEN_16",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[Vjettel-4G] Tang b gói data 4G xài tẹt ga m jễn phí trg 3 tháng nhân dịp nâng cấp băng tần. Click đký ngay kẻo lỡ: http://viettel.uudai-data4g.com",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh Viettel ('Vjettel'), tặng data 4G miễn phí 3 tháng; link viettel.uudai-data4g.com là miền phụ giả; dùng 'm jễn phí', 'đký', 'trg' để né lọc từ khóa.",
+    "sub_metadata": {
+      "message_id": "COM_1563",
+      "teencode_words": [
+        {
+          "teencode": "Vjettel-4G",
+          "standard": "Viettel-4G"
+        },
+        {
+          "teencode": "Tang b",
+          "standard": "Tặng bạn"
+        },
+        {
+          "teencode": "m jễn phí",
+          "standard": "miễn phí"
+        },
+        {
+          "teencode": "trg",
+          "standard": "trong"
+        },
+        {
+          "teencode": "đký",
+          "standard": "đăng ký"
+        }
+      ],
+      "normalized_sentence": "[Viettel-4G] Tặng bạn gói data 4G xài tẹt ga miễn phí trong 3 tháng nhân dịp nâng cấp băng tần. Click đăng ký ngay kẻo lỡ: http://viettel.uudai-data4g.com",
+      "obfuscation_types": [
+        "HOMOGLYPH",
+        "ABBREVIATION",
+        "NO_DIACRITICS"
+      ],
+      "impersonated_brand": "Viettel",
+      "malicious_domain": "viettel.uudai-data4g.com",
+      "psych_lure": "tặng data miễn phí + 'kẻo lỡ'"
+    }
+  },
+  {
+    "sample_id": "TEEN_17",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[GHTK_Ljnk] Đơn hàg số [NUMBER] của b bj thju số nhà nên shjpper ko giao đợc. Vuj lòg click vô link này để update lại đ/c chính xác nhe: http://ghtk.capnhat-diachi.top",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh Giao Hàng Tiết Kiệm, viện cớ thiếu số nhà để dụ cập nhật địa chỉ tại ghtk.capnhat-diachi.top; thay i bằng j ('bj','Vuj','shjpper'), bỏ chữ ('hàg','lòg').",
+    "sub_metadata": {
+      "message_id": "COM_1566",
+      "teencode_words": [
+        {
+          "teencode": "Ljnk",
+          "standard": "Link"
+        },
+        {
+          "teencode": "hàg",
+          "standard": "hàng"
+        },
+        {
+          "teencode": "b",
+          "standard": "bạn"
+        },
+        {
+          "teencode": "bj thju",
+          "standard": "bị thiếu"
+        },
+        {
+          "teencode": "shjpper",
+          "standard": "shipper"
+        },
+        {
+          "teencode": "ko",
+          "standard": "không"
+        },
+        {
+          "teencode": "đợc",
+          "standard": "được"
+        },
+        {
+          "teencode": "Vuj lòg",
+          "standard": "Vui lòng"
+        },
+        {
+          "teencode": "đ/c",
+          "standard": "địa chỉ"
+        }
+      ],
+      "normalized_sentence": "[GHTK_Link] Đơn hàng số [NUMBER] của bạn bị thiếu số nhà nên shipper không giao được. Vui lòng click vô link này để update lại địa chỉ chính xác nhé: http://ghtk.capnhat-diachi.top",
+      "obfuscation_types": [
+        "HOMOGLYPH",
+        "ABBREVIATION",
+        "TYPO_DELETION"
+      ],
+      "impersonated_brand": "GHTK",
+      "malicious_domain": "ghtk.capnhat-diachi.top",
+      "psych_lure": "đơn hàng không giao được"
+    }
+  },
+  {
+    "sample_id": "TEEN_18",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[KU.B_ET] Chúc mừng tkhoản cá cược của b đg có 1 voucher kmãi 100% nạp đầu lên tới 2tr8. Vào sảnh nhận ngay kẻo hết hạn nhe ae: http://kubet.napthuong-[NUMBER].club",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo nhà cái cờ bạc KUBET (tên bị tách 'KU.B_ET' để né lọc), voucher nạp đầu 100%, tạo áp lực 'kẻo hết hạn'; tên miền .club.",
+    "sub_metadata": {
+      "message_id": "COM_1597",
+      "teencode_words": [
+        {
+          "teencode": "KU.B_ET",
+          "standard": "KUBET"
+        },
+        {
+          "teencode": "tkhoản",
+          "standard": "tài khoản"
+        },
+        {
+          "teencode": "b",
+          "standard": "bạn"
+        },
+        {
+          "teencode": "đg",
+          "standard": "đang"
+        },
+        {
+          "teencode": "kmãi",
+          "standard": "khuyến mãi"
+        },
+        {
+          "teencode": "2tr8",
+          "standard": "2 triệu 8"
+        },
+        {
+          "teencode": "ae",
+          "standard": "anh em"
+        }
+      ],
+      "normalized_sentence": "[KUBET] Chúc mừng tài khoản cá cược của bạn đang có 1 voucher khuyến mãi 100% nạp đầu lên tới 2 triệu 8. Vào sảnh nhận ngay kẻo hết hạn nhé anh em: http://kubet.napthuong-[NUMBER].club",
+      "obfuscation_types": [
+        "ABBREVIATION",
+        "DOT_SPLIT_BRAND"
+      ],
+      "lure_type": "cờ bạc online / voucher",
+      "brand_name": "KUBET",
+      "malicious_domain": "kubet.napthuong-[NUMBER].club"
+    }
+  },
+  {
+    "sample_id": "TEEN_19",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[Hj88_M0bj] Tài xỉu online, xóc đĩa xanh chín, rút tiền trong 3p. Chào ae ej, hôm nay ad tặng hũ quà [MONEY] free cho ai click vô link này đký: http://hi88.nohu-online.cc",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo tài xỉu/xóc đĩa (cờ bạc), tên 'Hj88' dùng j thay i; hứa rút tiền 3 phút và tặng hũ quà; tên miền hi88.nohu-online.cc.",
+    "sub_metadata": {
+      "message_id": "COM_1599",
+      "teencode_words": [
+        {
+          "teencode": "Hj88_M0bj",
+          "standard": "Hi88_Mobi"
+        },
+        {
+          "teencode": "3p",
+          "standard": "3 phút"
+        },
+        {
+          "teencode": "ae",
+          "standard": "anh em"
+        },
+        {
+          "teencode": "ej",
+          "standard": "em (ơi)"
+        },
+        {
+          "teencode": "ad",
+          "standard": "admin"
+        },
+        {
+          "teencode": "click vô",
+          "standard": "bấm vào"
+        },
+        {
+          "teencode": "đký",
+          "standard": "đăng ký"
+        }
+      ],
+      "normalized_sentence": "[Hi88_Mobi] Tài xỉu online, xóc đĩa xanh chín, rút tiền trong 3 phút. Chào anh em ơi, hôm nay admin tặng hũ quà [MONEY] free cho ai click vô link này đăng ký: http://hi88.nohu-online.cc",
+      "obfuscation_types": [
+        "HOMOGLYPH",
+        "LEET_NUMBER",
+        "ABBREVIATION"
+      ],
+      "lure_type": "cờ bạc online / tặng hũ quà",
+      "malicious_domain": "hi88.nohu-online.cc"
+    }
+  },
+  {
+    "sample_id": "TEEN_20",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "(Crys.tal_Bay) Thư mời VIP: Chúc mừng sđt của b đã trúng thưởng suất nghỉ dưỡng 3N2Đ m jễn phí tại resort Cam Ranh. Click vô link để ký hđồg điện tử nhận phòng: http://crystalbay.kynighivjp.online",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Trúng thưởng nghỉ dưỡng miễn phí kèm yêu cầu 'ký hợp đồng điện tử' qua link crystalbay.kynighivjp.online; tên thương hiệu bị tách bằng dấu chấm, dùng 'm jễn phí', 'hđồg'.",
+    "sub_metadata": {
+      "message_id": "COM_1670",
+      "teencode_words": [
+        {
+          "teencode": "Crys.tal_Bay",
+          "standard": "Crystal_Bay"
+        },
+        {
+          "teencode": "sđt",
+          "standard": "số điện thoại"
+        },
+        {
+          "teencode": "b",
+          "standard": "bạn"
+        },
+        {
+          "teencode": "m jễn phí",
+          "standard": "miễn phí"
+        },
+        {
+          "teencode": "vô",
+          "standard": "vào"
+        },
+        {
+          "teencode": "hđồg",
+          "standard": "hợp đồng"
+        }
+      ],
+      "normalized_sentence": "(Crystal_Bay) Thư mời VIP: Chúc mừng số điện thoại của bạn đã trúng thưởng suất nghỉ dưỡng 3N2Đ miễn phí tại resort Cam Ranh. Click vô link để ký hợp đồng điện tử nhận phòng: http://crystalbay.kynighivjp.online",
+      "obfuscation_types": [
+        "DOT_SPLIT_BRAND",
+        "ABBREVIATION",
+        "TYPO_DELETION"
+      ],
+      "impersonated_brand": "Crystal Bay",
+      "malicious_domain": "crystalbay.kynighivjp.online",
+      "psych_lure": "trúng thưởng nghỉ dưỡng"
+    }
+  },
+  {
+    "sample_id": "TEEN_21",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "Nhà 51/9 dg 475. Anh còn ở ko. Anh xác minh lại em Dũng công an khu vực. Ko phải lừa đảo cung cấp thông tin em cái.???",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh công an khu vực để thu thập thông tin cá nhân; câu 'không phải lừa đảo' là đòn tâm lý trấn an; không có link nhưng yêu cầu cung cấp thông tin.",
+    "sub_metadata": {
+      "message_id": "COM_1464",
+      "teencode_words": [
+        {
+          "teencode": "dg",
+          "standard": "đường"
+        },
+        {
+          "teencode": "ko",
+          "standard": "không"
+        },
+        {
+          "teencode": "Ko",
+          "standard": "Không"
+        }
+      ],
+      "normalized_sentence": "Nhà 51/9 đường 475. Anh còn ở không? Anh xác minh lại, em Dũng công an khu vực. Không phải lừa đảo, anh cung cấp thông tin cho em cái.",
+      "obfuscation_types": [
+        "ABBREVIATION"
+      ],
+      "impersonated_authority": "công an khu vực",
+      "psych_lure": "uy quyền + trấn an",
+      "has_link": false
+    }
+  },
+  {
+    "sample_id": "TEEN_22",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[BinhChon-Idol] Chào b, con gái m đg thi Nữ sinh thanh lịch của tỉnh, mà thiếu ít vote để vào chug kết. Nho b vào link này click vote giùm bé nhe, tks b nhìu: http://cuocthi.binhchon-idol.club",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mồi tình cảm 'con gái thi nữ sinh thanh lịch, nhờ vote' để dụ bấm link cuocthi.binhchon-idol.club (thu thập thông tin/đăng nhập); viết tắt 'b','m','đg','tks','nhìu'.",
+    "sub_metadata": {
+      "message_id": "COM_1557",
+      "teencode_words": [
+        {
+          "teencode": "b",
+          "standard": "bạn"
+        },
+        {
+          "teencode": "m",
+          "standard": "mình"
+        },
+        {
+          "teencode": "đg",
+          "standard": "đang"
+        },
+        {
+          "teencode": "chug kết",
+          "standard": "chung kết"
+        },
+        {
+          "teencode": "Nho",
+          "standard": "Nhờ"
+        },
+        {
+          "teencode": "nhe",
+          "standard": "nhé"
+        },
+        {
+          "teencode": "tks",
+          "standard": "thanks"
+        },
+        {
+          "teencode": "nhìu",
+          "standard": "nhiều"
+        }
+      ],
+      "normalized_sentence": "[BinhChon-Idol] Chào bạn, con gái mình đang thi Nữ sinh thanh lịch của tỉnh, mà thiếu ít vote để vào chung kết. Nhờ bạn vào link này click vote giùm bé nhé, thanks bạn nhiều: http://cuocthi.binhchon-idol.club",
+      "obfuscation_types": [
+        "ABBREVIATION",
+        "TYPO_DELETION"
+      ],
+      "lure_type": "nhờ bình chọn / kích thích lòng thương",
+      "malicious_domain": "cuocthi.binhchon-idol.club"
+    }
+  },
+  {
+    "sample_id": "TEEN_23",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "TT: [NUMBER].G@me bài tra thu0ng kie'mtien cuc de.ta?i luon: bitly.com.vn nhan 88 kthu nghiem nhieu tr0 hap dan..rut nap sieu t0c",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo game bài đổi thưởng, hứa 'kiếm tiền cực dễ' và tặng 88K thử nghiệm; chèn @ ? ' . vào giữa từ ('G@me','de.ta?i') để né lọc; link rút gọn bitly.com.vn.",
+    "sub_metadata": {
+      "message_id": "COM_2030",
+      "teencode_words": [
+        {
+          "teencode": "G@me",
+          "standard": "Game"
+        },
+        {
+          "teencode": "tra thu0ng",
+          "standard": "trả thưởng"
+        },
+        {
+          "teencode": "kie'mtien",
+          "standard": "kiếm tiền"
+        },
+        {
+          "teencode": "cuc de.ta?i luon",
+          "standard": "cực dễ. Tải luôn"
+        },
+        {
+          "teencode": "88",
+          "standard": "88K (suy đoán)"
+        },
+        {
+          "teencode": "kthu nghiem",
+          "standard": "K thử nghiệm"
+        },
+        {
+          "teencode": "tr0",
+          "standard": "trò"
+        },
+        {
+          "teencode": "t0c",
+          "standard": "tốc"
+        }
+      ],
+      "normalized_sentence": "TT: [NUMBER]. Game bài trả thưởng kiếm tiền cực dễ. Tải luôn: bitly.com.vn nhận 88K thử nghiệm, nhiều trò hấp dẫn, rút nạp siêu tốc",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "LEET_NUMBER",
+        "SYMBOL_SUBSTITUTION",
+        "SPECIAL_CHAR_INSERT"
+      ],
+      "lure_type": "game bài đổi thưởng / kiếm tiền dễ",
+      "suspicious_link": "bitly.com.vn"
+    }
+  },
+  {
+    "sample_id": "TEEN_24",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "TANG [MONEY] KHI D,K VA XAC MINH TK THE THA0 TRUNG THU0NG 2TR3, SL0T THUONG [MONEY] NAP DAU TANG NGAY [MONEY] DKY\\W88\\TAI: bit.ly/3q3pEtV",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo nhà cái W88 (thể thao, slot) dùng '0' thay 'O', dấu phẩy chèn trong 'D,K', viết tắt 'TK','2TR3'; link rút gọn bit.ly che đích đến.",
+    "sub_metadata": {
+      "message_id": "COM_1751",
+      "teencode_words": [
+        {
+          "teencode": "D,K",
+          "standard": "ĐK (đăng ký)"
+        },
+        {
+          "teencode": "TK THE THA0",
+          "standard": "TK THỂ THAO"
+        },
+        {
+          "teencode": "THU0NG",
+          "standard": "THƯỞNG"
+        },
+        {
+          "teencode": "2TR3",
+          "standard": "2 triệu 3"
+        },
+        {
+          "teencode": "SL0T",
+          "standard": "SLOT"
+        },
+        {
+          "teencode": "DKY",
+          "standard": "ĐĂNG KÝ"
+        }
+      ],
+      "normalized_sentence": "TẶNG [MONEY] KHI ĐK VÀ XÁC MINH TK THỂ THAO, TRÚNG THƯỞNG 2TR3, SLOT THƯỞNG [MONEY], NẠP ĐẦU TẶNG NGAY [MONEY]. ĐKY W88 TẠI: bit.ly/3q3pEtV",
+      "obfuscation_types": [
+        "LEET_NUMBER",
+        "NO_DIACRITICS",
+        "ABBREVIATION",
+        "SPECIAL_CHAR_INSERT"
+      ],
+      "lure_type": "cờ bạc online / thưởng nạp đầu",
+      "brand_name": "W88",
+      "suspicious_link": "bit.ly/3q3pEtV"
+    }
+  },
+  {
+    "sample_id": "TEEN_25",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[Ssl_Securjtjes] Thg bao: Tkhoan cua ban co 1 hop dong uy thac dau tu sap dao han nhung chua xac minh chu ky dien tu muc do 2. Vui long vao link de hoan tat: [http://ssi.hopdong-uythac.top]",
+    "gold_label": "SCAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Mạo danh công ty chứng khoán (SSI), hợp đồng ủy thác sắp đáo hạn + yêu cầu xác minh chữ ký điện tử mức 2 qua ssi.hopdong-uythac.top; tên thương hiệu bị đổi I→l, j.",
+    "sub_metadata": {
+      "message_id": "COM_1650",
+      "teencode_words": [
+        {
+          "teencode": "Ssl_Securjtjes",
+          "standard": "SSI_Securities (chữ I viết thành l, j)"
+        },
+        {
+          "teencode": "Thg bao",
+          "standard": "Thông báo"
+        },
+        {
+          "teencode": "Tkhoan",
+          "standard": "Tài khoản"
+        },
+        {
+          "teencode": "cua ban",
+          "standard": "của bạn"
+        },
+        {
+          "teencode": "hop dong uy thac dau tu",
+          "standard": "hợp đồng ủy thác đầu tư"
+        },
+        {
+          "teencode": "sap dao han",
+          "standard": "sắp đáo hạn"
+        },
+        {
+          "teencode": "chu ky dien tu",
+          "standard": "chữ ký điện tử"
+        }
+      ],
+      "normalized_sentence": "[SSI_Securities] Thông báo: Tài khoản của bạn có 1 hợp đồng ủy thác đầu tư sắp đáo hạn nhưng chưa xác minh chữ ký điện tử mức độ 2. Vui lòng vào link để hoàn tất: [http://ssi.hopdong-uythac.top]",
+      "obfuscation_types": [
+        "HOMOGLYPH",
+        "NO_DIACRITICS",
+        "ABBREVIATION"
+      ],
+      "impersonated_brand": "SSI Securities",
+      "malicious_domain": "ssi.hopdong-uythac.top",
+      "psych_lure": "hợp đồng sắp đáo hạn"
+    }
+  },
+  {
+    "sample_id": "TEEN_26",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "đơn 51/9 đường 475 a giao giùm e [TIME] đc kh a\r\nCó đon od em bỏ vô nhà có j lây giúp em nha a tài\r\ndạ oke e cảm ơn a",
+    "gold_label": "HAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Hội thoại giao hàng đời thường dùng viết tắt (a/e/đc/kh/có j); không có link, không yêu cầu tiền/OTP/thông tin nhạy cảm. Lưu ý: cùng cụm địa chỉ '51/9 đường 475' với COM_1464 (SCAM) nhưng ngữ cảnh khác — mẫu hard-negative.",
+    "sub_metadata": {
+      "message_id": "COM_2579",
+      "teencode_words": [
+        {
+          "teencode": "a",
+          "standard": "anh"
+        },
+        {
+          "teencode": "e",
+          "standard": "em"
+        },
+        {
+          "teencode": "đc",
+          "standard": "được"
+        },
+        {
+          "teencode": "kh",
+          "standard": "không"
+        },
+        {
+          "teencode": "od",
+          "standard": "order"
+        },
+        {
+          "teencode": "có j",
+          "standard": "có gì"
+        },
+        {
+          "teencode": "lây",
+          "standard": "lấy"
+        },
+        {
+          "teencode": "tài",
+          "standard": "tài xế"
+        },
+        {
+          "teencode": "oke",
+          "standard": "ok"
+        }
+      ],
+      "normalized_sentence": "Đơn 51/9 đường 475, anh giao giùm em [TIME] được không anh? Có đơn order em bỏ vô nhà, có gì lấy giúp em nha anh tài xế. Dạ ok em cảm ơn anh.",
+      "obfuscation_types": [
+        "ABBREVIATION",
+        "TYPO_SUBSTITUTION"
+      ],
+      "hard_negative": true,
+      "has_link": false
+    }
+  },
+  {
+    "sample_id": "TEEN_27",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "Viettel TB: Quy khach da su dung het luu luong cua goi ST5K va tiep tuc truy cap theo goi Mobile Internet dang su dung (neu co). De mua them luu luong, truy cap My Viettel tai https://myvt.page.link/6 . Chi tiet LH 198 ([MONEY]). Tran trong.",
+    "gold_label": "HAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Không dấu theo kiểu SMS nhà mạng; nội dung nhất quán với thông báo hết lưu lượng gói ST5K, tổng đài 198, My Viettel; không yêu cầu OTP/mật khẩu hay chuyển tiền. Gán HAM theo nhãn dataset.",
+    "sub_metadata": {
+      "message_id": "COM_149",
+      "teencode_words": [
+        {
+          "teencode": "Quy khach",
+          "standard": "Quý khách"
+        },
+        {
+          "teencode": "luu luong",
+          "standard": "lưu lượng"
+        },
+        {
+          "teencode": "tiep tuc truy cap",
+          "standard": "tiếp tục truy cập"
+        },
+        {
+          "teencode": "De mua them",
+          "standard": "Để mua thêm"
+        },
+        {
+          "teencode": "Chi tiet",
+          "standard": "Chi tiết"
+        },
+        {
+          "teencode": "LH",
+          "standard": "liên hệ"
+        },
+        {
+          "teencode": "Tran trong",
+          "standard": "Trân trọng"
+        }
+      ],
+      "normalized_sentence": "Viettel TB: Quý khách đã sử dụng hết lưu lượng của gói ST5K và tiếp tục truy cập theo gói Mobile Internet đang sử dụng (nếu có). Để mua thêm lưu lượng, truy cập My Viettel tại https://myvt.page.link/6. Chi tiết liên hệ 198 ([MONEY]). Trân trọng.",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "ABBREVIATION"
+      ],
+      "hard_negative": true,
+      "brand_context": "Viettel (thông báo gói cước)"
+    }
+  },
+  {
+    "sample_id": "TEEN_28",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "[TB] DATA SIEU RE, DANG KY CUC DE\r\nSoan ST5K gui 191: Chi [MONEY]/lan co ngay 500MB toc do cao su dung den [TIME] ngay dang ky, DV gia han hang ngay. DAC BIET: TANG THEM 500MB khi mua lan 2 trong ngay. Chi tiet LH 198 ([MONEY]).",
+    "gold_label": "HAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Quảng cáo gói data ST5K viết hoa không dấu nhưng đúng cú pháp soạn tin gửi 191, có đầu số hỗ trợ 198, không kèm link; không đòi thông tin nhạy cảm. Gán HAM theo nhãn dataset.",
+    "sub_metadata": {
+      "message_id": "COM_223",
+      "teencode_words": [
+        {
+          "teencode": "DATA SIEU RE",
+          "standard": "DATA SIÊU RẺ"
+        },
+        {
+          "teencode": "DANG KY CUC DE",
+          "standard": "ĐĂNG KÝ CỰC DỄ"
+        },
+        {
+          "teencode": "Soan",
+          "standard": "Soạn"
+        },
+        {
+          "teencode": "gui",
+          "standard": "gửi"
+        },
+        {
+          "teencode": "DV",
+          "standard": "dịch vụ"
+        },
+        {
+          "teencode": "DAC BIET",
+          "standard": "ĐẶC BIỆT"
+        },
+        {
+          "teencode": "LH",
+          "standard": "liên hệ"
+        }
+      ],
+      "normalized_sentence": "[TB] DATA SIÊU RẺ, ĐĂNG KÝ CỰC DỄ. Soạn ST5K gửi 191: Chỉ [MONEY]/lần có ngay 500MB tốc độ cao sử dụng đến [TIME] ngày đăng ký, dịch vụ gia hạn hàng ngày. ĐẶC BIỆT: TẶNG THÊM 500MB khi mua lần 2 trong ngày. Chi tiết liên hệ 198 ([MONEY]).",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "ABBREVIATION",
+        "ALL_CAPS"
+      ],
+      "hard_negative": true,
+      "brand_context": "Viettel (quảng cáo gói data)"
+    }
+  },
+  {
+    "sample_id": "TEEN_29",
+    "data_source": "vietnamese_sms_merged_all.csv",
+    "raw_message": "SD TK [NUMBER] -[MONEY] luc [NUMBER] [TIME]. SD [MONEY]. Ref [NUMBER].em bank truoc cho anh [MONEY].CT tu [NUMBER] [NAME] toi [NUMBER]…\r\nSD TK [NUMBER] -[MONEY] luc [NUMBER] [TIME]. SD [MONEY]. Ref Ecom.[NUMBER].MOMO.[NUMBER].CashIn",
+    "gold_label": "HAM",
+    "task_role": "ROLE_VN_TEENCODE",
+    "key_evidence": "Thông báo biến động số dư ngân hàng (SD/TK/Ref/CashIn) kèm lời nhắn chuyển khoản giữa người quen; không có link, không yêu cầu thao tác. Gán HAM theo nhãn dataset.",
+    "sub_metadata": {
+      "message_id": "COM_2626",
+      "teencode_words": [
+        {
+          "teencode": "SD",
+          "standard": "số dư"
+        },
+        {
+          "teencode": "TK",
+          "standard": "tài khoản"
+        },
+        {
+          "teencode": "luc",
+          "standard": "lúc"
+        },
+        {
+          "teencode": "em bank truoc cho anh",
+          "standard": "em chuyển khoản trước cho anh"
+        },
+        {
+          "teencode": "CT",
+          "standard": "chuyển tiền"
+        },
+        {
+          "teencode": "tu",
+          "standard": "từ"
+        },
+        {
+          "teencode": "toi",
+          "standard": "tới"
+        }
+      ],
+      "normalized_sentence": "Số dư tài khoản [NUMBER] -[MONEY] lúc [NUMBER] [TIME]. Số dư [MONEY]. Ref [NUMBER]. Em chuyển khoản trước cho anh [MONEY]. Chuyển tiền từ [NUMBER] [NAME] tới [NUMBER]… Số dư tài khoản [NUMBER] -[MONEY] lúc [NUMBER] [TIME]. Số dư [MONEY]. Ref Ecom.[NUMBER].MOMO.[NUMBER].CashIn",
+      "obfuscation_types": [
+        "NO_DIACRITICS",
+        "ABBREVIATION"
+      ],
+      "hard_negative": true,
+      "message_type": "biến động số dư"
+    }
+  }
+]
