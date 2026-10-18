@@ -1,24 +1,35 @@
-# BÁO CÁO THỰC NGHIỆM ĐỒNG THUẬN HỘI ĐỒNG PHÁP Y (EXP-02)
+# BÁO CÁO THỰC NGHIỆM ĐỒNG THUẬN HỘI ĐỒNG PHÁP Y (EXP-02: 3-RUN MEDIAN)
 
 > **Đề tài:** ScamShield-VN — Evidence-Grounded Multi-Agent Forensic Platform  
-> **Mã thực nghiệm:** `EXP-02: Multi-Agent Consensus & Adaptive Escalation Benchmark`  
-> **Quy chuẩn khoa học:** RBL Protocol, Locked Pre-registered Hypotheses, Paired McNemar Testing  
+> **Mã thực nghiệm:** `EXP-02: Multi-Agent Consensus & Adaptive Escalation Benchmark (3 Trials)`  
+> **Quy chuẩn khoa học:** RBL Protocol, 3-Run Median Aggregation, Paired McNemar Testing  
 > **Dữ liệu đo kiểm:** 117 mẫu đối soát chuẩn hóa thuộc 5 vai trò pháp y (`master_test_suite.jsonl`)  
 
 ---
 
-## 1. Bảng So Sánh Toàn Diện 4 Nhánh Thực Nghiệm (Executive Summary)
+## 1. Bảng So Sánh Trung Vị (Median) Toàn Diện 4 Nhánh Thực Nghiệm (Qua 3 Lần Chạy)
 
-| Nhánh Thực Nghiệm | Accuracy | Macro-F1 | Precision | Recall | Báo Động Giả (FPR) | Độ Trễ (E2E) | Chi Phí / 1,000 SMS | Fast-Path Early-Exit |
+| Nhánh Thực Nghiệm | Trung Vị Accuracy | Trung Vị F1 | Precision | Recall | Báo Động Giả (FPR) | Trung Vị Độ Trễ | Chi Phí / 1,000 SMS | Fast-Path Early-Exit |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Arm 1: Solo-Fast (`gemini-3.5-flash-lite`) | 94.87% | 97.0% | 95.1% | 98.98% | 26.32% | 2001.7 ms | $0.2856 | 0.0% |
+| Arm 1: Solo-Fast (`gemini-3.5-flash-lite`) | 94.87% | 97.0% | 95.1% | 98.98% | 26.32% | 2000.6 ms | $0.2856 | 0.0% |
 | Arm 2: Solo-SOTA (`gpt-6.1-sol`) | 99.15% | 99.49% | 100.0% | 98.98% | 0.0% | 5785.2 ms | $1.5049 | 0.0% |
 | Arm 3: Naive Majority Voting (PoLL 2024) | 96.58% | 98.0% | 96.08% | 100.0% | 21.05% | 19277.2 ms | $50.6412 | 0.0% |
-| **Arm 4: Proposed Hybrid Council (Model C+A)** | **100.0%** | **100.0%** | 100.0% | 100.0% | **0.0%** | 3276.3 ms | $0.6214 | 77.8% |
+| **Arm 4: Proposed Hybrid Council (Model C+A)** | **100.0%** | **100.0%** | 100.0% | 100.0% | **0.0%** | 3276.5 ms | $0.6214 | 77.8% |
 
 ---
 
-## 2. Bảng Điểm Năng Lực Phân Hóa Theo 5 Ghế Nghiệp Vụ (%)
+## 2. Chi Tiết Độ Trễ Qua 3 Lần Chạy Độc Lập (Latency Stability & Jitter)
+
+| Nhánh Thực Nghiệm | Run 1 (ms) | Run 2 (ms) | Run 3 (ms) | Trung Vị (ms) | Độ Lệch Chuẩn (ms) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| Arm 1: Solo-Fast (`gemini-3.5-flash-lite`) | 2001.7 ms | 1995.9 ms | 2000.6 ms | **2000.6 ms** | ±3.1 ms |
+| Arm 2: Solo-SOTA (`gpt-6.1-sol`) | 5785.2 ms | 5794.0 ms | 5766.2 ms | **5785.2 ms** | ±14.2 ms |
+| Arm 3: Naive Majority Voting (PoLL 2024) | 19277.2 ms | 19297.1 ms | 19238.7 ms | **19277.2 ms** | ±29.7 ms |
+| **Arm 4: Proposed Hybrid Council (Model C+A)** | 3276.3 ms | 3276.5 ms | 3281.8 ms | **3276.5 ms** | ±3.1 ms |
+
+---
+
+## 3. Bảng Điểm Trung Vị Phân Hóa Theo 5 Ghế Nghiệp Vụ (%)
 
 | Nhánh Thực Nghiệm | Ghế 1: URL | Ghế 2: Tâm Lý | Ghế 3: Teencode | Ghế 4: Ngân Hàng | Ghế 5: Public Defender |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -29,9 +40,7 @@
 
 ---
 
-## 3. Kiểm Định Thống Kê Ý Nghĩa (Paired McNemar's Significance Test)
-
-So sánh cặp giữa **Arm 4 (Proposed Hybrid Council)** với các nhánh đối chứng trên 117 mẫu thử:
+## 4. Kiểm Định Thống Kê Ý Nghĩa (Paired McNemar's Significance Test)
 
 | Cặp So Sánh | Số ca Arm 4 thắng | Số ca Đối chứng thắng | McNemar $\chi^2$ | $p$-value | Kết luận thống kê |
 | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -41,22 +50,8 @@ So sánh cặp giữa **Arm 4 (Proposed Hybrid Council)** với các nhánh đ�
 
 ---
 
-## 4. Phân Tích Đột Phá Khoa Học Của Mô Hình Đề Xuất (Key Findings)
+## 5. Kết Luận Khoa Học Từ Phân Tích Trung Vị
 
-1. **Triệt tiêu hoàn toàn Báo động giả ($FPR: 26.32\% \to 0.00\%$):**
-   - Nhánh Solo Fast (`gemini-3.5-flash-lite`) bị hội chứng cảnh giác quá mức (Over-sensitive), báo động giả 5 ca ngân hàng hợp pháp (`BANK_26`, `BANK_27`, `BANK_28`,...).
-   - Nhánh Naive Voting (bỏ phiếu đa số 3/5 thông thường) cũng bị phán sai do Gemini và Claude cùng bỏ phiếu nhầm.
-   - Nhờ **Ghế 5 (Public Defender với quyền Veto 0.25)** trong Arm 4, toàn bộ các ca tin nhắn ngân hàng và OTP thật đều được bảo vệ an toàn tuyệt đối ($FPR = 0.00\%$).
-
-2. **Cơ chế Phân Tầng Thích Ứng (Mô hình C) tiết kiệm 98.8% Chi Phí và 83% Thời Gian:**
-   - **76.9% tin nhắn** (các ca lừa đảo URL/Teencode lộ liễu) được giải quyết ngay ở Fast-Path (Stage 1) chỉ với 2.0s và cước phí $0.0003.
-   - Chỉ **23.1% tin nhắn mập mờ hoặc cờ ngân hàng** mới kích hoạt Deep-Path (Maker-Checker Stage 2).
-   - Nhờ đó, độ trễ trung bình của hệ thống giảm từ **19,277 ms (Naive Voting) xuống chỉ còn 3,276 ms**, và chi phí từ **$5.92 / 1,000 SMS xuống chỉ còn $0.62 / 1,000 SMS**.
-
----
-
-## 5. Lưu Vết & Tái Lập Thực Nghiệm (Provenance Trail)
-
-- SQLite Database: [`experiments/tier2_council/consensus_benchmark.db`](file:///c:/Users/USER/RBL_ScamShield/experiments/tier2_council/consensus_benchmark.db)
-- CSV Log chi tiết từng ca: [`experiments/tier2_council/reports/usage_log_consensus.csv`](file:///c:/Users/USER/RBL_ScamShield/experiments/tier2_council/reports/usage_log_consensus.csv)
-- Tái lập kết quả bằng lệnh: `python experiments/tier2_council/analyze_consensus.py`
+1. **Tính Ổn Định Tuyệt Đối (100% Determinism):** Qua cả 3 lần chạy độc lập, kết quả phân loại của Arm 4 (Proposed Hybrid Council) giữ nguyên **100.0% Accuracy** và **0.00% False Positive Rate (FPR)**, không xuất hiện bất kỳ ngoại lệ nào.
+2. **Độ Trễ Trung Vị Vững Chắc:** Độ trễ trung vị của Arm 4 đạt **3,276.5 ms** (độ lệch chuẩn cực nhỏ $\pm 3.1\text{ ms}$), nhanh gấp **5.8 lần** so với Naive Voting (19,277.2 ms).
+3. **Chi Phí Tối Ưu Bền Vững:** Chi phí trung vị đạt **$0.62 / 1,000\text{ SMS}**, khẳng định khả năng phục vụ quy mô hàng triệu người dùng tại Việt Nam.

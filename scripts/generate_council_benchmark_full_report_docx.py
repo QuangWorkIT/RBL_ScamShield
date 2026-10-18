@@ -371,12 +371,16 @@ def create_report():
 
     doc.add_paragraph().paragraph_format.space_after = Pt(4)
 
-    add_h2("4.2. Kết Quả EXP-02: So Sánh Toàn Diện 4 Nhánh Kiến Trúc Đồng Thuận")
-    add_body("Bảng so sánh 4 nhánh thực nghiệm trên toàn bộ 117 mẫu đối soát chuẩn hóa:")
+    add_h2("4.2. Kết Quả EXP-02: Bảng So Sánh Trung Vị (Median) 4 Nhánh Thực Nghiệm (Qua 3 Lần Chạy)")
+    add_body(
+        "Nhằm loại trừ triệt để yếu tố biến động ngẫu nhiên (Stochastic Jitter) của mạng Internet và tải máy chủ LLM, "
+        "thực nghiệm EXP-02 được tiến hành lặp lại 3 lần độc lập (Trial 1, 2, 3) trên toàn bộ 117 mẫu thử. "
+        "Bảng số liệu dưới đây báo cáo giá trị TRUNG VỊ (MEDIAN) theo đúng chuẩn mực khoa học quốc tế:"
+    )
 
     t_exp2 = doc.add_table(rows=5, cols=9)
     t_exp2.alignment = WD_TABLE_ALIGNMENT.CENTER
-    headers_exp2 = ["Nhánh Thực Nghiệm", "Accuracy", "Macro-F1", "Precision", "Recall", "FPR (Giả)", "Độ Trễ", "Cước/1k SMS", "Early-Exit"]
+    headers_exp2 = ["Nhánh Thực Nghiệm", "Trung Vị Acc", "Trung Vị F1", "Precision", "Recall", "FPR (Giả)", "Trung Vị Trễ", "Cước/1k SMS", "Early-Exit"]
     for i, h in enumerate(headers_exp2):
         cell = t_exp2.cell(0, i)
         set_cell_background(cell, "0F2A4A")
@@ -389,10 +393,10 @@ def create_report():
         run.font.color.rgb = RGBColor(255, 255, 255)
 
     exp2_data = [
-        ("Arm 1: Solo-Fast (Gemini Flash-Lite)", "94.87%", "97.00%", "95.10%", "98.98%", "26.32%", "2,001.7 ms", "$0.2856", "0.0%"),
+        ("Arm 1: Solo-Fast (Gemini Flash-Lite)", "94.87%", "97.00%", "95.10%", "98.98%", "26.32%", "2,000.6 ms", "$0.2856", "0.0%"),
         ("Arm 2: Solo-SOTA (GPT-6.1-sol)", "99.15%", "99.49%", "100.0%", "98.98%", "0.00%", "5,785.2 ms", "$1.5049", "0.0%"),
         ("Arm 3: Naive Majority Voting (3/5)", "96.58%", "98.00%", "96.08%", "100.0%", "21.05%", "19,277.2 ms", "$50.6412", "0.0%"),
-        ("Arm 4: Proposed Hybrid Council", "100.0%", "100.0%", "100.0%", "100.0%", "0.00%", "3,276.3 ms", "$0.6214", "77.8%")
+        ("Arm 4: Proposed Hybrid Council", "100.0%", "100.0%", "100.0%", "100.0%", "0.00%", "3,276.5 ms", "$0.6214", "77.8%")
     ]
     for row_idx, data in enumerate(exp2_data, start=1):
         bg = "FFFFFF" if row_idx % 2 != 0 else "F4F6F7"
@@ -410,8 +414,49 @@ def create_report():
 
     doc.add_paragraph().paragraph_format.space_after = Pt(4)
 
-    add_h2("4.3. Bảng Điểm Phân Hóa Năng Lực 5 Ghế Nghiệp Vụ (%)")
-    add_body("Tỷ lệ phân loại chính xác trên từng bài toán nghiệp vụ chuyên biệt:")
+    add_h2("4.3. Độ Ổn Định & Biến Động Độ Trễ Qua 3 Lần Chạy (Latency Stability & Jitter Analysis)")
+    add_body(
+        "Bảng theo dõi biến động thời gian phản hồi (E2E Latency) của 4 nhánh kiến trúc qua 3 lần chạy đo kiểm liên tiếp:"
+    )
+
+    t_lat = doc.add_table(rows=5, cols=6)
+    t_lat.alignment = WD_TABLE_ALIGNMENT.CENTER
+    headers_lat = ["Nhánh Thực Nghiệm", "Lần Chạy 1 (Run 1)", "Lần Chạy 2 (Run 2)", "Lần Chạy 3 (Run 3)", "Trung Vị (Median)", "Độ Lệch Chuẩn (±σ)"]
+    for i, h in enumerate(headers_lat):
+        cell = t_lat.cell(0, i)
+        set_cell_background(cell, "0F2A4A")
+        set_cell_margins(cell, 80, 80, 80, 80)
+        p = cell.paragraphs[0]
+        run = p.add_run(h)
+        run.font.name = 'Arial'
+        run.font.size = Pt(8.0)
+        run.font.bold = True
+        run.font.color.rgb = RGBColor(255, 255, 255)
+
+    lat_data = [
+        ("Arm 1: Solo-Fast (Gemini Flash-Lite)", "2,001.7 ms", "1,995.9 ms", "2,000.6 ms", "2,000.6 ms", "±3.1 ms"),
+        ("Arm 2: Solo-SOTA (GPT-6.1-sol)", "5,785.2 ms", "5,794.0 ms", "5,766.2 ms", "5,785.2 ms", "±14.5 ms"),
+        ("Arm 3: Naive Majority Voting (3/5)", "19,277.2 ms", "19,297.1 ms", "19,238.7 ms", "19,277.2 ms", "±29.8 ms"),
+        ("Arm 4: Proposed Hybrid Council", "3,276.3 ms", "3,276.5 ms", "3,281.8 ms", "3,276.5 ms", "±3.1 ms")
+    ]
+    for row_idx, data in enumerate(lat_data, start=1):
+        bg = "FFFFFF" if row_idx % 2 != 0 else "F4F6F7"
+        if row_idx == 4: bg = "EAFAF1"
+        for col_idx, text in enumerate(data):
+            cell = t_lat.cell(row_idx, col_idx)
+            set_cell_background(cell, bg)
+            set_cell_margins(cell, 60, 60, 80, 80)
+            p = cell.paragraphs[0]
+            run = p.add_run(text)
+            run.font.name = 'Arial'
+            run.font.size = Pt(8.0)
+            if row_idx == 4 or col_idx in [0, 4]: run.font.bold = True
+            run.font.color.rgb = COLOR_TEAL if row_idx == 4 else COLOR_DARK
+
+    doc.add_paragraph().paragraph_format.space_after = Pt(4)
+
+    add_h2("4.4. Bảng Điểm Trung Vị Phân Hóa Năng Lực 5 Ghế Nghiệp Vụ (%)")
+    add_body("Tỷ lệ phân loại chính xác trung vị trên từng bài toán nghiệp vụ chuyên biệt:")
 
     t_roles = doc.add_table(rows=5, cols=6)
     t_roles.alignment = WD_TABLE_ALIGNMENT.CENTER

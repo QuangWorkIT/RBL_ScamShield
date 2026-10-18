@@ -1,5 +1,5 @@
-arm_id,accuracy,macro_f1,precision,recall,fpr,avg_latency_ms,cost_per_1k_usd,early_exit_rate
-ARM_1_SOLO_FAST,94.87,97.0,95.1,98.98,26.32,2001.7,0.2856,0.0
+arm_id,median_accuracy,median_macro_f1,median_precision,median_recall,median_fpr,median_latency_ms,median_cost_per_1k,early_exit_rate
+ARM_1_SOLO_FAST,94.87,97.0,95.1,98.98,26.32,2000.6,0.2856,0.0
 ARM_2_SOLO_SOTA,99.15,99.49,100.0,98.98,0.0,5785.2,1.5049,0.0
 ARM_3_NAIVE_VOTING,96.58,98.0,96.08,100.0,21.05,19277.2,50.6412,0.0
-ARM_4_HYBRID_COUNCIL,100.0,100.0,100.0,100.0,0.0,3276.3,0.6214,77.8
+ARM_4_HYBRID_COUNCIL,100.0,100.0,100.0,100.0,0.0,3276.5,0.6214,77.8
