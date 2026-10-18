@@ -24,8 +24,20 @@ import asyncio
 import sqlite3
 import argparse
 import logging
+import random
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass
+
+
+def mask_secret(text: str) -> str:
+    """Mask API keys and sensitive tokens in URLs or logs."""
+    if not text:
+        return text
+    text = re.sub(r'(key=)([A-Za-z0-9_\-\.]+)', r'\1***REDACTED***', text)
+    text = re.sub(r'(Bearer\s+)([A-Za-z0-9_\-\.]+)', r'\1***REDACTED***', text)
+    text = re.sub(r'(AQ\.[A-Za-z0-9_\-]{8})[A-Za-z0-9_\-]+', r'\1***', text)
+    text = re.sub(r'(sk-[A-Za-z0-9]{4})[A-Za-z0-9_\-]+', r'\1***', text)
+    return text
 
 try:
     import httpx
@@ -135,37 +147,73 @@ class BaseClient:
 
 
 class GeminiDirectClient(BaseClient):
-    """Google Gemini Direct API client."""
+    """Google Gemini Direct API client with Header Auth and Exponential Backoff on 429."""
     def __init__(self, model_id: str, cost_calc: CostCalculator, api_key: str):
         super().__init__(model_id, cost_calc)
         self.api_key = api_key
-        self.endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={api_key}"
+        # Never expose api_key in URL parameters; pass via x-goog-api-key header
+        self.endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent"
 
     async def execute(self, prompt: str) -> LLMResult:
         t0 = time.perf_counter()
+        headers = {
+            "x-goog-api-key": self.api_key,
+            "Content-Type": "application/json"
+        }
         payload = {
             "contents": [{"parts": [{"text": prompt}]}],
             "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
             "generationConfig": {"temperature": 0.1, "maxOutputTokens": 512}
         }
-        try:
-            async with httpx.AsyncClient(timeout=30.0) as client:
-                res = await client.post(self.endpoint, json=payload)
-                dur_ms = (time.perf_counter() - t0) * 1000.0
+        max_retries = 5
+        base_backoff = 4.0
 
-                if res.status_code != 200:
-                    return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, dur_ms, 0, 0, 0.0, f"HTTP_{res.status_code}_{res.text[:100]}")
+        async with httpx.AsyncClient(timeout=35.0) as client:
+            for attempt in range(max_retries):
+                try:
+                    res = await client.post(self.endpoint, headers=headers, json=payload)
+                    dur_ms = (time.perf_counter() - t0) * 1000.0
 
-                data = res.json()
-                text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
-                v, conf = extract_verdict(text)
-                in_tok = len(prompt.split()) * 2
-                out_tok = len(text.split()) * 2
-                cost = self.cost_calc.calculate(self.model_id, in_tok, out_tok)
+                    if res.status_code == 429:
+                        if attempt < max_retries - 1:
+                            retry_after = res.headers.get("Retry-After")
+                            if retry_after and retry_after.isdigit():
+                                sleep_sec = float(retry_after) + random.uniform(0.5, 1.5)
+                            else:
+                                sleep_sec = (base_backoff * (1.8 ** attempt)) + random.uniform(0.5, 2.0)
+                            logger.warning(f"⚠️ [Gemini 429 Rate Limit] Backing off {sleep_sec:.2f}s before retry ({attempt+1}/{max_retries})...")
+                            await asyncio.sleep(sleep_sec)
+                            continue
+                        else:
+                            return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, dur_ms, 0, 0, 0.0, "HTTP_429_RateLimit_Exhausted")
 
-                return LLMResult(self.model_id, text, v, conf, round(dur_ms * 0.4, 1), round(dur_ms, 1), in_tok, out_tok, cost)
-        except Exception as e:
-            return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, (time.perf_counter() - t0) * 1000, 0, 0, 0.0, str(e)[:120])
+                    if res.status_code != 200:
+                        masked_err = mask_secret(res.text[:120])
+                        return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, dur_ms, 0, 0, 0.0, f"HTTP_{res.status_code}_{masked_err}")
+
+                    data = res.json()
+                    candidates = data.get("candidates", [])
+                    if not candidates or "content" not in candidates[0]:
+                        return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, dur_ms, 0, 0, 0.0, "EMPTY_CANDIDATE")
+
+                    text = candidates[0]["content"]["parts"][0]["text"].strip()
+                    v, conf = extract_verdict(text)
+                    in_tok = len(prompt.split()) * 2
+                    out_tok = len(text.split()) * 2
+                    cost = self.cost_calc.calculate(self.model_id, in_tok, out_tok)
+
+                    return LLMResult(self.model_id, text, v, conf, round(dur_ms * 0.4, 1), round(dur_ms, 1), in_tok, out_tok, cost)
+                except httpx.RequestError as exc:
+                    dur_ms = (time.perf_counter() - t0) * 1000.0
+                    if attempt < max_retries - 1:
+                        sleep_sec = 3.0 + random.uniform(0.5, 1.5)
+                        logger.warning(f"⚠️ [Gemini Network Error: {mask_secret(str(exc))}] Retrying in {sleep_sec:.2f}s ({attempt+1}/{max_retries})...")
+                        await asyncio.sleep(sleep_sec)
+                        continue
+                    return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, dur_ms, 0, 0, 0.0, mask_secret(str(exc))[:120])
+                except Exception as e:
+                    dur_ms = (time.perf_counter() - t0) * 1000.0
+                    return LLMResult(self.model_id, "", "ERROR", 0.0, 0.0, dur_ms, 0, 0, 0.0, mask_secret(str(e))[:120])
 
 
 class VibiProxyClient(BaseClient):
@@ -335,7 +383,9 @@ async def run_benchmark(models: List[str], suite_path: str, limit: int = 0, resu
             print(f"  [{idx:3d}/{len(samples):3d}] {s_id:10s} {icon} Pred: {res.predicted_label:5s} | Gold: {sample.get('gold_label'):5s} | Dur: {res.duration_ms:6.1f}ms | Cost: ${res.cost_usd:.6f}")
 
             # Inter-request delay to prevent 429
-            await asyncio.sleep(0.4)
+            # Gemini Free Tier limit is 15 RPM (1 request / 4.0s). Use 4.5s buffer.
+            delay_sec = 4.5 if "gemini" in m_id else 0.4
+            await asyncio.sleep(delay_sec)
 
         acc = (correct_cnt / evaluated_cnt * 100.0) if evaluated_cnt else 0.0
         print(f"  🏁 Finished {m_id}: {evaluated_cnt} evaluated, Accuracy: {acc:.1f}%")
