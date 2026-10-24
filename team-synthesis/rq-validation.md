@@ -6,16 +6,34 @@
 
 ---
 
-## 1. Câu Hỏi Nghiên Cứu Nguyên Văn (RQ) & Khung PICO
+## 1. Các Câu Hỏi Nghiên Cứu (Research Questions) & Hệ Thống Khung PICO 2 Tầng
 
-> **Phát biểu RQ:**  
-> *"Với bộ dữ liệu SMS tiếng Việt ($N=2,665$), mô hình ViSoBERT kết hợp hàm mất mát Weighted Binary Cross-Entropy (WBCE, $\alpha=5.0$) khác các mô hình đối chứng (PhoBERT-base, FPT ViBERT, PhoBERT-large, Gemini 3.5 Flash) thế nào về Scam Recall và CPU Latency?"*
+### 1.1 RQ1 & Khung PICO-1: Hiệu Quả Kiến Trúc 2 Tầng & Đánh Đổi Kinh Tế - Kỹ Thuật (Cascade Effectiveness, Latency & Economic Trade-Off)
 
-### Bốn Mảnh PICO:
-* **P (Population / Task):** $2.665$ tin nhắn SMS và tin nhắn mạng xã hội tiếng Việt; tập Frozen Test Set niêm phong $N=267$ mẫu (192 Ham, 75 Scam).
-* **I (Intervention):** Mô hình ViSoBERT tiền huấn luyện trên dữ liệu mạng xã hội tiếng Việt, tích hợp hàm mất mát Cost-Sensitive WBCE ($\alpha=5.0$) và tối ưu suy luận On-device CPU qua định dạng ONNX INT8.
-* **C (Comparison / Baselines):** PhoBERT-base-v2, FPT ViBERT-base, PhoBERT-large (370M tham số), và Gemini 3.5 Flash (5-shot In-Context Learning).
-* **O (Outcome / Metrics):** Scam Recall ($\ge 95.0\%$), Macro-F1, Precision, và CPU Latency ($\le 30\text{ ms/tin nhắn}$).
+> **Phát biểu RQ1:**  
+> *"How much does the proposed 2-tier cascaded architecture (ViSoBERT Edge + Cloud Council) improve Vietnamese scam detection performance (Macro-F1, Scam Recall, and critical False Positive Rate) while reducing end-to-end latency and API token expenditure compared to standalone edge baselines (B1, B2 Encoders) and standalone Cloud LLMs (B3 Gemini 3.5 Flash / P-single [Wang et al., ACL 2024](https://aclanthology.org/2024.acl-long.271/))?"*
+
+* **P (Population / Task):** Ngữ liệu $2.665$ tin nhắn SMS và tin nhắn mạng xã hội tiếng Việt; tập Frozen Test Set niêm phong $N=267$ mẫu (192 Ham, 75 Scam).
+* **I (Intervention):** Kiến trúc phân tầng 2 cấp đề xuất (Proposed Two-Tier Cascaded Architecture: On-device ViSoBERT INT8 ONNX với ngưỡng định tuyến $\tau = 0.90$ + Cloud Forensic Council).
+* **C (Comparison / Baselines):** Các mô hình Standalone Edge Encoders (PhoBERT-base, FPT ViBERT, PhoBERT-large) VÀ các mô hình Standalone Cloud LLMs (Gemini 3.5 Flash 5-shot, Single-LLM `P-single` [[Wang et al., ACL 2024](https://aclanthology.org/2024.acl-long.271/)]).
+* **O (Outcome / Metrics):** Macro-F1, Scam Recall ($\ge 95.0\%$), False Positive Rate (FPR), End-to-end Latency, và API Token Expenditure ($ / token reduction).
+
+---
+
+### 1.2 RQ2 & Khung PICO-2: Độ Tin Cậy Hội Đồng Pháp Y, Khắc Phục Lỗi Tương Quan & Triệt Tiêu Báo Động Giả (Forensic Council Consensus Reliability, Correlated Error Mitigation & Alarm Fatigue Suppression)
+
+> **Phát biểu RQ2:**  
+> *"Does a heterogeneous 3-Agent Forensic Council with an active Public Defender veto and maker-checker verification significantly mitigate correlated error failure modes ([Kim et al., ICML 2025](https://arxiv.org/abs/2506.07962); [Smit et al., ICML 2024](https://arxiv.org/abs/2311.17371); [Ladha, 1992](https://www.jstor.org/stable/2111584)) and suppress Alarm Fatigue (0.00% FPR on authentic banking SMS) compared to an optimized Single-LLM baseline with Structured Forensic Prompting (P-single, [Wang et al., ACL 2024](https://aclanthology.org/2024.acl-long.271/))?"*
+
+* **P (Population / Task):** Bộ dữ liệu thách thức pháp y chuyên sâu (**Forensic Challenge Suite**, $N=117$ hard samples gồm tin nhắn phân vân biên giới $0.10 \le P < 0.90$, OTP ngân hàng thật dễ bị over-flagging, phishing homoglyph, teencode giật gân).
+* **I (Intervention):** Hội đồng Pháp y Đa Tác tử Dị thể (Heterogeneous 3-Agent Forensic Council) với ghế **Public Defender Veto ($-0.25$)** và cơ chế kiểm định chéo **Maker-Checker** (gpt-6.1-sol Maker, gemini-3.5-flash-lite / gemini-3.8-flash Checker).
+* **C (Comparison / Baselines):** 
+  1. Standalone Single-LLM với Structured Forensic Prompting (**`P-single`**, [Wang et al., ACL 2024](https://aclanthology.org/2024.acl-long.271/)).
+  2. Cấu hình 3 tác tử không có phản biện (**3-Agent Naive** - loại bỏ Public Defender).
+* **O (Outcome / Metrics):** 
+  1. Khả năng bẻ gãy lỗi tương quan tập thể (**Correlated Error Mitigation** - [Kim et al., 2025](https://arxiv.org/abs/2506.07962); [Ladha, 1992](https://www.jstor.org/stable/2111584)).
+  2. Triệt tiêu báo động giả (**Alarm Fatigue Suppression**: $0.00\%$ FPR trên tin nhắn giao dịch/OTP hợp lệ).
+  3. Độ tin cậy đồng thuận & Kiểm định McNemar (Consensus Reliability & McNemar paired significance test).
 
 ---
 
