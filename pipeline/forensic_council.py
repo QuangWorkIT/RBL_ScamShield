@@ -27,6 +27,10 @@ import asyncio
 from typing import Dict, List, Optional, Any, Tuple
 import yaml
 import requests
+from dotenv import load_dotenv
+
+# Auto-load environment variables from project root
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"))
 
 logger = logging.getLogger("ScamShield.ForensicCouncil")
 if not logger.handlers:
@@ -72,14 +76,19 @@ class CircuitBreaker:
 
 class ForensicCouncil:
     """
-    Tier-2 5-Agent Multi-LLM Forensic Council Orchestrator.
+    Tier-2 Multi-LLM Forensic Council Orchestrator.
+    Supports dynamic role ablation (3-Agent vs 5-Agent) and standardized 3-label consensus:
+    - SCAM-RISK
+    - LOW-RISK
+    - UNKNOWN
     """
 
-    def __init__(self, config_path: Optional[str] = None):
+    def __init__(self, config_path: Optional[str] = None, active_roles: Optional[List[str]] = None):
         base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         self.config_path = config_path or os.path.join(base_dir, "config", "council_registry.yaml")
         self.config = self._load_config()
         self.specialists = self.config.get("specialists", {})
+        self.active_roles = active_roles
         self.consensus_rules = self.config.get("consensus_rules", {})
         self.cb_cfg = self.config.get("circuit_breaker", {})
         self.circuit_breaker = CircuitBreaker(
@@ -113,12 +122,18 @@ class ForensicCouncil:
             raise ValueError("GEMINI_API_KEY missing")
 
         api_model = model.lower()
-        if "pro" in api_model:
-            api_model = "gemini-1.5-pro"
-        elif "3.5" in api_model or "lite" in api_model:
+        # Enforce Rule 5: NEVER call Gemini < 3.5
+        if any(api_model.startswith(p) for p in ["gemini-1.", "gemini-2."]):
+            logger.warning(f"Guardrail triggered: Rejecting '{api_model}' (< Gemini 3.5). Promoting to gemini-3.5-flash-lite.")
             api_model = "gemini-3.5-flash-lite"
-        else:
-            api_model = "gemini-1.5-flash"
+        elif "3.5" in api_model and "lite" in api_model:
+            api_model = "gemini-3.5-flash-lite"
+        elif "3.8" in api_model:
+            api_model = "gemini-3.8-flash"
+        elif "3.5" in api_model:
+            api_model = "gemini-3.5-flash"
+        elif "gemini" in api_model:
+            api_model = "gemini-3.5-flash-lite"
 
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{api_model}:generateContent"
         headers = {
@@ -136,7 +151,7 @@ class ForensicCouncil:
 
         loop = asyncio.get_event_loop()
         def _sync_post():
-            resp = requests.post(url, headers=headers, json=payload, timeout=12.0)
+            resp = requests.post(url, headers=headers, json=payload, timeout=15.0)
             resp.raise_for_status()
             return resp.json()
 
@@ -246,7 +261,7 @@ class ForensicCouncil:
 Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
 {{
     "role_id": "{role_id}",
-    "vote": "SCAM" hoặc "HAM",
+    "vote": "SCAM-RISK" | "LOW-RISK" | "UNKNOWN",
     "scam_prob": 0.0 - 1.0,
     "confidence": 0.0 - 1.0,
     "risk_level": "LOW" | "MEDIUM" | "HIGH" | "CRITICAL",
@@ -260,6 +275,7 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
         raw_chain = [primary, secondary] + spec.get("standby_priority_chain", [])
         chain = [m for m in raw_chain if m]
         last_error = ""
+        api_calls_count = 0
 
         for model_candidate in chain:
             if not model_candidate:
@@ -271,6 +287,7 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
             try:
                 # Try calling live API if keys available
                 parsed_result = None
+                api_calls_count += 1
                 if ("gpt" in model_candidate or "sol" in model_candidate or "claude" in model_candidate) and (self.openai_api_key or self.anthropic_api_key):
                     parsed_result = await self._call_vibi_api(model_candidate, user_prompt, system_prompt)
                 elif "gemini" in model_candidate and self.gemini_api_key:
@@ -282,11 +299,20 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
                 elif self.openai_api_key:
                     parsed_result = await self._call_vibi_api("gpt-6.1-sol", user_prompt, system_prompt)
                 else:
+                    api_calls_count -= 1  # Not a remote API call
                     # Deterministic heuristic fallback when external multi-provider keys are absent
                     parsed_result = self._local_heuristic_agent_eval(role_key, message)
 
                 elapsed_ms = (time.perf_counter() - start_time) * 1000
                 self.circuit_breaker.record_success(model_candidate)
+
+                raw_vote = str(parsed_result.get("vote", "LOW-RISK")).upper()
+                if any(kw in raw_vote for kw in ["SCAM", "DANGER"]):
+                    norm_vote = "SCAM-RISK"
+                elif any(kw in raw_vote for kw in ["HAM", "SAFE", "LOW"]):
+                    norm_vote = "LOW-RISK"
+                else:
+                    norm_vote = "UNKNOWN"
 
                 return {
                     "role_key": role_key,
@@ -294,13 +320,14 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
                     "display_name": display_name,
                     "model_used": model_candidate,
                     "weight": weight,
-                    "vote": parsed_result.get("vote", "HAM").upper(),
+                    "vote": norm_vote,
                     "scam_prob": float(parsed_result.get("scam_prob", 0.5)),
                     "confidence": float(parsed_result.get("confidence", 0.85)),
                     "risk_level": parsed_result.get("risk_level", "LOW"),
                     "key_cues": parsed_result.get("key_cues", []),
                     "analysis": parsed_result.get("analysis", "Phân tích hoàn tất."),
                     "latency_ms": round(elapsed_ms, 2),
+                    "api_calls_count": api_calls_count,
                     "status": "SUCCESS",
                 }
 
@@ -318,13 +345,14 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
             "display_name": display_name,
             "model_used": "local-rule-fallback",
             "weight": weight,
-            "vote": fallback_res.get("vote", "HAM"),
+            "vote": fallback_res.get("vote", "LOW-RISK"),
             "scam_prob": fallback_res.get("scam_prob", 0.5),
             "confidence": fallback_res.get("confidence", 0.70),
             "risk_level": fallback_res.get("risk_level", "LOW"),
             "key_cues": fallback_res.get("key_cues", []),
             "analysis": f"Fallback nội bộ do toàn bộ chuỗi mô hình gián đoạn ({last_error}).",
             "latency_ms": round(elapsed_ms, 2),
+            "api_calls_count": api_calls_count,
             "status": "DEGRADED_FALLBACK",
         }
 
@@ -340,61 +368,89 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
         if role_key == "cyber_threat_url_inspector":
             if has_url and not any(valid in msg_lower for valid in ["vietcombank.com.vn", "mbbank.com.vn", "techcombank.com.vn"]):
                 return {
-                    "vote": "SCAM", "scam_prob": 0.95, "confidence": 0.92, "risk_level": "CRITICAL",
+                    "vote": "SCAM-RISK", "scam_prob": 0.95, "confidence": 0.92, "risk_level": "CRITICAL",
                     "key_cues": ["Tên miền lạ / không chính ngạch", "URL giả mạo"],
                     "analysis": "Phát hiện liên kết ngoài hạ tầng ngân hàng chính thức, nguy cơ phishing cao."
                 }
             return {
-                "vote": "HAM", "scam_prob": 0.10, "confidence": 0.90, "risk_level": "LOW",
+                "vote": "LOW-RISK", "scam_prob": 0.10, "confidence": 0.90, "risk_level": "LOW",
                 "key_cues": ["Không có link độc hại"], "analysis": "Hạ tầng URL an toàn hoặc không chứa liên kết."
+            }
+
+        elif role_key == "cyber_financial_analyst":
+            # Merged URL & Banking Protocol Inspection
+            is_scam_url = has_url and not any(valid in msg_lower for valid in ["vietcombank.com.vn", "mbbank.com.vn", "techcombank.com.vn"])
+            is_bank_violation = has_bank and ("nhap ma" in msg_lower or "truy cap" in msg_lower or "cap nhat sinh trac" in msg_lower or "khoa" in msg_lower)
+            if is_scam_url or is_bank_violation:
+                return {
+                    "vote": "SCAM-RISK", "scam_prob": 0.97, "confidence": 0.96, "risk_level": "CRITICAL",
+                    "key_cues": ["Vi phạm QĐ 2345/QĐ-NHNN", "Liên kết ngân hàng giả mạo"],
+                    "analysis": "Phát hiện liên kết mạo danh hạ tầng ngân hàng hoặc yêu cầu can thiệp tài khoản trái quy chuẩn NHNN."
+                }
+            return {
+                "vote": "LOW-RISK", "scam_prob": 0.08, "confidence": 0.92, "risk_level": "LOW",
+                "key_cues": ["Giao thức tài chính an toàn"], "analysis": "Nội dung tuân thủ quy chuẩn thông báo giao dịch thông thường."
             }
 
         elif role_key == "social_engineering_profiler":
             if has_urgency or has_greed:
                 return {
-                    "vote": "SCAM", "scam_prob": 0.88, "confidence": 0.89, "risk_level": "HIGH",
+                    "vote": "SCAM-RISK", "scam_prob": 0.88, "confidence": 0.89, "risk_level": "HIGH",
                     "key_cues": ["Tạo áp lực thời gian khẩn cấp", "Mồi chài tài chính"],
                     "analysis": "Có dấu hiệu thao túng tâm lý sợ hãi bị khóa tài khoản hoặc bẫy việc làm ảo."
                 }
             return {
-                "vote": "HAM", "scam_prob": 0.15, "confidence": 0.85, "risk_level": "LOW",
+                "vote": "LOW-RISK", "scam_prob": 0.15, "confidence": 0.85, "risk_level": "LOW",
                 "key_cues": ["Văn phong trung tính"], "analysis": "Không ghi nhận áp lực tâm lý hay mồi chài bất thường."
+            }
+
+        elif role_key == "psycholinguistic_slang_profiler":
+            # Merged Social Engineering & Teencode Evasion Profiler
+            if has_urgency or has_greed or has_teencode:
+                return {
+                    "vote": "SCAM-RISK", "scam_prob": 0.92, "confidence": 0.93, "risk_level": "HIGH",
+                    "key_cues": ["Thao túng tâm lý", "Biến thể teencode lách lọc"],
+                    "analysis": "Phát hiện kỹ thuật tạo áp lực tâm lý khẩn cấp kết hợp ngụy trang teencode để vượt qua bộ lọc viễn thông."
+                }
+            return {
+                "vote": "LOW-RISK", "scam_prob": 0.12, "confidence": 0.88, "risk_level": "LOW",
+                "key_cues": ["Ngôn ngữ tự nhiên", "Không áp lực"], "analysis": "Ngữ pháp tiếng Việt tự nhiên, không ghi nhận đòn bẩy tâm lý hay từ khóa ngụy trang."
             }
 
         elif role_key == "vietnamese_teencode_analyst":
             if has_teencode:
                 return {
-                    "vote": "SCAM", "scam_prob": 0.90, "confidence": 0.91, "risk_level": "HIGH",
+                    "vote": "SCAM-RISK", "scam_prob": 0.90, "confidence": 0.91, "risk_level": "HIGH",
                     "key_cues": ["Cố ý thay thế ký tự số", "Ngôn ngữ teencode lách bộ lọc"],
                     "analysis": "Phát hiện từ khóa bị cố tình ngụy trang nhằm vượt mặt hệ sinh thái lọc từ khóa viễn thông."
                 }
             return {
-                "vote": "HAM", "scam_prob": 0.20, "confidence": 0.88, "risk_level": "LOW",
+                "vote": "LOW-RISK", "scam_prob": 0.20, "confidence": 0.88, "risk_level": "LOW",
                 "key_cues": ["Ngôn ngữ chuẩn mực"], "analysis": "Ngữ pháp tiếng Việt tự nhiên, không có biến thể lách lọc."
             }
 
         elif role_key == "banking_protocol_verifier":
             if has_bank and ("nhap ma" in msg_lower or "truy cap" in msg_lower or "cap nhat sinh trac" in msg_lower):
                 return {
-                    "vote": "SCAM", "scam_prob": 0.96, "confidence": 0.95, "risk_level": "CRITICAL",
+                    "vote": "SCAM-RISK", "scam_prob": 0.96, "confidence": 0.95, "risk_level": "CRITICAL",
                     "key_cues": ["Vi phạm quy định NHNN", "Yêu cầu click link cập nhật thông tin"],
                     "analysis": "Theo Quyết định 2345/QĐ-NHNN, ngân hàng không bao giờ yêu cầu click link tin nhắn để cập nhật thông tin hay sinh trắc học."
                 }
             return {
-                "vote": "HAM", "scam_prob": 0.12, "confidence": 0.90, "risk_level": "LOW",
+                "vote": "LOW-RISK", "scam_prob": 0.12, "confidence": 0.90, "risk_level": "LOW",
                 "key_cues": ["Đúng định dạng thông báo"], "analysis": "Nội dung phù hợp quy trình thông báo biến động số dư hoặc OTP tiêu chuẩn."
             }
 
         elif role_key == "public_defender_advocate":
-            # Advocate for HAM if standard bank transaction OTP or utility notice
+            # Advocate for LOW-RISK if standard bank transaction OTP or utility notice
             if "ma otp" in msg_lower or "khong chia se ma nay" in msg_lower or "tien dien" in msg_lower:
                 return {
-                    "vote": "HAM", "scam_prob": 0.05, "confidence": 0.96, "risk_level": "LOW",
+                    "vote": "LOW-RISK", "scam_prob": 0.05, "confidence": 0.96, "risk_level": "LOW",
                     "key_cues": ["Khuyến cáo bảo mật chuẩn", "Cấu trúc tin nhắn hệ thống"],
-                    "analysis": "Tin nhắn chứa cảnh báo 'Không chia sẻ mã này' và mã số OTP tiêu chuẩn. Đây là thông báo dịch vụ an toàn, đề xuất bảo vệ nhãn HAM để tránh Alarm Fatigue."
+                    "analysis": "Tin nhắn chứa cảnh báo 'Không chia sẻ mã này' và mã số OTP tiêu chuẩn. Đây là thông báo dịch vụ an toàn, đề xuất bảo vệ nhãn LOW-RISK để tránh Alarm Fatigue."
                 }
             return {
-                "vote": "HAM" if not (has_url and has_urgency) else "SCAM",
+                "vote": "LOW-RISK" if not (has_url and has_urgency) else "SCAM-RISK",
                 "scam_prob": 0.35 if not (has_url and has_urgency) else 0.80,
                 "confidence": 0.80,
                 "risk_level": "LOW" if not (has_url and has_urgency) else "HIGH",
@@ -402,22 +458,24 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
                 "analysis": "Không đủ bằng chứng đanh thép để khẳng định lừa đảo; ưu tiên bảo toàn giao dịch người dùng."
             }
 
-        return {"vote": "HAM", "scam_prob": 0.20, "confidence": 0.80, "risk_level": "LOW", "key_cues": [], "analysis": "Trung tính."}
+        return {"vote": "LOW-RISK", "scam_prob": 0.20, "confidence": 0.80, "risk_level": "LOW", "key_cues": [], "analysis": "Trung tính."}
 
-    async def evaluate_council(self, message: str) -> Dict[str, Any]:
+    async def evaluate_council(self, message: str, active_roles: Optional[List[str]] = None) -> Dict[str, Any]:
         """
-        Coordinates all 5 forensic specialists concurrently with Early-Exit Fast-Path.
+        Coordinates forensic specialists concurrently with Early-Exit Fast-Path.
+        Supports dynamic role ablation (e.g. 3-Agent vs 5-Agent).
         """
         start_overall = time.perf_counter()
         tasks = []
-        specialist_keys = list(self.specialists.keys())
+        roles_to_run = active_roles or self.active_roles or list(self.specialists.keys())
 
-        for key in specialist_keys:
-            spec = self.specialists[key]
-            tasks.append(asyncio.create_task(self._execute_agent(key, spec, message)))
+        for key in roles_to_run:
+            if key in self.specialists:
+                spec = self.specialists[key]
+                tasks.append(asyncio.create_task(self._execute_agent(key, spec, message)))
 
         early_exit_enabled = self.config.get("council_metadata", {}).get("early_exit_enabled", True)
-        early_exit_threshold = self.config.get("council_metadata", {}).get("early_exit_threshold", 4)
+        early_exit_threshold = 4 if len(roles_to_run) >= 5 else (len(roles_to_run) if len(roles_to_run) <= 3 else 3)
         completed_results: List[Dict[str, Any]] = []
         early_exit_triggered = False
 
@@ -428,12 +486,12 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
             
             # Check for Early-Exit Fast Path
             if early_exit_enabled and len(completed_results) >= early_exit_threshold:
-                scam_votes = sum(1 for r in completed_results if r["vote"] == "SCAM")
-                ham_votes = sum(1 for r in completed_results if r["vote"] == "HAM")
+                scam_votes = sum(1 for r in completed_results if r["vote"] == "SCAM-RISK")
+                ham_votes = sum(1 for r in completed_results if r["vote"] == "LOW-RISK")
                 if scam_votes >= early_exit_threshold or ham_votes >= early_exit_threshold:
                     early_exit_triggered = True
                     logger.info(
-                        f"Early-Exit Supermajority reached ({scam_votes} SCAM vs {ham_votes} HAM out of {len(completed_results)}). "
+                        f"Early-Exit Supermajority reached ({scam_votes} SCAM-RISK vs {ham_votes} LOW-RISK out of {len(completed_results)}). "
                         f"Resolving early to optimize latency."
                     )
                     break
@@ -451,38 +509,50 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
         # Check Public Defender Advocate input
         pd_result = next((r for r in completed_results if r["role_key"] == "public_defender_advocate"), None)
         defender_intervened = False
-        if pd_result and pd_result["vote"] == "HAM" and pd_result["confidence"] >= 0.85:
+        if pd_result and pd_result["vote"] == "LOW-RISK" and pd_result["confidence"] >= 0.80:
             # Public Defender strongly defends legitimacy -> Apply anti-false-alarm boost
             veto_boost = self.consensus_rules.get("public_defender_veto_boost", 0.25)
             weighted_scam_prob = max(0.0, weighted_scam_prob - veto_boost)
             defender_intervened = True
             logger.info("Public Defender intervened: Reduced scam probability to avoid False Positive Alarm Fatigue.")
 
-        # Determine Final Label
+        # Determine Final Label (SCAM-RISK, LOW-RISK, UNKNOWN)
+        scam_votes = sum(1 for r in completed_results if r["vote"] == "SCAM-RISK")
+        ham_votes = sum(1 for r in completed_results if r["vote"] == "LOW-RISK")
         unanimous_thresh = self.consensus_rules.get("unanimous_scam_threshold", 0.85)
-        suspected_thresh = self.consensus_rules.get("suspected_scam_threshold", 0.60)
-        ham_thresh = self.consensus_rules.get("ham_threshold", 0.40)
+        scam_risk_thresh = self.consensus_rules.get("scam_risk_threshold", self.consensus_rules.get("suspected_scam_threshold", 0.60))
+        low_risk_thresh = self.consensus_rules.get("low_risk_threshold", self.consensus_rules.get("ham_threshold", 0.40))
+        
+        # Check for vote contradiction / tie / ambiguity
+        vote_contradiction = (scam_votes > 0 and ham_votes > 0 and abs(scam_votes - ham_votes) <= 1)
 
-        if weighted_scam_prob >= suspected_thresh:
-            final_label = "SCAM"
+        if weighted_scam_prob >= scam_risk_thresh and not (vote_contradiction and weighted_scam_prob < 0.68):
+            final_label = "SCAM-RISK"
             risk_level = "CRITICAL" if weighted_scam_prob >= unanimous_thresh else "HIGH"
-        elif weighted_scam_prob < ham_thresh:
-            final_label = "HAM"
+        elif weighted_scam_prob < low_risk_thresh and not vote_contradiction:
+            final_label = "LOW-RISK"
             risk_level = "LOW"
         else:
-            final_label = "SUSPICIOUS_REVIEW"
+            final_label = "UNKNOWN"
             risk_level = "MEDIUM"
 
         total_elapsed_ms = (time.perf_counter() - start_overall) * 1000
 
         # Synthesize Multi-Perspective Rationale
         analyses = [f"- **{r['display_name']} ({r['model_used']})**: {r['analysis']}" for r in completed_results]
+        conclusion_map = {
+            "SCAM-RISK": "🚨 NGUY CƠ LỪA ĐẢO (SCAM-RISK)",
+            "LOW-RISK": "✓ AN TOÀN / GIAO DỊCH HỢP PHÁP (LOW-RISK)",
+            "UNKNOWN": "⚠️ KHÔNG XÁC ĐỊNH / VÙNG PHÂN VÂN (UNKNOWN - CẦN THẨM ĐỊNH THÊM)",
+        }
         unified_rationale = (
-            f"**Kết luận Hội đồng:** {'LỪA ĐẢO NGUY HIỂM' if final_label == 'SCAM' else 'TIN NHẮN HỢP PHÁP'}.\n"
+            f"**Kết luận Hội đồng:** {conclusion_map.get(final_label, final_label)}.\n"
             f"Tỷ lệ đồng thuận điều chỉnh: {weighted_scam_prob*100:.1f}%. "
-            f"({'Kích hoạt Early-Exit Fast-Path' if early_exit_triggered else 'Biểu quyết đầy đủ 5 thành viên'}).\n"
+            f"({'Kích hoạt Early-Exit Fast-Path' if early_exit_triggered else f'Biểu quyết đầy đủ {len(completed_results)} thành viên'}).\n"
             + "\n".join(analyses)
         )
+
+        total_api_calls = sum(r.get("api_calls_count", 0) for r in completed_results)
 
         return {
             "message": message,
@@ -492,15 +562,16 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
             "total_latency_ms": round(total_elapsed_ms, 2),
             "early_exit_triggered": early_exit_triggered,
             "defender_intervened": defender_intervened,
+            "total_api_calls": total_api_calls,
             "specialist_votes": {r["role_key"]: r for r in completed_results},
             "unified_rationale": unified_rationale,
             "active_council_size": len(completed_results),
             "estimated_council_cost_usd": round(0.00015 * len(completed_results), 6),
         }
 
-    def evaluate_sync(self, message: str) -> Dict[str, Any]:
+    def evaluate_sync(self, message: str, active_roles: Optional[List[str]] = None) -> Dict[str, Any]:
         """Synchronous wrapper for integration with standard pipelines."""
-        return asyncio.run(self.evaluate_council(message))
+        return asyncio.run(self.evaluate_council(message, active_roles=active_roles))
 
 
 if __name__ == "__main__":
