@@ -6,12 +6,12 @@ This section describes the benchmark dataset curation protocol, mathematical for
 \subsection{Benchmark Dataset and Frozen Test Partition}
 We curated a unified corpus of $2,664$ genuine Vietnamese telecommunications messages by merging verified public repositories, community reports from ChongLuaDao, and national cybersecurity warning feeds (\texttt{data/raw/vietnamese\_sms\_merged\_all.csv}). The corpus contains $1,918$ benign messages ($72.0\%$) and $746$ confirmed scam instances ($28.0\%$).
 
-To establish an uncompromised evaluation standard, we applied a stratified split with a fixed random seed of 42:
+To establish an evaluation standard, a stratified split with random seed 42 was used. The E2E runner specifies \\texttt{test\\_size=0.100187}:
 \begin{itemize}
     \item \textbf{Training and Internal Validation Partition ($90\%$):} $2,397$ messages utilized for hyperparameter optimization, loss weighting search, and model convergence.
     \item \textbf{Frozen Test Partition ($10\%$):} Exactly \textbf{$N = 267$ messages} ($192$ Ham, $75$ Scam).
 \end{itemize}
-The $N=267$ Frozen Test Set was not used during fine-tuning, threshold selection, or pipeline development. It was kept separate until the final evaluation.
+The frozen test set is specified as $N=267$ ($192$ Ham and $75$ Scam). The E2E runner reconstructs it from the merged corpus instead of loading the separate test CSV. Strict isolation from threshold selection and pipeline development requires supporting experiment logs. The merged corpus has 2,664 records (1,918 label-0; 746 label-1) but only 2,630 unique message IDs; duplicate-ID handling should be documented.
 
 \subsection{Model Architecture and ONNX Edge Quantization}
 ViSoBERT (\texttt{uitnlp/visobert})~\cite{nguyen2023visobert} was selected as our primary on-device backbone encoder. ViSoBERT employs an XLM-RoBERTa architecture comprising 12 transformer encoder layers, 768 hidden dimensions, 12 attention heads, and approximately 97M parameters paired with a custom vocabulary of 15,000 SentencePiece tokens. Pre-trained on a curated corpus of Vietnamese social network communications, ViSoBERT captures domain-specific contextual representations for emerging internet slang, teencode, emojis, and non-diacritic text.
@@ -29,9 +29,9 @@ To impose an explicit inductive bias favoring scam recall, we formulate the \tex
 where $y_i \in \{0, 1\}$ represents the ground-truth binary label ($0 = \text{Ham}$, $1 = \text{Scam}$), $\hat{y}_i \in [0, 1]$ denotes the predicted sigmoid probability, and $\alpha > 1$ represents the cost penalty scalar assigned to False Negatives. Differentiating Eq.~(\ref{eq:wbce}) with respect to model logits $z_i$ reveals the asymmetric gradient magnitude:
 \begin{equation}
 \label{eq:wbce_gradient}
-\frac{\partial \mathcal{L}_{\text{WBCE}}}{\partial z_i} = \begin{cases} \alpha (\hat{y}_i - 1), & \text{if } y_i = 1 \text{ (False Negative penalty)} \\ \hat{y}_i, & \text{if } y_i = 0 \text{ (False Positive penalty)} \end{cases}
+\frac{\partial \mathcal{L}_{\text{WBCE}}}{\partial z_i} = \frac{1}{N}\begin{cases} \alpha (\hat{y}_i - 1), & \text{if } y_i = 1 \text{ (False Negative penalty)} \\ \hat{y}_i, & \text{if } y_i = 0 \text{ (False Positive penalty)} \end{cases}
 \end{equation}
-In our experiments, we set $\alpha = 5.0$, exerting a 5-fold steeper gradient update whenever a true scam message is misclassified, effectively driving backpropagation to prioritize high Scam Recall. Models were fine-tuned using the AdamW optimizer with an initial learning rate of $2\times 10^{-5}$, linear warmup ratio of $0.1$, weight decay of $0.01$, and batch size of 16 across 4 epochs with FP16 mixed-precision.
+In this study, we set $\alpha=5.0$, meaning that the loss contribution of a scam sample is multiplied by a factor of five relative to the unweighted BCE term. This weighting encourages the model to focus more on reducing missed scam messages. It does not guarantee correct classification of every sample, nor does it mean that the gradient for every scam sample is always five times larger than that for every benign sample. The reviewed repository materials do not expose training configuration/logs needed to verify the optimizer hyperparameters stated in the original draft; these require traceable run configuration before being treated as verified.
 
 \subsection{Two-Tier Routing Framework}
 To resolve the operational trade-off between edge efficiency and deep semantic reasoning over ambiguous messages, ScamShield-VN implements a two-tier hybrid architecture governed by a confidence threshold $\tau = 0.90$:
@@ -41,11 +41,13 @@ To resolve the operational trade-off between edge efficiency and deep semantic r
 \end{equation}
 \begin{enumerate}
     \item \textbf{Tier 1 (Edge Screener):} Incoming messages are processed on-device via quantized ViSoBERT. High-confidence predictions ($P \ge 0.90$) receive instantaneous verdicts ($< 15.8\text{ ms}$), absorbing approximately $80\text{--}85\%$ of daily message volume locally with zero cloud API costs.
-    \item \textbf{Tier 2 (Forensic Council Escalation):} Ambiguous messages ($P < 0.90$) are escalated to a 5-Agent Multi-LLM Forensic Council comprising: (1) Forensic Lead, (2) Psycholinguistic Analyst, (3) Cyber Threat Intelligence Agent, (4) Financial Fraud Specialist, and (5) Public Defender / Devil's Advocate (tasked with actively identifying legitimate brand markers to suppress false alarms).
+    \item \textbf{Tier 2 (Forensic Council Escalation):} Ambiguous messages are escalated to the repository-configured 5-specialist council: Cyber Threat and URL Inspector, Social Engineering Profiler, Vietnamese Linguistic and Teencode Analyst, Banking Protocol Verifier, and Public Defender. The implementation uses specialist-specific weights and outputs SCAM, HAM, or SUSPICIOUS\_REVIEW. It does not implement the 3-agent weights or SCAM-RISK/LOW-RISK/UNKNOWN labels in the external checklist.
 \end{enumerate}
 
 \subsection{Evaluation Metrics and Statistical Testing Protocol}
 Model performance is evaluated on the isolated $N=267$ Frozen Test Set using four primary metrics: Scam Recall ($TP / [TP + FN]$), Precision ($TP / [TP + FP]$), Macro F1-Score, and False Positive Rate ($FPR = FP / [FP + TN]$).
+
+The E2E runner defines 267 reconstructed test samples plus 117 forensic challenges ($N=384$). The external checklist's 98 scam and 19 legitimate OTP composition, Cohen's $\kappa=0.88$, and claimed ONNX INT8 runtime are not independently established by reviewed source files. API-key masking alone does not establish redaction of message PII before API submission; accordingly, this method does not claim verified compliance with Article 25 of Decree 13/2023/ND-CP.
 
 To rigorously establish statistical significance across paired binary classifiers on the identical test partition, we perform two-tailed \textbf{McNemar's tests} with continuity correction ($\alpha = 0.05$):
 \begin{equation}
