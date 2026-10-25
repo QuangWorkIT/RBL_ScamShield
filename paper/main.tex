@@ -35,7 +35,7 @@
     Nguyen Minh Quang$^{1}$\\[0.4em]
     $^{1}$Department of Software Engineering, FPT University, Ho Chi Minh City, Vietnam\\[0.2em]
     Email: cristand2825@gmail.com (N.T.H.); huylq@fpt.edu.vn (L.Q.H.); haiphuchoang2675@gmail.com (H.H.P.);\\
-    tranpth@fpt.edu.vn (P.T.H.T.); quangnm@fpt.edu.vn (N.M.Q.)\\[0.2em]
+    pthoangtran0511@gmail.com (P.T.H.T.); quangnm@fpt.edu.vn (N.M.Q.)\\[0.2em]
     $^*$Corresponding author
 }
 
@@ -52,14 +52,14 @@ scam detection, phishing detection, large language models, cost-sensitive learni
 \section{Introduction}
 \label{sec:intro}
 
-Telecommunications fraud, smishing (SMS phishing), and impersonation scams have proliferated rapidly across Southeast Asia, inflicting estimated losses exceeding 18.9 trillion VND (approximately US \$744 million) in Vietnam during 2024 alone, according to national cybersecurity surveys~\cite{vietnamnet2024scams}. Threat actors systematically exploit deceptive social engineering maneuvers, bombarding mobile subscribers with fake banking alerts, counterfeit tax arrears summons, and fraudulent upfront-fee employment offers~\cite{mst2024scams}. In the Vietnamese telecommunications space, this operational threat landscape is further compounded by localized linguistic evasion tactics: scammers intentionally deploy regional internet slang, teencode abbreviations, non-standard punctuation, and diacritic-stripped text to circumvent static regex filters and carrier-level keyword blacklists~\cite{seo2024ondevice}.
+Telecommunications fraud, smishing (SMS phishing), and impersonation scams have proliferated rapidly across Southeast Asia, inflicting estimated losses exceeding 18.9 trillion VND (approximately US \$744 million) in Vietnam during 2024 alone, according to national cybersecurity surveys~\cite{vietnamnet2024scams}, \cite{mst2024scams}. Threat actors systematically exploit deceptive social engineering maneuvers, bombarding mobile subscribers with fake banking alerts, counterfeit tax arrears summons, and fraudulent upfront-fee employment offers~\cite{mst2024scams}. In the Vietnamese telecommunications space, this operational threat landscape is further compounded by localized linguistic evasion tactics: scammers intentionally deploy regional internet slang, teencode abbreviations, non-standard punctuation, and diacritic-stripped text to circumvent static regex filters and carrier-level keyword blacklists~\cite{seo2024ondevice}.
 
 Recent advances in natural language processing (NLP) have led to the deployment of deep transformer models and Large Language Models (LLMs) for digital threat mitigation~\cite{saias2025advances}. For Vietnamese text, foundational encoders such as PhoBERT~\cite{nguyen2020phobert} and multilingual variants have demonstrated competitive sentence-level representation. Simultaneously, generative LLMs (e.g., GPT-4, Gemini) have showcased emergent contextual reasoning when evaluated on phishing detection benchmarks~\cite{mahendru2024securenet}.
 
 However, existing defensive paradigms suffer from three fundamental limitations:
 \begin{enumerate}
     \item \textbf{Symmetric Loss Misalignment:} Conventional deep learning classifiers are universally optimized using standard symmetric cross-entropy loss. In telecommunications security, error outcomes have highly asymmetric costs: misclassifying a benign notification (False Positive) causes transient user inconvenience, whereas missing an active smishing lure (False Negative) results in catastrophic financial extortion. Symmetric loss drives decision boundaries toward majority benign classes, missing subtle fraud attempts.
-    \item \textbf{Single-LLM Alarm Fatigue:} Commercial cloud LLMs deployed as solitary screeners exhibit extreme hyper-vigilance. Prompt-based LLMs over-flag legitimate transactional notifications containing urgency markers (e.g., banking One-Time Passwords) or embedded short URLs, causing precision to collapse and generating intolerable false alarm rates ($>35\%$).
+    \item \textbf{Single-LLM Alarm Fatigue:} Commercial cloud LLMs deployed as solitary screeners exhibit extreme hyper-vigilance. Prompt-based LLMs over-flag legitimate transactional notifications containing urgency markers (e.g., banking One-Time Passwords) or embedded short URLs, causing precision to collapse and generating intolerable false alarm rates ($>35\%$, specifically $\text{FAR} = 35.53\%$ observed on Gemini 3.5 Flash).
     \item \textbf{Operational Bottlenecks and Privacy Constraints:} Standalone cloud LLM querying incurs multi-second latency bottlenecks ($3\text{--}15\text{ s/message}$) and recurring per-token financial costs, while violating mobile edge privacy requirements by transmitting personal telecommunications payloads off-device without privacy safeguards.
 \end{enumerate}
 
@@ -71,7 +71,7 @@ To address these gaps, this study presents \textbf{ScamShield-VN}, an evidence-g
     \item \textbf{Two-Tier Cascaded System and Pareto Profiling:} We deploy an end-to-end cascaded pipeline governed by confidence routing threshold $\tau = 0.90$. On a combined benchmark ($N=384$), the system resolves $96.6\%$ of traffic locally at the edge, achieving $97.40\%$ overall accuracy, $97.11\%$ scam recall, and an average latency of $267.5\text{ ms}$ at $\$0.0509$ per 1,000 messages.
 \end{itemize}
 
-The remainder of this paper is structured according to the JAIT publication guidelines: Section~\ref{sec:literature} reviews relevant literature thematically and chronologically. Section~\ref{sec:method} outlines materials, loss formulation, ONNX edge quantization, and the multi-agent council. Section~\ref{sec:results} presents empirical results, statistical tests, and Pareto trade-off discussions. Finally, Section~\ref{sec:conclusion} concludes the paper with engineering implications and future directions.
+The remainder of this paper is structured according to the JAIT publication guidelines: Section~\ref{sec:literature} (Literature Review) reviews relevant literature thematically and chronologically across four research themes. Section~\ref{sec:method} (Materials and Methods) outlines materials, loss formulation, ONNX edge quantization, and the multi-agent council. Section~\ref{sec:results} (Result and Discussion) presents empirical results, statistical tests, and Pareto trade-off discussions. Finally, Section~\ref{sec:conclusion} (Conclusion) concludes the paper with engineering implications and future directions.
 
 \section{Literature Review}
 \label{sec:literature}
