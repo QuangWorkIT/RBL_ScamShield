@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-10-20 19:40:16",
+  "total_evaluated": 117,
+  "arms": {
+    "5_agent_full": {
+      "arm_name": "5-Agent Full Council",
+      "role_count": 5,
+      "total_evaluated": 117,
+      "accuracy": 94.87,
+      "precision": 100.0,
+      "recall": 93.88,
+      "macro_f1": 96.84,
+      "fpr": 0.0,
+      "fnr": 6.12,
+      "unknown_count": 4,
+      "median_latency_ms": 10141.4,
+      "cost_per_1k_usd": 0.75,
+      "api_calls_total": 500,
+      "api_calls_avg_per_sample": 4.27
+    },
+    "3_agent_with_defender": {
+      "arm_name": "3-Agent Council (With Defender)",
+      "role_count": 3,
+      "total_evaluated": 117,
+      "accuracy": 90.6,
+      "precision": 100.0,
+      "recall": 88.78,
+      "macro_f1": 94.05,
+      "fpr": 0.0,
+      "fnr": 11.22,
+      "unknown_count": 10,
+      "median_latency_ms": 11020.3,
+      "cost_per_1k_usd": 0.45,
+      "api_calls_total": 351,
+      "api_calls_avg_per_sample": 3.0
+    }
+  },
+  "statistical_tests": {
+    "5_vs_3_with_defender": {
+      "b": 5,
+      "c": 0,
+      "chi2": 3.2,
+      "p_value": 0.0736,
+      "significant": false
+    }
+  }
+}

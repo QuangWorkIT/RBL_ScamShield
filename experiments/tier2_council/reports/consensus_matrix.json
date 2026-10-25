@@ -1,0 +1,393 @@
+{
+  "summary": [
+    {
+      "arm_id": "ARM_1_SOLO_FAST",
+      "iterations_count": 3,
+      "median_accuracy": 94.87,
+      "median_macro_f1": 97.0,
+      "median_precision": 95.1,
+      "median_recall": 98.98,
+      "median_fpr": 26.32,
+      "median_latency_ms": 2000.6,
+      "latency_runs": [
+        2001.7,
+        1995.9,
+        2000.6
+      ],
+      "median_cost_per_1k": 0.2856,
+      "median_early_exit_rate": 0.0,
+      "runs_accuracy": [
+        94.87,
+        94.87,
+        94.87
+      ],
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 66.7,
+        "ROLE_SOC_ENG": 96.7,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    },
+    {
+      "arm_id": "ARM_2_SOLO_SOTA",
+      "iterations_count": 3,
+      "median_accuracy": 99.15,
+      "median_macro_f1": 99.49,
+      "median_precision": 100.0,
+      "median_recall": 98.98,
+      "median_fpr": 0.0,
+      "median_latency_ms": 5785.2,
+      "latency_runs": [
+        5785.2,
+        5794.0,
+        5766.2
+      ],
+      "median_cost_per_1k": 1.5049,
+      "median_early_exit_rate": 0.0,
+      "runs_accuracy": [
+        99.15,
+        99.15,
+        99.15
+      ],
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 100.0,
+        "ROLE_SOC_ENG": 96.7,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    },
+    {
+      "arm_id": "ARM_3_NAIVE_VOTING",
+      "iterations_count": 3,
+      "median_accuracy": 96.58,
+      "median_macro_f1": 98.0,
+      "median_precision": 96.08,
+      "median_recall": 100.0,
+      "median_fpr": 21.05,
+      "median_latency_ms": 19277.2,
+      "latency_runs": [
+        19277.2,
+        19297.1,
+        19238.7
+      ],
+      "median_cost_per_1k": 50.6412,
+      "median_early_exit_rate": 0.0,
+      "runs_accuracy": [
+        96.58,
+        96.58,
+        96.58
+      ],
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 73.3,
+        "ROLE_SOC_ENG": 100.0,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    },
+    {
+      "arm_id": "ARM_4_HYBRID_COUNCIL",
+      "iterations_count": 3,
+      "median_accuracy": 100.0,
+      "median_macro_f1": 100.0,
+      "median_precision": 100.0,
+      "median_recall": 100.0,
+      "median_fpr": 0.0,
+      "median_latency_ms": 3276.5,
+      "latency_runs": [
+        3276.3,
+        3276.5,
+        3281.8
+      ],
+      "median_cost_per_1k": 0.6214,
+      "median_early_exit_rate": 77.8,
+      "runs_accuracy": [
+        100.0,
+        100.0,
+        100.0
+      ],
+      "roles": {
+        "ROLE_BANK_VERIFY": 100.0,
+        "ROLE_CYBER_URL": 100.0,
+        "ROLE_DEFENDER": 100.0,
+        "ROLE_SOC_ENG": 100.0,
+        "ROLE_VN_TEENCODE": 100.0
+      }
+    }
+  ],
+  "mcnemar": {
+    "ARM_1_SOLO_FAST": {
+      "b_arm4_win": 6,
+      "c_other_win": 0,
+      "chi2": 4.1667,
+      "p_value": 0.0412,
+      "statistically_significant": true
+    },
+    "ARM_2_SOLO_SOTA": {
+      "b_arm4_win": 1,
+      "c_other_win": 0,
+      "chi2": 0.0,
+      "p_value": 1.0,
+      "statistically_significant": false
+    },
+    "ARM_3_NAIVE_VOTING": {
+      "b_arm4_win": 4,
+      "c_other_win": 0,
+      "chi2": 2.25,
+      "p_value": 0.1336,
+      "statistically_significant": false
+    }
+  },
+  "per_iteration": {
+    "ARM_1_SOLO_FAST": {
+      "1": {
+        "total": 117,
+        "correct": 111,
+        "accuracy": 94.87,
+        "macro_f1": 97.0,
+        "precision": 95.1,
+        "recall": 98.98,
+        "fpr": 26.32,
+        "avg_latency_ms": 2001.7,
+        "cost_per_1k_usd": 0.2856,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 66.7,
+          "ROLE_SOC_ENG": 96.7,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "2": {
+        "total": 117,
+        "correct": 111,
+        "accuracy": 94.87,
+        "macro_f1": 97.0,
+        "precision": 95.1,
+        "recall": 98.98,
+        "fpr": 26.32,
+        "avg_latency_ms": 1995.9,
+        "cost_per_1k_usd": 0.2856,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 66.7,
+          "ROLE_SOC_ENG": 96.7,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "3": {
+        "total": 117,
+        "correct": 111,
+        "accuracy": 94.87,
+        "macro_f1": 97.0,
+        "precision": 95.1,
+        "recall": 98.98,
+        "fpr": 26.32,
+        "avg_latency_ms": 2000.6,
+        "cost_per_1k_usd": 0.2856,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 66.7,
+          "ROLE_SOC_ENG": 96.7,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      }
+    },
+    "ARM_2_SOLO_SOTA": {
+      "1": {
+        "total": 117,
+        "correct": 116,
+        "accuracy": 99.15,
+        "macro_f1": 99.49,
+        "precision": 100.0,
+        "recall": 98.98,
+        "fpr": 0.0,
+        "avg_latency_ms": 5785.2,
+        "cost_per_1k_usd": 1.5049,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 100.0,
+          "ROLE_SOC_ENG": 96.7,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "2": {
+        "total": 117,
+        "correct": 116,
+        "accuracy": 99.15,
+        "macro_f1": 99.49,
+        "precision": 100.0,
+        "recall": 98.98,
+        "fpr": 0.0,
+        "avg_latency_ms": 5794.0,
+        "cost_per_1k_usd": 1.5049,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 100.0,
+          "ROLE_SOC_ENG": 96.7,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "3": {
+        "total": 117,
+        "correct": 116,
+        "accuracy": 99.15,
+        "macro_f1": 99.49,
+        "precision": 100.0,
+        "recall": 98.98,
+        "fpr": 0.0,
+        "avg_latency_ms": 5766.2,
+        "cost_per_1k_usd": 1.5049,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 100.0,
+          "ROLE_SOC_ENG": 96.7,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      }
+    },
+    "ARM_3_NAIVE_VOTING": {
+      "1": {
+        "total": 117,
+        "correct": 113,
+        "accuracy": 96.58,
+        "macro_f1": 98.0,
+        "precision": 96.08,
+        "recall": 100.0,
+        "fpr": 21.05,
+        "avg_latency_ms": 19277.2,
+        "cost_per_1k_usd": 50.6412,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 73.3,
+          "ROLE_SOC_ENG": 100.0,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "2": {
+        "total": 117,
+        "correct": 113,
+        "accuracy": 96.58,
+        "macro_f1": 98.0,
+        "precision": 96.08,
+        "recall": 100.0,
+        "fpr": 21.05,
+        "avg_latency_ms": 19297.1,
+        "cost_per_1k_usd": 50.6412,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 73.3,
+          "ROLE_SOC_ENG": 100.0,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "3": {
+        "total": 117,
+        "correct": 113,
+        "accuracy": 96.58,
+        "macro_f1": 98.0,
+        "precision": 96.08,
+        "recall": 100.0,
+        "fpr": 21.05,
+        "avg_latency_ms": 19238.7,
+        "cost_per_1k_usd": 50.6412,
+        "early_exit_rate": 0.0,
+        "defender_veto_cnt": 0,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 73.3,
+          "ROLE_SOC_ENG": 100.0,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      }
+    },
+    "ARM_4_HYBRID_COUNCIL": {
+      "1": {
+        "total": 117,
+        "correct": 117,
+        "accuracy": 100.0,
+        "macro_f1": 100.0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "fpr": 0.0,
+        "avg_latency_ms": 3276.3,
+        "cost_per_1k_usd": 0.6214,
+        "early_exit_rate": 77.8,
+        "defender_veto_cnt": 19,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 100.0,
+          "ROLE_SOC_ENG": 100.0,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "2": {
+        "total": 117,
+        "correct": 117,
+        "accuracy": 100.0,
+        "macro_f1": 100.0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "fpr": 0.0,
+        "avg_latency_ms": 3276.5,
+        "cost_per_1k_usd": 0.6214,
+        "early_exit_rate": 77.8,
+        "defender_veto_cnt": 19,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 100.0,
+          "ROLE_SOC_ENG": 100.0,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      },
+      "3": {
+        "total": 117,
+        "correct": 117,
+        "accuracy": 100.0,
+        "macro_f1": 100.0,
+        "precision": 100.0,
+        "recall": 100.0,
+        "fpr": 0.0,
+        "avg_latency_ms": 3281.8,
+        "cost_per_1k_usd": 0.6214,
+        "early_exit_rate": 77.8,
+        "defender_veto_cnt": 19,
+        "roles": {
+          "ROLE_BANK_VERIFY": 100.0,
+          "ROLE_CYBER_URL": 100.0,
+          "ROLE_DEFENDER": 100.0,
+          "ROLE_SOC_ENG": 100.0,
+          "ROLE_VN_TEENCODE": 100.0
+        }
+      }
+    }
+  }
+}

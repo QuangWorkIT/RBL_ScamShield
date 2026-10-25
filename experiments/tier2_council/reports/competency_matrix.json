@@ -1,0 +1,82 @@
+[
+  {
+    "model_id": "claude-sonnet-5",
+    "total_runs": 117,
+    "accuracy": 93.16,
+    "precision": 92.45,
+    "recall": 100.0,
+    "f1_score": 96.08,
+    "fpr": 42.11,
+    "avg_ttft_ms": 6727.3,
+    "avg_duration_ms": 19220.9,
+    "total_cost_usd": 2.84106,
+    "cost_per_success": 0.026065,
+    "roles": {
+      "ROLE_BANK_VERIFY": 100.0,
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 53.333333333333336,
+      "ROLE_SOC_ENG": 100.0,
+      "ROLE_VN_TEENCODE": 96.875
+    }
+  },
+  {
+    "model_id": "gemini-3.5-flash-lite",
+    "total_runs": 117,
+    "accuracy": 94.87,
+    "precision": 95.1,
+    "recall": 98.98,
+    "f1_score": 97.0,
+    "fpr": 26.32,
+    "avg_ttft_ms": 800.7,
+    "avg_duration_ms": 2001.7,
+    "total_cost_usd": 0.03341,
+    "cost_per_success": 0.000301,
+    "roles": {
+      "ROLE_BANK_VERIFY": 100.0,
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 66.66666666666666,
+      "ROLE_SOC_ENG": 96.66666666666667,
+      "ROLE_VN_TEENCODE": 100.0
+    }
+  },
+  {
+    "model_id": "gemini-3.8-flash",
+    "total_runs": 1,
+    "accuracy": 100.0,
+    "precision": 100.0,
+    "recall": 100.0,
+    "f1_score": 100.0,
+    "fpr": 0.0,
+    "avg_ttft_ms": 7561.8,
+    "avg_duration_ms": 18904.4,
+    "total_cost_usd": 0.00055,
+    "cost_per_success": 0.00055,
+    "roles": {
+      "ROLE_BANK_VERIFY": 0.0,
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 0.0,
+      "ROLE_SOC_ENG": 0.0,
+      "ROLE_VN_TEENCODE": 0.0
+    }
+  },
+  {
+    "model_id": "gpt-6.1-sol",
+    "total_runs": 117,
+    "accuracy": 99.15,
+    "precision": 100.0,
+    "recall": 98.98,
+    "f1_score": 99.49,
+    "fpr": 0.0,
+    "avg_ttft_ms": 2024.8,
+    "avg_duration_ms": 5785.2,
+    "total_cost_usd": 0.17607,
+    "cost_per_success": 0.001518,
+    "roles": {
+      "ROLE_BANK_VERIFY": 100.0,
+      "ROLE_CYBER_URL": 100.0,
+      "ROLE_DEFENDER": 100.0,
+      "ROLE_SOC_ENG": 96.66666666666667,
+      "ROLE_VN_TEENCODE": 100.0
+    }
+  }
+]

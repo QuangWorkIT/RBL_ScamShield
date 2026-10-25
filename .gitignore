@@ -66,6 +66,14 @@ models/*.safetensors
 models/*.onnx
 models/*.bin
 
+# Allow official 5-runs release weights tracked via Git LFS
+!visobert_5runs_release/*.safetensors
+!visobert_5runs_release/*.onnx
+
 # Exclude synthesized Word reports from Git tracking
 team-synthesis/*.docx
 
+# SQLite Databases & Local Test Caches
+*.db
+*.sqlite
+*.sqlite3

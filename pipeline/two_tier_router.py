@@ -133,18 +133,20 @@ class TwoTierRouter:
                 f"Độ tin cậy Tầng 1 đạt {t1_confidence*100:.1f}% >= {self.tau*100:.0f}% (Ngưỡng an toàn). "
                 f"Phản hồi trực tiếp tại thiết bị, KHÔNG cần gọi Cloud LLM (Tiết kiệm 100% chi phí và tối ưu độ trễ)."
             )
+            standardized_t1_label = "SCAM-RISK" if t1_result["label"] in ["SCAM", "SCAM-RISK"] else "LOW-RISK"
             return {
                 "message": message,
-                "final_label": t1_result["label"],
+                "final_label": standardized_t1_label,
                 "final_confidence": t1_confidence,
-                "is_scam": (t1_result["label"] == "SCAM"),
-                "scam_type": "Detected by Tier 1 Heuristic/Pattern" if t1_result["label"] == "SCAM" else "Legitimate Message",
-                "risk_level": "HIGH" if t1_result["label"] == "SCAM" else "LOW",
-                "explanation": f"Xử lý trực tiếp bởi Tier 1 (PhoBERT Local Fast-Path) với độ tự tin {t1_confidence*100:.1f}% >= {self.tau*100:.0f}%.",
+                "is_scam": (standardized_t1_label == "SCAM-RISK"),
+                "is_unknown": False,
+                "scam_type": "Detected by Tier 1 Heuristic/Pattern" if standardized_t1_label == "SCAM-RISK" else "Legitimate Message",
+                "risk_level": "HIGH" if standardized_t1_label == "SCAM-RISK" else "LOW",
+                "explanation": f"Xử lý trực tiếp bởi Tier 1 (ViSoBERT Local Fast-Path) với độ tự tin {t1_confidence*100:.1f}% >= {self.tau*100:.0f}%.",
                 "routing_path": "TIER_1_DIRECT_FASTPATH",
                 "routing_reason": routing_reason,
-                "tier_used": "Tier 1 (Local CPU PhoBERT)",
-                "model_name": "PhoBERT-base-v2-INT8",
+                "tier_used": "Tier 1 (Local CPU ViSoBERT)",
+                "model_name": "ViSoBERT-5runs-release",
                 "tier1_telemetry": tier1_summary,
                 "tier2_telemetry": {
                     "status": "SKIPPED",
@@ -171,22 +173,24 @@ class TwoTierRouter:
             try:
                 council_res = self.council.evaluate_sync(message)
                 total_elapsed_ms = (time.perf_counter() - start_overall) * 1000 + t1_result["latency_ms"]
+                c_label = council_res["final_label"]
                 return {
                     "message": message,
-                    "final_label": council_res["final_label"],
+                    "final_label": c_label,
                     "final_confidence": council_res["consensus_scam_prob"],
-                    "is_scam": (council_res["final_label"] == "SCAM"),
-                    "scam_type": "Hội đồng Pháp y Đa Tác tử (5 Chuyên gia)",
+                    "is_scam": (c_label == "SCAM-RISK"),
+                    "is_unknown": (c_label == "UNKNOWN"),
+                    "scam_type": "Hội đồng Pháp y Đa Tác tử (Forensic Council)",
                     "risk_level": council_res["risk_level"],
                     "explanation": council_res["unified_rationale"],
                     "routing_path": "TIER_2_FORENSIC_COUNCIL",
                     "routing_reason": routing_reason,
-                    "tier_used": "Tier 2 (5-Agent Forensic Council)",
+                    "tier_used": "Tier 2 (AI Forensic Council)",
                     "model_name": f"ForensicCouncil-v1.1 ({'EarlyExit' if council_res['early_exit_triggered'] else 'FullPanel'})",
                     "tier1_telemetry": tier1_summary,
                     "tier2_telemetry": {
                         "status": "EXECUTED",
-                        "architecture": "5-Agent Multi-LLM Heterogeneous Council",
+                        "architecture": "Multi-LLM Heterogeneous Council",
                         "consensus_score": council_res["consensus_scam_prob"],
                         "early_exit": council_res["early_exit_triggered"],
                         "defender_intervened": council_res["defender_intervened"],
@@ -227,7 +231,7 @@ class TwoTierRouter:
 
                 parsed = json.loads(raw_text)
                 is_scam = parsed.get("is_scam", False)
-                final_label = "SCAM" if is_scam else "HAM"
+                final_label = "SCAM-RISK" if is_scam else "LOW-RISK"
                 final_conf = float(parsed.get("confidence", 0.95))
                 scam_type = parsed.get("scam_type", "Phân tích ngữ cảnh sâu")
                 risk_level = parsed.get("risk_level", "HIGH" if is_scam else "LOW")
@@ -243,6 +247,7 @@ class TwoTierRouter:
                     "final_label": final_label,
                     "final_confidence": round(final_conf, 4),
                     "is_scam": is_scam,
+                    "is_unknown": False,
                     "scam_type": scam_type,
                     "risk_level": risk_level,
                     "explanation": explanation,
@@ -272,18 +277,20 @@ class TwoTierRouter:
         # If Tier 2 failed or API key not present, graceful fallback to Tier 1 decision
         total_elapsed_ms = (time.perf_counter() - start_overall) * 1000 + t1_result["latency_ms"]
         err_msg = t2_response.get("error", "OFFLINE")
+        fallback_label = "SCAM-RISK" if t1_result["label"] in ["SCAM", "SCAM-RISK"] else "LOW-RISK"
         return {
             "message": message,
-            "final_label": t1_result["label"],
+            "final_label": fallback_label,
             "final_confidence": t1_confidence,
-            "is_scam": (t1_result["label"] == "SCAM"),
+            "is_scam": (fallback_label == "SCAM-RISK"),
+            "is_unknown": False,
             "scam_type": "Tier 1 Fallback (Tier 2 Offline)",
-            "risk_level": "MEDIUM" if t1_result["label"] == "SCAM" else "LOW",
+            "risk_level": "MEDIUM" if fallback_label == "SCAM-RISK" else "LOW",
             "explanation": f"Tier 2 không khả dụng ({err_msg}). Hệ thống sử dụng kết quả dự đoán của Tier 1 ({t1_confidence*100:.1f}%).",
             "routing_path": "TIER_1_GRACEFUL_DEGRADATION",
             "routing_reason": f"Tầng 1 phân vân ({t1_confidence*100:.1f}%), nhưng Tầng 2 Cloud tạm thời không khả dụng ({err_msg}) -> Duy trì hoạt động với kết quả Tầng 1.",
             "tier_used": "Tier 1 (Graceful Degradation Mode)",
-            "model_name": "PhoBERT-base-v2-INT8",
+            "model_name": "ViSoBERT-5runs-release",
             "tier1_telemetry": tier1_summary,
             "tier2_telemetry": {
                 "status": "FAILED_OR_OFFLINE",

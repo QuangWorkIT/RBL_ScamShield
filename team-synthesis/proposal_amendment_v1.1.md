@@ -47,8 +47,12 @@ Việc nâng cấp từ Single LLM sang Hội đồng Đa Tác tử được h�
    *Luận điểm:* Sự va chạm quan điểm giữa các tác tử kích hoạt năng lực tự sửa sai (*Self-Correction*), ngăn chặn hội chứng a dua (*Sycophancy*) khi phân tích các tin nhắn có từ ngữ giật gân.
 6. **Karpathy’s LLM Council Framework (Karpathy, 2024):**  
    *Luận điểm:* Kiến trúc điều phối đa mô hình mã nguồn mở chứng minh tính khả thi kỹ thuật trong việc phân luồng và tổng hợp tri thức đa diện trong thời gian thực.
-7. **Định Lý Bồi Thẩm Đoàn Condorcet (Condorcet Jury Theorem):**  
-   *Chứng minh toán học:* Nếu các thành viên bỏ phiếu độc lập có xác suất phán đoán đúng $p > 0.5$, xác suất quyết định của đa số đúng sẽ tiến tới $1.0$ khi kích thước hội đồng tăng. Hội đồng 5 thành viên là điểm bão hòa tối ưu giữa độ chính xác và chi phí/độ trễ.
+7. **Khắc Phục Lỗi Tương Quan & Bác Bỏ Giả Định Độc Lập Condorcet (Kim et al., ICML 2025; Ladha, 1992):**  
+   *Luận điểm & Liên kết:* [Kim et al. (2025)](https://arxiv.org/abs/2506.07962) chứng minh thực nghiệm rằng khi 2 LLMs cùng sai thì có tới 60% trường hợp sai giống nhau dù khác hãng sản xuất (*algorithmic monoculture*). Bác bỏ giả định phiếu bầu độc lập của Định lý Condorcet cổ điển ([Ladha, 1992](https://www.jstor.org/stable/2111584)). Do đó, ScamShield-VN áp dụng cấu trúc hội đồng dị thể kết hợp ghế Public Defender Veto ($-0.25$) để chủ động bẻ gãy hiện tượng ảo giác tập thể và triệt tiêu Alarm Fatigue ($0.00\%$ FPR trên OTP ngân hàng).
+8. **Đánh Đổi Tranh Biện Đa Tác Tử & Cơ Sở Tinh Giản 3-Agent (Smit et al., ICML 2024):**  
+   *Luận điểm & Liên kết:* [Smit et al. (2024)](https://arxiv.org/abs/2311.17371) chỉ ra các hệ thống tranh biện đa tác tử (MAD) không tự động vượt trội các baseline nếu không tối ưu cấu hình và tương tác, dẫn tới bùng nổ độ trễ và chi phí token. Đây là cơ sở khoa học để ScamShield-VN áp dụng nguyên lý Occam's Razor tinh giản từ 5 tác tử xuống Hội đồng 3 tác tử chuyên sâu.
+9. **Thiết Lập Baseline Đối Chứng Mô Hình Đơn Lẻ Mạnh Nhất (Wang et al., ACL 2024):**  
+   *Luận điểm & Liên kết:* [Wang et al. (2024)](https://aclanthology.org/2024.acl-long.271/) đề xuất phương pháp Structured Verification Prompting kết hợp bằng chứng tri thức đa khía cạnh nhằm tăng cường năng lực suy luận của Single LLM. Được ScamShield-VN kế thừa để xây dựng Strong Baseline `P-single` đối sánh công bằng trong RQ1 và RQ2.
 
 ---
 

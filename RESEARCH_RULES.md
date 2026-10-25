@@ -348,6 +348,7 @@ Before submitting any milestone (RBL-1 through RBL-5b), verify against this chec
 - [ ] Counter-evidence matrix explicitly demonstrates gap novelty.
 - [ ] Random seeds, prompt templates, and hyperparameter configurations are fully recorded for 100% reproducibility.
 - [ ] All commit messages adhere to Section 3.2 tagging conventions.
+- [ ] Manuscript strictly adheres to JAIT (Journal of Advances in Information Technology) formatting standard (docs/JAIT-template.doc).
 
 ---
 

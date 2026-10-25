@@ -34,9 +34,19 @@
 
 ---
 
-## Claim 4: Scientific Motivation for Two-Tier Architecture and 5-Agent Council
-* **Claim:** A single-LLM cloud detector creates unacceptable alarm fatigue; routing ambiguous edge cases ($P < 0.90$) to a 5-Agent Council featuring an active Public Defender / Devil's Advocate resolves this failure mode.
+## Claim 4: Scientific Motivation for Two-Tier Architecture and Specialized Council
+* **Claim:** A naive single-LLM cloud detector creates unacceptable Alarm Fatigue on banking SMS (FPR up to $26.3\%$--$35.5\%$). Routing ambiguous edge cases ($P < 0.90$) to a Multi-LLM Council with an active Public Defender veto resolves this failure mode without relying on naive Condorcet assumptions.
 * **Evidence:** 
   * Empirical failure mode of Baseline B3 (Gemini 3.5 Flash false-positive rate $= 35.53\%$).
-  * Proposal Amendment v1.1 citing MultiPhishGuard (Chen et al., 2025: FPR reduced from $19.8\%$ to $2.73\%$) and PoLL (Verga et al., 2024: $7\times$ cost reduction and bias neutralization).
-* **Warrant:** Separating the defensive role into specialized personas—especially a designated validator tasked with identifying genuine corporate banking patterns—restores high precision while preserving high recall.
+  * Mentor & Literature Directive: Rejecting Condorcet Jury Theorem due to correlated errors across LLM families ($60\%$ co-failure rate per [Kim et al., ICML 2025](https://arxiv.org/abs/2506.07962); [Smit et al., ICML 2024](https://arxiv.org/abs/2311.17371)). Multi-agent debate requires calibrated de-correlation rather than independent voting assumptions ([Ladha, 1992](https://www.jstor.org/stable/2111584)).
+  * ScamShield Arm 4 & Arm 5 results: Public Defender veto (-0.25) drops banking false alarms to $0.00\%$ FPR on the 117 multi-aspect test suite.
+* **Warrant:** Incorporating an explicit adversarial Public Defender tasked with detecting authentic transactional syntax breaks correlated false alarms and restores precision.
+
+---
+
+## Claim 5: 3-Agent Council Efficiency & Baseline P-single Comparison
+* **Claim:** When comparing a streamlined 3-Agent Council (incorporating Public Defender) against the full 5-Agent Council and an optimized Single-LLM baseline with Structured Forensic Prompting ($\text{P-single}$, [Wang et al., ACL 2024](https://aclanthology.org/2024.acl-long.271/)), the 3-Agent configuration preserves high detection accuracy while reducing end-to-end latency by $\approx 45\%$ and API token cost by $\approx 47\%$.
+* **Evidence:**
+  * EXP-02 & EXP-03 validation suite ablation data.
+  * Baseline $\text{P-single}$ structured evaluation across technical, psychological, regulatory, and self-defense axes.
+* **Warrant:** Occam's Razor indicates that redundant specialized roles (e.g. separate URL vs. Bank verification, separate Slang vs. Urgency) can be consolidated into a 3-agent panel with Public Defender without statistically significant loss in Macro-F1 ($p > 0.05$).

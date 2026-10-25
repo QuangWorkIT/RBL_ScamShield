@@ -1,0 +1,2 @@
+visobert_5runs_release/*.safetensors filter=lfs diff=lfs merge=lfs -text
+visobert_5runs_release/*.onnx filter=lfs diff=lfs merge=lfs -text
