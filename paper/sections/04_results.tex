@@ -131,7 +131,7 @@ Commercial LLMs operating as solitary screeners exhibit catastrophic false-alarm
 Our benchmarks demonstrate that increasing model parameters cannot substitute for an asymmetric loss formulation. PhoBERT-large contains 370M parameters ($3.4\times$ larger than ViSoBERT) and required $3.45\times$ more training time ($1,457.7\text{ s}$ vs. $422.2\text{ s}$), yet missed $3.29\%$ more scams ($92.33\%$ vs. $95.62\%$). ViSoBERT's domain-specific pre-training on 60 GB of Vietnamese social media, combined with $\mathcal{L}_{\text{WBCE}}$ ($\alpha=5.0$), proved far more impactful than raw parameter scaling.
 
 \subsubsection{Data Privacy and Safety-First Verdict Protocol}
-In compliance with Article 25 of Vietnamese Decree 13/2023/NĐ-CP, ScamShield-VN rejects forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform preserves human-in-the-loop auditability. Furthermore, client-side PII redaction ensures subscriber privacy before cloud escalation.
+In compliance with Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN rejects forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform preserves human-in-the-loop auditability. Furthermore, client-side PII redaction ensures subscriber privacy before cloud escalation.
 
 
 \subsection{Threats to Validity}

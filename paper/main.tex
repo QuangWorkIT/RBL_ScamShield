@@ -1,5 +1,18 @@
 \documentclass[journal]{IEEEtran}
 \usepackage[utf8]{inputenc}
+% Vietnamese Unicode characters fallback support for pdfLaTeX
+\DeclareUnicodeCharacter{1EBF}{\^e}
+\DeclareUnicodeCharacter{1EBE}{\^E}
+\DeclareUnicodeCharacter{1EBD}{\~e}
+\DeclareUnicodeCharacter{1EBC}{\~E}
+\DeclareUnicodeCharacter{1EC7}{\d{\^e}}
+\DeclareUnicodeCharacter{1EC6}{\d{\^E}}
+\DeclareUnicodeCharacter{1EC1}{\{\^e}}
+\DeclareUnicodeCharacter{1EC0}{\{\^E}}
+\DeclareUnicodeCharacter{0110}{\DJ}
+\DeclareUnicodeCharacter{0111}{\dj}
+\DeclareUnicodeCharacter{2014}{---}
+\DeclareUnicodeCharacter{2013}{--}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath,amssymb}
@@ -75,7 +88,7 @@ The transition to transformer-based contextual representations revolutionized lo
 Subsequent research explored generative Large Language Models (LLMs) and on-device Small Language Models (SLMs) for threat triage~\cite{saias2025advances, zhou2026fraudsmswalker, elzemity2026agentic}. Zhou et al.~\cite{zhou2026fraudsmswalker} comprehensively benchmarked commercial frontier models (GPT-4o, Claude, and Gemini) on SMS fraud, discovering that while fraud recall reached up to $90.13\%$, benign accuracy dropped to $12.81\%$ due to severe hyper-vigilance. To enable real-time execution, mobile architectures like QuishingShield~\cite{banda2026quishingshield} and distilled edge models~\cite{mrinal2026resilient, phap2026edgeai} achieved sub-$50\text{ ms}$ latencies on CPU hardware. However, these edge pipelines focus primarily on English text and omit asymmetric penalty functions essential for Vietnamese social media dynamics.
 
 \subsection{Theme 4: Multi-Agent Consensus, Correlated Errors, and Role Specialization}
-The latest paradigm in LLM-based reasoning involves multi-agent debate and ensemble jury architectures~\cite{chan2024chateval, du2024improving, chen2025multiphishguard}. In-context deliberative frameworks like ChatEval~\cite{chan2024chateval} and MultiPhishGuard~\cite{chen2025multiphishguard} demonstrated that assigning distinct personas enhances factual reasoning. However, recent theoretical work by Kim et al.~\cite{kim2025correlated} and Smit et al.~\cite{smit2024should} demonstrated that commercial LLMs exhibit correlated failure modes, frequently co-failing on identical deceptive patterns. As shown by Ladha~\cite{ladha1992condorcet}, majority voting mechanisms fail to guarantee accuracy when agent votes are correlated. Consequently, naive majority consensus cannot resolve false alarm fatigue without an explicit, adversarial role—such as a Public Defender—engineered to de-correlate errors and actively defend legitimate transactional patterns.
+The latest paradigm in LLM-based reasoning involves multi-agent debate and ensemble jury architectures~\cite{chan2024chateval, du2024improving, chen2025multiphishguard}. In-context deliberative frameworks like ChatEval~\cite{chan2024chateval} and MultiPhishGuard~\cite{chen2025multiphishguard} demonstrated that assigning distinct personas enhances factual reasoning. However, recent theoretical work by Kim et al.~\cite{kim2025correlated} and Smit et al.~\cite{smit2024should} demonstrated that commercial LLMs exhibit correlated failure modes, frequently co-failing on identical deceptive patterns. As shown by Ladha~\cite{ladha1992condorcet}, majority voting mechanisms fail to guarantee accuracy when agent votes are correlated. Consequently, naive majority consensus cannot resolve false alarm fatigue without an explicit, adversarial role---such as a Public Defender---engineered to de-correlate errors and actively defend legitimate transactional patterns.
 
 \begin{table*}[t]
 \centering
@@ -158,7 +171,7 @@ P_{\text{council}} = \sum_{j \in \{A, B, C\}} w_j P_j - \delta_{\text{defender}}
 where $\delta_{\text{defender}} = 0.25$ is an explicit veto penalty activated if the Public Defender verifies legitimate institutional transaction syntax, directly suppressing false alarms on sensitive banking alerts.
 
 \subsection{Standardized 3-Label Output Schema and Privacy Compliance}
-To comply with the safety-first mandate of Article 25, Decree 13/2023/NĐ-CP (Personal Data Protection) and avoid forced binary misclassifications on uncertain samples, ScamShield-VN standardizes final verdicts into three distinct categories:
+To comply with the safety-first mandate of Article 25, Decree 13/2023/ND-CP (Personal Data Protection) and avoid forced binary misclassifications on uncertain samples, ScamShield-VN standardizes final verdicts into three distinct categories:
 \begin{equation}
 \label{eq:labels}
 \text{Verdict} = \begin{cases} 
@@ -310,7 +323,7 @@ Commercial LLMs operating as solitary screeners exhibit catastrophic false-alarm
 Our benchmarks demonstrate that increasing model parameters cannot substitute for an asymmetric loss formulation. PhoBERT-large contains 370M parameters ($3.4\times$ larger than ViSoBERT) and required $3.45\times$ more training time ($1,457.7\text{ s}$ vs. $422.2\text{ s}$), yet missed $3.29\%$ more scams ($92.33\%$ vs. $95.62\%$). ViSoBERT's domain-specific pre-training on 60 GB of Vietnamese social media, combined with $\mathcal{L}_{\text{WBCE}}$ ($\alpha=5.0$), proved far more impactful than raw parameter scaling.
 
 \subsubsection{Data Privacy and Safety-First Verdict Protocol}
-In compliance with Article 25 of Vietnamese Decree 13/2023/NĐ-CP, ScamShield-VN rejects forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform preserves human-in-the-loop auditability. Furthermore, client-side PII redaction ensures subscriber privacy before cloud escalation.
+In compliance with Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN rejects forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform preserves human-in-the-loop auditability. Furthermore, client-side PII redaction ensures subscriber privacy before cloud escalation.
 
 \subsection{Threats to Validity}
 \textbf{Internal Validity:} Random weight initialization and non-deterministic training convergence can induce performance variance. To control for this, all neural models were benchmarked over $K = 5$ fixed deterministic seeds ($\text{SEEDS} = [42, 100, 123, 999, 2026]$) reporting exact means and standard deviations. Cloud LLM queries were executed at temperature 0.0 to guarantee deterministic greedy decoding.
@@ -328,7 +341,7 @@ This paper presented ScamShield-VN, an evidence-grounded, two-tier cascaded arch
 
 For ambiguous edge cases, Tier 2 deploys an Occam-optimized 3-agent forensic council incorporating an adversarial Public Defender. Paired McNemar testing validated that the 3-agent council performs on par with a 5-agent configuration ($p = 0.0736 > 0.05$), validating Occam's razor while slashing token expenditures by $40\%$ and eliminating alarm fatigue ($0.00\%$ FPR on legitimate banking OTPs). Across the combined end-to-end benchmark ($N = 384$), the two-tier cascade successfully resolved $96.6\%$ of traffic locally, achieving $97.40\%$ overall accuracy, $97.11\%$ scam recall, and a sub-second response latency of $267.5\text{ ms}$ at $\$0.0509$ per 1,000 messages.
 
-\textbf{Practical Implications and Limitations:} The proposed architecture provides a scalable, privacy-preserving blueprint for carrier-grade and on-device mobile security, adhering to Article 25 of Vietnamese Decree 13/2023/NĐ-CP through safety-first tri-label classification and client-side PII tokenization. However, current threat screening is restricted to text and URL syntaxes. Future investigations will expand the framework to incorporate lightweight vision-language models for on-device QR-code (quishing) triage and explore active telecommunications carrier pilot deployments.
+\textbf{Practical Implications and Limitations:} The proposed architecture provides a scalable, privacy-preserving blueprint for carrier-grade and on-device mobile security, adhering to Article 25 of Vietnamese Decree 13/2023/ND-CP through safety-first tri-label classification and client-side PII tokenization. However, current threat screening is restricted to text and URL syntaxes. Future investigations will expand the framework to incorporate lightweight vision-language models for on-device QR-code (quishing) triage and explore active telecommunications carrier pilot deployments.
 
 \section*{Conflict of Interest}
 The authors declare no conflict of interest.
