@@ -78,15 +78,15 @@ These four gaps directly motivate the two-tier, cost-sensitive, and Public Defen
 
 `TABLE I. COMPARATIVE OVERVIEW OF REPRESENTATIVE THREAT DETECTION STUDIES VS. PROPOSED SCAMSHIELD-VN
 +----------------------+------------+--------------------------------+----------------------------+-----------------------------+-------------------------------------------------------------+
-| Study                | Language   | Model / Architecture           | Evaluation Dataset         | Key Metric                  | Primary Limitation / Research GAP                           |
+| Study | Language | Model / Architecture | Evaluation Dataset | Key Metric | Primary Limitation / Research GAP |
 +----------------------+------------+--------------------------------+----------------------------+-----------------------------+-------------------------------------------------------------+
-| Tuấn et al. [8]      | Vietnamese | PhoBERT, CNN, LSTM             | Multi-accent SMS (N~3,000) | Acc: 95.56%                 | Evaluated under symmetric loss; vulnerable to segmenter fail|
-| Nguyen-Xuan [13]     | Viet-Eng   | MLTEA Dual-Encoder             | Code-mixed Phishing        | F1: 0.940                   | Cloud-scale dual-encoder; high latency for mobile edge.     |
-| Cam & Binh [12]      | Vietnamese | PhoBERT, BiLSTM                | VNSED Email Corpus         | Acc: 86.47%                 | Limited teencode vocabulary; elevated false negatives.      |
-| Zhou et al. [14]     | Multiling. | GPT-4o, Claude, Gemini         | FraudSMSWalker (N~4,000)   | Recall: 64.16--90.13%       | Severe false alarms (benign recall collapsed to 12.8--30.2%)|
-| Banda et al. [16]    | English    | Distilled SLM (Llama-3.2-3B)   | QR/Text Lures (N=4,200)    | Latency: 25.3--45 ms        | English only; non-trivial mobile memory footprint.          |
-| Phap et al. [18]     | English    | BiGRU + MaskedPool + WBCE      | UCI & LSDST (N=5,574)      | Latency: 0.25 ms            | Recurrent model on English; lacks self-attention context.   |
-| This Work            | Vietnamese | Two-Tier: ViSoBERT + 3-Council | Unified SMS (N=2,664/384)  | Recall: 97.11%, FPR: 2.37%  | Pareto-optimal: 267.5 ms, 0.00% bank FPR, .05/1k SMS.     |
+| Tuấn et al. [8] | Vietnamese | PhoBERT, CNN, LSTM | Multi-accent SMS (N~3,000) | Acc: 95.56% | Evaluated under symmetric loss; vulnerable to segmenter fail|
+| Nguyen-Xuan [13] | Viet-Eng | MLTEA Dual-Encoder | Code-mixed Phishing | F1: 0.940 | Cloud-scale dual-encoder; high latency for mobile edge. |
+| Cam & Binh [12] | Vietnamese | PhoBERT, BiLSTM | VNSED Email Corpus | Acc: 86.47% | Limited teencode vocabulary; elevated false negatives. |
+| Zhou et al. [14] | Multiling. | GPT-4o, Claude, Gemini | FraudSMSWalker (N~4,000) | Recall: 64.16--90.13% | Severe false alarms (benign recall collapsed to 12.8--30.2%)|
+| Banda et al. [16] | English | Distilled SLM (Llama-3.2-3B) | QR/Text Lures (N=4,200) | Latency: 25.3--45 ms | English only; non-trivial mobile memory footprint. |
+| Phap et al. [18] | English | BiGRU + MaskedPool + WBCE | UCI & LSDST (N=5,574) | Latency: 0.25 ms | Recurrent model on English; lacks self-attention context. |
+| This Work | Vietnamese | Two-Tier: ViSoBERT + 3-Council | Unified SMS (N=2,664/384) | Recall: 97.11%, FPR: 2.37% | Pareto-optimal: 267.5 ms, 0.00% bank FPR, .05/1k SMS. |
 +----------------------+------------+--------------------------------+----------------------------+-----------------------------+-------------------------------------------------------------+
 Note: Reported metrics are extracted from corresponding publications evaluated on heterogeneous datasets, hardware environments, and task formulations; they illustrate comparative architectural paradigms rather than direct benchmark parity.`
 
