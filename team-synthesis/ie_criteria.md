@@ -6,14 +6,23 @@
 
 ---
 
-## 1. Khung PICO Cốt Lõi Của Đề Tài
+## 1. Hệ Thống Khung PICO Của Đề Tài (Two-Tier PICO Framework)
 
+### 1.1 Khung PICO-1: On-Device Screener & Kiến Trúc Phân Tầng (Cascade Architecture)
 | Thành phần | Định nghĩa trong Đề tài ScamShield-VN | Từ khóa đại diện |
 | :--- | :--- | :--- |
-| **P (Population / Task)** | Tin nhắn rác, tin nhắn lừa đảo tài chính, mạo danh ngân hàng/thương hiệu tiếng Việt (SMS, mạng xã hội, tin nhắn OTT). | `Vietnamese text`, `SMS phishing`, `smishing`, `scam messages`, `fraudulent messages`, `social media scam` |
-| **I (Intervention)** | Mô hình ngôn ngữ tiền huấn luyện tối ưu cho tiếng Việt mạng xã hội (ViSoBERT) kết hợp hàm mất mát có trọng số nhạy cảm chi phí ($\mathcal{L}_{\text{WBCE}}$ với $\alpha=5.0$) và suy luận tối ưu trên Edge (ONNX INT8). | `ViSoBERT`, `cost-sensitive learning`, `weighted binary cross-entropy`, `ONNX quantization`, `edge deployment`, `few-shot LLM` |
-| **C (Comparison / Baseline)** | Các mô hình nền tảng đối chứng: Pre-trained Language Models tiếng Việt tiêu chuẩn (PhoBERT-base-v2, FPT ViBERT-base, PhoBERT-large) và LLM thương mại (Gemini 3.5 Flash / GPT-4o-mini). | `PhoBERT`, `ViBERT`, `BERT-base`, `GPT-4o-mini`, `Gemini Flash`, `traditional ML` |
-| **O (Outcome / Metrics)** | Khả năng bắt trọn tin nhắn lừa đảo và độ trễ thực tế: Scam Recall (bắt buộc $\ge 95\%$), Macro-F1, Precision, và CPU Latency ($\le 30\text{ ms/msg}$). | `Recall`, `Scam Recall`, `F1-score`, `Precision`, `Accuracy`, `Inference latency`, `Model size` |
+| **P (Population / Task)** | Tin nhắn rác, tin nhắn lừa đảo tài chính, mạo danh ngân hàng/thương hiệu tiếng Việt (SMS, mạng xã hội, tin nhắn OTT); tập Frozen Test Set niêm phong $N=267$ mẫu. | `Vietnamese text`, `SMS phishing`, `smishing`, `scam messages`, `fraudulent messages`, `social media scam` |
+| **I (Intervention)** | Kiến trúc phân tầng đề xuất (Proposed Two-Tier Cascade): Mô hình ngôn ngữ tiền huấn luyện tối ưu cho tiếng Việt mạng xã hội (ViSoBERT) kết hợp hàm mất mát có trọng số nhạy cảm chi phí ($\mathcal{L}_{\text{WBCE}}$ với $\alpha=5.0$) và suy luận tối ưu trên Edge (ONNX INT8) định tuyến lên Cloud Council khi $0.10 \le P < 0.90$. | `Two-tier cascade`, `ViSoBERT`, `cost-sensitive learning`, `weighted binary cross-entropy`, `ONNX quantization`, `edge deployment` |
+| **C (Comparison / Baseline)** | Các mô hình nền tảng đối chứng: Standalone Pre-trained Language Models tiếng Việt (PhoBERT-base-v2, FPT ViBERT-base, PhoBERT-large) và Standalone LLM thương mại (Gemini 3.5 Flash / P-single). | `PhoBERT`, `ViBERT`, `BERT-base`, `Gemini Flash`, `P-single`, `standalone baseline` |
+| **O (Outcome / Metrics)** | Khả năng bắt trọn tin nhắn lừa đảo, kiểm soát báo động giả, độ trễ và chi phí API: Scam Recall ($\ge 95\%$), Macro-F1, Precision, CPU Latency ($\le 30\text{ ms/msg}$), và API Token Expenditure. | `Recall`, `Scam Recall`, `F1-score`, `Precision`, `FPR`, `Inference latency`, `Token cost` |
+
+### 1.2 Khung PICO-2: Hội Đồng Pháp Y Đa Tác Tử (Forensic Council & Correlated Error Mitigation)
+| Thành phần | Định nghĩa trong Đề tài ScamShield-VN | Từ khóa đại diện |
+| :--- | :--- | :--- |
+| **P (Population / Task)** | Bộ dữ liệu thách thức pháp y chuyên sâu (**Forensic Challenge Suite**, $N=117$ hard samples: vùng ranh giới mơ hồ $0.10 \le P < 0.90$, OTP ngân hàng hợp lệ dễ bị over-flagging, phishing homoglyph, teencode giật gân). | `Hard samples`, `ambiguous boundary`, `banking OTP`, `homoglyph phishing`, `Vietnamese teencode` |
+| **I (Intervention)** | Hội đồng Pháp y Đa Tác tử dị thể (Heterogeneous 3-Agent Forensic Council) với ghế **Public Defender Veto ($-0.25$)** và cơ chế kiểm định chéo **Maker-Checker** (gpt-6.1-sol Maker, gemini-3.5-flash-lite / gemini-3.8-flash Checker). | `Multi-LLM Council`, `heterogeneous panel`, `Public Defender`, `veto mechanism`, `Maker-Checker`, `3-agent council` |
+| **C (Comparison / Baseline)** | 1. Standalone Single-LLM với Structured Forensic Prompting (**`P-single`**, [Wang et al., ACL 2024](https://aclanthology.org/2024.acl-long.271/)).<br>2. Cấu hình 3 tác tử ngây thơ không có phản biện (**3-Agent Naive** - loại bỏ Public Defender). | `P-single`, `structured forensic prompt`, `3-agent naive`, `single LLM judge` |
+| **O (Outcome / Metrics)** | Khả năng khắc phục lỗi tương quan tập thể (Correlated Error Mitigation theo [Kim et al., 2025](https://arxiv.org/abs/2506.07962); [Ladha, 1992](https://www.jstor.org/stable/2111584)), triệt tiêu báo động giả (FPR $= 0.00\%$ trên OTP ngân hàng), độ tin cậy đồng thuận và kiểm định thống kê McNemar ($p$-value). | `Correlated error mitigation`, `alarm fatigue suppression`, `zero FPR OTP`, `McNemar test`, `consensus reliability` |
 
 ---
 

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-10-20 18:51:24",
+  "model_name": "gpt-6.1-sol",
+  "n_samples": 117,
+  "api_calls_summary": {
+    "total_calls": 117,
+    "avg_per_sample": 1.0
+  },
+  "metrics": {
+    "accuracy": 96.58,
+    "precision": 100.0,
+    "recall": 95.92,
+    "macro_f1": 97.92,
+    "fpr": 0.0,
+    "fnr": 4.08,
+    "unknown_count": 2,
+    "median_latency_ms": 12176.15,
+    "cost_per_1k_usd": 0.045
+  }
+}

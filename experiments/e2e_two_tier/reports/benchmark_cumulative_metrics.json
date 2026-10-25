@@ -1,0 +1,60 @@
+{
+  "cascaded": {
+    "total_samples": 3266,
+    "confusion_matrix": {
+      "TP": 841,
+      "FP": 86,
+      "TN": 2276,
+      "FN": 63,
+      "UNKNOWN": 3
+    },
+    "accuracy": 95.44,
+    "precision_scam": 90.72,
+    "recall_scam": 93.03,
+    "f1_scam": 91.86,
+    "macro_f1": 94.35,
+    "fpr": 3.64,
+    "fastpath_pct": 98.9,
+    "escalation_pct": 1.1,
+    "defender_interventions": 33,
+    "total_api_calls": 180,
+    "avg_calls_per_sample": 0.06,
+    "total_cost_usd": 0.027,
+    "cost_per_1k_usd": 0.0083,
+    "latency": {
+      "mean": 277.6,
+      "p50": 140.5,
+      "p90": 206.6,
+      "p99": 9551.4
+    }
+  },
+  "tier1_only": {
+    "total_samples": 3261,
+    "confusion_matrix": {
+      "TP": 851,
+      "FP": 106,
+      "TN": 2251,
+      "FN": 53,
+      "UNKNOWN": 0
+    },
+    "accuracy": 95.12,
+    "precision_scam": 88.92,
+    "recall_scam": 94.14,
+    "f1_scam": 91.46,
+    "macro_f1": 94.02,
+    "fpr": 4.5,
+    "fastpath_pct": 100.0,
+    "escalation_pct": 0.0,
+    "defender_interventions": 0,
+    "total_api_calls": 0,
+    "avg_calls_per_sample": 0.0,
+    "total_cost_usd": 0.0,
+    "cost_per_1k_usd": 0.0,
+    "latency": {
+      "mean": 124.8,
+      "p50": 120.2,
+      "p90": 167.8,
+      "p99": 230.9
+    }
+  }
+}
