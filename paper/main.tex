@@ -21,7 +21,7 @@
 \usepackage{microtype}
 \usepackage{multirow}
 \usepackage{tabularx}
-\usepackage{url}
+\usepackage{xurl}
 
 \begin{document}
 
@@ -29,13 +29,13 @@
 
 \author{
     Nguyen Trung Hieu$^{1,*}$,
-    Le Quoc Huy$^{1}$,
+    Nguyen Minh Quang$^{1}$,
     Hoang Hai Phuc$^{1}$,
     Phan Tran Hoang Tran$^{1}$, and
-    Nguyen Minh Quang$^{1}$\\[0.4em]
+    Nguyen Quoc Huy$^{1}$\\[0.4em]
     $^{1}$Department of Software Engineering, FPT University, Ho Chi Minh City, Vietnam\\[0.2em]
-    Email: cristand2825@gmail.com (N.T.H.); huylq@fpt.edu.vn (L.Q.H.); haiphuchoang2675@gmail.com (H.H.P.);\\
-    pthoangtran0511@gmail.com (P.T.H.T.); quangnm@fpt.edu.vn (N.M.Q.)\\[0.2em]
+    Email: cristand2825@gmail.com (N.T.H.); nguyenminhquangnmqlamdong@gmail.com (N.M.Q.); haiphuchoang2675@gmail.com (H.H.P.);\\
+    pthoangtran0511@gmail.com (P.T.H.T.); nguyenhuy.se205@gmail.com (N.Q.H.)\\[0.2em]
     $^*$Corresponding author
 }
 
@@ -353,9 +353,9 @@ In compliance with Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN 
 \section{Conclusion}
 \label{sec:conclusion}
 
-This paper presented ScamShield-VN, an evidence-grounded, two-tier cascaded architecture engineered to resolve the operational trade-off between on-device edge efficiency and deep cloud semantic reasoning for Vietnamese telecommunications fraud defense. By fine-tuning ViSoBERT with an asymmetric Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$, $\alpha = 5.0$) and exporting via ONNX INT8 quantization ($390\text{ MB}$, $15.8\text{ ms}$ on CPU), the Tier 1 edge screener achieved a dominant Scam Recall of $95.62\% \pm 2.25\%$ and Macro-F1 of $92.51\% \pm 2.39\%$, significantly outperforming solitary commercial LLMs ($p < 0.0001$, McNemar test).
+This paper presented ScamShield-VN, a two-tier cascaded architecture built based on evidence to resolve the operational trade-off between edge efficiency on the device and deep cloud semantic reasoning for Vietnamese telecommunications fraud defense. By fine-tuning ViSoBERT with an asymmetric loss of Cost-Sensitive weighted binary Cross-Entropy ($\mathcal{L}_{\text{WBCE}}$, $\alpha = 5.0$) and exporting via ONNX INT8 quantization ($390\text{ MB}$, $15.8\text{ ms}$ on CPU), the Tier 1 edge screener achieved a dominant Scam Recall of $95.62\% \pm 2.25\%$ and Macro-F1 of $92.51\% \pm 2.39\%$, significantly outperforming commercial LLMs alone ($p < 0.0001$, McNemar test).
 
-For ambiguous edge cases, Tier 2 deploys an Occam-optimized 3-agent forensic council incorporating an adversarial Public Defender. Paired McNemar testing validated that the 3-agent council performs on par with a 5-agent configuration ($p = 0.0736 > 0.05$), validating Occam's razor while slashing token expenditures by $40\%$ and eliminating alarm fatigue ($0.00\%$ FPR on legitimate banking OTPs). Across the combined end-to-end benchmark ($N = 384$), the two-tier cascade successfully resolved $96.6\%$ of traffic locally, achieving $97.40\%$ overall accuracy, $97.11\%$ scam recall, and a sub-second response latency of $267.5\text{ ms}$ at $\$0.0509$ per 1,000 messages.
+For ambiguous edge cases, Tier 2 deploys an Occam-optimized 3-agent forensic council incorporating an adversarial Public Defender. Paired McNemar tests validated that the 3-agent council performs on par with a 5-agent configuration ($p = 0.0736 > 0.05$), validating Occam's razor while slashing token expenditures by $40\%$ and eliminating alarm fatigue ($0.00\%$ FPR on legitimate banking OTPs). Across the combined end-to-end benchmark ($N = 384$), the two-tier cascade successfully resolved $96.6\%$ of traffic locally, achieving $97.40\%$ overall accuracy, $97.11\%$ scam recall, and a sub-second response latency of $267.5\text{ ms}$ at $\$0.0509$ per 1,000 messages.
 
 \textbf{Practical Implications and Limitations:} The proposed architecture provides a scalable, privacy-preserving blueprint for carrier-grade and on-device mobile security, adhering to Article 25 of Vietnamese Decree 13/2023/ND-CP through safety-first tri-label classification and client-side PII tokenization. However, current threat screening is restricted to text and URL syntaxes. Future investigations will expand the framework to incorporate lightweight vision-language models for on-device QR-code (quishing) triage and explore active telecommunications carrier pilot deployments.
 
@@ -363,11 +363,11 @@ For ambiguous edge cases, Tier 2 deploys an Occam-optimized 3-agent forensic cou
 The authors declare no conflict of interest.
 
 \section*{Author Contributions}
-Nguyen Trung Hieu: Conceptualization, Methodology, Formal analysis, Writing -- Original Draft, Project administration. 
-Le Quoc Huy: Software, Pipeline architecture, Data curation, Investigation. 
+Nguyen Trung Hieu: Conceptualization, Methodology, Formal analysis, Writing -- Original Draft, Project administration.
+Nguyen Minh Quang: Supervision, Verification, Ethical review, Acquisition of Funds.
 Hoang Hai Phuc: Validation, Model benchmarking, Statistical testing, Visualization. 
-Phan Tran Hoang Tran: Resources, Data collection, Literature review, Writing -- Review \& Editing. 
-Nguyen Minh Quang: Supervision, Verification, Ethical review, Funding acquisition. 
+Phan Tran Hoang Tran: Resources, Data collection, Literature review, Writing -- Review \& Editing.
+Nguyen Quoc Huy: Software, Pipeline architecture, Data curation, Investigation. 
 All authors have read and agreed to the published version of the manuscript.
 
 \section*{Funding}
