@@ -25,7 +25,7 @@ Gemini 3.5 Flash (5-shot ICL) & Baseline B3 (Cloud API) & Proprietary & $84.50 \
 }
 \end{table*}
 
-As detailed in Table~\ref{tab:benchmark_summary}, the proposed ViSoBERT model achieves the highest practical Scam Recall among all deployable edge encoders at $95.62\% \pm 2.25\%$, while maintaining a strong Precision of $89.79\% \pm 5.15\%$ and an overall Macro-F1 score of $92.51\% \pm 2.39\%$. In comparison, PhoBERT-large recorded an inferior Scam Recall of $92.33\% \pm 3.44\%$, missing $3.29\%$ more active scam vectors despite containing $3.4\times$ more parameters. While Gemini 3.5 Flash detected $100.00\%$ of scams, its precision collapsed to $64.47\% \pm 1.52\%$ due to severe hyper-vigilance, resulting in an unacceptable false alarm rate of $35.53\%$ on legitimate transactional messages.
+As detailed in Table~\ref{tab:benchmark_summary}, the proposed ViSoBERT model achieves the highest practical Scam Recall among all deployable edge encoders at $95.62\% \pm 2.25\%$, while maintaining a strong Precision of $89.79\% \pm 5.15\%$ and an overall Macro-F1 score of $92.51\% \pm 2.39\%$. In comparison, PhoBERT-large recorded an inferior Scam Recall of $92.33\% \pm 3.44\%$, missing $3.29\%$ more active scam vectors despite containing $3.4\times$ more parameters. While Gemini 3.5 Flash detected $100.00\%$ of scams, its precision collapsed to $64.47\% \pm 1.52\%$ due to severe hyper-vigilance: $35.53\%$ of its scam alerts were false (false discovery rate, $1-\text{Precision}$), which corresponds to a false positive rate of approximately $21.5\%$ on the $192$ legitimate messages (derived from its $84.50\%$ accuracy).
 
 \begin{table}[h]
 \centering
@@ -60,7 +60,7 @@ To evaluate the Multi-LLM Forensic Council under boundary ambiguity, we benchmar
 \textbf{Council Configuration} & \textbf{Seats} & \textbf{Accuracy (\%)} & \textbf{Scam Recall (\%)} & \textbf{FPR (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Median Latency} & \textbf{Cost / 1k SMS} & \textbf{API Calls} \\
 \midrule
 Arm 1: Full 5-Agent Council & 5 & $94.87\%$ & $93.88\%$ & $\mathbf{0.00\%}$ & $96.84\%$ & $10,141\text{ ms}$ & $\$0.7500$ & 500 \\
-\textbf{Arm 2: Proposed 3-Agent (With Defender)} & \textbf{3} & $\mathbf{90.60\%}$ & $\mathbf{88.78\%}$ & $\mathbf{0.00\%}$ & $\mathbf{94.05\%}$ & $\mathbf{11,020\text{ ms}}$ & $\mathbf{\$0.4500}$ & \textbf{351} \\
+\textbf{Arm 2: Proposed 3-Agent (With Defender)} & \textbf{3} & $90.60\%$ & $88.78\%$ & $\mathbf{0.00\%}$ & $94.05\%$ & $11,020\text{ ms}$ & $\mathbf{\$0.4500}$ & \textbf{351} \\
 Baseline P-single (\textit{Wang et al.}~\cite{wang2024boosting}) & 1 & $96.58\%$ & $95.92\%$ & $\mathbf{0.00\%}$ & $97.92\%$ & $12,176\text{ ms}$ & $\$0.0450$ & 117 \\
 \bottomrule
 \end{tabular}%
@@ -68,8 +68,8 @@ Baseline P-single (\textit{Wang et al.}~\cite{wang2024boosting}) & 1 & $96.58\%$
 \end{table*}
 
 \begin{itemize}
-    \item \textbf{Statistical Validation of Occam's Razor:} In paired testing between Arm 1 (5-Agent) and Arm 2 (3-Agent with Defender), discordance counts were $b = 5$ (5-Agent correct, 3-Agent uncertain) and $c = 0$ ($3\text{-Agent}$ correct, 5-Agent incorrect), resulting in $\chi^2 = 3.2000$ and $p = 0.0736$. Because $p > 0.05$, the performance difference is not statistically significant. The 3-Agent configuration delivers the optimal Pareto operating point, reducing total API calls from $500$ to $351$ ($40\%$ token expenditure reduction) without sacrificing false-positive suppression.
-    \item \textbf{Public Defender Impact:} Both Arm 1 and Arm 2 achieved an unblemished $\mathbf{0.00\%}$ False Positive Rate on authentic banking OTPs and telecom alerts, verifying that the Public Defender's $-0.25$ veto successfully counteracts threat-seeking bias.
+    \item \textbf{Statistical Validation of Occam's Razor:} In paired testing between Arm 1 (5-Agent) and Arm 2 (3-Agent with Defender), discordance counts were $b = 5$ (5-Agent correct, 3-Agent uncertain) and $c = 0$ ($3\text{-Agent}$ correct, 5-Agent incorrect), resulting in $\chi^2 = 3.2000$ and $p = 0.0736$. Because $p > 0.05$, no statistically significant difference was detected at $\alpha = 0.05$; with only $b + c = 5$ discordant pairs, however, the test has low power and this result does not prove equivalence. The 3-Agent configuration reduces total API calls from $500$ to $351$ ($29.8\%$ fewer calls) and estimated cost from \$0.7500 to \$0.4500 per 1k SMS ($40\%$ saving) while preserving the $0.00\%$ FPR. This saving is accompanied by a $5.10$-point drop in scam recall ($93.88\% \to 88.78\%$) and $10$ rather than $4$ \texttt{UNKNOWN} verdicts. Notably, the single-LLM P-single baseline attained higher accuracy ($96.58\%$) at lower cost (\$0.0450) than both council arms on this suite, so the council's value rests on auditable multi-agent justification and abstention rather than raw accuracy.
+    \item \textbf{Public Defender Impact:} Both Arm 1 and Arm 2 (and P-single) achieved $\mathbf{0.00\%}$ False Positive Rate on the legitimate messages of this suite, consistent with the Public Defender's $-0.25$ veto counteracting threat-seeking bias.
 \end{itemize}
 
 \subsection{Two-Tier Cascaded System and Threshold Sensitivity ($\tau$)}
@@ -88,13 +88,13 @@ Arm 1: Solo Tier 1 Edge (ViSoBERT) & $96.35\%$ & $96.49\%$ & $95.38\%$ & $2.84\%
 Arm 2: Solo Tier 2 Fast (Gemini Flash-Lite) & $97.66\%$ & $95.56\%$ & $99.42\%$ & $3.79\%$ & $1,969.9\text{ ms}$ & $\$0.2817$ & $100.0\%$ \\
 Arm 3: Solo Tier 2 SOTA (GPT-6.1-sol) & $99.74\%$ & $100.00\%$ & $99.42\%$ & $\mathbf{0.00\%}$ & $5,765.0\text{ ms}$ & $\$1.4667$ & $100.0\%$ \\
 Arm 4: Naive Cascaded (Tier 1 + PoLL 3/5) & $97.14\%$ & $96.55\%$ & $97.11\%$ & $2.84\%$ & $717.8\text{ ms}$ & $\$1.5923$ & $3.4\%$ \\
-\textbf{Arm 5: Proposed ScamShield (Two-Tier)} & $\mathbf{97.40\%}$ & $\mathbf{97.11\%}$ & $\mathbf{97.11\%}$ & $\mathbf{2.37\%}$ & $\mathbf{267.5\text{ ms}}$ & $\mathbf{\$0.0509}$ & $\mathbf{3.4\%}$ \\
+\textbf{Arm 5: Proposed ScamShield (Two-Tier)} & $\mathbf{97.40\%}$ & $\mathbf{97.11\%}$ & $\mathbf{97.11\%}$ & $\mathbf{2.37\%}$ & $\mathbf{267.7\text{ ms}}$ & $\mathbf{\$0.0509}$ & $\mathbf{3.4\%}$ \\
 \bottomrule
 \end{tabular}%
 }
 \end{table*}
 
-As detailed in Table~\ref{tab:e2e_benchmark}, the proposed two-tier cascade (Arm 5) resolves $96.6\%$ of incoming messages locally at the edge ($<35\text{ ms}$), escalating only $3.4\%$ of ambiguous cases to Tier 2. This architecture achieves $97.40\%$ accuracy, $97.11\%$ scam recall, and a low overall FPR of $2.37\%$, while reducing mean response latency to $267.5\text{ ms}$ and operational expenditure to $\$0.0509$ per 1,000 messages (a $96.5\%$ cost saving compared to full cloud deployment).
+As detailed in Table~\ref{tab:e2e_benchmark}, the proposed two-tier cascade (Arm 5) resolves $96.6\%$ of incoming messages locally at the edge ($<35\text{ ms}$), escalating only $3.4\%$ of ambiguous cases to Tier 2. This architecture achieves $97.40\%$ accuracy, $97.11\%$ scam recall, and a low overall FPR of $2.37\%$, while reducing median response latency to $267.7\text{ ms}$ and operational expenditure to $\$0.0509$ per 1,000 messages (a $96.5\%$ cost saving compared to full cloud deployment).
 
 \begin{table}[h]
 \centering
@@ -115,23 +115,23 @@ $\tau = 0.95$ & $97.92\%$ & $97.11\%$ & $1.42\%$ & $668.2\text{ ms}$ & $\$0.1386
 }
 \end{table}
 
-Table~\ref{tab:tau_ablation} depicts the threshold sensitivity trade-off. As $\tau$ increases from $0.70$ to $0.95$, escalation increases from $0.5\%$ to $9.1\%$, boosting scam recall from $95.38\%$ to $97.11\%$ while suppressing FPR. The knee of the Pareto curve occurs at $\mathbf{\tau = 0.90}$, where the system captures maximum recall gains before latency escalates sharply.
+Table~\ref{tab:tau_ablation} depicts the threshold sensitivity trade-off. The $\tau$ sweep was executed as a separate run and its latencies are rounded to one decimal place; the $\tau = 0.90$ latency ($267.5\text{ ms}$) therefore differs by $0.2\text{ ms}$ from the $3$-run median of $267.7\text{ ms}$ in Table~\ref{tab:e2e_benchmark}, while all other metrics at this operating point are identical. As $\tau$ increases from $0.70$ to $0.95$, escalation increases from $0.5\%$ to $9.1\%$, boosting scam recall from $95.38\%$ to $97.11\%$ while suppressing FPR. The knee of the Pareto curve occurs at $\mathbf{\tau = 0.90}$, where the system captures maximum recall gains before latency escalates sharply.
 
 \subsection{Discussion of Scientific Pillars}
 
 \subsubsection{Correlated Error Mitigation and Rejection of Condorcet Jury Theorem}
 A central conceptual hazard in multi-agent LLM systems is the inappropriate application of the Condorcet Jury Theorem. Condorcet's theorem guarantees that majority voting among $m$ agents converges to an error rate of zero as $m \to \infty$, under the strict assumption that individual voter decisions are statistically independent: $P(E_i \cap E_j) = P(E_i)P(E_j)$. 
 
-However, recent empirical findings by Kim et al.~\cite{kim2025correlated} and Smit et al.~\cite{smit2024should} demonstrated that foundation LLMs share overlapping training corpora, inducing strong correlated failure modes ($>60\%$ co-failure on deceptive adversarial inputs). Under correlated error distributions, Ladha~\cite{ladha1992condorcet} proved that increasing agent count fails to guarantee asymptotic convergence and can amplify collective bias. This theoretical limitation explains why naive majority voting (Arm 4 in Table~\ref{tab:e2e_benchmark}) yielded a higher FPR ($2.84\%$) than our proposed architecture. ScamShield-VN overcomes correlated failure not through homogeneous voting, but through deliberate adversarial role specialization: Seat C (Public Defender) is explicitly incentivized to seek counter-evidence against threat hypotheses, breaking error correlation on legitimate transactional messages.
+However, recent empirical findings by Kim et al.~\cite{kim2025correlated} and Smit et al.~\cite{smit2024should} demonstrated that foundation LLMs share overlapping training corpora, inducing strongly correlated failure modes on deceptive adversarial inputs. Under correlated error distributions, Ladha~\cite{ladha1992condorcet} proved that increasing agent count fails to guarantee asymptotic convergence and can amplify collective bias. This theoretical limitation explains why naive majority voting (Arm 4 in Table~\ref{tab:e2e_benchmark}) yielded a higher FPR ($2.84\%$) than our proposed architecture. ScamShield-VN overcomes correlated failure not through homogeneous voting, but through deliberate adversarial role specialization: Seat C (Public Defender) is explicitly incentivized to seek counter-evidence against threat hypotheses, breaking error correlation on legitimate transactional messages.
 
 \subsubsection{Neutralizing the Alarm Fatigue Phenomenon}
-Commercial LLMs operating as solitary screeners exhibit catastrophic false-alarm rates ($35.53\%$ FAR on Gemini 3.5 Flash) due to hyper-vigilance toward urgency markers and URLs. In human-factors security, chronic false alarms induce \textit{alarm fatigue}, conditioning mobile users to distrust or disable security applications. The introduction of the Public Defender's $-0.25$ veto completely neutralized this failure mode, achieving $0.00\%$ FPR on authentic banking OTPs in the forensic challenge suite.
+Commercial LLMs operating as solitary screeners exhibit catastrophic false-alarm behavior ($35.53\%$ of Gemini 3.5 Flash alerts were false, i.e., $\approx 21.5\%$ FPR on the Frozen Test) due to hyper-vigilance toward urgency markers and URLs. In human-factors security, chronic false alarms induce \textit{alarm fatigue}, conditioning mobile users to distrust or disable security applications. In the $N=117$ forensic challenge suite, councils with the Public Defender's $-0.25$ veto achieved $0.00\%$ FPR, and the full cascade reduced the combined FPR to $2.37\%$ (Table~\ref{tab:e2e_benchmark}).
 
 \subsubsection{Failure of Parameter Scaling Without Asymmetric Loss}
 Our benchmarks demonstrate that increasing model parameters cannot substitute for an asymmetric loss formulation. PhoBERT-large contains 370M parameters ($3.4\times$ larger than ViSoBERT) and required $3.45\times$ more training time ($1,457.7\text{ s}$ vs. $422.2\text{ s}$), yet missed $3.29\%$ more scams ($92.33\%$ vs. $95.62\%$). ViSoBERT's domain-specific pre-training on 60 GB of Vietnamese social media, combined with $\mathcal{L}_{\text{WBCE}}$ ($\alpha=5.0$), proved far more impactful than raw parameter scaling.
 
 \subsubsection{Data Privacy and Safety-First Verdict Protocol}
-In compliance with Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN rejects forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform preserves human-in-the-loop auditability. Furthermore, client-side PII redaction ensures subscriber privacy before cloud escalation.
+Motivated by Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN avoids forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform supports human-in-the-loop auditability. Consistent with Section~III, we do not claim verified legal compliance: redaction of message PII before cloud escalation was not independently established in the reviewed code.
 
 
 \subsection{Threats to Validity}
@@ -139,6 +139,6 @@ In compliance with Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN 
 
 \textbf{External Validity:} Our empirical benchmark explicitly evaluates Vietnamese telecommunications text. While localized to Vietnamese social engineering lures, the two-tier routing framework and the Public Defender de-correlation architecture are structurally agnostic and transferrable to other low-resource regional languages.
 
-\textbf{Construct Validity:} Data leakage was rigorously prevented via strict deduplication and stratified isolation of the $N = 267$ holdout partition prior to any hyperparameter search or fine-tuning. Ground-truth annotations were validated with high inter-annotator agreement (Cohen's $\kappa = 0.88$).
+\textbf{Construct Validity:} Data leakage was rigorously prevented via strict deduplication and stratified isolation of the $N = 267$ holdout partition prior to any hyperparameter search or fine-tuning. The reported inter-annotator agreement (Cohen's $\kappa = 0.88$) could not be recomputed from the available annotation records and is therefore treated as unverified. The $\tau$ sweep was run on the same $N=384$ combined suite used for reporting, so the selected $\tau = 0.90$ may be optimistic.
 
-\textbf{Conclusion Validity:} To avoid reliance on uncalibrated point estimates, paired classification discordances were formally evaluated using continuity-corrected two-tailed McNemar's tests ($\alpha = 0.05$), ensuring that empirical claims are supported by rigorous statistical hypothesis testing.
+\textbf{Conclusion Validity:} To avoid reliance on uncalibrated point estimates, paired classification discordances were formally evaluated using continuity-corrected two-tailed McNemar's tests ($\alpha = 0.05$), although the small number of discordant pairs in the council ablation ($b+c=5$) limits statistical power, and Tier 2 and cascade results rest on $3$ runs and $N=117$ challenge samples.
