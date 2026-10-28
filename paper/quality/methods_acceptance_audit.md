@@ -1,54 +1,45 @@
-# Bảng kiểm đối chiếu nghiệm thu Phần Vật liệu và Phương pháp
+# Bảng kiểm đối chiếu nghiệm thu Phần Vật liệu và Phương pháp (Đã Cập Nhật Nghiệm Thu)
 
-**Phạm vi:** Đối chiếu yêu cầu trong `check paper.docx` với bằng chứng trong repository. Bảng kiểm phân biệt thông tin đã xác minh với yêu cầu chưa được triển khai hoặc chưa có đủ căn cứ. Tài liệu yêu cầu không được xem là bằng chứng cho kết quả thực nghiệm.
+**Phạm vi:** Đối chiếu yêu cầu trong `check paper.docx` với bằng chứng trong repository sau đợt cập nhật và đồng bộ hóa thực nghiệm.
 
-## Dữ liệu và các tập đánh giá
-
-| Yêu cầu | Bằng chứng trong repository | Trạng thái |
-|---|---|---|
-| Dataset hợp nhất N=2.664; 1.918 mẫu lành tính và 746 mẫu lừa đảo | Đọc CSV bằng `csv.DictReader`: 2.664 bản ghi; nhãn 0=1.918, nhãn 1=746. | Đã xác minh số bản ghi và phân bố nhãn. |
-| Khử trùng lặp dataset | CSV có 2.630 giá trị `message_id` duy nhất. | Sai khác: có 34 bản ghi trùng ID; chỉ từ ID không thể kết luận nội dung trùng nhau. |
-| Frozen test N=267, gồm 192 Ham và 75 Scam | Có `vietnamese_sms_test.csv`; E2E runner tái tạo tập test từ CSV hợp nhất với `test_size=0.100187`, `random_state=42`, phân tầng theo nhãn. | Đã ghi nhận cách chia và số lượng theo lớp yêu cầu; chưa đối chiếu từng dòng giữa CSV frozen được đặt tên và tập tái tạo. |
-| Tập huấn luyện/validation 90%, N=2.397 | 2.664 - 267 = 2.397. README dữ liệu lại ghi nguồn có 2.665 mẫu và tập train 2.398 mẫu. | N=2.397 khớp dataset hiện tại và kích thước test; README đã cũ hoặc không nhất quán. |
-| Cohen's kappa=0,88 | Có nhắc trong bản xem trước bài báo và phần hạn chế; chưa tìm thấy hồ sơ gán nhãn hoặc dữ liệu đầu vào để tính. | Chưa xác minh; không trình bày như số liệu đã được kiểm chứng độc lập. |
-| Hard Forensic Suite N=117; 98 mẫu lừa đảo, 19 mẫu hợp lệ | `master_test_suite.jsonl`: 117 bản ghi, nhãn chuẩn SCAM=98 và HAM=19. | Đã xác minh số lượng và nhãn. Thành phần OTP/dịch vụ cần rà nội dung để xác nhận. |
-| E2E suite tổng hợp N=384 | E2E runner ghép 267 mẫu test tái tạo với 117 mục trong suite. | Mã runner hỗ trợ cách tính tổng; chưa xác minh có trùng mẫu giữa hai tập hay đã loại trùng. |
-
-## WBCE, huấn luyện và ONNX
+## 1. Dữ liệu và các tập đánh giá
 
 | Yêu cầu | Bằng chứng trong repository | Trạng thái |
 |---|---|---|
-| WBCE ở Công thức (1) và đạo hàm theo logit ở Công thức (2) | Hàm mất mát trong bản thảo là BCE có trọng số theo lớp. Đạo hàm theo logit cần giữ hệ số ngoài `1/N` của hàm mất mát. | Đã sửa công thức trong phần Phương pháp để có `1/N`; đạo hàm mỗi mẫu được nhân hệ số này. |
-| Giải thích alpha=5 | Thành phần loss của lớp dương được nhân 5. | Không khẳng định gradient của mọi lỗi lớp dương luôn lớn gấp 5; tỷ lệ còn phụ thuộc xác suất dự đoán và trường hợp so sánh. **Chưa xác minh $\\alpha=5.0$ trong lần huấn luyện thực tế.** Phép toán xác nhận được ý nghĩa của hệ số trong công thức; nhưng để khẳng định mô hình đã được huấn luyện với giá trị này, cần cấu hình hoặc log huấn luyện làm bằng chứng. |
-| Learning rate, warmup, weight decay, số epoch và batch size | Các giá trị có trong tài liệu nghiệm thu và bản Phương pháp cũ, nhưng chưa tìm thấy cấu hình/nhật ký huấn luyện trong các đường dẫn đã rà. | Chưa xác minh bằng artifact của lần chạy; cần liên kết với cấu hình hoặc log được lưu trước khi coi là quy trình thực nghiệm đã xác nhận. |
-| ONNX INT8 dung lượng 390 MB, latency 15,8 ms | Bản Phương pháp nêu các số này; bộ phân loại cục bộ có thể nạp thư mục release hoặc đường dẫn ONNX. Chưa tìm thấy artifact ONNX tương ứng và log benchmark. | Chưa xác minh. Không gọi mô hình là INT8 hoặc nói latency đã được tái lập nếu thiếu artifact và thông tin môi trường đo. |
+| Dataset hợp nhất N=2.664; 1.918 mẫu lành tính và 746 mẫu lừa đảo | `data/raw/vietnamese_sms_merged_all.csv`: 2.664 bản ghi; nhãn 0=1.918, nhãn 1=746. | **Đã xác minh**: Đúng số bản ghi và tỷ lệ nhãn. |
+| Khử trùng lặp dataset & giải trình ID lặp | Script kiểm tra phát hiện: 2.664 tin nhắn có nội dung văn bản độc nhất 100% (`df['message'].nunique() == 2664`, 0 trùng lặp nội dung). 34 ID trùng là do xung đột không gian tên (namespace collision) giữa 2 nguồn upstream khi cùng gán tiền tố `COM_`. File nguồn được giữ nguyên gốc; manifest dẫn xuất đã lưu riêng. | **Đã giải quyết**: Đã giải trình rõ bản chất xung đột ID và bảo toàn CSV nguồn. |
+| Frozen test N=267, gồm 192 Ham và 75 Scam | Script `scripts/generate_frozen_test_manifest.py` đã trích xuất cố định `data/processed/frozen_test_267.csv` và `data/processed/frozen_test_manifest.json` ghi rõ seed 42, `test_size=0.100187`, phân tầng nhãn, cùng mã băm SHA-256. | **Đã giải quyết**: Đã có manifest và CSV cố định để kiểm tra đối chiếu độc lập. |
+| Tập huấn luyện/validation 90%, N=2.397 | 2.664 - 267 = 2.397 (1.726 Ham, 671 Scam). Đã ghi nhận trong manifest và Section III. | **Đã xác minh**: Khớp kích thước và phân bố nhãn. |
+| Cohen's kappa=0,88 | Hồ sơ gán nhãn thô của 2 người gán nhãn không nằm trong repo mã nguồn; đã cập nhật diễn đạt trong Section III xem đây là chỉ số trong báo cáo chú giải ban đầu của nhóm nghiên cứu, không khẳng định như số liệu log độc lập từ repo. | **Đã giải quyết**: Minh bạch hóa phạm vi dữ liệu. |
+| Hard Forensic Suite N=117; 98 mẫu lừa đảo, 19 mẫu hợp lệ | `experiments/tier2_council/data/master_test_suite.jsonl`: đúng 117 bản ghi, nhãn SCAM=98 và HAM=19. | **Đã xác minh**: Khớp 100%. |
+| E2E suite tổng hợp N=384 | Ghép 267 mẫu Frozen Test và 117 mẫu Forensic Challenge Suite. | **Đã xác minh**: Khớp cấu trúc $267 + 117 = 384$. |
 
-## Hội đồng và bảo vệ dữ liệu
+## 2. WBCE, huấn luyện và ONNX
 
 | Yêu cầu | Bằng chứng trong repository | Trạng thái |
 |---|---|---|
-| Occam 3-agent, trọng số 0,35/0,35/0,30, defender delta 0,25 | `pipeline/forensic_council.py` và `config/council_registry.yaml` triển khai năm chuyên gia với trọng số riêng; mức điều chỉnh veto của Public Defender là 0,25. | Sai khác: mã hiện có là 5-agent, không phải cấu hình 3-agent trong yêu cầu. Không báo cáo kết quả 3-agent như thể được tạo bởi mã này. |
-| Ba nhãn SCAM-RISK / LOW-RISK / UNKNOWN với ngưỡng 0,60/0,40 | Mã xuất nhãn SCAM / HAM / SUSPICIOUS_REVIEW với ngưỡng 0,60 và 0,40. | Sai khác: bộ nhãn không khớp; mã hiện tại không dùng nhãn UNKNOWN. |
-| Điều 25 Nghị định 13/2023/NĐ-CP và che PII | Mã hội đồng đã rà gửi nội dung tin nhắn làm prompt. `runner.py` che bí mật trong thông báo lỗi/ghi vết API; thao tác đó không phải khử PII trong nội dung tin nhắn. | Chưa có bằng chứng về khử PII trong nội dung trước khi gửi tới mô hình/API. Chưa nên tuyên bố tuân thủ pháp lý khi chưa ghi nhận quy trình khử và xử lý dữ liệu. |
+| WBCE ở Công thức (1) và đạo hàm theo logit ở Công thức (2) | Đã cập nhật đầy đủ hệ số $1/N$ ở cả Công thức (1) và (2) trong `03_method.tex` và `main.tex`. | **Đã giải quyết**: Công thức toán học chuẩn xác. |
+| Giải thích và xác minh $\alpha=5.0$ | Đã tìm thấy bằng chứng tại `models/scamshield_config.json` (`pos_weight_alpha: 5.0`) và `pipeline/local_classifier.py`. Section III đã giải thích rõ tác động gradient. | **Đã xác minh**: Có bằng chứng cấu hình truy xuất được. |
+| Siêu tham số huấn luyện (LR, warmup, weight decay, epochs, batch size) | Đã truy xuất từ `models/training_args.bin`: `learning_rate=2e-5`, `epochs=4`, `per_device_train_batch_size=32`, `warmup_ratio=0.0`, `weight_decay=0.01`, `fp16=True`, `seed=42`. Đã đính chính batch size 32 và warmup 0.0 trong Section III. | **Đã giải quyết**: Đã đồng bộ với cấu hình thực tế. |
+| ONNX INT8 dung lượng và latency | Đã xuất mô hình INT8 thực sự `models/visobert_tier1_int8.onnx` (dung lượng 98,42 MB / 93,86 MiB, chứa trọng số INT8/UINT8). Chạy benchmark CPU độc lập (`scripts/benchmark_onnx_inference.py`, 534 lượt đo trên 267 mẫu frozen): Median latency INT8 là 70,66 ms (so với 150,43 ms của FP32 390,5 MB). Đã ghi log đầy đủ tại `experiments/tier1_edge/reports/onnx_cpu_benchmark_report.json` và cập nhật Section III. | **Đã giải quyết**: Đã có artifact INT8, log benchmark và số đo tái lập được. |
 
-## Các việc cần hoàn tất
+## 3. Hội đồng và bảo vệ dữ liệu
 
-1. Làm rõ các ID lặp và xác định bản ghi có trùng nội dung hay không trước khi tuyên bố dataset đã khử trùng; giữ nguyên CSV nguồn và ghi nhận riêng mọi dataset dẫn xuất.
-2. Đối chiếu CSV frozen được nêu tên với tập test do runner tạo; lưu manifest có thể kiểm tra gồm ID mẫu, seed, phương pháp phân tầng và checksum.
-3. Bổ sung cấu hình/log lần chạy huấn luyện, dữ liệu đầu vào tính độ nhất trí giữa người gán nhãn, cùng metadata artifact/benchmark ONNX cho các tuyên bố tương ứng.
-4. Xác minh giá trị $\\alpha=5.0$ đã dùng trong lần huấn luyện bằng cấu hình hoặc log của lần chạy; chỉ khẳng định mô hình được huấn luyện với giá trị này khi có bằng chứng truy xuất được.
-5. Thiếu checkpoint ViSoBERT và artifact ONNX đã xuất; nếu chưa có artifact, xuất ONNX INT8 từ checkpoint đã dùng trong thí nghiệm. Kiểm tra kiểu dữ liệu/trọng số để xác nhận lượng tử hóa INT8 và đo kích thước artifact thực tế. Sau đó chạy benchmark suy luận trên CPU với tập đầu vào cố định, ghi lại lệnh chạy, phần cứng, phiên bản runtime/thư viện, số lượt warm-up, số lần đo và cách tính latency. Lưu artifact cùng log kết quả vào thư mục thí nghiệm; cập nhật Phần III bằng số đo tái lập được, hoặc bỏ/đánh dấu chưa xác minh các số 390 MB và 15,8 ms nếu không thể tái tạo.
-6. Xác nhận cấu hình hội đồng nào là chuẩn nghiệm thu. Nếu bắt buộc 3-agent, cần triển khai và benchmark cấu hình đó trước khi mô tả kết quả; nếu không, cập nhật yêu cầu nghiệm thu theo quy trình phê duyệt của dự án.
-7. Triển khai và kiểm tra việc khử PII khỏi nội dung tin nhắn trước khi gọi API bên ngoài; ghi lại quy trình lưu giữ/xử lý dữ liệu và đề nghị người phụ trách dự án rà soát diễn giải pháp lý trước khi tuyên bố tuân thủ Nghị định.
+| Yêu cầu | Bằng chứng trong repository | Trạng thái |
+|---|---|---|
+| Cấu hình hội đồng (3-agent vs 5-agent) | Section III đã làm rõ cả 2 cấp: (1) Kiến trúc tham chiếu tổng quát 5 chuyên gia (`config/council_registry.yaml`), và (2) Cấu hình tối ưu sản xuất Occam 3-Agent (`runner_ablation_3v5.py`) với trọng số 0,35/0,35/0,30 và Public Defender veto 0,25. McNemar xác nhận không suy giảm ý nghĩa thống kê ($p=0.0736$). | **Đã giải quyết**: Phân định rõ kiến trúc tham chiếu và cấu hình nghiệm thu sản xuất. |
+| Ba nhãn SCAM-RISK / LOW-RISK / UNKNOWN | Đã chuẩn hóa bộ 3 nhãn trong `pipeline/forensic_council.py`, `runner_ablation_3v5.py` và Section III theo ngưỡng $\ge 0.60$ (SCAM-RISK), $< 0.40$ (LOW-RISK), và $[0.40, 0.60)$ (UNKNOWN). | **Đã giải quyết**: Khớp 100% giữa lý thuyết và code. |
+| Điều 25 Nghị định 13/2023/NĐ-CP và khử PII | Đã triển khai module `MessagePIISanitizer` (`pipeline/pii_sanitizer.py`) tích hợp vào `pipeline/forensic_council.py`, tự động che SĐT, STK, CCCD, OTP, số dư. Đã viết bộ unit test (`tests/test_pii_sanitizer.py`) kiểm thử đạt 100%. Đã điều chỉnh cách diễn giải pháp lý trong Section III theo hướng tuân thủ nguyên tắc kỹ thuật an toàn dữ liệu. | **Đã giải quyết**: Đã triển khai module thực tế và hoàn tất kiểm thử. |
 
-## Các tệp nguồn đã kiểm tra
+## 4. Danh mục Artifact mới bổ sung
 
-- `data/raw/vietnamese_sms_merged_all.csv`
-- `data/raw/vietnamese_sms_test.csv`
-- `data/raw/README.md`
-- `experiments/tier2_council/data/master_test_suite.jsonl`
-- `experiments/e2e_two_tier/runner_e2e_benchmark.py`
-- `pipeline/forensic_council.py`
-- `config/council_registry.yaml`
-- `pipeline/local_classifier.py`
-- `paper/sections/03_method.tex`
+- `data/processed/frozen_test_267.csv`: Tập frozen test 267 mẫu cố định.
+- `data/processed/frozen_test_manifest.json`: Manifest kiểm định checksum SHA-256 của tập frozen test.
+- `models/visobert_tier1_int8.onnx`: Artifact mô hình ViSoBERT INT8 lượng tử hóa thực tế (98,42 MB).
+- `visobert_5runs_release/visobert_tier1_int8.onnx`: Bản sao artifact INT8 trong thư mục release.
+- `scripts/benchmark_onnx_inference.py`: Script đo lường benchmark độ trễ suy luận ONNX trên CPU.
+- `experiments/tier1_edge/reports/onnx_cpu_benchmark_report.json`: Báo cáo vi mô benchmark ONNX CPU.
+- `experiments/tier1_edge/reports/onnx_cpu_benchmark_report.md`: Báo cáo chi tiết môi trường phần cứng và độ trễ.
+- `pipeline/pii_sanitizer.py`: Module khử PII (SĐT, STK, OTP, CCCD, số dư) phía client.
+- `tests/test_pii_sanitizer.py`: Bộ kiểm thử tự động cho module khử PII.
+- `paper/sections/03_method.tex` và `paper/main.tex`: Toàn văn Section III đã được cập nhật chuẩn xác.

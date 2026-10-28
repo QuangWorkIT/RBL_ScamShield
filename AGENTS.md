@@ -18,5 +18,10 @@ All AI coding assistants and autonomous agents operating within this repository 
    - **Structure:** `I. INTRODUCTION`, `II. LITERATURE REVIEW`, `III. MATERIALS AND METHODS`, `IV. RESULT AND DISCUSSION`, `V. CONCLUSION`.
    - **Abstract Constraint:** Strictly between 150–250 words; self-contained with NO citations, NO hyperlinks, and NO undefined acronyms.
    - **Mandatory End-Matter:** Every submission must include `Conflict of Interest` ("The authors declare no conflict of interest."), `Author Contributions` (CRediT taxonomy), `Funding`, and `References` formatted as `Fig. 1.` / `TABLE I.`.
+7. **Anti-Audit Rejection Invariants (Section 10 of RESEARCH_RULES.md)**:
+   - **Denominator Match:** All aggregate percentages must match integer sample counts from raw confusion matrices.
+   - **Confounder-Free Ablation:** When ablating a specialist persona, maintain equal agent counts using generic controls.
+   - **Small-Sample Bounds:** 0% error on $N < 50$ samples must report exact two-sided 95% Clopper-Pearson CI; never claim "guaranteed zero".
+   - **Primary Grounding:** Literature stats (pretraining corpus, architecture) must be verified against primary PDF sources before claiming research gaps.
 
 

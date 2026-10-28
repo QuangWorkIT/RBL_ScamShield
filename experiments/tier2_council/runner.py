@@ -218,7 +218,7 @@ class GeminiDirectClient(BaseClient):
 
 class VibiProxyClient(BaseClient):
     """High-speed Non-Streaming OpenAI-compatible client for vibi.top (OpenAI & Anthropic)."""
-    def __init__(self, model_id: str, cost_calc: CostCalculator, api_key: str, base_url: str = "https://vibi.top/v1"):
+    def __init__(self, model_id: str, cost_calc: CostCalculator, api_key: str, base_url: str = "https://api.vnaipro.app/v1"):
         super().__init__(model_id, cost_calc)
         self.api_key = api_key
         self.endpoint = f"{base_url.rstrip('/')}/chat/completions"
@@ -264,7 +264,7 @@ def get_client(model_id: str, cost_calc: CostCalculator) -> BaseClient:
     gemini_key = os.getenv("GEMINI_API_KEY", "")
     openai_key = os.getenv("OPENAI_API_KEY", "")
     anthropic_key = os.getenv("ANTHROPIC_API_KEY", "")
-    vibi_url = os.getenv("VIBI_BASE_URL", "https://vibi.top/v1")
+    vibi_url = os.getenv("VIBI_BASE_URL", "https://api.vnaipro.app/v1")
 
     if "gemini" in model_id:
         return GeminiDirectClient(model_id, cost_calc, gemini_key)

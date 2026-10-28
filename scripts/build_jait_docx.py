@@ -36,34 +36,42 @@ def create_jait_document():
     r_auth.font.size = Pt(10.5)
     r_auth.font.bold = True
 
-    # Affiliation
+    # Affiliation & Email & Corresponding Author
     p_aff = doc.add_paragraph()
     p_aff.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_aff.paragraph_format.space_after = Pt(2)
-    r_aff = p_aff.add_run('1 Department of Software Engineering, FPT University, Ho Chi Minh City, Vietnam')
+    p_aff.paragraph_format.space_after = Pt(14)
+    r_aff = p_aff.add_run('1 Department of Software Engineering, FPT University, Ho Chi Minh City, Vietnam\n')
     r_aff.font.name = 'Times New Roman'
     r_aff.font.size = Pt(9.5)
-
-    # Email & Corresponding Author
-    p_mail = doc.add_paragraph()
-    p_mail.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p_mail.paragraph_format.space_after = Pt(14)
-    r_mail = p_mail.add_run('Email: cristand2825@gmail.com (N.T.H.); huylq@fpt.edu.vn (L.Q.H.); haiphuchoang2675@gmail.com (H.H.P.);\ntranpth@fpt.edu.vn (P.T.H.T.); quangnm@fpt.edu.vn (N.M.Q.)\n*Corresponding author')
+    r_mail = p_aff.add_run('Email: cristand2825@gmail.com (N.T.H.); huylq@fpt.edu.vn (L.Q.H.); haiphuchoang2675@gmail.com (H.H.P.);\ntranpth@fpt.edu.vn (P.T.H.T.); quangnm@fpt.edu.vn (N.M.Q.)\n*Corresponding author')
     r_mail.font.name = 'Times New Roman'
     r_mail.font.size = Pt(9)
 
-    # Section 2: Two Columns for Abstract, Keywords & Full Body Text
-    s2 = doc.add_section(WD_SECTION.CONTINUOUS)
+    # Section 1 ends at p_aff with continuous break; Section 2 (two columns) begins at paragraph 3 (Abstract)
+    pPr = p_aff._p.get_or_add_pPr()
+    sectPr = OxmlElement('w:sectPr')
+    type_el = OxmlElement('w:type')
+    type_el.set(qn('w:val'), 'continuous')
+    sectPr.append(type_el)
+    pgMar = OxmlElement('w:pgMar')
+    pgMar.set(qn('w:top'), '1080')
+    pgMar.set(qn('w:bottom'), '1080')
+    pgMar.set(qn('w:left'), '1080')
+    pgMar.set(qn('w:right'), '1080')
+    sectPr.append(pgMar)
+    pPr.append(sectPr)
+
+    s2 = doc.sections[1]
     s2.top_margin = Inches(0.75)
     s2.bottom_margin = Inches(0.75)
     s2.left_margin = Inches(0.75)
     s2.right_margin = Inches(0.75)
 
-    sectPr = s2._sectPr
-    cols = sectPr.find(qn('w:cols'))
+    sectPr2 = s2._sectPr
+    cols = sectPr2.find(qn('w:cols'))
     if cols is None:
         cols = OxmlElement('w:cols')
-        sectPr.append(cols)
+        sectPr2.append(cols)
     cols.set(qn('w:num'), '2')
     cols.set(qn('w:space'), '450') # 450 twips = 0.31 inch gap
 
@@ -85,7 +93,7 @@ def create_jait_document():
             continue
 
         # Abstract in Left Column
-        if sline.startswith('Telecommunications scam and phishing campaigns'):
+        if sline.startswith('Telecommunications fraud and smishing') or sline.startswith('Telecommunications scam and phishing'):
             p = doc.add_paragraph()
             p.paragraph_format.space_after = Pt(6)
             p.paragraph_format.line_spacing = 1.05

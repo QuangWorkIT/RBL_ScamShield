@@ -1,0 +1,65 @@
+{
+  "Arm 1 (5-Agent Full Council)": {
+    "true_scam": {
+      "pred_scam": 92,
+      "pred_ham": 2,
+      "pred_unknown": 4,
+      "total": 98
+    },
+    "true_ham": {
+      "pred_scam": 0,
+      "pred_ham": 19,
+      "pred_unknown": 0,
+      "total": 19
+    },
+    "metrics": {
+      "full_denominator_accuracy": "111/117 = 94.87%",
+      "full_denominator_scam_recall": "92/98 = 93.88%",
+      "coverage_rate": "113/117 = 96.58%",
+      "selective_accuracy_on_decided": "111/113 = 98.23%",
+      "fpr_on_benign": "0/19 = 0.00% (95% CI: [0.00%, 17.65%])"
+    }
+  },
+  "Arm 2 (3-Agent With Defender)": {
+    "true_scam": {
+      "pred_scam": 87,
+      "pred_ham": 1,
+      "pred_unknown": 10,
+      "total": 98
+    },
+    "true_ham": {
+      "pred_scam": 0,
+      "pred_ham": 19,
+      "pred_unknown": 0,
+      "total": 19
+    },
+    "metrics": {
+      "full_denominator_accuracy": "106/117 = 90.60%",
+      "full_denominator_scam_recall": "87/98 = 88.78%",
+      "coverage_rate": "107/117 = 91.45%",
+      "selective_accuracy_on_decided": "106/107 = 99.07%",
+      "fpr_on_benign": "0/19 = 0.00% (95% CI: [0.00%, 17.65%])"
+    }
+  },
+  "P-single Baseline (Single LLM)": {
+    "true_scam": {
+      "pred_scam": 94,
+      "pred_ham": 2,
+      "pred_unknown": 2,
+      "total": 98
+    },
+    "true_ham": {
+      "pred_scam": 0,
+      "pred_ham": 19,
+      "pred_unknown": 0,
+      "total": 19
+    },
+    "metrics": {
+      "full_denominator_accuracy": "113/117 = 96.58%",
+      "full_denominator_scam_recall": "94/98 = 95.92%",
+      "coverage_rate": "115/117 = 98.29%",
+      "selective_accuracy_on_decided": "113/115 = 98.26%",
+      "fpr_on_benign": "0/19 = 0.00% (95% CI: [0.00%, 17.65%])"
+    }
+  }
+}

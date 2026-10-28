@@ -28,6 +28,7 @@ from typing import Dict, List, Optional, Any, Tuple
 import yaml
 import requests
 from dotenv import load_dotenv
+from pipeline.pii_sanitizer import MessagePIISanitizer
 
 # Auto-load environment variables from project root
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"))
@@ -91,6 +92,7 @@ class ForensicCouncil:
         self.active_roles = active_roles
         self.consensus_rules = self.config.get("consensus_rules", {})
         self.cb_cfg = self.config.get("circuit_breaker", {})
+        self.sanitizer = MessagePIISanitizer()
         self.circuit_breaker = CircuitBreaker(
             failure_threshold=self.cb_cfg.get("failure_threshold", 3),
             cooldown_seconds=self.cb_cfg.get("cooldown_seconds", 300),
@@ -101,7 +103,7 @@ class ForensicCouncil:
         self.groq_api_key = os.getenv("GROQ_API_KEY") or ""
         self.openai_api_key = os.getenv("OPENAI_API_KEY") or ""
         self.anthropic_api_key = os.getenv("ANTHROPIC_API_KEY") or ""
-        self.vibi_base_url = os.getenv("VIBI_BASE_URL", "https://vibi.top/v1")
+        self.vibi_base_url = os.getenv("VIBI_BASE_URL", "https://api.vnaipro.app/v1")
 
         logger.info(
             f"ForensicCouncil initialized with {len(self.specialists)} specialists. "
@@ -460,19 +462,25 @@ Bắt buộc trả về định dạng JSON thuần túy theo schema sau:
 
         return {"vote": "LOW-RISK", "scam_prob": 0.20, "confidence": 0.80, "risk_level": "LOW", "key_cues": [], "analysis": "Trung tính."}
 
-    async def evaluate_council(self, message: str, active_roles: Optional[List[str]] = None) -> Dict[str, Any]:
+    async def evaluate_council(self, message: str, active_roles: Optional[List[str]] = None, sanitize_pii: bool = True) -> Dict[str, Any]:
         """
         Coordinates forensic specialists concurrently with Early-Exit Fast-Path.
         Supports dynamic role ablation (e.g. 3-Agent vs 5-Agent).
         """
         start_overall = time.perf_counter()
+        # Client-side PII sanitization per Decree 13/2023/ND-CP Article 25
+        sanitized_msg = message
+        pii_manifest = {}
+        if sanitize_pii and hasattr(self, 'sanitizer'):
+            sanitized_msg, pii_manifest = self.sanitizer.sanitize(message)
+
         tasks = []
         roles_to_run = active_roles or self.active_roles or list(self.specialists.keys())
 
         for key in roles_to_run:
             if key in self.specialists:
                 spec = self.specialists[key]
-                tasks.append(asyncio.create_task(self._execute_agent(key, spec, message)))
+                tasks.append(asyncio.create_task(self._execute_agent(key, spec, sanitized_msg)))
 
         early_exit_enabled = self.config.get("council_metadata", {}).get("early_exit_enabled", True)
         early_exit_threshold = 4 if len(roles_to_run) >= 5 else (len(roles_to_run) if len(roles_to_run) <= 3 else 3)

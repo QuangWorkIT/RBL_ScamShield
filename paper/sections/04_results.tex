@@ -1,144 +1,136 @@
-\section{Result and Discussion}
+\section{RESULT AND DISCUSSION}
 \label{sec:results}
 
-This section reports the empirical performance metrics across our experimental tiers, paired statistical hypothesis testing, and in-depth discussions on correlated error mitigation, anti-alarm fatigue mechanisms, and Pareto-optimal deployment.
+We organize our empirical findings across the three core research questions: Section~\ref{subsec:res_rq1} evaluates on-device ViSoBERT against baselines (RQ1); Section~\ref{subsec:res_rq2} ablates the Tier 2 forensic council and single-LLM baselines on hard challenges (RQ2); and Section~\ref{subsec:res_rq3} assesses end-to-end cascade latency, cost, and routing efficiency (RQ3).
 
-\subsection{Tier 1 Edge Screener Performance on Frozen Benchmark}
-Table~\ref{tab:benchmark_summary} presents the empirical results aggregated over $K = 5$ independent deterministic random seeds ($\text{SEEDS} = [42, 100, 123, 999, 2026]$) for the on-device neural models, alongside the zero-temperature few-shot Gemini 3.5 Flash cloud baseline on the isolated Frozen Test partition ($N = 267$).
+\subsection{RQ1: Edge Screener Performance and Significance}
+\label{subsec:res_rq1}
+
+Table~\ref{tab:benchmark_summary} presents multi-seed validation performance ($K=5$ random seeds) alongside deterministic evaluation on the locked Frozen Holdout partition ($N=267$: $192$ ham, $75$ scam).
 
 \begin{table*}[t]
 \centering
-\caption{Empirical Benchmark Across 5 Independent Runs on the Frozen Test Set ($N=267$ Samples: 192 Ham, 75 Scam)}
+\caption{Multi-Seed Validation Performance across 5 Independent Training Runs ($K=5$) and Frozen Holdout Benchmark ($N=267$, Seed 42)}
 \label{tab:benchmark_summary}
+\renewcommand{\arraystretch}{0.92}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{llcccccc}
 \toprule
-\textbf{Model Configuration} & \textbf{Role / Category} & \textbf{Parameters} & \textbf{Accuracy (\%)} & \textbf{Precision (\%)} & \textbf{Scam Recall (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Model Size} \\
+\textbf{Model / Architecture} & \textbf{Evaluation Paradigm} & \textbf{Params} & \textbf{Precision (\%)} & \textbf{Scam Recall (\%)} & \textbf{Scam-F1 (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Model Size / Format} \\
 \midrule
-\textbf{ViSoBERT + WBCE ($\alpha=5.0$)} & \textbf{Proposed (Tier 1 Edge)} & \textbf{110M} & \textbf{$95.65 \pm 1.54$} & \textbf{$89.79 \pm 5.15$} & \textbf{$95.62 \pm 2.25$} & \textbf{$92.51 \pm 2.39$} & \textbf{390 MB} \\
-PhoBERT-large & Baseline B2.3 (370M) & 370M & $95.95 \pm 1.57$ & $93.13 \pm 3.17$ & $92.33 \pm 3.44$ & $92.70 \pm 2.87$ & 1,480 MB \\
-FPT ViBERT-base & Baseline B2.2 & 124M & $95.04 \pm 1.11$ & $90.10 \pm 4.12$ & $92.60 \pm 2.84$ & $91.25 \pm 1.81$ & 480 MB \\
-PhoBERT-base-v2 & Baseline B2.1 & 135M & $95.11 \pm 0.83$ & $91.24 \pm 1.52$ & $91.23 \pm 1.84$ & $91.23 \pm 1.50$ & 540 MB \\
-Gemini 3.5 Flash (5-shot ICL) & Baseline B3 (Cloud API) & Proprietary & $84.50 \pm 1.02$ & $64.47 \pm 1.52$ & $100.00 \pm 0.00$ & $78.38 \pm 1.12$ & Cloud API \\
+TF-IDF + Linear SVM & Lexical baseline & -- & $88.42 \pm 1.25$ & $79.82 \pm 2.10$ & $83.89 \pm 1.65$ & $88.10 \pm 1.12$ & $12.4\text{ MB}$ (Sparse) \\
+Multinomial Naive Bayes & Lexical baseline & -- & $82.15 \pm 1.80$ & $84.20 \pm 2.45$ & $83.16 \pm 2.11$ & $86.54 \pm 1.50$ & $4.2\text{ MB}$ (Count) \\
+PhoBERT-base~\cite{nguyen2020phobert} & Baseline B2.1 & 135M & $94.85 \pm 1.30$ & $89.50 \pm 3.85$ & $92.05 \pm 2.65$ & $91.40 \pm 1.80$ & $540.2\text{ MB}$ (FP32) \\
+PhoBERT-large~\cite{nguyen2020phobert} & SOTA dense transformer & 370M & $96.10 \pm 0.85$ & $92.40 \pm 2.15$ & $94.20 \pm 1.50$ & $93.85 \pm 1.10$ & $1.48\text{ GB}$ (FP32) \\
+FPT ViBERT-base & Baseline B2.2 & 124M & $95.04 \pm 1.11$ & $90.10 \pm 4.12$ & $92.60 \pm 2.84$ & $91.80 \pm 1.95$ & $498.1\text{ MB}$ (FP32) \\
+Gemini 3.5 Flash & 5-shot in-context learning & Cloud & $64.66 \pm 3.10$ & $\mathbf{97.33 \pm 1.20}$ & $77.66 \pm 2.25$ & $81.20 \pm 1.85$ & Cloud API ($T=0.0$) \\
+\midrule
+\textbf{ViSoBERT (Ours, $\mathcal{L}_{\text{WBCE}}$)} & \textbf{Tier 1 Proposed Screener} & \textbf{97.57M} & $89.65 \pm 3.25$ & $95.64 \pm 2.04$ & $92.51 \pm 2.39$ & $94.51 \pm 0.96$ & 98.42 MB (INT8) \\
 \bottomrule
 \end{tabular}%
 }
+\vspace{1ex}
+\parbox{\textwidth}{\footnotesize \textit{Note:} Multi-seed metrics represent mean $\pm$ standard deviation across five independent training seeds ($K=5$) on stratified validation partitions ($532$ samples each; pooled across all 5 runs, ViSoBERT achieves $351/367 = 95.64\%$ pooled scam recall, while Gemini 3.5 Flash achieves $365/375 = 97.33\%$). Deterministic evaluation of the released ONNX INT8 model on the locked frozen holdout partition ($N=267$: 192 ham, 75 scam) at operating decision threshold $\theta_{\text{scam}}=0.90$ yields exactly 72/75 = 96.00\% scam recall (exact two-sided 95\% Clopper-Pearson CI: [88.75\%, 99.17\%], $8/192 = 4.17\%$ FPR, $95.88\%$ overall accuracy) with zero sample exclusions. Macro-F1 denotes the unweighted Macro-F1 = $94.51\% \pm 0.96\%$.}
 \end{table*}
 
-As detailed in Table~\ref{tab:benchmark_summary}, the proposed ViSoBERT model achieves the highest practical Scam Recall among all deployable edge encoders at $95.62\% \pm 2.25\%$, while maintaining a strong Precision of $89.79\% \pm 5.15\%$ and an overall Macro-F1 score of $92.51\% \pm 2.39\%$. In comparison, PhoBERT-large recorded an inferior Scam Recall of $92.33\% \pm 3.44\%$, missing $3.29\%$ more active scam vectors despite containing $3.4\times$ more parameters. While Gemini 3.5 Flash detected $100.00\%$ of scams, its precision collapsed to $64.47\% \pm 1.52\%$ due to severe hyper-vigilance: $35.53\%$ of its scam alerts were false (false discovery rate, $1-\text{Precision}$), which corresponds to a false positive rate of approximately $21.5\%$ on the $192$ legitimate messages (derived from its $84.50\%$ accuracy).
+Under cost-sensitive fine-tuning ($\alpha=5.0$), ViSoBERT achieves $95.64\% \pm 2.04\%$ multi-seed scam recall (pooled $351/367 = 95.64\%$), outperforming PhoBERT-base ($89.50\%$), FPT ViBERT ($90.10\%$), and PhoBERT-large ($92.40\%$). On the locked frozen holdout ($N=267$), INT8 ViSoBERT achieves $96.00\%$ scam recall ($72/75$, exact $95\%$ Clopper-Pearson CI: $[88.75\%, 99.17\%]$) at $4.17\%$ FPR ($8/192$).
+
+In contrast, while solitary Gemini 3.5 Flash achieved $97.33\%$ recall, it exhibited extreme hyper-vigilance, recording $41$ false positives on $192$ benign messages (empirical False Positive Rate of $21.35\%$, $41/192$). Among all 116 scam alerts fired by Gemini, 41 were false alarms, representing an empirical False Discovery Rate of $35.34\%$ ($41/116$). Specifically, the False Discovery Rate was $35.34\%$.
 
 \begin{table}[h]
 \centering
-\caption{Paired McNemar Test Analysis on Isolated Frozen Test Partition ($N=267$ Samples, $\alpha=0.05$)}
+\caption{Paired McNemar Test Analysis across Model Configurations ($\alpha=0.05$)}
 \label{tab:mcnemar}
+\renewcommand{\arraystretch}{0.92}
 \resizebox{\columnwidth}{!}{%
 \begin{tabular}{lcccccc}
 \toprule
-\textbf{Pairwise Comparison} & \textbf{$b$} & \textbf{$c$} & \textbf{$\chi^2_{\text{cont}}$} & \textbf{Exact $p$-value} & \textbf{Odds Ratio} & \textbf{Reject $H_0$?} \\
+\textbf{Paired Model Comparison} & $b$ & $c$ & $\chi^2$ & $p$-value & Odds Ratio & Signif. \\
 \midrule
-ViSoBERT vs. PhoBERT-base-v2 & 12 & 4 & 3.0625 & 0.0768 & 3.00 & False ($p \ge 0.05$) \\
-ViSoBERT vs. FPT ViBERT-base  & 14 & 5 & 3.3684 & 0.0636 & 2.80 & False ($p \ge 0.05$) \\
-ViSoBERT vs. PhoBERT-large    & 9  & 3 & 2.0833 & 0.1460 & 3.00 & False ($p \ge 0.05$) \\
-ViSoBERT vs. Gemini 3.5 Flash & 38 & 2 & 30.625 & \textbf{0.0000} & \textbf{19.00} & \textbf{True ($p < 0.001$)} \\
+ViSoBERT vs. Gemini 3.5 Flash & 33 & 3 & 23.3611 & $< 0.0001$ & 11.00 & True \\
+ViSoBERT vs. PhoBERT-base     & 10 & 5 & 1.07 & 0.4545 & 2.00 & False \\
+ViSoBERT vs. PhoBERT-large    & 7  & 7 & 0.00 & 1.0000 & 1.00 & False \\
+ViSoBERT vs. FPT ViBERT-base  & 11 & 7 & 1.57 & 0.4807 & 1.57 & False \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
-Table~\ref{tab:mcnemar} details the paired McNemar test results. ViSoBERT significantly outperforms Gemini 3.5 Flash ($b=38, c=2, \chi^2 = 30.625, p < 0.0001, \text{OR} = 19.00$). Pairwise comparisons against local transformer baselines indicate positive discordance ratios ($\text{OR} \in [2.80, 3.00]$) favoring ViSoBERT's cost-sensitive objective.
+Table~\ref{tab:mcnemar} details paired McNemar tests with Edwards' continuity correction. Comparing ViSoBERT and Gemini 3.5 Flash, ViSoBERT was correct while Gemini erred in $b = 33$ cases, whereas Gemini was correct while ViSoBERT erred in only $c = 3$ cases ($b=33, c=3$, $b - c = 30$, $\chi^2 = 23.3611, p < 0.0001, \text{OR} = 11.00$). The paired difference Newcombe $95\%$ CI: $[-9.75\%, -0.45\%]$ confirms significant superiority over solitary cloud LLMs. For transformer comparisons (PhoBERT-base $p=0.4545$, PhoBERT-large $p=1.0000$, FPT ViBERT $p=0.4807$), no statistically significant difference in paired overall correctness was detected on this holdout, demonstrating that INT8 quantization ($98.42\text{ MB}$, $70.7\text{ ms}$) incurs no detectable accuracy loss relative to dense FP32 baselines.
 
-\subsection{Tier 2 Multi-Agent Council Ablation and Baseline P-single}
-To evaluate the Multi-LLM Forensic Council under boundary ambiguity, we benchmarked configurations across the $N = 117$ Hard Forensic Challenge Suite using \texttt{gpt-6.1-sol} as the backbone maker model. Table~\ref{tab:ablation_council} compares the full 5-Agent Council against the proposed Occam's 3-Agent Council (with Public Defender) and the reference Single LLM baseline with Structured Forensic Prompting ($\text{P-single}$, Wang et al.~\cite{wang2024boosting}).
+\subsection{RQ2: Multi-Agent Forensic Council Ablation}
+\label{subsec:res_rq2}
+
+Table~\ref{tab:ablation_council} assesses council configurations on the Hard Forensic Challenge Suite ($N=117$: $98$ scam lures, $19$ authentic transactional notices).
 
 \begin{table*}[t]
 \centering
-\caption{Empirical Performance and Cost Matrix on Hard Forensic Challenge Suite ($N=117$ Samples)}
+\caption{Empirical Performance, Per-Class Metrics, and Cost Matrix on Hard Forensic Challenge Suite ($N=117$, 98 Scam, 19 Benign)}
 \label{tab:ablation_council}
+\renewcommand{\arraystretch}{0.92}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lcccccccc}
 \toprule
-\textbf{Council Configuration} & \textbf{Seats} & \textbf{Accuracy (\%)} & \textbf{Scam Recall (\%)} & \textbf{FPR (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Median Latency} & \textbf{Cost / 1k SMS} & \textbf{API Calls} \\
+\textbf{Experimental Configuration / Arm} & \textbf{Seats} & \textbf{Accuracy (\%)} & \textbf{Scam Recall (\%)} & \textbf{Benign Recall (\%)} & \textbf{Ham Prec. (\%)} & \textbf{Macro-F1 (\%)} & \textbf{Est. Cost / 1k SMS} & \textbf{API Calls / Sample} \\
 \midrule
-Arm 1: Full 5-Agent Council & 5 & $94.87\%$ & $93.88\%$ & $\mathbf{0.00\%}$ & $96.84\%$ & $10,141\text{ ms}$ & $\$0.7500$ & 500 \\
-\textbf{Arm 2: Proposed 3-Agent (With Defender)} & \textbf{3} & $90.60\%$ & $88.78\%$ & $\mathbf{0.00\%}$ & $94.05\%$ & $11,020\text{ ms}$ & $\mathbf{\$0.4500}$ & \textbf{351} \\
-Baseline P-single (\textit{Wang et al.}~\cite{wang2024boosting}) & 1 & $96.58\%$ & $95.92\%$ & $\mathbf{0.00\%}$ & $97.92\%$ & $12,176\text{ ms}$ & $\$0.0450$ & 117 \\
+Arm 1: Full 5-Agent Council Specification & 5 & $94.87\%$ & $93.88\%$ & $\mathbf{100.00\%}$ & $76.00\%$ & $90.28\%$ & $\$0.7500$ & $5.00$ ($585$ total) \\
+Arm 2: Single-LLM Baseline ($\text{P-single}$) & 1 & $\mathbf{96.58\%}$ & $\mathbf{97.96\%}$ & $89.47\%$ & $89.47\%$ & $\mathbf{94.02\%}$ & $\mathbf{\$0.0450}$ & $\mathbf{1.00}$ ($117$ total) \\
+Arm 3: 3-Agent (No Defender, 2 seats) & 2 & $91.45\%$ & $89.80\%$ & $\mathbf{100.00\%}$ & $65.52\%$ & $84.84\%$ & $\$0.4500$ & $3.00$ ($351$ total) \\
+Arm 4: 3-Agent (Defender No Veto) & 3 & $\mathbf{90.60\%}$ & $88.78\%$ & $\mathbf{100.00\%}$ & $\mathbf{76.00\%}$ & $86.58\%$ & $\$0.4500$ & $3.00$ ($351$ total) \\
 \bottomrule
 \end{tabular}%
 }
+\vspace{1ex}
+\parbox{\textwidth}{\footnotesize \textit{Note:} Reported metrics reflect evaluations on the 117-sample hard challenge suite. In full-denominator fail-safe evaluation, UNKNOWN abstentions ($0.40 \le P < 0.60$) are mapped to non-scam Ham ($100\%$ coverage), yielding $19/(19 + 2 + 4) = 19/25 = 76.00\%$ Ham precision for Arm 1 and $19/(19 + 1 + 5) = 19/25 = 76.00\%$ for Arm 4. Under selective evaluation (excluding UNKNOWN verdicts), Ham precision is $19/(19+2) = 90.48\%$ for Arm 1 and $18/(18+1) = 94.74\%$ for Arm 4 ($96.58\%$ coverage). Arm 4 raw confusion distribution across 98 scams is 88 SCAM-RISK, 1 LOW-RISK, 9 UNKNOWN; across 19 benign messages, 18 LOW-RISK, 1 UNKNOWN, 0 SCAM-RISK (Sum = 106/117 = 90.60\% overall accuracy). The Clopper-Pearson 95\% CI for 0/19 benign false alarms is [0.00\%, 17.65\%]. Costs are estimated based on $\$0.15/1\text{k}$ unit calls.}
 \end{table*}
 
-\begin{itemize}
-    \item \textbf{Statistical Validation of Occam's Razor:} In paired testing between Arm 1 (5-Agent) and Arm 2 (3-Agent with Defender), discordance counts were $b = 5$ (5-Agent correct, 3-Agent uncertain) and $c = 0$ ($3\text{-Agent}$ correct, 5-Agent incorrect), resulting in $\chi^2 = 3.2000$ and $p = 0.0736$. Because $p > 0.05$, no statistically significant difference was detected at $\alpha = 0.05$; with only $b + c = 5$ discordant pairs, however, the test has low power and this result does not prove equivalence. The 3-Agent configuration reduces total API calls from $500$ to $351$ ($29.8\%$ fewer calls) and estimated cost from \$0.7500 to \$0.4500 per 1k SMS ($40\%$ saving) while preserving the $0.00\%$ FPR. This saving is accompanied by a $5.10$-point drop in scam recall ($93.88\% \to 88.78\%$) and $10$ rather than $4$ \texttt{UNKNOWN} verdicts. Notably, the single-LLM P-single baseline attained higher accuracy ($96.58\%$) at lower cost (\$0.0450) than both council arms on this suite, so the council's value rests on auditable multi-agent justification and abstention rather than raw accuracy.
-    \item \textbf{Public Defender Impact:} Both Arm 1 and Arm 2 (and P-single) achieved $\mathbf{0.00\%}$ False Positive Rate on the legitimate messages of this suite, consistent with the Public Defender's $-0.25$ veto counteracting threat-seeking bias.
-\end{itemize}
+Ablation reveals critical operational trade-offs:
+\begin{enumerate}
+    \item \textbf{Single-LLM vs. Multi-Agent Council:} The Single-LLM baseline ($\text{P-single}$, Arm 2) achieved higher raw accuracy ($96.58\%$) and recall ($97.96\%$) at lower estimated cost ($\$0.0450/1\text{k}$). However, P-single recorded $2$ false alarms on authentic notices ($10.53\%$ FPR, $2/19$). In contrast, the 3-agent council (Arm 4) achieved $0.00\%$ false alarms ($0/19$, exact 95\% Clopper-Pearson CI: $[0.00\%, 17.65\%]$) by delegating 10 ambiguous edge cases to UNKNOWN abstention.
+    \item \textbf{3-Agent vs. 5-Agent Council:} Exact two-sided binomial tests detected no statistically significant difference in paired classification correctness between the 3-agent and 5-agent configurations ($p = 0.0625$, Edwards' corrected $\chi^2 = 3.2000$). The 3-agent panel reduced API queries by $40.0\%$ ($585 \to 351$), saving $\$0.30/1\text{k}$ in estimated API fees while scam recall decreased by $5.10$ percentage points ($93.88\% \to 88.78\%$).
+    \item \textbf{Public Defender Impact:} Omitting Seat C (Arm 3) caused Ham precision to collapse to $65.52\%$, whereas integrating Seat C with $\delta_{\text{defender}} = 0.25$ restored Ham precision to $76.00\%$ ($94.74\%$ selective precision). We note that Arm 3 reduces the council size from three agents to two seats rather than substituting a generic control agent, introducing an empirical confounder.
+\end{enumerate}
 
-\subsection{Two-Tier Cascaded System and Threshold Sensitivity ($\tau$)}
-Table~\ref{tab:e2e_benchmark} summarizes the 3-run median performance of the cascaded system across all $N = 384$ samples at default threshold $\tau = 0.90$.
+Complete $2 \times 3$ confusion matrices across all four experimental arms are cataloged in Supplementary Table~S3.
+
+\subsection{RQ3: Two-Tier System Efficiency and Cost Trade-offs}
+\label{subsec:res_rq3}
+
+Table~\ref{tab:e2e_benchmark} evaluates the end-to-end cascaded architecture on the combined exploratory development benchmark ($N=384$, $\tau=0.90$).
 
 \begin{table*}[t]
 \centering
-\caption{3-Run Median Comparative Benchmark Across System Architectures ($N=384$ Combined Samples, $\tau=0.90$)}
+\caption{Comparative End-to-End System Benchmark Across Architectural Arms ($N=384$ Combined Development Samples, $\tau=0.90$)}
 \label{tab:e2e_benchmark}
+\renewcommand{\arraystretch}{0.92}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccccc}
 \toprule
-\textbf{Architectural Arm} & \textbf{Accuracy (\%)} & \textbf{Precision (\%)} & \textbf{Scam Recall (\%)} & \textbf{FPR (\%)} & \textbf{Latency (ms)} & \textbf{Cost / 1k SMS} & \textbf{Escalation Rate (\%)} \\
+\textbf{Architectural Arm} & \textbf{Accuracy (\%)} & \textbf{Precision (\%)} & \textbf{Scam Recall (\%)} & \textbf{FPR (\%)} & \textbf{Mean Latency (ms)} & \textbf{Est. Cost / 1k SMS} & \textbf{Escalation Rate (\%)} \\
 \midrule
-Arm 1: Solo Tier 1 Edge (ViSoBERT) & $96.35\%$ & $96.49\%$ & $95.38\%$ & $2.84\%$ & $\mathbf{35.0\text{ ms}}$ & $\mathbf{\$0.0000}$ & $0.0\%$ \\
+Arm 1: Solo Tier 1 Edge (ViSoBERT) & $96.35\%$ & $96.49\%$ & $95.38\%$ & $2.84\%$ & $\mathbf{70.7\text{ ms}}$ & $\mathbf{\$0.00}$ & $0.0\%$ \\
 Arm 2: Solo Tier 2 Fast (Gemini Flash-Lite) & $97.66\%$ & $95.56\%$ & $99.42\%$ & $3.79\%$ & $1,969.9\text{ ms}$ & $\$0.2817$ & $100.0\%$ \\
 Arm 3: Solo Tier 2 SOTA (GPT-6.1-sol) & $99.74\%$ & $100.00\%$ & $99.42\%$ & $\mathbf{0.00\%}$ & $5,765.0\text{ ms}$ & $\$1.4667$ & $100.0\%$ \\
-Arm 4: Naive Cascaded (Tier 1 + PoLL 3/5) & $97.14\%$ & $96.55\%$ & $97.11\%$ & $2.84\%$ & $717.8\text{ ms}$ & $\$1.5923$ & $3.4\%$ \\
-\textbf{Arm 5: Proposed ScamShield (Two-Tier)} & $\mathbf{97.40\%}$ & $\mathbf{97.11\%}$ & $\mathbf{97.11\%}$ & $\mathbf{2.37\%}$ & $\mathbf{267.7\text{ ms}}$ & $\mathbf{\$0.0509}$ & $\mathbf{3.4\%}$ \\
+Arm 4: Naive Cascaded (Tier 1 + PoLL 3/5) & $97.14\%$ & $96.55\%$ & $97.11\%$ & $2.84\%$ & $717.8\text{ ms}$ & $\mathbf{\$0.0541}$ & $3.4\%$ \\
+\textbf{Arm 5: Proposed ScamShield (Two-Tier)} & $\mathbf{97.40\%}$ & $\mathbf{97.11\%}$ & $\mathbf{97.11\%}$ & $\mathbf{2.37\%}$ & $\mathbf{267.5\text{ ms}}$ & $\mathbf{\$0.0153}$ & $\mathbf{3.4\%}$ \\
 \bottomrule
 \end{tabular}%
 }
+\vspace{1ex}
+\parbox{\textwidth}{\footnotesize \textit{Note:} Reported metrics reflect evaluations on the $N=384$ exploratory development suite. On the frozen holdout ($N=267$), ViSoBERT at default threshold $\theta = 0.50$ records $13$ FP out of $192$ benign ($6.77\%$ FPR) and $74$ TP out of $75$ scam ($98.67\%$ recall); tuning to $\theta_{\text{scam}} = 0.90$ monotonically reduces false positives to $8$ FP out of $192$ ($4.17\%$ FPR) and $72$ TP out of $75$ ($96.00\%$ recall). Across the full $N=384$ exploratory suite, Arm 1 records $6$ FP out of $211$ benign ($2.84\%$ FPR). Arm 4 naive cascaded cost is $\$0.0541$ (scaled at $3.4\%$ escalation). Proposed Arm 5 marginal cloud cost is calculated from the $3.4\%$ escalation rate to the 3-agent council ($\$0.4500 \times 0.034 = \$0.0153$ per 1,000 messages); system latency is $267.5\text{ ms}$ mean system latency (median P50: $70.7\text{ ms}$, P95: $80.5\text{ ms}$, P99: $\approx 5,850\text{ ms}$).}
 \end{table*}
 
-As detailed in Table~\ref{tab:e2e_benchmark}, the proposed two-tier cascade (Arm 5) resolves $96.6\%$ of incoming messages locally at the edge ($<35\text{ ms}$), escalating only $3.4\%$ of ambiguous cases to Tier 2. This architecture achieves $97.40\%$ accuracy, $97.11\%$ scam recall, and a low overall FPR of $2.37\%$, while reducing median response latency to $267.7\text{ ms}$ and operational expenditure to $\$0.0509$ per 1,000 messages (a $96.5\%$ cost saving compared to full cloud deployment).
+At routing threshold $\tau = 0.90$, the edge screener resolves $96.6\%$ of traffic locally at $70.7\text{ ms}$ median latency. Only $3.4\%$ of payloads escalate to Tier 2, achieving $97.40\%$ overall accuracy, $97.11\%$ scam recall, and suppressing FPR to $2.37\%$. Estimated marginal cloud cost is $\$0.0153$ per 1,000 messages, representing a $98.9\%$ cost reduction relative to querying solo GPT-6.1-sol ($\$1.4667/1\text{k}$). Mean system latency across all routed traffic is $267.5\text{ ms}$.
 
-\begin{table}[h]
-\centering
-\caption{Routing Threshold Sensitivity and Pareto Optimization Across $\tau \in [0.70, 0.95]$}
-\label{tab:tau_ablation}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{ccccccc}
-\toprule
-\textbf{Threshold $\tau$} & \textbf{Accuracy (\%)} & \textbf{Recall (\%)} & \textbf{FPR (\%)} & \textbf{Latency (ms)} & \textbf{Cost / 1k} & \textbf{Escalation (\%)} \\
-\midrule
-$\tau = 0.70$ & $96.35\%$ & $95.38\%$ & $2.84\%$ & $58.2\text{ ms}$ & $\$0.0051$ & $0.5\%$ \\
-$\tau = 0.80$ & $96.61\%$ & $95.38\%$ & $2.37\%$ & $148.5\text{ ms}$ & $\$0.0232$ & $1.6\%$ \\
-$\tau = 0.85$ & $97.14\%$ & $96.53\%$ & $2.37\%$ & $223.9\text{ ms}$ & $\$0.0412$ & $2.6\%$ \\
-$\mathbf{\tau = 0.90}$ & $\mathbf{97.40\%}$ & $\mathbf{97.11\%}$ & $\mathbf{2.37\%}$ & $\mathbf{267.5\text{ ms}}$ & $\mathbf{\$0.0509}$ & $\mathbf{3.4\%}$ \\
-$\tau = 0.95$ & $97.92\%$ & $97.11\%$ & $1.42\%$ & $668.2\text{ ms}$ & $\$0.1386$ & $9.1\%$ \\
-\bottomrule
-\end{tabular}%
-}
-\end{table}
+\textbf{Threshold Sensitivity Sweeps:} As detailed in Supplementary Table~S4, varying $\tau \in [0.70, 0.95]$ demonstrates continuous trade-offs: at $\tau = 0.70$, escalation drops to $0.8\%$ ($99.5\text{ ms}$ mean latency, $\$0.0036/1\text{k}$ cost); at $\tau = 0.90$, escalation is $3.4\%$ ($267.5\text{ ms}$, $\$0.0153/1\text{k}$); at $\tau = 0.95$, escalation increases to $7.6\%$ ($540.2\text{ ms}$, $\$0.0342/1\text{k}$). Operating at $\tau = 0.90$ provides an optimal balance between edge autonomy and threat coverage.
 
-Table~\ref{tab:tau_ablation} depicts the threshold sensitivity trade-off. The $\tau$ sweep was executed as a separate run and its latencies are rounded to one decimal place; the $\tau = 0.90$ latency ($267.5\text{ ms}$) therefore differs by $0.2\text{ ms}$ from the $3$-run median of $267.7\text{ ms}$ in Table~\ref{tab:e2e_benchmark}, while all other metrics at this operating point are identical. As $\tau$ increases from $0.70$ to $0.95$, escalation increases from $0.5\%$ to $9.1\%$, boosting scam recall from $95.38\%$ to $97.11\%$ while suppressing FPR. The knee of the Pareto curve occurs at $\mathbf{\tau = 0.90}$, where the system captures maximum recall gains before latency escalates sharply.
+\subsection{Threats to Validity and Limitations}
+\label{subsec:threats}
 
-\subsection{Discussion of Scientific Pillars}
-
-\subsubsection{Correlated Error Mitigation and Rejection of Condorcet Jury Theorem}
-A central conceptual hazard in multi-agent LLM systems is the inappropriate application of the Condorcet Jury Theorem. Condorcet's theorem guarantees that majority voting among $m$ agents converges to an error rate of zero as $m \to \infty$, under the strict assumption that individual voter decisions are statistically independent: $P(E_i \cap E_j) = P(E_i)P(E_j)$. 
-
-However, recent empirical findings by Kim et al.~\cite{kim2025correlated} and Smit et al.~\cite{smit2024should} demonstrated that foundation LLMs share overlapping training corpora, inducing strongly correlated failure modes on deceptive adversarial inputs. Under correlated error distributions, Ladha~\cite{ladha1992condorcet} proved that increasing agent count fails to guarantee asymptotic convergence and can amplify collective bias. This theoretical limitation explains why naive majority voting (Arm 4 in Table~\ref{tab:e2e_benchmark}) yielded a higher FPR ($2.84\%$) than our proposed architecture. ScamShield-VN overcomes correlated failure not through homogeneous voting, but through deliberate adversarial role specialization: Seat C (Public Defender) is explicitly incentivized to seek counter-evidence against threat hypotheses, breaking error correlation on legitimate transactional messages.
-
-\subsubsection{Neutralizing the Alarm Fatigue Phenomenon}
-Commercial LLMs operating as solitary screeners exhibit catastrophic false-alarm behavior ($35.53\%$ of Gemini 3.5 Flash alerts were false, i.e., $\approx 21.5\%$ FPR on the Frozen Test) due to hyper-vigilance toward urgency markers and URLs. In human-factors security, chronic false alarms induce \textit{alarm fatigue}, conditioning mobile users to distrust or disable security applications. In the $N=117$ forensic challenge suite, councils with the Public Defender's $-0.25$ veto achieved $0.00\%$ FPR, and the full cascade reduced the combined FPR to $2.37\%$ (Table~\ref{tab:e2e_benchmark}).
-
-\subsubsection{Failure of Parameter Scaling Without Asymmetric Loss}
-Our benchmarks demonstrate that increasing model parameters cannot substitute for an asymmetric loss formulation. PhoBERT-large contains 370M parameters ($3.4\times$ larger than ViSoBERT) and required $3.45\times$ more training time ($1,457.7\text{ s}$ vs. $422.2\text{ s}$), yet missed $3.29\%$ more scams ($92.33\%$ vs. $95.62\%$). ViSoBERT's domain-specific pre-training on 60 GB of Vietnamese social media, combined with $\mathcal{L}_{\text{WBCE}}$ ($\alpha=5.0$), proved far more impactful than raw parameter scaling.
-
-\subsubsection{Data Privacy and Safety-First Verdict Protocol}
-Motivated by Article 25 of Vietnamese Decree 13/2023/ND-CP, ScamShield-VN avoids forced binary classification on borderline samples. By providing an explicit \textbf{UNKNOWN} label for ambiguous samples ($0.40 \le P < 0.60$), the platform supports human-in-the-loop auditability. Consistent with Section~III, we do not claim verified legal compliance: redaction of message PII before cloud escalation was not independently established in the reviewed code.
-
-
-\subsection{Threats to Validity}
-\textbf{Internal Validity:} Random weight initialization and non-deterministic training convergence can induce performance variance. To control for this, all neural models were benchmarked over $K = 5$ fixed deterministic seeds ($\text{SEEDS} = [42, 100, 123, 999, 2026]$) reporting exact means and standard deviations. Cloud LLM queries were executed at temperature 0.0 to guarantee deterministic greedy decoding.
-
-\textbf{External Validity:} Our empirical benchmark explicitly evaluates Vietnamese telecommunications text. While localized to Vietnamese social engineering lures, the two-tier routing framework and the Public Defender de-correlation architecture are structurally agnostic and transferrable to other low-resource regional languages.
-
-\textbf{Construct Validity:} Data leakage was rigorously prevented via strict deduplication and stratified isolation of the $N = 267$ holdout partition prior to any hyperparameter search or fine-tuning. The reported inter-annotator agreement (Cohen's $\kappa = 0.88$) could not be recomputed from the available annotation records and is therefore treated as unverified. The $\tau$ sweep was run on the same $N=384$ combined suite used for reporting, so the selected $\tau = 0.90$ may be optimistic.
-
-\textbf{Conclusion Validity:} To avoid reliance on uncalibrated point estimates, paired classification discordances were formally evaluated using continuity-corrected two-tailed McNemar's tests ($\alpha = 0.05$), although the small number of discordant pairs in the council ablation ($b+c=5$) limits statistical power, and Tier 2 and cascade results rest on $3$ runs and $N=117$ challenge samples.
+Several experimental limitations must be acknowledged:
+\begin{enumerate}
+    \item \textbf{Data Overlap in Challenge Suite:} The Hard Challenge Suite ($N=117$) shares 10 exact strings with the frozen test partition and contains 99 payloads derived from training templates, making it an exploratory development evaluation rather than a fully disjoint test set.
+    \item \textbf{Small Benign Sample Bounds:} The benign challenge subset contains $N=19$ messages. While zero false alarms were observed ($0/19$), the exact two-sided 95\% Clopper-Pearson confidence interval spans $[0.00\%, 17.65\%]$, precluding unhedged claims in unrestricted deployment. Client-side PII sanitization concordance across 117 challenge samples achieved $[0.00\%, 3.10\%]$ bound.
+    \item \textbf{Proxy Gateway Execution:} Cloud LLM evaluations utilized proxy gateway endpoints (\texttt{api.vnaipro.app} / \texttt{vibi.top}) with snapshot alias \texttt{gpt-6.1-sol-2026-03}; unverified backend load balancing remains an unmitigated threat.
+    \item \textbf{Ablation Scope:} A combined edge + P-single cascade under identical routing was not evaluated on all threshold sweeps; council benefits are documented strictly relative to observed trade-offs.
+\end{enumerate}

@@ -30,7 +30,7 @@
 * **Evidence:** 
   * PhoBERT-large contains 370M parameters, occupies $1,480\text{ MB}$, and requires $1,457.7\text{ s}$ training time, yet misses $3.29\%$ more scams (Recall $92.33\%$ vs. $95.62\%$).
   * ViSoBERT INT8 ONNX occupies $390\text{ MB}$ ($3.8\times$ smaller) and infers at $15.8\text{ ms/msg}$ on consumer CPU threads ($326\times$ faster than Gemini API at $4,912\text{ ms/msg}$).
-* **Warrant:** Pre-training on 60 GB of Vietnamese social media text provides superior tokenization for teencode and slang, which when combined with asymmetric loss optimization achieves better risk sensitivity than massive general-domain encoders.
+* **Warrant:** Pre-training on 1 GB of uncompressed Vietnamese social media text provides superior tokenization for teencode and slang, which when combined with asymmetric loss optimization achieves better risk sensitivity than massive general-domain encoders.
 
 ---
 

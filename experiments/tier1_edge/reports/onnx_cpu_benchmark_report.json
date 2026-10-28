@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 141 Stepping 1, GenuineIntel",
+    "machine": "AMD64",
+    "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "onnxruntime_version": "1.31.0",
+    "cpu_count_physical": 6,
+    "cpu_count_logical": 12,
+    "total_ram_gb": 15.78
+  },
+  "input_set": {
+    "source": "data\\processed\\frozen_test_267.csv",
+    "sample_count": 267,
+    "max_sequence_length": 128
+  },
+  "models": {
+    "FP32_Baseline": {
+      "model_file": "models\\visobert_tier1.onnx",
+      "artifact_size_bytes": 390543876,
+      "artifact_size_mb_binary": 372.45,
+      "artifact_size_mb_decimal": 390.54,
+      "total_measurements": 534,
+      "warmup_runs": 50,
+      "mean_latency_ms": 150.6,
+      "std_latency_ms": 11.22,
+      "median_latency_ms": 150.43,
+      "p90_latency_ms": 164.3,
+      "p95_latency_ms": 167.57,
+      "p99_latency_ms": 180.28,
+      "min_latency_ms": 116.33,
+      "max_latency_ms": 193.07
+    },
+    "INT8_Quantized": {
+      "model_file": "models\\visobert_tier1_int8.onnx",
+      "artifact_size_bytes": 98421530,
+      "artifact_size_mb_binary": 93.86,
+      "artifact_size_mb_decimal": 98.42,
+      "total_measurements": 534,
+      "warmup_runs": 50,
+      "mean_latency_ms": 70.72,
+      "std_latency_ms": 7.72,
+      "median_latency_ms": 70.66,
+      "p90_latency_ms": 78.7,
+      "p95_latency_ms": 80.48,
+      "p99_latency_ms": 86.64,
+      "min_latency_ms": 47.91,
+      "max_latency_ms": 148.68
+    }
+  }
+}

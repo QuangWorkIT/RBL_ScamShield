@@ -82,7 +82,7 @@ class PSingleEvaluator:
         self.model_name = model_name
         self.api_key = os.getenv("OPENAI_API_KEY") or os.getenv("ANTHROPIC_API_KEY") or ""
         self.gemini_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or ""
-        self.vibi_url = os.getenv("VIBI_BASE_URL", "https://vibi.top/v1")
+        self.vibi_url = os.getenv("VIBI_BASE_URL", "https://api.vnaipro.app/v1")
 
     def evaluate_message(self, message: str) -> Dict[str, Any]:
         start = time.perf_counter()

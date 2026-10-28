@@ -10,7 +10,7 @@
 
 ### 1.1 Model Selection & Justification:
 * **Canonical Hugging Face Hub ID:** `uitnlp/visobert` (Architecture: RoBERTa-based, 110M parameters).
-* **Rationale:** Pre-trained on a massive 60GB corpus of Vietnamese social media, forums, and comment sections. Perfectly adapted to the syntactic nuances, abbreviations, and teencode prevalent in modern Vietnamese smishing and scam lures.
+* **Rationale:** Pre-trained on a 1 GB corpus of uncompressed Vietnamese social media, forums, and comment sections. Perfectly adapted to the syntactic nuances, abbreviations, and teencode prevalent in modern Vietnamese smishing and scam lures.
 * **Loss Function Formulation:**
   Standard binary cross-entropy treats False Positives (FPs: legitimate SMS flagged as scam) and False Negatives (FNs: scam message missed, causing financial loss to users) with equal severity. In scam defense, an FN is catastrophic. We therefore integrate **Cost-Sensitive Weighted Binary Cross-Entropy Loss ($\mathcal{L}_{\text{WBCE}}$)**:
   $$\mathcal{L}_{\text{WBCE}} = -\frac{1}{N} \sum_{i=1}^{N} \left[ \alpha \cdot y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right], \quad \alpha = 5.0$$

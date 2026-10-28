@@ -321,7 +321,7 @@ During the execution phase, all experimental code in `scripts/` must adhere to t
   1. *Zero-Shot Directive:* Direct classification instruction with label definitions.
   2. *Few-Shot (3–5 shots):* Balanced positive/negative exemplars with reasoning annotations.
   3. *Few-Shot Chain-of-Thought (CoT):* Step-by-step psychological trigger identification before final classification.
-- **Deterministic Output:** Set LLM generation `temperature = 0.0` for all classification benchmarks to guarantee reproducible responses.
+- **Deterministic Output:** Set LLM generation `temperature = 0.0` for all classification benchmarks to minimize decoding entropy. Note: As hosted cloud LLM backends utilize non-deterministic parallel kernels, setting temperature 0 does not guarantee absolute mathematical determinism; run/request IDs, response metadata, and variance across runs must be empirically reported.
 
 ### 8.3 Fine-Tuning Protocol for PhoBERT
 - Base checkpoint: `vinai/phobert-base-v2` and `vinai/phobert-large`.
@@ -349,6 +349,46 @@ Before submitting any milestone (RBL-1 through RBL-5b), verify against this chec
 - [ ] Random seeds, prompt templates, and hyperparameter configurations are fully recorded for 100% reproducibility.
 - [ ] All commit messages adhere to Section 3.2 tagging conventions.
 - [ ] Manuscript strictly adheres to JAIT (Journal of Advances in Information Technology) formatting standard (docs/JAIT-template.doc).
+- [ ] Mathematical denominator integrity verified: all reported percentages match exact integer counts from per-seed confusion matrices.
+- [ ] Small-sample zero false alarm claims report exact Clopper-Pearson 95% confidence intervals.
+- [ ] Baseline pretraining metadata verified directly against primary PDF sources.
+
+---
+
+## 10. Mandatory Empirical & Statistical Invariants (Anti-Audit Rejection Rules)
+
+### Rule 10.1: Mathematical Denominator & Aggregation Integrity (N02 / M6 Prevention)
+- **Zero Hallucinated Fractions:** NEVER report an aggregate mean metric (e.g., Mean Recall, Mean Accuracy, Macro-F1) without publishing the per-run confusion counts ($TP, FP, TN, FN$) and explicit denominators ($N_{total}$, $N_{scam}$, $N_{benign}$).
+- **Explicit Aggregation Paradigm:** If cross-validation folds or seeds have unequal class samples, the manuscript MUST explicitly define whether the reported number is:
+  1. *Unweighted Macro-average across seeds:* $\bar{R} = \frac{1}{K}\sum_{k=1}^K \frac{TP_k}{N_{scam}^{(k)}}$, OR
+  2. *Pooled Micro-average:* $R_{pooled} = \frac{\sum_{k=1}^K TP_k}{\sum_{k=1}^K N_{scam}^{(k)}}$.
+- Any mathematically impossible percentage where $\text{Mean} \times \text{Total\_N}$ yields a non-integer value under claimed constant sample sizes is strictly forbidden.
+
+### Rule 10.2: Confounder-Free Ablation Design Standard (H1 / N04 Prevention)
+- When evaluating a specific persona, decision mechanism, or veto rule in a multi-agent council (e.g., Public Defender Seat C):
+  - The control arm MUST isolate that single variable. If removing Seat C, Seat C **MUST be replaced with a neutral/generic agent** to preserve identical agent count, normalization weights, and token budget.
+  - If a confounded ablation is retained due to operational constraints, the authors MUST down-scope the claim to an *"exploratory architectural observation"* and explicitly disclose the confounders in the Threats to Validity section.
+
+### Rule 10.3: Small-Sample Clopper-Pearson Confidence Bound Rule (N07 Prevention)
+- Whenever observing $0$ false positives ($0.00\%$ FPR) or $0$ false negatives on small sample subsets ($N < 50$, such as the $N=19$ benign challenge set):
+  - Authors MUST NEVER claim "complete elimination of alarm fatigue", "guaranteed zero false alarms", or "population-level perfection".
+  - Authors MUST compute and report the exact two-sided 95% Clopper-Pearson confidence interval:
+    $$\text{Upper Bound} = 1 - (\alpha/2)^{1/n} = 1 - (0.025)^{1/19} \approx 17.65\%$$
+  - The paper must honestly frame the result: *"achieved 0.00% empirical false alarms on the 19 challenge benign lures (exact two-sided 95% Clopper-Pearson CI: [0.00%, 17.65%])"*.
+
+### Rule 10.4: False Discovery Rate (FDR) vs. False Positive Rate (FPR) Separation (N06 Prevention)
+- Authors must maintain rigorous distinction between:
+  1. $\text{False Discovery Rate (FDR)} = 1 - \text{Precision} = \frac{FP}{TP + FP}$ (Fraction of generated alarms that are false).
+  2. $\text{False Positive Rate (FPR)} = \frac{FP}{FP + TN}$ (Fraction of legitimate traffic incorrectly flagged).
+- Any usage of the term "False Alarm Rate" (FAR) must explicitly specify the denominator prior to reporting.
+
+### Rule 10.5: Literature Metadata & Primary Source Grounding (N05 / H8 / H12 Prevention)
+- Before citing any baseline model's pretraining corpus size, architecture, or benchmark metric, authors MUST inspect the official publication PDF (e.g., ACL Anthology for ViSoBERT, arXiv v2 for MultiPhishGuard).
+- Hallucinating or propagating secondary citations (e.g., claiming ViSoBERT used 10GB when the official paper `2023.emnlp-main.315` states 1GB) constitutes academic misconduct and will trigger immediate rejection.
+
+### Rule 10.6: Full Disclosure of Adverse Baselines (H9 / H10 Compliance)
+- If an empirical baseline (such as a single LLM prompt `P-single`) outperforms the proposed multi-agent council in raw accuracy or cost, this finding MUST be prominently disclosed in the Abstract, Results, and Discussion.
+- The scientific contribution of the council must be framed around auditable reasoning, explicit rationale, and abstention control rather than misleading claims of accuracy superiority.
 
 ---
 
