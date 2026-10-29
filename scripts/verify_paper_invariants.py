@@ -212,6 +212,16 @@ def run_checks():
     else:
         errors.append(f"{preview_path} not found")
 
+    # 19. LaTeX Formatting & Macro Invariants
+    print("\n--- 19. LaTeX Formatting & Macro Invariants ---")
+    unescaped_texttt = []
+    for s_name, s_content in sections.items():
+        matches = re.findall(r'\\texttt\{([^}]*)\}', s_content)
+        for m in matches:
+            if '_' in m and '\\_' not in m:
+                unescaped_texttt.append(f"{s_name}: \\texttt{{{m}}}")
+    check(len(unescaped_texttt) == 0, "No raw unescaped underscores in \\texttt macros (must use \\path or \\_)")
+
     print("\n" + "=" * 80)
     print(f"VERIFICATION SUMMARY: {len(errors)} ERRORS, {len(warnings)} WARNINGS")
     print("=" * 80)
