@@ -136,7 +136,7 @@ def audit_dual_trackers():
         ("Marginal cloud cost: $0.0153 / 1k SMS", lambda: "0.0153" in main_tex),
         ("Mean system latency: 267.5 ms", lambda: "267.5" in main_tex),
         ("PII Sanitizer Decree 13/2023/ND-CP Article 25", lambda: "Decree 13/2023/ND-CP" in main_tex),
-        ("Commit hash pinned a65ec3188a23644031c647d1ff46ee411a88614c", lambda: "a65ec3188a23644031c647d1ff46ee411a88614c" in main_tex),
+        ("Repository URL https://github.com/QuangWorkIT/RBL_ScamShield", lambda: "https://github.com/QuangWorkIT/RBL_ScamShield" in main_tex),
         ("Zero sample exclusions or drops", lambda: "zero sample exclusions" in main_tex),
         ("Ref [7] ViSoBERT full authors in BibTeX", lambda: "Quoc-Nam Nguyen" in bib_text),
         ("Ref [26] MultiPhishGuard authors in BibTeX", lambda: "Giovanni Russello" in bib_text)

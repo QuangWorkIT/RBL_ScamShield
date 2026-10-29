@@ -64,7 +64,7 @@ Phap et al.~\cite{phap2026edgeai} & English & BiGRU + MaskedPool + WBCE & UCI \&
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Reported metrics are extracted from corresponding publications evaluated on heterogeneous datasets, hardware environments, and task formulations; they illustrate comparative architectural paradigms rather than direct benchmark parity.}
 \end{table*}
 
@@ -168,7 +168,7 @@ Tier 2 Baseline PoLL  & \texttt{claude-sonnet-5} & Anthropic (via proxy) & $0.1$
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\columnwidth}{\footnotesize \textit{Note:} Evaluation conducted Oct 18--20, 2026. Complete API contracts and schemas archived in \texttt{configs/}.}
 \end{table}
 
@@ -194,7 +194,7 @@ Gemini 3.5 Flash (5-shot ICL) & Baseline B3 (Cloud API) & Proprietary & $84.50 \
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Reported F1 metrics in this table denote class-specific Scam-F1 (positive class). Unweighted Macro-F1 across both Scam and Ham classes for ViSoBERT is $94.51\% \pm 0.96\%$. For ViSoBERT, per-seed scam recalls during model training on stratified validation partitions were 69/73 (94.52\%), 68/73 (93.15\%), 72/73 (98.63\%), 72/75 (96.00\%), and 70/73 (95.89\%), yielding an unweighted macro-average of 95.64\% $\pm$ 2.04\% (sample standard deviation $s=2.04\%$, pooled micro-recall across all 5 seed validation runs is 351/367 = 95.64\%). Deterministic evaluation of the released ONNX INT8 model on the locked frozen holdout partition ($N=267$: 192 ham, 75 scam) at operating decision threshold $\theta_{\text{scam}}=0.90$ (distinguishing classification decision threshold $\theta_{\text{scam}}$ from cascaded routing confidence threshold $\tau = 0.90$) yields exactly 72/75 = 96.00\% scam recall (exact two-sided 95\% Clopper-Pearson CI: [88.75\%, 99.17\%], $8/192 = 4.17\%$ FPR, $95.88\%$ overall accuracy) with zero sample exclusions.}
 \end{table*}
 
@@ -220,7 +220,7 @@ ViSoBERT vs. Gemini 3.5 Flash & 33 & 3 & 23.3611 & $\mathbf{p < 0.0001}$ & \text
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\columnwidth}{\footnotesize \textit{Note:} Panel A evaluates the released ViSoBERT model quantized to ONNX INT8 (executed on desktop CPU) against baseline transformer models evaluated at FP32/FP16 precision on the locked Frozen Holdout partition ($N=267$, Seed 42, $\theta_{\text{scam}}=0.90$). Panel B compares consensus decisions on sanitized payloads ($N=117$).}
 \end{table}
 
@@ -248,7 +248,7 @@ Baseline P-single (\textit{Wang et al.}~\cite{wang2024boosting}) & 1 & $\mathbf{
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Macro-F1 is the unweighted arithmetic mean of Scam-F1 and Ham-F1 under the standardized conservative mapping where \texttt{UNKNOWN} verdicts are penalized as non-positive classifications for the ground-truth class. Previous drafts labeled the $96.84\%$, $94.05\%$, and $97.92\%$ metrics as Macro-F1; these correspond specifically to Scam-F1 and have been corrected to reflect true Macro-F1 ($91.60\%$, $85.80\%$, and $94.20\%$).}
 \end{table*}
 
@@ -290,7 +290,7 @@ Baseline P-single (\textit{Wang et al.}) & 94 & 2 & 2 & 0 & 19 & 0 & $\mathbf{0.
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\columnwidth}{\footnotesize \textit{Note:} Ground-truth counts: $N_{\text{scam}} = 98$, $N_{\text{benign}} = 19$, Total $N=117$. FPR 95\% CIs are exact two-sided Clopper-Pearson intervals.}
 \end{table}
 
@@ -316,7 +316,7 @@ Gemini 3.5 Flash (5-shot ICL) & Baseline B3 (Cloud API) & Proprietary & $84.50 \
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Reported F1 metrics in this table denote class-specific Scam-F1 (positive class). Unweighted Macro-F1 across both Scam and Ham classes for ViSoBERT is $94.51\% \pm 0.96\%$. For ViSoBERT, per-seed scam recalls during model training on stratified validation partitions were 69/73 (94.52\%), 68/73 (93.15\%), 72/73 (98.63\%), 72/75 (96.00\%), and 70/73 (95.89\%), yielding an unweighted macro-average of 95.64\% $\pm$ 2.04\% (sample standard deviation $s=2.04\%$, pooled micro-recall across all 5 seed validation runs is 351/367 = 95.64\%). Deterministic evaluation of the released ONNX INT8 model on the locked frozen holdout partition ($N=267$: 192 ham, 75 scam) at operating decision threshold $\theta_{\text{scam}}=0.90$ (distinguishing classification decision threshold $\theta_{\text{scam}}$ from cascaded routing confidence threshold $\tau = 0.90$) yields exactly 72/75 = 96.00\% scam recall (exact two-sided 95\% Clopper-Pearson CI: [88.75\%, 99.17\%], $8/192 = 4.17\%$ FPR, $95.88\%$ overall accuracy) with zero sample exclusions.}
 \end{table*}
 
@@ -342,7 +342,7 @@ ViSoBERT vs. Gemini 3.5 Flash & 33 & 3 & 23.3611 & $\mathbf{p < 0.0001}$ & \text
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\columnwidth}{\footnotesize \textit{Note:} Panel A evaluates the released ViSoBERT model quantized to ONNX INT8 (executed on desktop CPU) against baseline transformer models evaluated at FP32/FP16 precision on the locked Frozen Holdout partition ($N=267$, Seed 42, $\theta_{\text{scam}}=0.90$). Panel B compares consensus decisions on sanitized payloads ($N=117$).}
 \end{table}
 
@@ -370,7 +370,7 @@ Baseline P-single (\textit{Wang et al.}~\cite{wang2024boosting}) & 1 & $\mathbf{
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Macro-F1 is the unweighted arithmetic mean of Scam-F1 and Ham-F1 under the standardized conservative mapping where \texttt{UNKNOWN} verdicts are penalized as non-positive classifications for the ground-truth class. Previous drafts labeled the $96.84\%$, $94.05\%$, and $97.92\%$ metrics as Macro-F1; these correspond specifically to Scam-F1 and have been corrected to reflect true Macro-F1 ($91.60\%$, $85.80\%$, and $94.20\%$).}
 \end{table*}
 
@@ -412,7 +412,7 @@ Baseline P-single (\textit{Wang et al.}) & 94 & 2 & 2 & 0 & 19 & 0 & $\mathbf{0.
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\columnwidth}{\footnotesize \textit{Note:} Ground-truth counts: $N_{\text{scam}} = 98$, $N_{\text{benign}} = 19$, Total $N=117$. FPR 95\% CIs are exact two-sided Clopper-Pearson intervals.}
 \end{table}
 
@@ -442,7 +442,7 @@ Arm 4: Naive Cascaded (Tier 1 + PoLL 3/5) & $97.14\%$ & $96.55\%$ & $97.11\%$ & 
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Reported metrics reflect 3-run evaluations on the $N=384$ exploratory development suite. Arm 1 (Solo Tier 1 Edge) reflects standalone ViSoBERT evaluated at default classification threshold $\theta = 0.50$ across the full $N=384$ exploratory suite, recording 6 FP out of 211 ham (4 FP on the 192 frozen ham and 2 FP on the 19 challenge ham, yielding $2.84\%$ FPR) and 165 TP out of 173 scam ($95.38\%$ recall). This operational configuration differs from the dedicated holdout benchmark in Table~\ref{tab:benchmark_summary}, where the released engine was evaluated at tuned operating threshold $\theta_{\text{scam}} = 0.90$ (yielding $8/192 = 4.17\%$ FPR and $72/75 = 96.00\%$ recall). If evaluated under $\theta_{\text{scam}}=0.90$ with holdout predictions, the frozen partition alone contributes an empirical lower bound of $8/211 = 3.79\%$ FPR. Arm 5 marginal cloud API cost is calculated from the $3.4\%$ escalation rate to the 3-agent council ($\$0.4500 \times 0.034 = \$0.0153$ per 1,000 messages); system latency represents the $267.5\text{ ms}$ mean system latency (per-message median P50: $70.7\text{ ms}$, P95: $80.5\text{ ms}$, P99: $\approx 5,850\text{ ms}$).}
 \end{table*}
 

@@ -93,7 +93,9 @@ def create_jait_document():
             continue
 
         # Abstract in Left Column
-        if sline.startswith('Telecommunications fraud and smishing') or sline.startswith('Telecommunications scam and phishing'):
+        if sline.startswith('Telecommunications fraud and smishing') or \
+           sline.startswith('Telecommunications scam and phishing') or \
+           sline.startswith('Vietnamese scam and phishing'):
             p = doc.add_paragraph()
             p.paragraph_format.space_after = Pt(6)
             p.paragraph_format.line_spacing = 1.05
@@ -250,6 +252,19 @@ def create_jait_document():
             r = p.add_run(sline)
             r.font.name = 'Times New Roman'
             r.font.size = Pt(8)
+            continue
+
+        # Table Note Paragraphs
+        if sline.startswith('Note:') or sline.startswith('*Note:*') or sline.startswith('_Note:_'):
+            p = doc.add_paragraph()
+            p.paragraph_format.space_before = Pt(6)
+            p.paragraph_format.space_after = Pt(4)
+            p.paragraph_format.first_line_indent = Inches(0)
+            p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+            r = p.add_run(sline)
+            r.font.name = 'Times New Roman'
+            r.font.size = Pt(8)
+            r.font.italic = True
             continue
 
         # Regular Body Paragraphs

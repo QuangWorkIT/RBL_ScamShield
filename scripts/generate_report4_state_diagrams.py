@@ -74,6 +74,18 @@ def main():
             'title': 'Scam Check State Diagram',
             'filename': 'scrum_109_scam_check_state.puml',
             'states': ['Submitted', 'Validated', 'Analyzing', 'VerdictReturned (Safe/Suspicious/Dangerous)', 'Failed']
+        },
+        {
+            'ticket': 'SCRUM-120',
+            'title': 'Business/Bank Whitelist Registration State Diagram',
+            'filename': 'scrum_120_whitelist_registration_state.puml',
+            'states': ['Drafted', 'Submitted', 'UnderReview', 'NeedsRevision', 'Approved', 'Rejected', 'Revoked']
+        },
+        {
+            'ticket': 'SCRUM-121',
+            'title': 'Partner Scam Alert & Indicator Review State Diagram',
+            'filename': 'scrum_121_partner_scam_alert_state.puml',
+            'states': ['SubmissionPendingReview', 'UnderReview', 'Rejected', 'VerifiedIntelligence', 'ExistingIndicatorUpdated', 'CandidateCreated', 'Confirmed', 'CandidateDiscarded']
         }
     ]
 
@@ -95,7 +107,7 @@ def main():
         print(f"   🌐 Link Vector SVG        : {svg_url}")
 
     print("\n======================================================================")
-    print("✅ ĐÃ HOÀN TẤT KIỂM TRA TOÀN BỘ 3 BIỂU ĐỒ TRẠNG THÁI!")
+    print("✅ ĐÃ HOÀN TẤT KIỂM TRA TOÀN BỘ 5 BIỂU ĐỒ TRẠNG THÁI REPORT 4!")
     print("👉 File tài liệu đặc tả đầy đủ: docs/08_UML_STATE_DIAGRAMS_REPORT4.md")
     print("======================================================================")
 

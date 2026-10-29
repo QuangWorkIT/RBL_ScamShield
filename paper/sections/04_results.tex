@@ -29,7 +29,7 @@ Gemini 3.5 Flash & 5-shot in-context learning & Cloud & $64.66 \pm 3.10$ & $\mat
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Multi-seed metrics represent mean $\pm$ standard deviation across five independent training seeds ($K=5$) on stratified validation partitions ($532$ samples each; pooled across all 5 runs, ViSoBERT achieves $351/367 = 95.64\%$ pooled scam recall, while Gemini 3.5 Flash achieves $365/375 = 97.33\%$). Deterministic evaluation of the released ONNX INT8 model on the locked frozen holdout partition ($N=267$: 192 ham, 75 scam) at operating decision threshold $\theta_{\text{scam}}=0.90$ yields exactly 72/75 = 96.00\% scam recall (exact two-sided 95\% Clopper-Pearson CI: [88.75\%, 99.17\%], $8/192 = 4.17\%$ FPR, $95.88\%$ overall accuracy) with zero sample exclusions. Macro-F1 denotes the unweighted Macro-F1 = $94.51\% \pm 0.96\%$.}
 \end{table*}
 
@@ -80,7 +80,7 @@ Arm 4: 3-Agent (Defender No Veto) & 3 & $\mathbf{90.60\%}$ & $88.78\%$ & $\mathb
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Reported metrics reflect evaluations on the 117-sample hard challenge suite. In full-denominator fail-safe evaluation, UNKNOWN abstentions ($0.40 \le P < 0.60$) are mapped to non-scam Ham ($100\%$ coverage), yielding $19/(19 + 2 + 4) = 19/25 = 76.00\%$ Ham precision for Arm 1 and $19/(19 + 1 + 5) = 19/25 = 76.00\%$ for Arm 4. Under selective evaluation (excluding UNKNOWN verdicts), Ham precision is $19/(19+2) = 90.48\%$ for Arm 1 and $18/(18+1) = 94.74\%$ for Arm 4 ($96.58\%$ coverage). Arm 4 raw confusion distribution across 98 scams is 88 SCAM-RISK, 1 LOW-RISK, 9 UNKNOWN; across 19 benign messages, 18 LOW-RISK, 1 UNKNOWN, 0 SCAM-RISK (Sum = 106/117 = 90.60\% overall accuracy). The Clopper-Pearson 95\% CI for 0/19 benign false alarms is [0.00\%, 17.65\%]. Costs are estimated based on $\$0.15/1\text{k}$ unit calls.}
 \end{table*}
 
@@ -116,7 +116,7 @@ Arm 4: Naive Cascaded (Tier 1 + PoLL 3/5) & $97.14\%$ & $96.55\%$ & $97.11\%$ & 
 \bottomrule
 \end{tabular}%
 }
-\vspace{1ex}
+\par\vspace{6pt}
 \parbox{\textwidth}{\footnotesize \textit{Note:} Reported metrics reflect evaluations on the $N=384$ exploratory development suite. On the frozen holdout ($N=267$), ViSoBERT at default threshold $\theta = 0.50$ records $13$ FP out of $192$ benign ($6.77\%$ FPR) and $74$ TP out of $75$ scam ($98.67\%$ recall); tuning to $\theta_{\text{scam}} = 0.90$ monotonically reduces false positives to $8$ FP out of $192$ ($4.17\%$ FPR) and $72$ TP out of $75$ ($96.00\%$ recall). Across the full $N=384$ exploratory suite, Arm 1 records $6$ FP out of $211$ benign ($2.84\%$ FPR). Arm 4 naive cascaded cost is $\$0.0541$ (scaled at $3.4\%$ escalation). Proposed Arm 5 marginal cloud cost is calculated from the $3.4\%$ escalation rate to the 3-agent council ($\$0.4500 \times 0.034 = \$0.0153$ per 1,000 messages); system latency is $267.5\text{ ms}$ mean system latency (median P50: $70.7\text{ ms}$, P95: $80.5\text{ ms}$, P99: $\approx 5,850\text{ ms}$).}
 \end{table*}
 

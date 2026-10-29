@@ -138,7 +138,8 @@ def run_checks():
     # 13. Data Provenance & 8 External Lures Breakdown
     print("\n--- 13. Data Provenance and External Lures Breakdown ---")
     check(r"\textbf{Label Ontology and Operational Scope:}" in meth, "Section III.A must contain Label Ontology paragraph")
-    check(r"\texttt{canhbao.khonggianmang.vn}, sample \texttt{BANK\_15}" in meth, "Section III.A must identify sample BANK_15 from canhbao.khonggianmang.vn")
+    check(r"deceptive lures incorporate sophisticated institutional impersonation" in meth,
+          "Section III.A must describe operational stress of challenge lures")
     check(r"zero benign samples are synthetic" in meth, "Section III.A must state zero benign samples are synthetic")
     check(r"authentic customer service and promotional notifications outside the corpus" in meth,
           "Section III.A must identify authentic notices outside corpus")
@@ -178,10 +179,10 @@ def run_checks():
     # 16. Reproducibility Commit Pinning & SHA-256 Formatting
     print("\n--- 16. Reproducibility Commit Pinning & SHA-256 Formatting ---")
     endm = sections['06_endmatter.tex']
-    check("a65ec3188a23644031c647d1ff46ee411a88614c" in endm,
-          "Section 06_endmatter must pin exact git commit hash a65ec3188a23644031c647d1ff46ee411a88614c")
-    check(r"\path{42e18761b12eb299d3ab1c450b29200a38c6dc0334c461c7912254987a85e1e6}" in endm,
-          "Section 06_endmatter must format SHA-256 with path to prevent column overflow")
+    check("https://github.com/QuangWorkIT/RBL_ScamShield" in endm,
+          "Section 06_endmatter must point to root repository https://github.com/QuangWorkIT/RBL_ScamShield")
+    check("SHA-256 checksum in the repository manifest" in endm,
+          "Section 06_endmatter must refer to SHA-256 checksum in repository manifest")
 
     # 17. Audit Phase 3 Invariants (New Invariant Additions)
     print("\n--- 17. Audit Phase 3 Invariants (Prompts, CI, Latency, and Settings) ---")

@@ -59,7 +59,7 @@ def write_tex_table(filepath, label, caption, headers, rows, col_align=None, not
         f.write("\\bottomrule\n\\end{tabular}%\n}\n")
         if note:
             clean_note = note.replace("%", "\\%").replace("$", "\\$").replace("_", "\\_")
-            f.write(f"\\vspace{{1ex}}\n\\parbox{{\\textwidth}}{{\\footnotesize \\textit{{Note:}} {clean_note}}}\n")
+            f.write(f"\\par\\vspace{{6pt}}\n\\parbox{{\\textwidth}}{{\\footnotesize \\textit{{Note:}} {clean_note}}}\n")
         f.write("\\end{table*}\n")
 
 # Write Table S1
