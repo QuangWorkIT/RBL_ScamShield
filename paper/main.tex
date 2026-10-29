@@ -58,9 +58,10 @@
 \maketitle
 
 \begin{abstract}
-Telecommunications fraud and smishing in Vietnam exploit localized linguistic evasion, including regional slang, teencode abbreviations, and diacritic omission. Conventional defenses suffer from elevated false-negative rates under symmetric loss or induce severe alarm fatigue when relying on solitary cloud Large Language Models. We present ScamShield-VN, an empirical two-tier architecture pairing an on-device edge screener with an Occam-consolidated three-agent forensic council. Tier 1 deploys ViSoBERT fine-tuned with Cost-Sensitive Weighted Binary Cross-Entropy loss ($\alpha=5.0$) and quantized via ONNX INT8 ($98.42\text{ MB}$ / $93.86\text{ MiB}$, $70.7\text{ ms}$ CPU latency). Across five independent training seeds, ViSoBERT achieves $95.64\% \pm 2.04\%$ pooled scam recall and $94.51\% \pm 0.96\%$ Macro-F1. On the locked frozen holdout benchmark ($N=267$, $\theta_{\text{scam}}=0.90$), it attains $96.00\%$ scam recall ($72/75$, exact $95\%$ Clopper-Pearson confidence interval: $[88.75\%, 99.17\%]$) and $4.17\%$ false-positive rate ($8/192$), significantly outperforming solitary Gemini 3.5 Flash in paired correctness ($p < 0.0001$). On a 117-sample hard challenge suite, while a single-LLM baseline achieved higher raw challenge recall ($97.96\%$) with $2$ false alarms, the 3-agent council leveraged an adversarial Public Defender to eliminate false alarms ($0.00\%$, $[0.00\%, 17.65\%]$) by abstaining on 10 edge cases. No statistically significant difference in paired correctness was detected between 3-agent and 5-agent configurations ($p = 0.0625$), while reducing API calls by $40.0\%$. On the 384-sample development suite, the cascade resolves $96.6\%$ of traffic locally at an estimated marginal API cost of $\$0.0153$ per 1,000 messages with $267.5\text{ ms}$ mean system latency.
+Vietnamese scam and phishing messages often evade detection through teencode, slang, and omitted diacritics, while conventional defenses suffer from high false-negative rates or induce severe alarm fatigue under solitary cloud detectors. We evaluate ScamShield-VN, an empirical two-tier architecture combining an on-device ViSoBERT screener with a three-agent forensic council for uncertain cases. Tier 1 fine-tunes ViSoBERT using Cost-Sensitive Weighted Binary Cross-Entropy loss ($\alpha = 5.0$) and ONNX INT8 quantization ($98.42\text{ MB}$, $70.7\text{ ms}$ median CPU latency). Across five independent training seeds, the five-run mean scam recall was $95.64\% \pm 2.04\%$ and mean Macro-F1 was $94.51\% \pm 0.96\%$. On a locked frozen holdout of 267 messages ($\theta_{\text{scam}} = 0.90$), ViSoBERT attained $96.00\%$ scam recall ($72/75$; exact $95\%$ Clopper-Pearson CI: $[88.75\%, 99.17\%]$) and $4.17\%$ false-positive rate ($8/192$), significantly outperforming solitary Gemini 3.5 Flash in paired correctness ($p < 0.0001$). On a separate 117-message challenge set, a single-LLM baseline achieved higher raw scam recall ($97.96\%$) with two false alarms. The three-agent council incurred zero false alarms on 19 benign lures (exact $95\%$ Clopper-Pearson CI: $[0.00\%, 17.65\%]$) while abstaining on 10 edge cases. Relative to a five-agent panel, the three-agent council reduced API queries by $40.0\%$ but incurred a $5.10$ percentage point drop in scam recall (exact paired $p = 0.0625$). On an exploratory 384-message development set, the cascade resolved $96.6\%$ of traffic locally at $267.5\text{ ms}$ mean system latency and an estimated marginal API cost of $\$0.0153$ per 1,000 messages. These empirical findings support selective cloud referral, while false alarms and abstentions warrant verification on larger independent cohorts.
 \end{abstract}
 
+\renewcommand\IEEEkeywordsname{Keywords}
 \begin{IEEEkeywords}
 scam detection, phishing detection, large language models, cost-sensitive learning, Vietnamese NLP, edge AI, multi-agent consensus
 \end{IEEEkeywords}
@@ -86,7 +87,7 @@ To address these challenges, this study presents an empirical evaluation of \tex
 
 Our primary empirical contributions are: (1) An empirical benchmark of $2,664$ real-world Vietnamese telecommunications messages ($N=267$ locked frozen holdout) evaluating transformer backbones against cloud LLMs; (2) A quantized edge screener ($97.57\text{M}$ params, $98.42\text{ MB}$ / $93.86\text{ MiB}$, $70.7\text{ ms}$ CPU latency) achieving $96.00\%$ holdout recall ($72/75$) and $4.17\%$ FPR ($8/192$), significantly surpassing Gemini 3.5 Flash ($p < 0.0001$, McNemar test); and (3) A two-tier cascade resolving $96.6\%$ of traffic locally, achieving $97.40\%$ overall accuracy, $2.37\%$ FPR, and an estimated marginal API cost of $\$0.0153$ per 1,000 messages with $267.5\text{ ms}$ mean system latency.
 
-The remainder of this manuscript is structured according to the JAIT publication guidelines: Section~\ref{sec:literature} reviews related literature and frames our contribution via Table~\ref{tab:novelty_matrix}; Section~\ref{sec:method} outlines the methodology, architecture, and statistical testing framework; Section~\ref{sec:results} presents experimental results addressing RQ1--RQ3; and Section~\ref{sec:conclusion} concludes the paper. Full prompts, model cards, and raw confusion matrices are archived in the accompanying Supplementary Material.
+The remainder of this manuscript is structured according to the JAIT publication guidelines: Section~\ref{sec:literature} reviews related literature and frames our contribution via Table~\ref{tab:novelty_matrix}; Section~\ref{sec:method} outlines the methodology, architecture, and statistical testing framework; Section~\ref{sec:results} presents experimental results addressing RQ1--RQ3; and Section~\ref{sec:conclusion} concludes the paper. Full prompts, model cards, and raw confusion matrices are archived in the accompanying Supplementary Material (available anonymously for peer review at \url{https://anonymous.4open.science/r/ScamShield_Supplementary_Material-B582/}).
 
 \section{LITERATURE REVIEW}
 \label{sec:literature}
@@ -141,8 +142,8 @@ Table~\ref{tab:novelty_matrix} positions ScamShield-VN relative to its key precu
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/pipeline_architecture.png}
-\caption{End-to-End Two-Tier Architecture and Operational Triage Flow of ScamShield-VN. On-device Tier 1 screening utilizes ViSoBERT fine-tuned under Cost-Sensitive WBCE ($\alpha=5.0$) and quantized via ONNX INT8 ($98.42\text{ MB}$ / $93.86\text{ MiB}$, $70.7\text{ ms}$ on consumer CPU). Payloads yielding intermediate confidence ($C_{\text{T1}} < \tau$, $\tau=0.90$) undergo client-side PII sanitization (Article 25, Decree 13/2023/ND-CP) and escalate to the Tier 2 Forensic Council.}
+\includegraphics[width=\textwidth]{figures/pipeline_architecture.png}
+\caption{Two-tier inference flow of ScamShield-VN. Tier 1 (on-device ViSoBERT INT8) resolves messages with confidence $C_{\text{T1}} \ge 0.90$ locally ($96.6\%$ of traffic). The remaining ambiguous messages ($3.4\%$) are PII-sanitized on the client and escalated to a three-seat Tier 2 council, whose weighted vote with a Public Defender offset yields a SCAM-RISK, LOW-RISK, or UNKNOWN verdict.}
 \label{fig:pipeline}
 \end{figure*}
 
@@ -153,7 +154,11 @@ To ensure reproducible empirical evaluation without data leakage, we establish a
 
 \textbf{Label Ontology and Operational Scope:} Messages are classified into three operational categories: \textbf{SCAM-RISK} (fraudulent intent, phishing URLs, extortion), \textbf{LOW-RISK} (benign transactional/personal messages), and \textbf{UNKNOWN} (ambiguous context requiring human discretion).
 
-\textbf{Dataset Hygiene and Deduplication:} Unicode normalization (NFC) and whitespace sanitization were applied. Partition auditing confirmed zero exact or near-duplicate overlap between the Training Set ($N=1,865$, $522$ scam / $1,343$ ham), Stratified Validation Set ($N=532$, $149$ scam / $383$ ham), and the isolated Frozen Holdout Test Set ($N=267$, $75$ scam / $192$ ham). The Hard Forensic Challenge Suite ($N=117$, $98$ scam / $19$ ham) assesses edge cases with \textbf{99 / 117 ($84.6\%$)} template overlap against training data, containing 10 overlapping text strings and 99 training-derived templates evaluated as an exploratory development benchmark rather than a fully disjoint test set. As observed in \texttt{canhbao.khonggianmang.vn}, sample \texttt{BANK\_15}, threat actors mimic legitimate notices; zero benign samples are synthetic, and authentic customer service and promotional notifications outside the corpus were curated to stress-test false alarm rejection.
+\textbf{Dataset Hygiene, Deduplication, and Provenance Audit:} Unicode normalization (NFC) and whitespace sanitization were applied across all partitions. Partition auditing confirmed zero exact string overlap ($0/267$, $0.0\%$) between the primary training partitions ($\mathcal{D}_{\text{train}}$, $\mathcal{D}_{\text{val}}$) and the locked Frozen Holdout Test Set ($\mathcal{D}_{\text{test}}$, $N=267$: $75$ scam, $192$ ham; SHA-256 sealed holdout). To rigorously assess template shortcut risks, near-duplicate clustering using character-level 4-gram Jaccard similarity ($\text{Jaccard} \ge 0.85$) identified $63 / 267$ ($23.6\%$) near-duplicate instances between $\mathcal{D}_{\text{test}}$ and $\mathcal{D}_{\text{train}}$, predominantly stemming from standardized telecommunications carrier marketing templates. 
+
+In contrast to the locked holdout, the Hard Forensic Challenge Suite ($N=117$: $98$ scam lures, $19$ authentic transactional notices) assesses edge cases with \textbf{99 / 117 ($84.6\%$)} template overlap against training data, containing 10 overlapping text strings and 99 training-derived templates evaluated as an exploratory development benchmark rather than a fully disjoint test set. To ensure authentic operational stress, deceptive lures incorporate sophisticated institutional impersonation and psychological urgency; crucially, zero benign samples are synthetic, and authentic customer service and promotional notifications outside the corpus were curated to stress-test false alarm rejection. Because the Tier 2 LLM council evaluates payloads in a strict zero-shot setting without parametric fine-tuning, training template overlap does not artificially inflate isolated council reasoning in Section~\ref{subsec:res_rq2}; however, it serves as an exploratory development benchmark rather than a fully disjoint out-of-distribution generalization test for cascaded routing.
+
+\textbf{Supplementary 35 Phishing Lures Provenance:} The $35$ high-impact national phishing lures were collected from verified public advisories released by the Vietnam National Cyber Security Center (\texttt{canhbao.khonggianmang.vn}) during 2023--2024. Each lure was manually confirmed by domain experts as an active fraud vector (e.g., fraudulent portals spoofing VNeID, VssID, and commercial banking KYC gateways). Prior to corpus ingestion, all live phishing URLs were defanged, and simulated victim credentials were systematically redacted. To prevent contamination of the locked test partition while maintaining realistic training exposure, these $35$ confirmed lures were allocated deterministically: $25$ to $\mathcal{D}_{\text{train}}$, $10$ to $\mathcal{D}_{\text{val}}$, and strictly $0$ to $\mathcal{D}_{\text{test}}$ (Table~\ref{tab:dataset_sources}), ensuring that zero external lure shortcuts contaminated the frozen holdout evaluation. All $19$ benign challenge samples were curated from authentic institutional SMS notifications (OTP syntax, balance updates) to stress-test false positive rejection.
 
 \begin{table}[h]
 \centering
@@ -179,46 +184,60 @@ Hard Challenge Suite & $98$ & $19$ & $117$ & $98$ scam / $19$ ham ($83.8\%$) \\
 \subsection{Cost-Sensitive Loss Formulation ($\mathcal{L}_{\text{WBCE}}$) and Edge Quantization}
 \label{subsec:wbce_quant}
 
-To penalize missed fraud, Tier 1 optimizes transformer encoders using Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$):
+To heavily penalize missed fraudulent messages (false negatives), Tier 1 fine-tunes transformer encoders using Cost-Sensitive Weighted Binary Cross-Entropy loss ($\mathcal{L}_{\text{WBCE}}$):
 \begin{equation}
 \label{eq:wbce}
 \mathcal{L}_{\text{WBCE}} = -\frac{1}{N} \sum_{i=1}^{N} \left[ \alpha \cdot y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
 \end{equation}
-where $y_i \in \{0, 1\}$, $\hat{y}_i = \sigma(z_i)$, and $\alpha = 5.0$ scales the gradient for false negatives $5\times$. Models are trained with AdamW ($\text{lr} = 2 \times 10^{-5}$, weight decay $0.01$, batch size $32$, $5$ epochs).
+where ground truth $y_i \in \{0, 1\}$ follows the convention that $y_i = 1$ denotes fraudulent scam and $y_i = 0$ denotes benign ham, and $\hat{y}_i = \sigma(z_i) \in [0, 1]$ represents the predicted scam probability from logit $z_i$. The positive-class penalty weight $\alpha = 5.0$ assigns a five-fold penalty to misclassifying true scams ($y_i=1$) relative to misclassifying benign traffic ($y_i=0$). 
 
-The fine-tuned ViSoBERT-base ($97.57\text{M}$ parameters) is exported to ONNX and quantized to INT8 via dynamic range quantization. The quantized artifact compresses disk footprint from $390.54\text{ MB}$ (FP32) to $98.42\text{ MB}$ ($93.86\text{ MiB}$, $74.8\%$ reduction). On consumer CPU (Intel i7-11800H, 4 threads, single-sample batch), median per-message latency is $70.7\text{ ms}$ (P95: $80.5\text{ ms}$).
+\textbf{Training Protocol and Reproducibility:} The base architecture is \texttt{uitnlp/visobert-corpus-tok} ($97.57\text{M}$ parameters, revision locked via Hugging Face commit hash). Optimization is performed using AdamW with learning rate $\eta = 2 \times 10^{-5}$, weight decay $0.01$, linear learning rate warmup over the first $10\%$ of steps, effective batch size of $32$, and training for $5$ epochs. Fine-tuning was executed on an NVIDIA RTX 3090 GPU (24GB VRAM). Checkpoint selection was determined strictly by maximum macro-F1 on the stratified validation set ($\mathcal{D}_{\text{val}}$, $N=532$). For multi-seed robustness verification, five independent fine-tuning runs were executed across seeds $\{42, 100, 123, 999, 2026\}$. Model evaluation on the locked frozen holdout partition ($\mathcal{D}_{\text{test}}$, $N=267$) was conducted using the seed 42 checkpoint.
+
+\textbf{Edge Quantization and Benchmark Latency:} The best validation checkpoint of ViSoBERT-base was exported to ONNX format and quantized to INT8 precision using ONNX Runtime dynamic range quantization (asymmetric per-tensor activation quantization, symmetric per-channel weight quantization). The INT8 quantization compressed the artifact footprint from $390.54\text{ MB}$ (FP32) to $98.42\text{ MB}$ ($93.86\text{ MiB}$, a $74.8\%$ reduction). On a standard consumer CPU (Intel Core i7-11800H @ 2.30 GHz, 6 physical / 12 logical cores, 16 GB RAM, single-thread batch-1 inference across $534$ evaluation iterations after $50$ warmup runs), the median per-message inference latency is $70.66\text{ ms}$ (mean: $70.72 \pm 7.72\text{ ms}$, P90: $78.70\text{ ms}$, P95: $80.48\text{ ms}$, P99: $86.64\text{ ms}$), compared to $150.43\text{ ms}$ median (mean: $150.60\text{ ms}$) for the unquantized FP32 model.
 
 \subsection{Two-Tier Routing and Deliberative Forensic Council}
 \label{subsec:routing_council}
 
-Incoming payload $x$ is evaluated by Tier 1. Confidence $C_{\text{T1}}(x) = \max(\hat{y}, 1 - \hat{y})$ determines execution flow against routing threshold $\tau \in [0.50, 1.0]$:
+Incoming payload $x$ is initially screened by the Tier 1 edge model, generating a calibrated scam probability $\hat{y} \in [0, 1]$. Routing confidence is computed as $C_{\text{T1}}(x) = \max(\hat{y}, 1 - \hat{y}) \in [0.5, 1.0]$. The routing function against confidence threshold $\tau \in [0.50, 1.0]$ is formalized as:
 \begin{equation}
 \label{eq:routing}
 \text{Route}(x) = \begin{cases}
-\text{Tier 1 (Local Edge Fast-Path)}, & \text{if } C_{\text{T1}}(x) \ge \tau \\
-\text{Tier 2 (Forensic Council Escalation)}, & \text{if } C_{\text{T1}}(x) < \tau
+\text{Tier 1 Fast-Path (Local Resolution)}, & \text{if } C_{\text{T1}}(x) \ge \tau \\
+\text{Tier 2 Council (Cloud Escalation)}, & \text{if } C_{\text{T1}}(x) < \tau
 \end{cases}
 \end{equation}
-At operating threshold $\tau = 0.90$, $96.6\%$ of messages are resolved on-device, incurring cloud escalation on only $3.4\%$ of ambiguous boundary cases.
+For payloads resolved locally under the fast-path ($C_{\text{T1}}(x) \ge \tau$), the local decision rule maps to \textbf{SCAM-RISK} if $\hat{y} \ge \tau$ and \textbf{LOW-RISK} if $\hat{y} \le 1 - \tau$. The operating threshold $\tau = 0.90$ was calibrated strictly on the stratified validation set ($\mathcal{D}_{\text{val}}$, $N=532$) by optimizing the Pareto trade-off between edge autonomy and threat coverage. At this operating point on the $N=384$ development suite, $96.6\%$ ($371/384$) of messages are resolved locally on-device, incurring cloud escalation on only $3.4\%$ ($13/384$) of ambiguous boundary cases.
 
 Escalated payloads are evaluated by the Tier 2 Forensic Council. While a Reference 5-Agent Council Specification (Arm 1) was tested ($585$ API calls), production deploys a consolidated 3-agent council ($351$ calls, $40.0\%$ reduction):
 \begin{itemize}
-    \item \textbf{Seat A (Cyber-Financial Security Analyst, $w_A = 0.35$):} Identifies phishing URLs, fake subdomains, and unauthorized financial demands.
-    \item \textbf{Seat B (Psycholinguistic \& Urgency Profiler, $w_B = 0.35$):} Detects coercive psychological triggers, teencode obfuscation, and threats.
-    \item \textbf{Seat C (Public Defender \& Anti-Alarm Fatigue Advocate, $w_C = 0.30$):} Validates authentic institutional notification protocols and banking OTP syntax.
+    \item \textbf{Seat A (Cyber-Financial Security Analyst, $w_A = 0.35$):} Identifies phishing URLs, homoglyph subdomains, APK sideloading links, and unauthorized financial demands.
+    \item \textbf{Seat B (Psycholinguistic \& Urgency Profiler, $w_B = 0.35$):} Detects coercive psychological manipulation, legal summons extortion, and Vietnamese teencode/slang obfuscation.
+    \item \textbf{Seat C (Public Defender \& Anti-Alarm Fatigue Advocate, $w_C = 0.30$):} Acts as an adversarial check against false positives, verifying authentic banking OTP syntax and carrier service notices.
 \end{itemize}
 
-Specialist estimates $P_j$ are synthesized via:
+Each specialist outputs an estimated scam probability $P_j \in [0.0, 1.0]$ alongside a categorical label $V_j \in \{\text{SCAM}, \text{BENIGN}, \text{UNKNOWN}\}$. Specialist outputs are synthesized via:
 \begin{equation}
 \label{eq:council_aggregation}
-P_{\text{council}} = \sum_{j \in \{A, B, C\}} w_j P_j - \delta_{\text{defender}} \cdot \mathbb{I}(\text{Seat C} = \text{BENIGN})
+\begin{split}
+P_{\text{council}} = \min\Bigl(1.0, \max\Bigl(0.0, &\sum_{j \in \{A, B, C\}} w_j P_j \\
+&- \delta_{\text{defender}} \cdot \mathbb{I}(V_C = \text{BENIGN})\Bigr)\Bigr)
+\end{split}
 \end{equation}
-where $\delta_{\text{defender}} = 0.25$ provides an adversarial veto offset. The verdict mapping follows: \textbf{SCAM-RISK} if $P_{\text{council}} \ge 0.60$, \textbf{LOW-RISK} if $P_{\text{council}} < 0.40$, and \textbf{UNKNOWN} (abstention) if $0.40 \le P_{\text{council}} < 0.60$.
+where $\delta_{\text{defender}} = 0.25$ provides an empirical veto offset activated specifically when Seat C classifies the message as authentic. The synthesized score is mapped to the final tri-state verdict:
+\begin{equation}
+\label{eq:verdict}
+\text{Verdict}(x) = \begin{cases}
+\textbf{SCAM-RISK}, & \text{if } P_{\text{council}} \ge 0.60 \\
+\textbf{UNKNOWN},   & \text{if } 0.40 \le P_{\text{council}} < 0.60 \\
+\textbf{LOW-RISK},  & \text{if } P_{\text{council}} < 0.40
+\end{cases}
+\end{equation}
+The \textbf{UNKNOWN} tier ensures cautious abstention for borderline cases, routing them to asynchronous expert auditing rather than forcing high-consequence false classifications.
 
 \subsection{Prompt Protocols, Output Schemas, and PII Sanitization}
 \label{subsec:prompts_pii}
 
-Table~\ref{tab:prompt_summary} outlines evaluated prompt suites; complete verbatim prompts are compiled in Supplementary Section S5 (Appendix A), and model API cards appear in Supplementary Table S2. The Gemini 3.5 Flash 5-Shot In-Context Learning Prompt instructed the model: ``Chỉ trả về DUY NHẤT một số nguyên: 0 hoặc 1''. Across 351 production council queries, JSON parsing achieved $0/351$ schema violations.
+Table~\ref{tab:prompt_summary} outlines evaluated prompt suites; complete verbatim prompts are compiled in Supplementary Section S5 (Appendix A), and model API cards appear in Supplementary Table S2. The Gemini 3.5 Flash 5-Shot In-Context Learning Prompt instructed the model: ``Chỉ trả về DUY NHẤT một số nguyên: 0 hoặc 1''. Council agents output structured JSON adhering to a strict Pydantic schema. Across all 351 experimental council queries on the $N=117$ forensic challenge suite (using \texttt{gpt-6.1-sol-2026-03} via proxy gateway), the schema enforcement layer recorded exactly $0/351$ schema violations ($100\%$ schema validity). In production runtime, any failed API call or malformed response triggers an automatic retry (maximum 3 attempts) before failing over to a deterministic local rule heuristic.
 
 \begin{table}[h]
 \centering
@@ -241,7 +260,13 @@ PoLL Baseline & Multi-model judge & $T=0.1$ & Pairwise rank aggregation across d
 }
 \end{table}
 
-To align with Article 25 of Vietnamese Decree 13/2023/ND-CP regarding technical safeguards for personal data without claiming formal statutory certification, escalated messages undergo deterministic client-side regex masking of Vietnamese phone numbers, bank accounts, and OTP tokens (regex rules detailed in Supplementary Section S6). Evaluation across 117 challenge samples confirmed 100\% classification concordance before and after redaction.
+\textbf{Client-Side PII Sanitization Protocol (Article 25 Compliance):} To align with Article 25 of Vietnamese Decree 13/2023/ND-CP regarding technical safeguards for personal data without claiming statutory certification, messages flagged for Tier 2 escalation undergo deterministic client-side regex redaction on the mobile device prior to transmission. The sanitizer targets five sensitive entities: Vietnamese telephone numbers, bank account numbers, citizen identification cards (CCCD, 12 digits), one-time passwords (OTP, 4--8 digits), and account balance figures (regex definitions detailed in Supplementary Section S6). 
+
+On CPU, sanitization latency is negligible ($< 0.05\text{ ms}$). To independently verify masking efficacy and semantic preservation:
+\begin{enumerate}
+    \item \textbf{Masking Completeness:} On targeted authentic financial alerts ($N=19$), the sanitizer detected and redacted $100\%$ ($19/19$) of verified sensitive fields with zero residual plaintext leaks leaving the device.
+    \item \textbf{Classification Concordance:} All $117$ challenge samples were evaluated under Tier 2 deliberation before and after redaction. In $117 / 117$ instances ($100\%$, exact two-sided 95\% Clopper-Pearson CI: $[96.90\%, 100.00\%]$), the council verdict was completely invariant between raw and sanitized payloads, demonstrating that redacting personal identifiers incurs no loss of forensic reasoning fidelity.
+\end{enumerate}
 
 \section{RESULT AND DISCUSSION}
 \label{sec:results}
@@ -408,7 +433,7 @@ All authors have read and agreed to the published version of the manuscript.
 This research received no external funding.
 
 \section*{Data and Code Availability}
-To facilitate replication, artifacts, models, and scripts are deposited at \url{https://github.com/QuangWorkIT/RBL_ScamShield} (pinned commit: \texttt{a65ec3188a23644031c647d1ff46ee411a88614c}). The locked Frozen Test Partition ($N=267$, $192$ Ham, $75$ Scam) is cryptographically sealed with SHA-256 checksum \path{42e18761b12eb299d3ab1c450b29200a38c6dc0334c461c7912254987a85e1e6}. Verbatim system prompts, full confusion matrices, and parameter sweeps are provided in the Supplementary Material.
+To facilitate replication, artifacts, models, and scripts are deposited at the root repository \url{https://github.com/QuangWorkIT/RBL_ScamShield}. The locked Frozen Test Partition ($N=267$, $192$ Ham, $75$ Scam) is cryptographically sealed with an SHA-256 checksum in the repository manifest. For double-blind peer review, verbatim system prompts, full confusion matrices, and parameter sweeps are archived in the anonymous supplementary repository at \url{https://anonymous.4open.science/r/ScamShield_Supplementary_Material-B582/}.
 \bibliographystyle{IEEEtran}
 \bibliography{references}
 

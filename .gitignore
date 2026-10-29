@@ -9,6 +9,7 @@
 secrets.json
 api_key.txt
 config.py
+supplementary_repo/
 
 # Python & Environment Artifacts
 __pycache__/
