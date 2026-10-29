@@ -114,6 +114,16 @@ A comprehensive comparative overview contrasting foundational threat detection a
 
 Table~\ref{tab:novelty_matrix} positions ScamShield-VN relative to its key precursors: ViSoBERT~\cite{nguyen2023visobert}, FrugalGPT~\cite{chen2023frugalgpt}, Learning-to-Defer~\cite{mozannar2020consistent}, and MultiPhishGuard~\cite{chen2025multiphishguard}. ScamShield-VN combines cost-sensitive edge fine-tuning, asymmetric confidence deferral, client-side PII sanitization, and adversarial Public Defender deliberation into an integrated telecommunications fraud defense.
 
+\section{MATERIALS AND METHODS}
+\label{sec:method}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/pipeline_architecture.png}
+\caption{Two-tier inference flow of ScamShield-VN. Tier 1 (on-device ViSoBERT INT8) resolves messages with confidence $C_{\text{T1}} \ge 0.90$ locally ($96.6\%$ of traffic). The remaining ambiguous messages ($3.4\%$) are PII-sanitized on the client and escalated to a three-seat Tier 2 council, whose weighted vote with a Public Defender offset yields a SCAM-RISK, LOW-RISK, or UNKNOWN verdict.}
+\label{fig:pipeline}
+\end{figure*}
+
 \begin{table*}[t]
 \centering
 \caption{Novelty and Comparative Positioning Matrix: ScamShield-VN vs. Foundational Precursors}
@@ -136,16 +146,6 @@ Table~\ref{tab:novelty_matrix} positions ScamShield-VN relative to its key precu
 \end{tabular}%
 }
 \end{table*}
-
-\section{MATERIALS AND METHODS}
-\label{sec:method}
-
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/pipeline_architecture.png}
-\caption{Two-tier inference flow of ScamShield-VN. Tier 1 (on-device ViSoBERT INT8) resolves messages with confidence $C_{\text{T1}} \ge 0.90$ locally ($96.6\%$ of traffic). The remaining ambiguous messages ($3.4\%$) are PII-sanitized on the client and escalated to a three-seat Tier 2 council, whose weighted vote with a Public Defender offset yields a SCAM-RISK, LOW-RISK, or UNKNOWN verdict.}
-\label{fig:pipeline}
-\end{figure*}
 
 \subsection{Corpus Curation, Evaluation Partitions, and Deduplication}
 \label{subsec:dataset}
@@ -198,7 +198,7 @@ where ground truth $y_i \in \{0, 1\}$ follows the convention that $y_i = 1$ deno
 \subsection{Two-Tier Routing and Deliberative Forensic Council}
 \label{subsec:routing_council}
 
-Incoming payload $x$ is initially screened by the Tier 1 edge model, generating a calibrated scam probability $\hat{y} \in [0, 1]$. Routing confidence is computed as $C_{\text{T1}}(x) = \max(\hat{y}, 1 - \hat{y}) \in [0.5, 1.0]$. The routing function against confidence threshold $\tau \in [0.50, 1.0]$ is formalized as:
+As illustrated in Fig.~\ref{fig:pipeline}, incoming payload $x$ is initially screened by the Tier 1 edge model, generating a calibrated scam probability $\hat{y} \in [0, 1]$. Routing confidence is computed as $C_{\text{T1}}(x) = \max(\hat{y}, 1 - \hat{y}) \in [0.5, 1.0]$. The routing function against confidence threshold $\tau \in [0.50, 1.0]$ is formalized as:
 \begin{equation}
 \label{eq:routing}
 \text{Route}(x) = \begin{cases}

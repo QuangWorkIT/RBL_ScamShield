@@ -62,14 +62,14 @@ def run_checks():
     check("None (Cloud LLMs zero-shot)" not in meth, "Table IV must NOT claim 'None (Cloud LLMs zero-shot)'")
     check("Zero (Strict Holdout)" not in meth, "Table IV must NOT claim 'Zero (Strict Holdout)' without near-duplicate disclosure")
 
-    # 4. Table II Dynamic References Invariant
-    print("\n--- 4. Dynamic Cross-Reference Invariants (Table II) ---")
-    check("Table II), McNemar discordance (Table III)" not in rel,
+    # 4. Table I Dynamic References Invariant (Novelty Matrix)
+    print("\n--- 4. Dynamic Cross-Reference Invariants (Table I Novelty Matrix) ---")
+    check("Table II), McNemar discordance (Table III)" not in full_text,
           "Table II must NOT have hardcoded 'Table II, Table III, Table IV, Table VI'")
-    check(r"Table~\ref{tab:benchmark_summary}" in rel, "Table II must dynamically reference tab:benchmark_summary")
-    check(r"Table~\ref{tab:mcnemar}" in rel, "Table II must dynamically reference tab:mcnemar")
-    check(r"Tables~\ref{tab:ablation_council}--\ref{tab:matrix_2x3}" in rel, "Table II must dynamically reference tab:ablation_council--tab:matrix_2x3")
-    check(r"Table~\ref{tab:tau_ablation}" in rel, "Table II must dynamically reference tab:tau_ablation")
+    check(r"Table~\ref{tab:benchmark_summary}" in full_text, "Table I must dynamically reference tab:benchmark_summary")
+    check(r"Table~\ref{tab:mcnemar}" in full_text, "Table I must dynamically reference tab:mcnemar")
+    check(r"Tables~\ref{tab:ablation_council}--\ref{tab:matrix_2x3}" in full_text, "Table I must dynamically reference tab:ablation_council--tab:matrix_2x3")
+    check(r"Table~\ref{tab:tau_ablation}" in full_text, "Table I must dynamically reference tab:tau_ablation")
 
     # 5. Figure 1 Parameter and Size Invariants
     print("\n--- 5. Figure 1 Parameter and Size Invariants ---")

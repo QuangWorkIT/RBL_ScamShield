@@ -22,26 +22,3 @@ Multi-agent deliberation and LLM-as-a-judge frameworks combine diverse perspecti
 A comprehensive comparative overview contrasting foundational threat detection architectures is provided in Supplementary Table S1, where ScamShield-VN achieves $97.11\%$ recall, $2.37\%$ FPR, $267.5\text{ ms}$ latency, and \$0.0153/1k SMS marginal cloud cost. Across the literature, four fundamental gaps emerge: (i)~\textbf{GAP 1:} Brittleness of word-segmented encoders under Vietnamese teencode; (ii)~\textbf{GAP 2:} Symmetric loss misalignment in Vietnamese smishing models; (iii)~\textbf{GAP 3:} The edge-cloud trade-off between edge capacity and cloud latency/cost; and (iv)~\textbf{GAP 4:} Correlated consensus failure in multi-LLM ensembles on authentic notices.
 
 Table~\ref{tab:novelty_matrix} positions ScamShield-VN relative to its key precursors: ViSoBERT~\cite{nguyen2023visobert}, FrugalGPT~\cite{chen2023frugalgpt}, Learning-to-Defer~\cite{mozannar2020consistent}, and MultiPhishGuard~\cite{chen2025multiphishguard}. ScamShield-VN combines cost-sensitive edge fine-tuning, asymmetric confidence deferral, client-side PII sanitization, and adversarial Public Defender deliberation into an integrated telecommunications fraud defense.
-
-\begin{table*}[t]
-\centering
-\caption{Novelty and Comparative Positioning Matrix: ScamShield-VN vs. Foundational Precursors}
-\label{tab:novelty_matrix}
-\renewcommand{\arraystretch}{0.90}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{p{2.6cm}p{2.6cm}p{2.6cm}p{2.6cm}p{2.8cm}p{3.4cm}}
-\toprule
-\textbf{Dimension} & \textbf{ViSoBERT~\cite{nguyen2023visobert}} & \textbf{FrugalGPT~\cite{chen2023frugalgpt}} & \textbf{Learning-to-Defer~\cite{mozannar2020consistent}} & \textbf{MultiPhishGuard~\cite{chen2025multiphishguard}} & \textbf{ScamShield-VN (This Work)} \\
-\midrule
-\textbf{Task \& Language} & Social media NLP (Sentiment/Hate), Vietnamese & General QA/NLP, English & General multiclass classification, English & Phishing email detection, English/Multilingual & Smishing and telecommunications fraud, Vietnamese colloquial/teencode \\
-\textbf{Evaluation Data} & Social media benchmarks (UIT-VSMEC, etc.) & Standard LLM benchmarks (HEADQA, etc.) & Synthetic / CIFAR / Medical diagnostics & Phishing email datasets ($N \approx 5,000$) & Unified Vietnamese telecommunications corpus ($N=2,664$), Frozen Test ($N=267$), Hard Suite ($N=117$) \\
-\textbf{Objective / Loss} & Standard Cross-Entropy ($\mathcal{L}_{\text{BCE}}$) & Generation reward / cost budgeting & Deferral loss with rejection penalty & Task accuracy under prompt tuning & Cost-Sensitive Weighted BCE ($\mathcal{L}_{\text{WBCE}}$, $\alpha=5.0$) penalizing missed scams \\
-\textbf{Routing Rule} & Solitary model (No routing/deferral) & Sequential LLM cascade based on answer score & Consistent surrogate deferral to human expert & All emails sent to full multi-agent LLM panel & Asymmetric confidence threshold $\tau = 0.90$ with edge fast-path ($96.6\%$ local resolution) \\
-\textbf{Agent Roles \& Veto} & N/A (Single transformer encoder) & N/A (Model selector among hosted APIs) & N/A (Single model + single human expert) & 5-role LLM panel (URL, Content, Intent, etc.) with learned weights & Consolidated 3-agent panel with explicit adversarial Public Defender veto ($\delta_{\text{defender}} = 0.25$) and 3-label output \\
-\midrule
-\textbf{Inherited vs. Modified} & \textit{Inherited:} Pre-trained XLM-R encoder and BPE tokenizer & \textit{Inherited:} Cascade concept between small and large models & \textit{Inherited:} Selective classification reject/abstain principle & \textit{Inherited:} Specialist role decomposition for cyber threat analysis & \textit{Modified / Synthesized:} Tailored $\alpha=5.0$ loss, INT8 ONNX CPU export ($70.7\text{ ms}$), client-side PII sanitization, Defender veto offset \\
-\textbf{Ablation Evidence} & Reported on social media benchmark tasks & Cost vs. accuracy trade-off curves across LLMs & Theoretical consistency bounds & Role ablation on phishing email benchmarks & Empirical 5-run edge benchmark (Table~\ref{tab:benchmark_summary}), McNemar discordance (Table~\ref{tab:mcnemar}), Council \& Defender ablation (Tables~\ref{tab:ablation_council}--\ref{tab:matrix_2x3}), tau sweep (Table~\ref{tab:tau_ablation}) \\
-\bottomrule
-\end{tabular}%
-}
-\end{table*}
