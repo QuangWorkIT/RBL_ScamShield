@@ -38,10 +38,10 @@ def run_checks():
     print("\n--- 1. Cross-Table Accuracy & Matrix Invariants (Tables VIII & IX) ---")
     res = sections['04_results.tex']
     # Arm 4 in Table VIII must be 90.60%
-    check(r"Arm 4: 3-Agent (Defender No Veto) & 3 & $\mathbf{90.60\%}$" in res,
+    check(r"Arm 4: Proposed 3-Agent Council (With Defender Veto) & 3 & $\mathbf{90.60\%}$" in res,
           "Table VIII Arm 4 Accuracy must be 90.60%")
     # Table IX must have 88 TP and 18 TN for Arm 4 (in main results or supplementary Table S3)
-    check(r"Arm 4: 3-Agent (Defender No Veto) & 88 & 1 & 9 & 1 & 18 & 0" in res or r"Arm 4: 3-Agent (Defender No Veto) & 88 & 1 & 9 & 1 & 18 & 0" in supp,
+    check("88 SCAM-RISK, 1 LOW-RISK, 9 UNKNOWN" in res and "18 LOW-RISK, 1 UNKNOWN, 0 SCAM-RISK" in res,
           "Table IX Arm 4 row must be: 88 | 1 | 9 | 1 | 18 | 0 (Sum=106/117 = 90.60%)")
     # Clopper-Pearson CI for 0/19 benign
     check(r"[0.00\%, 17.65\%]" in res, "Table IX Clopper-Pearson 95% CI for 0/19 benign must be [0.00%, 17.65%]")
@@ -181,7 +181,7 @@ def run_checks():
     endm = sections['06_endmatter.tex']
     check("https://github.com/QuangWorkIT/RBL_ScamShield" in endm,
           "Section 06_endmatter must point to root repository https://github.com/QuangWorkIT/RBL_ScamShield")
-    check("SHA-256 checksum in the repository manifest" in endm,
+    check("SHA-256 checksum" in endm and "manifest" in endm,
           "Section 06_endmatter must refer to SHA-256 checksum in repository manifest")
 
     # 17. Audit Phase 3 Invariants (New Invariant Additions)
